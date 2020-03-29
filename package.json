@@ -2,19 +2,50 @@
   "name": "fmpm",
   "version": "0.0.0",
   "description": "Personal Site",
+  "homepage": "https://fmpm.dev",
+  "author": "Filipe Miranda <filipe.m.mir@gmail.com>",
+  "license": "MIT",
   "scripts": {
+    "build": "yarn type-check && gatsby build",
+    "start": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "yarn type-check",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "yarn type-check -- --watch"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/filipemir/fmpm.git"
   },
-  "author": "Filipe Miranda <filipe.m.mir@gmail.com>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/filipemir/fmpm/issues"
   },
-  "homepage": "https://github.com/filipemir/fmpm#readme",
   "keywords": [
     "gatsby"
-  ]
+  ],
+  "dependencies": {
+    "gatsby": "2.20.8",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "13.9.5",
+    "@types/react": "16.9.27",
+    "@types/react-dom": "16.9.5",
+    "gatsby-plugin-typescript": "2.3.1",
+    "husky": "4.2.3",
+    "lint-staged": "10.0.9",
+    "prettier": "2.0.2",
+    "typescript": "3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,md}": "prettier --write"
+  }
 }
