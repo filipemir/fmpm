@@ -1,11 +1,11 @@
-exports.onCreateWebpackConfig = ({
-    stage,
-    rules,
-    loaders,
-    plugins,
-    actions,
-  }) => {
+const path = require("path");
+
+exports.onCreateWebpackConfig = ({ stage, rules, loaders, plugins, actions }) => {
     actions.setWebpackConfig({
+        resolve: {
+            extensions: [".js", ".json", ".ts", ".tsx"],
+            modules: [path.resolve(__dirname, "./src"), "node_modules"],
+        },
         module: {
             rules: [
                 {

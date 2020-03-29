@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
-import { Global, css } from '@emotion/core';
+import { Global } from '@emotion/core';
 import styled from '@emotion/styled';
+import globalCss from 'styles/global';
 
 const Wrapper = styled('div')`
     border: 2px solid green;
@@ -10,14 +11,7 @@ const Wrapper = styled('div')`
 export default function Layout({ children }: { children: ReactNode }) {
     return (
         <Wrapper>
-            <Global
-                styles={css`
-                    div {
-                        background: pink;
-                        color: white;
-                    }
-                `}
-            />
+            <Global styles={globalCss} />
             {children}
         </Wrapper>
     );
