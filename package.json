@@ -1,0 +1,20 @@
+{
+  "name": "fmpm",
+  "version": "0.0.0",
+  "description": "Personal Site",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/filipemir/fmpm.git"
+  },
+  "author": "Filipe Miranda <filipe.m.mir@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/filipemir/fmpm/issues"
+  },
+  "homepage": "https://github.com/filipemir/fmpm#readme",
+  "keywords": [
+    "gatsby"
+  ]
+}
