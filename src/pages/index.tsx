@@ -1,12 +1,15 @@
 import React from 'react';
 
-import Span from '../components/Span';
+import Layout from 'components/Layout';
+import Span from 'components/Span';
 
 export default function HomePage() {
     return (
-        <span>
-            hiz
-            <Span isWelcome={true} />
-        </span>
+        <Layout>
+            <span>
+                hiz
+                <Span isWelcome={true} />
+            </span>
+        </Layout>
     );
 }

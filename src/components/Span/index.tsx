@@ -1,5 +1,8 @@
 import React from 'react';
+import { Container } from './styles';
 
 export default function Span({ isWelcome }: { isWelcome: boolean }) {
-    return <span>{isWelcome ? 'Hello world!' : 'Goodbye world!'}</span>;
+    return (
+        <Container>{isWelcome ? 'Hello world!' : 'Goodbye world!'}</Container>
+    );
 }

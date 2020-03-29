@@ -11,6 +11,10 @@ module.exports = {
                 },
                 extensions: []
             }
+        },
+        {
+            resolve: `gatsby-plugin-emotion`,
+            options: {},
         }
-],
+    ]
 }
