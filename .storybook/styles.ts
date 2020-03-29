@@ -11,5 +11,5 @@ export const storybookGlobal = css`
 export const Root = styled.div`
     height: 100vh;
     width: 100vw;
-    color: #d3d3d3;
+    padding: 10px 20px;
 `;
