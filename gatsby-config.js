@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
     plugins: [
         `gatsby-plugin-typescript`,
+        `gatsby-plugin-sass`,
         {
             resolve: `gatsby-plugin-alias-imports`,
             options: {
@@ -17,4 +18,4 @@ module.exports = {
             options: {},
         }
     ]
-}
+};

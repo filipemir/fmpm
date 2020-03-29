@@ -6,6 +6,7 @@ import { Global } from '@emotion/core';
 
 import { Root, storybookGlobal } from './styles';
 import globalCss from '../src/styles/global';
+import '../src/styles/global.scss';
 
 addDecorator((story) => (
     <Root>

@@ -5,6 +5,7 @@ const globalCss = css`
     body {
         background: pink;
         color: white;
+        font-family: Roboto, Helvetica, sans-serif;
     }
 `;
 

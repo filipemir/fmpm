@@ -47,6 +47,15 @@ module.exports = ({ config }) => {
     },
   });
 
+  config.module.rules.push({
+    test: /\.(s)?css$/,
+    use: [
+      { loader: "style-loader", options: { sourceMap: false }  }, // Necessary for hot module replacement
+      { loader: "css-loader", options: { sourceMap: false }  },
+      { loader: "sass-loader", options: { sourceMap: true } }
+    ]
+  });
+
   // No need for Webpack's max asset size warnings here:
   config.performance.hints = false;
 
