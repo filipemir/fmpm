@@ -34,18 +34,17 @@
     "@types/node": "13.9.5",
     "@types/react": "16.9.27",
     "@types/react-dom": "16.9.5",
+    "@typescript-eslint/parser": "2.25.0",
+    "dotenv": "8.2.0",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.1",
+    "eslint-loader": "3.0.3",
+    "eslint-plugin-prettier": "3.1.2",
+    "gatsby-plugin-alias-imports": "1.0.5",
     "gatsby-plugin-typescript": "2.3.1",
-    "husky": "4.2.3",
-    "lint-staged": "10.0.9",
     "prettier": "2.0.2",
-    "typescript": "3.8.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,md}": "prettier --write"
+    "prettier-loader": "3.3.0",
+    "typescript": "3.8.3",
+    "webpack": "4.42.1"
   }
 }

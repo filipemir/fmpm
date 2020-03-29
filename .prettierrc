@@ -1,8 +1,9 @@
 {
+  "parser": "babel",
   "endOfLine": "lf",
-  "semi": false,
+  "semi": true,
   "singleQuote": true,
   "jsxSingleQuote": true,
   "tabWidth": 4,
-  "trailingComma": "es5"
+  "trailingComma": "none"
 }
