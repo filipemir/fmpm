@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, ReactElement } from 'react';
+
 import { RootDiv, PhaseDiv, JobDiv } from './styles';
 
 interface CareerPhase {
@@ -40,31 +41,34 @@ export default function CareerTimeline() {
         }) => {
             setActivePhase(phase);
             setActiveJob(job || phase.jobs[0]);
-        };
+        },
+        TimelineItems: ReactElement[] = [];
 
-    return (
-        <RootDiv>
-            {PHASES.map((phase) => {
-                const { name, jobs } = phase;
-                return (
-                    <>
-                        <PhaseDiv
-                            active={phase === activePhase}
-                            onClick={() => changeActiveJob({ phase })}
-                        >
-                            {name}
-                        </PhaseDiv>
-                        {jobs.map((job) => (
-                            <JobDiv
-                                active={job === activeJob}
-                                onClick={() => changeActiveJob({ phase, job })}
-                            >
-                                {job}
-                            </JobDiv>
-                        ))}
-                    </>
-                );
-            })}
-        </RootDiv>
-    );
+    PHASES.forEach((phase) => {
+        const { name, jobs } = phase;
+
+        TimelineItems.push(
+            <PhaseDiv
+                active={phase === activePhase}
+                onClick={() => changeActiveJob({ phase })}
+                key={`phase-${name}`}
+            >
+                {name}
+            </PhaseDiv>
+        );
+
+        jobs.forEach((job) => {
+            TimelineItems.push(
+                <JobDiv
+                    active={job === activeJob}
+                    onClick={() => changeActiveJob({ phase, job })}
+                    key={`job-${job}`}
+                >
+                    {job}
+                </JobDiv>
+            );
+        });
+    });
+
+    return <RootDiv>{TimelineItems}</RootDiv>;
 }

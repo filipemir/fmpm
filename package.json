@@ -28,9 +28,12 @@
     "gatsby"
   ],
   "dependencies": {
+    "core-js": "3.6.4",
     "gatsby": "2.20.8",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-spring": "8.0.27",
+    "regenerator-runtime": "0.13.5"
   },
   "devDependencies": {
     "@babel/core": "7.9.0",

@@ -13,7 +13,7 @@ export const RootDiv = styled.div`
     font-size: 13px;
     color: ${COLOR_TERNARY};
     max-width: 220px;
-    border-left: 1px solid ${COLOR_TERNARY};
+    border-left: 1px solid ${COLOR_BG_ACCENT};
     position: relative;
 `;
 
@@ -40,7 +40,7 @@ export const PhaseDiv = styled.div`
 export const DynamicJob = ({ active }: { active: boolean }) => `
     background-color: ${active && COLOR_BG_ACCENT};
     border-left: 3px solid ${active ? COLOR_ACCENT : 'transparent'};
-    border-radius: 0 4px 4px 0;
+    border-radius: 0 6px 6px 0;
     position: relative;
     left: -1px;
 `;
