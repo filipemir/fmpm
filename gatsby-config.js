@@ -16,6 +16,15 @@ module.exports = {
         {
             resolve: `gatsby-plugin-emotion`,
             options: {},
-        }
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `images`,
+                path: path.join(__dirname, `src`, `images`),
+            },
+        },
+        `gatsby-plugin-sharp`,
+        `gatsby-transformer-sharp`,
     ]
 };

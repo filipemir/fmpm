@@ -1,12 +1,12 @@
 import React from 'react';
 
 import Layout from 'components/Layout';
-import ComponentA from 'components/ComponentA';
+import CareerTimeline from 'components/CareerTimeline';
 
 export default function HomePage() {
     return (
         <Layout>
-            <ComponentA isWelcome={true} />
+            <CareerTimeline />
         </Layout>
     );
 }
