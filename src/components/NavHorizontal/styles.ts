@@ -29,9 +29,9 @@ export const PageSeparator = styled.span`
     margin: 0 1em;
 `;
 
-export const UnderlineDiv = styled.div`
+export const underlineDivCss = css`
     position: absolute;
-    width: 75px;
+    width: 100%;
     height: 10px;
     z-index: -1;
     fill: ${COLOR_BG_ACCENT};
