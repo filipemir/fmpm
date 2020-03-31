@@ -1,33 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ReactSVG } from 'react-svg';
 import useMeasure, { RectReadOnly } from 'react-use-measure';
 import { useSpring, animated } from 'react-spring';
 
-import { RootDiv, PageDiv, PageSeparator, CircleDiv, underlineDivCss } from './styles';
+import { RootDiv, PageDiv, PageSeparator, underlineDivCss, dotCss } from './styles';
 import underlineSvg from 'images/underline.svg';
 import Page from 'models/page';
 
-function getUnderlinePosition({ rootRect, activePageRect }: { rootRect: RectReadOnly; activePageRect: RectReadOnly }) {
+function getUnderlinePosition(activePageRect: RectReadOnly) {
+    const { left, top, width, height } = activePageRect;
     return {
-        left: activePageRect.x - rootRect.x + activePageRect.width / 2,
-        top: activePageRect.height,
-        width: activePageRect.width
+        left: left + width / 2,
+        top: top + height - 3,
+        width: width
     };
 }
 
-// TODO: Dot position should be based on what user is hovering over
-function getDotPosition({ rootRect, activePageRect }: { rootRect: RectReadOnly; activePageRect: RectReadOnly }) {
-    const rootRectVisible = rootRect.height > 0 || rootRect.width > 0,
-        activePageVisible = activePageRect.height > 0 || activePageRect.width > 0;
-
-    if (!rootRectVisible || !activePageVisible) {
-        return;
-    }
-
-    return {
-        left: activePageRect.x - rootRect.x + activePageRect.width / 2,
-        top: -10
-    };
+function getDotPosition(hoveredRect: DOMRect | RectReadOnly) {
+    const { top, left, width } = hoveredRect;
+    return { top: top - 10, left: left + width / 2, opacity: 1 };
 }
 
 export default function NavHorizontal({
@@ -38,14 +29,14 @@ export default function NavHorizontal({
     onPageClick: (page: Page) => void;
 }) {
     const pages = Object.values(Page),
-        [rootRef, rootRect] = useMeasure(),
+        [skipAnimations, setSkipAnimations] = useState(true),
         [activePageRef, activePageRect] = useMeasure(),
-        dotPosition = getDotPosition({ rootRect, activePageRect }),
-        underlinePosition = useSpring(getUnderlinePosition({ rootRect, activePageRect }));
+        underlinePosition = useSpring({ ...getUnderlinePosition(activePageRect), immediate: skipAnimations }),
+        dotPosition = useSpring({ ...getDotPosition(activePageRect), immediate: skipAnimations });
 
     return (
-        <RootDiv ref={rootRef}>
-            {dotPosition && <CircleDiv style={dotPosition} />}
+        <RootDiv>
+            {dotPosition && <animated.div style={dotPosition} css={dotCss} />}
             <animated.div style={underlinePosition} css={underlineDivCss}>
                 <ReactSVG src={underlineSvg} />
             </animated.div>
@@ -53,16 +44,19 @@ export default function NavHorizontal({
                 const isActive = p === currentPage,
                     isLast = i === pages.length - 1;
                 return (
-                    <React.Fragment key={`page-${p}`}>
+                    <span key={`page-${p}`}>
                         <PageDiv
                             active={isActive}
                             ref={isActive ? activePageRef : undefined}
-                            onClick={() => onPageClick(p)}
+                            onClick={() => {
+                                setSkipAnimations(false);
+                                onPageClick(p);
+                            }}
                         >
                             {p}
                         </PageDiv>
                         {!isLast && <PageSeparator>.</PageSeparator>}
-                    </React.Fragment>
+                    </span>
                 );
             })}
         </RootDiv>
