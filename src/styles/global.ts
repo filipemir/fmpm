@@ -17,6 +17,10 @@ const globalCss = css`
         background-color: ${COLOR_BG};
         color: ${COLOR_PRIMARY};
         font-family: ${FONT_FAMILY_SANS_SERIF};
+
+        *::selection {
+            background-color: rgba(188, 65, 36, 0.3);
+        }
     }
 `;
 
