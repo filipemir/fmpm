@@ -3,7 +3,7 @@ import { ReactSVG } from 'react-svg';
 import useMeasure, { RectReadOnly } from 'react-use-measure';
 
 import { RootDiv, PageDiv, UnderlineDiv, PageSeparator, CircleDiv } from './styles';
-import underline from './underline.svg';
+import underline from 'images/underline.svg';
 import Page from 'models/page';
 
 function getUnderlinePosition({ rootRect, activePageRect }: { rootRect: RectReadOnly; activePageRect: RectReadOnly }) {

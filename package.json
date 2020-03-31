@@ -28,6 +28,7 @@
     "gatsby"
   ],
   "dependencies": {
+    "a11y-react-emoji": "1.1.2",
     "core-js": "3.6.4",
     "gatsby": "2.20.8",
     "gatsby-image": "2.3.1",
