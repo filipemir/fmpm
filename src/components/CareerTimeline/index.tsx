@@ -32,13 +32,7 @@ const PHASES = [
 export default function CareerTimeline() {
     const [activePhase, setActivePhase] = useState(PHASES[0]),
         [activeJob, setActiveJob] = useState(activePhase.jobs[0]),
-        changeActiveJob = ({
-            phase,
-            job
-        }: {
-            phase: CareerPhase,
-            job?: string
-        }) => {
+        changeActiveJob = ({ phase, job }: { phase: CareerPhase; job?: string }) => {
             setActivePhase(phase);
             setActiveJob(job || phase.jobs[0]);
         },
@@ -48,22 +42,14 @@ export default function CareerTimeline() {
         const { name, jobs } = phase;
 
         TimelineItems.push(
-            <PhaseDiv
-                active={phase === activePhase}
-                onClick={() => changeActiveJob({ phase })}
-                key={`phase-${name}`}
-            >
+            <PhaseDiv active={phase === activePhase} onClick={() => changeActiveJob({ phase })} key={`phase-${name}`}>
                 {name}
             </PhaseDiv>
         );
 
         jobs.forEach((job) => {
             TimelineItems.push(
-                <JobDiv
-                    active={job === activeJob}
-                    onClick={() => changeActiveJob({ phase, job })}
-                    key={`job-${job}`}
-                >
+                <JobDiv active={job === activeJob} onClick={() => changeActiveJob({ phase, job })} key={`job-${job}`}>
                     {job}
                 </JobDiv>
             );

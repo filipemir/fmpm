@@ -17,11 +17,7 @@ addDecorator((story) => (
 ));
 
 // Automatically import all files ending in stories.tsx from the components folder
-export const req = require.context(
-    '../src/components',
-    true,
-    /.*stories\.tsx$/
-);
+export const req = require.context('../src/components', true, /.*stories\.tsx$/);
 
 // Add global decorators:
 addDecorator(withKnobs({ escapeHTML: false }));
