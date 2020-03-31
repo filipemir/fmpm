@@ -10,6 +10,6 @@ function NavHorizontalWithState() {
     return <NavHorizontal currentPage={page} onPageClick={setPage} />;
 }
 
-storiesOf(`Nav/NavHorizontal`, module).add(`default`, () => {
+storiesOf(`NavHorizontal`, module).add(`default`, () => {
     return <NavHorizontalWithState />;
 });

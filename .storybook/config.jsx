@@ -20,10 +20,10 @@ addDecorator((story) => (
 export const req = require.context('../src/components', true, /.*stories\.tsx$/);
 
 // Add global decorators:
-addDecorator(withKnobs({ escapeHTML: false }));
+addDecorator(withKnobs);
 addParameters({
     options: {
-        theme: { brandTitle: 'FMPM Storybook', brandUrl: 'https://fmpm.dev' }
+        theme: { brandTitle: 'fmpm.dev', brandUrl: 'https://fmpm.dev' }
     }
 });
 
