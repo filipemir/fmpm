@@ -12,4 +12,5 @@ export const Root = styled.div`
     height: 100vh;
     width: 100vw;
     padding: 10px 20px;
+    box-sizing: border-box;
 `;
