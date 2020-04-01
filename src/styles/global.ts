@@ -9,7 +9,8 @@ export const COLOR_BG_ACCENT = '#FFF';
 export const COLOR_ACCENT = '#BC4124';
 export const COLOR_PRIMARY = '#4A4A4A';
 export const COLOR_SECONDARY = '#848282';
-export const COLOR_TERNARY = '#E4E3E3';
+export const COLOR_TERNARY = '#B4B4B4';
+export const COLOR_QUATERNARY = '#E4E3E3';
 
 const globalCss = css`
     html,
@@ -21,6 +22,11 @@ const globalCss = css`
         *::selection {
             background-color: rgba(188, 65, 36, 0.3);
         }
+    }
+
+    a {
+        color: ${COLOR_ACCENT};
+        text-decoration: none;
     }
 `;
 
