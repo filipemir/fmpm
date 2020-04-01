@@ -6,7 +6,7 @@ import { RootDiv, TopRowDiv, JobTitleSpan, CompanySpan, TeamSpan, DatesDiv, Tech
 import { Job } from 'models/career';
 import TechTag from 'components/TechTag';
 
-const DATE_FORMAT = 'MMMM, YYYY';
+const DATE_FORMAT = 'MMMM YYYY';
 
 export default function JobCard({ job }: { job: Job }) {
     const { title, team, company, startDate, technologies, description, endDate } = job,
