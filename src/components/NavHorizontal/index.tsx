@@ -37,7 +37,7 @@ export default function NavHorizontal({
 
     return (
         <RootDiv>
-            {dotPosition && <animated.div style={dotPosition} css={dotCss} />}
+            <animated.div style={dotPosition} css={dotCss} />
             <animated.div style={underlinePosition} css={underlineDivCss}>
                 <ReactSVG src={underlineSvg} />
             </animated.div>
