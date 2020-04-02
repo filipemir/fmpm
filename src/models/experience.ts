@@ -38,3 +38,8 @@ export interface Degree extends Experience {
     school: School;
     endDate: Date;
 }
+
+export interface ResumePhase {
+    phase: Phase;
+    experiences: (Job | Degree)[];
+}

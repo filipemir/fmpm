@@ -1,4 +1,4 @@
-import { Phase } from 'models/experience';
+import { Phase, ResumePhase } from 'models/experience';
 import {
     adventTeacher,
     americorps,
@@ -15,7 +15,7 @@ import {
 } from 'data/jobs';
 import { launchAcademy, scuDegree, tuftsDegree } from 'data/degrees';
 
-export const RESUME = [
+export const RESUME: ResumePhase[] = [
     { phase: Phase.ENGINEERING, experiences: [stSoftwareEngineer, stIntegrationEngineer, launchAcademy] },
     { phase: Phase.CONSULTING, experiences: [crbResearchAssociate, crbSeniorAnalyst, crbAnalyst] },
     {
