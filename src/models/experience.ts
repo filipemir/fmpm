@@ -18,21 +18,23 @@ export enum Company {
 export enum School {
     SCU = 'Santa Clara University',
     TUFTS = 'Tufts University',
-    LAUNCH = 'Launch'
+    LAUNCH = 'Launch Academy'
 }
 
-export interface Job {
+export interface Experience {
     title: string;
-    company: Company;
-    team: string;
     startDate: Date;
     endDate?: Date;
-    technologies: Tech[];
-    description: string;
-    phase: Phase;
+    technologies?: Tech[];
+    description?: string;
 }
 
-export interface Degree {
-    name: string;
+export interface Job extends Experience {
+    company: Company | School;
+    team?: string;
+}
+
+export interface Degree extends Experience {
     school: School;
+    endDate: Date;
 }

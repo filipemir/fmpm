@@ -10,5 +10,8 @@ export enum Tech {
     LEAFLET = 'Leaflet',
     GATSBY = 'Gatsby',
     KAFKA = 'Kafka',
-    STORYBOOK = 'Storybook'
+    STORYBOOK = 'Storybook',
+    RUBY = 'Ruby',
+    RAILS = 'Ruby on Rails',
+    D3 = 'd3.js'
 }

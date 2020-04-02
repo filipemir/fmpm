@@ -20,13 +20,17 @@ const globalCss = css`
         font-family: ${FONT_FAMILY_SANS_SERIF};
 
         *::selection {
-            background-color: rgba(188, 65, 36, 0.3);
+            background-color: rgba(188, 65, 36, 0.2);
         }
     }
 
     a {
         color: ${COLOR_ACCENT};
         text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 `;
 
