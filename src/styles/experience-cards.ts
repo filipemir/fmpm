@@ -22,7 +22,7 @@ export const TopRowDiv = styled.div`
 
 export const TitleSpan = styled.span`
     color: ${COLOR_PRIMARY};
-    font-weight: 600;
+    font-weight: 500;
 `;
 
 export const DatesDiv = styled.div`

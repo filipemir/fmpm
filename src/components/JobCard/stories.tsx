@@ -3,15 +3,19 @@ import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs';
 
 import JobCard from './index';
-import { Degree, Job } from 'models/experience';
+import { Job } from 'models/experience';
 import { stSoftwareEngineer } from 'data/jobs';
-import { RESUME } from 'data/resume';
+import { CAREER } from 'data/resume';
 import { isJob } from 'utils/experience';
 
 const jobs: { [key: string]: Job } = {};
 
-RESUME.forEach(({ experiences }: { experiences: (Degree | Job)[] }) => {
-    experiences.forEach((e) => isJob(e) && (jobs[e.title] = e));
+CAREER.forEach(({ tenures }) => {
+    tenures.forEach((tenure) => {
+        tenure.experiences.forEach((e) => {
+            isJob(e) && (jobs[e.title] = e);
+        });
+    });
 });
 
 storiesOf(`JobCard`, module).add(`default`, () => {

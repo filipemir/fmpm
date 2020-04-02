@@ -1,20 +1,41 @@
 import React from 'react';
-import { RootDiv, TimelineWrapper, PhasesWrapper, ExperienceDiv, PhaseDiv } from './styles';
+import {
+    RootDiv,
+    TimelineWrapper,
+    PhasesWrapper,
+    ExperienceDiv,
+    PhaseDiv,
+    TenureDiv,
+    TenureNameDiv,
+    SlashDiv
+} from './styles';
 import CareerTimeline from 'components/CareerTimeline';
-import { RESUME } from 'data/resume';
+import { CAREER } from 'data/resume';
 import { isJob } from 'utils/experience';
 import JobCard from 'components/JobCard';
 import DegreeCard from 'components/DegreeCard';
-import { ResumePhase } from 'models/experience';
+import { Tenure } from 'models/experience';
+import { ReactSVG } from 'react-svg';
+import underline from 'images/underline.svg';
 
-function PhaseWrapper({ resumePhase }: { resumePhase: ResumePhase }) {
-    const { phase, experiences } = resumePhase;
+function TenureWrapper({ tenure }: { tenure: Tenure }) {
+    const { company, experiences } = tenure;
     return (
-        <PhaseDiv key={`phase-${phase}`}>
+        <TenureDiv>
+            <TenureNameDiv>
+                {company}
+                <SlashDiv>
+                    <ReactSVG src={underline} />
+                </SlashDiv>
+            </TenureNameDiv>
             {experiences.map((e) => {
-                return <ExperienceDiv>{isJob(e) ? <JobCard job={e} /> : <DegreeCard degree={e} />}</ExperienceDiv>;
+                return (
+                    <ExperienceDiv key={`experience-${e.title}`}>
+                        {isJob(e) ? <JobCard job={e} /> : <DegreeCard degree={e} />}
+                    </ExperienceDiv>
+                );
             })}
-        </PhaseDiv>
+        </TenureDiv>
     );
 }
 
@@ -25,9 +46,16 @@ export default function Resume() {
                 <CareerTimeline />
             </TimelineWrapper>
             <PhasesWrapper>
-                {RESUME.map((p) => (
-                    <PhaseWrapper resumePhase={p} />
-                ))}
+                {CAREER.map((careerPhase) => {
+                    const { name, tenures } = careerPhase;
+                    return (
+                        <PhaseDiv key={`phase-${name}`}>
+                            {tenures.map((tenure) => (
+                                <TenureWrapper tenure={tenure} key={`tenure-${tenure.company}`} />
+                            ))}
+                        </PhaseDiv>
+                    );
+                })}
             </PhasesWrapper>
         </RootDiv>
     );

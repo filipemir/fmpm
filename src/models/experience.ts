@@ -39,7 +39,12 @@ export interface Degree extends Experience {
     endDate: Date;
 }
 
-export interface ResumePhase {
-    phase: Phase;
+export interface Tenure {
+    company: Company | School;
     experiences: (Job | Degree)[];
+}
+
+export interface CareerPhase {
+    name: Phase;
+    tenures: Tenure[];
 }

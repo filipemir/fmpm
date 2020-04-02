@@ -11,13 +11,4 @@ export const TeamSpan = styled.span`
     color: ${COLOR_TERNARY};
 `;
 
-export const CompanySpan = styled.span`
-    color: ${COLOR_ACCENT};
-
-    &:before {
-        content: ' @ ';
-        color: ${COLOR_TERNARY};
-    }
-`;
-
 export { TopRowDiv, TechDiv, DatesDiv, DescriptionDiv } from 'styles/experience-cards';

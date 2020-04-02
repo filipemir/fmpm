@@ -12,6 +12,8 @@ export const COLOR_SECONDARY = '#848282';
 export const COLOR_TERNARY = '#B4B4B4';
 export const COLOR_QUATERNARY = '#E4E3E3';
 
+export const TEXT_SHADOW = `2px 4px 0 ${COLOR_BG_ACCENT}`;
+
 const globalCss = css`
     html,
     body {
