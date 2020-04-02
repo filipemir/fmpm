@@ -1,7 +1,7 @@
 export enum Tech {
     TS = 'TypeScript',
     REACT = 'React',
-    ES6 = 'React',
+    ES6 = 'ES6',
     JAVA = 'Java',
     SPRING_BOOT = 'Spring Boot',
     REDIS = 'Redis',

@@ -8,7 +8,7 @@ export const SchoolDiv = TitleSpan;
 export const DegreeNameDiv = styled.div`
     color: ${COLOR_ACCENT};
     font-size: 16px;
-    margin-top: 5px;
+    margin: 5px 0;
 `;
 
 export { TopRowDiv, TechDiv, DatesDiv, DescriptionDiv } from 'styles/experience-cards';

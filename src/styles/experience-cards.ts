@@ -30,7 +30,7 @@ export const DatesDiv = styled.div`
     font-style: italic;
     font-size: 12px;
     color: ${COLOR_TERNARY};
-    margin: 2px 0 5px 0;
+    margin: 5px 0;
 `;
 
 export const TechDiv = styled.div`
