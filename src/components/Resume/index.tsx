@@ -6,12 +6,13 @@ import {
     ExperienceDiv,
     PhaseDiv,
     TenureDiv,
+    TenureDurationDiv,
     TenureNameDiv,
     SlashDiv
 } from './styles';
 import CareerTimeline from 'components/CareerTimeline';
 import { CAREER } from 'data/resume';
-import { isJob } from 'utils/experience';
+import { getTenureDurationString, isJob } from 'utils/experience';
 import JobCard from 'components/JobCard';
 import DegreeCard from 'components/DegreeCard';
 import { Tenure } from 'models/experience';
@@ -28,6 +29,7 @@ function TenureWrapper({ tenure }: { tenure: Tenure }) {
                     <ReactSVG src={underline} />
                 </SlashDiv>
             </TenureNameDiv>
+            <TenureDurationDiv>{getTenureDurationString(tenure)}</TenureDurationDiv>
             {experiences.map((e) => {
                 return (
                     <ExperienceDiv key={`experience-${e.title}`}>

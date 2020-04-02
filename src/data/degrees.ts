@@ -27,7 +27,7 @@ export const launchAcademy: Degree = {
     startDate: parse('02-2016', 'MM-YYYY') as Date,
     endDate: parse('05-2016', 'MM-YYYY') as Date,
     school: School.LAUNCH,
-    technologies: [Tech.D3, Tech.RUBY, Tech.RAILS],
+    technologies: [Tech.RUBY, Tech.RAILS, Tech.D3],
     description: `This was my first official step into software engineering. After months of learning on my own, I joined
         Launch Academy to learn the basics of web development. I spent 10 weeks there learning how the web works.
         My capstone was a project exploring the lyrical diversity of my favorite musicians using

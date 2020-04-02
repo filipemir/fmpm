@@ -1,11 +1,13 @@
 import styled from '@emotion/styled';
 import {
+    COLOR_BG_ACCENT,
     COLOR_PRIMARY,
     COLOR_SECONDARY,
     COLOR_TERNARY,
     FONT_FAMILY_MONO,
     FONT_FAMILY_SANS_SERIF,
-    FONT_FAMILY_SERIF
+    FONT_FAMILY_SERIF,
+    TEXT_SHADOW
 } from 'styles/global';
 
 export const ExperienceRootDiv = styled.div`
@@ -23,6 +25,7 @@ export const TopRowDiv = styled.div`
 export const TitleSpan = styled.span`
     color: ${COLOR_PRIMARY};
     font-weight: 500;
+    text-shadow: 2px 2px 0 ${COLOR_BG_ACCENT};
 `;
 
 export const DatesDiv = styled.div`

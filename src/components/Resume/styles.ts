@@ -1,5 +1,12 @@
 import styled from '@emotion/styled';
-import { COLOR_ACCENT, COLOR_BG_ACCENT, FONT_FAMILY_MONO, TEXT_SHADOW } from 'styles/global';
+import {
+    COLOR_ACCENT,
+    COLOR_BG_ACCENT,
+    COLOR_QUATERNARY,
+    COLOR_TERNARY,
+    FONT_FAMILY_MONO,
+    TEXT_SHADOW
+} from 'styles/global';
 
 export const RootDiv = styled.div`
     display: flex;
@@ -24,29 +31,34 @@ export const PhaseDiv = styled.div``;
 export const TenureDiv = styled.div`
     position: relative;
     z-index: 0;
-    text-align: center;
+    font-weight: 300;
+    font-family: ${FONT_FAMILY_MONO};
 
     &:after {
         content: ' ';
-        border-top: 1px solid ${COLOR_BG_ACCENT};
+        border-top: 1px solid ${COLOR_QUATERNARY};
         position: absolute;
-        z-index: -1;
+        z-index: -2;
         width: 100%;
         left: 0;
-        top: 15px;
+        top: 16px;
     }
 `;
 
 export const TenureNameDiv = styled.div`
-    font-family: ${FONT_FAMILY_MONO};
-    font-weight: 300;
     font-size: 16px;
     color: ${COLOR_ACCENT};
     padding: 0 15px;
     margin-bottom: 1em;
-    text-shadow: ${TEXT_SHADOW};
+    text-shadow: 2px 2px 0 ${COLOR_BG_ACCENT};
     position: relative;
     display: inline-block;
+`;
+
+export const TenureDurationDiv = styled.span`
+    font-size: 12px;
+    color: ${COLOR_TERNARY};
+    margin-left: 1em;
 `;
 
 export const ExperienceDiv = styled.div`
