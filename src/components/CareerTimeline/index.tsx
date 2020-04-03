@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, useTrail, animated } from 'react-spring';
 import useMeasure, { RectReadOnly } from 'react-use-measure';
 
 import { RootDiv, PhaseDiv, TenureDiv, activeTenurePanelCss } from './styles';
@@ -13,12 +13,6 @@ function getActiveTenurePanelSpring({
     rootRect: RectReadOnly;
     activeTenureRect: RectReadOnly;
 }) {
-    const hide = rootRect.left === 0 || activeTenureRect.left === 0;
-
-    if (hide) {
-        return { top: 0, opacity: 0 };
-    }
-
     return { top: activeTenureRect.top - rootRect.top, left: 0, opacity: 1 };
 }
 
@@ -26,39 +20,46 @@ export default function CareerTimeline() {
     const [activePhase, setActivePhase] = useState(CAREER[0]),
         [activeTenure, setActiveTenure] = useState(activePhase.tenures[0]),
         changeActiveTenure = ({ phase, tenure }: { phase: CareerPhase; tenure?: Tenure }) => {
-            console.log(phase);
             setActivePhase(phase);
             setActiveTenure(tenure || phase.tenures[0]);
         },
         [rootRef, rootRect] = useMeasure(),
         [activeTenureRef, activeTenureRect] = useMeasure(),
-        activeTenurePanelSpring = useSpring(getActiveTenurePanelSpring({ rootRect, activeTenureRect }));
+        activeTenurePanelSpring = useSpring(getActiveTenurePanelSpring({ rootRect, activeTenureRect })),
+        phasesTrail = useTrail(CAREER.length, { opacity: 1, x: 0, from: { opacity: 0, x: 20 } });
 
     return (
         <RootDiv ref={rootRef}>
             <animated.div style={activeTenurePanelSpring} css={activeTenurePanelCss} />
-            {CAREER.map((phase) => {
-                const { name, tenures } = phase;
+            {phasesTrail.map(({ opacity, x }, i) => {
+                const phase = CAREER[i],
+                    { name, tenures } = phase,
+                    tenuresTrail = useTrail(tenures.length, { opacity: 1, from: { opacity: 0 } });
 
                 return (
-                    <React.Fragment key={`phase-${name}`}>
+                    <animated.div
+                        style={{ opacity, transform: x.interpolate((x) => `translateX(${-x}px)`) }}
+                        key={`phase-${name}`}
+                    >
                         <PhaseDiv active={phase === activePhase} onClick={() => changeActiveTenure({ phase })}>
                             {name}
                         </PhaseDiv>
-                        {tenures.map((tenure) => {
-                            const isActive = tenure === activeTenure;
+                        {tenuresTrail.map((style, i) => {
+                            const tenure = tenures[i],
+                                isActive = tenure === activeTenure;
                             return (
-                                <TenureDiv
-                                    active={isActive}
-                                    onClick={() => changeActiveTenure({ phase, tenure })}
-                                    key={`tenure-${tenure.company}`}
-                                    ref={isActive ? activeTenureRef : undefined}
-                                >
-                                    {tenure.company}
-                                </TenureDiv>
+                                <animated.div style={style} key={`tenure-${tenure.company}`}>
+                                    <TenureDiv
+                                        active={isActive}
+                                        onClick={() => changeActiveTenure({ phase, tenure })}
+                                        ref={isActive ? activeTenureRef : undefined}
+                                    >
+                                        {tenure.company}
+                                    </TenureDiv>
+                                </animated.div>
                             );
                         })}
-                    </React.Fragment>
+                    </animated.div>
                 );
             })}
         </RootDiv>
