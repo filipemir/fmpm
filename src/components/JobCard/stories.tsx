@@ -18,7 +18,7 @@ CAREER.forEach(({ tenures }) => {
     });
 });
 
-storiesOf(`JobCard`, module).add(`default`, () => {
+storiesOf(`Resume|JobCard`, module).add(`default`, () => {
     const job = select('Job', Object.keys(jobs), stSoftwareEngineer.title);
     return <JobCard job={jobs[job]} />;
 });

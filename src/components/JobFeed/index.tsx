@@ -13,7 +13,7 @@ function useTrailItems<T>(collection: T[]) {
     return useTrail(collection.length, { opacity: 1, x: 0, from: { opacity: 0, x: 20 } });
 }
 
-export default function JobFeed({ activeTenure }: { activeTenure: Tenure }) {
+export default function JobFeed({ activeTenure }: { activeTenure?: Tenure }) {
     const outerTrail = useTrailItems(CAREER),
         activeTenureRef = useRef() as MutableRefObject<HTMLDivElement | null>;
 

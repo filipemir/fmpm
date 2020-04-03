@@ -13,4 +13,4 @@ function CareerTimelineWrapper() {
     return <CareerTimeline activePhase={phase} activeTenure={tenure} onTenureChange={onTenureChange} />;
 }
 
-storiesOf(`CareerTimeline`, module).add(`default`, () => <CareerTimelineWrapper />);
+storiesOf(`Resume|CareerTimeline`, module).add(`default`, () => <CareerTimelineWrapper />);

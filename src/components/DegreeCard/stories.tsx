@@ -6,7 +6,7 @@ import DegreeCard from './index';
 import { Degree } from 'models/experience';
 import { CAREER } from 'data/resume';
 import { isJob } from 'utils/experience';
-import { tuftsDegree } from 'data/degrees';
+import { launchAcademy } from 'data/degrees';
 
 const degrees: { [key: string]: Degree } = {};
 
@@ -18,7 +18,7 @@ CAREER.forEach(({ tenures }) => {
     });
 });
 
-storiesOf(`DegreeCard`, module).add(`default`, () => {
-    const degree = select('Degree', Object.keys(degrees), tuftsDegree.title);
+storiesOf(`Resume|DegreeCard`, module).add(`default`, () => {
+    const degree = select('Degree', Object.keys(degrees), launchAcademy.title);
     return <DegreeCard degree={degrees[degree]} />;
 });

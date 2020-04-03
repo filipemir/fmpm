@@ -13,7 +13,12 @@ function getActiveTenurePanelSpring({
     rootRect: RectReadOnly;
     activeTenureRect: RectReadOnly;
 }) {
-    return { top: activeTenureRect.top - rootRect.top, left: 0, opacity: 1 };
+    return {
+        top: activeTenureRect.top - rootRect.top,
+        left: 0,
+        opacity: 1,
+        from: { top: 0, left: 0, opacity: 0 }
+    };
 }
 
 interface CareerTimelineProps {
