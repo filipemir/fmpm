@@ -1,6 +1,8 @@
 import React, { useState, ReactElement } from 'react';
+import { useSpring, animated } from 'react-spring';
+import useMeasure, { RectReadOnly } from 'react-use-measure';
 
-import { RootDiv, PhaseDiv, JobDiv } from './styles';
+import { RootDiv, PhaseDiv, JobDiv, activeJobPanelCss } from './styles';
 
 interface CareerPhase {
     name: string;
@@ -29,6 +31,16 @@ const PHASES = [
     }
 ];
 
+function getActiveJobPanelSpring({ rootRect, activeJobRect }: { rootRect: RectReadOnly; activeJobRect: RectReadOnly }) {
+    const hide = rootRect.left === 0 || activeJobRect.left === 0;
+
+    if (hide) {
+        return { top: 0, opacity: 0 };
+    }
+
+    return { top: activeJobRect.top - rootRect.top, left: 0, opacity: 1 };
+}
+
 export default function CareerTimeline() {
     const [activePhase, setActivePhase] = useState(PHASES[0]),
         [activeJob, setActiveJob] = useState(activePhase.jobs[0]),
@@ -36,7 +48,10 @@ export default function CareerTimeline() {
             setActivePhase(phase);
             setActiveJob(job || phase.jobs[0]);
         },
-        TimelineItems: ReactElement[] = [];
+        TimelineItems: ReactElement[] = [],
+        [rootRef, rootRect] = useMeasure(),
+        [activeJobRef, activeJobRect] = useMeasure(),
+        activeJobPanelSpring = useSpring(getActiveJobPanelSpring({ rootRect, activeJobRect }));
 
     PHASES.forEach((phase) => {
         const { name, jobs } = phase;
@@ -49,12 +64,22 @@ export default function CareerTimeline() {
 
         jobs.forEach((job) => {
             TimelineItems.push(
-                <JobDiv active={job === activeJob} onClick={() => changeActiveJob({ phase, job })} key={`job-${job}`}>
+                <JobDiv
+                    active={job === activeJob}
+                    onClick={() => changeActiveJob({ phase, job })}
+                    key={`job-${job}`}
+                    ref={job === activeJob ? activeJobRef : undefined}
+                >
                     {job}
                 </JobDiv>
             );
         });
     });
 
-    return <RootDiv>{TimelineItems}</RootDiv>;
+    return (
+        <RootDiv ref={rootRef}>
+            <animated.div style={activeJobPanelSpring} css={activeJobPanelCss} />
+            {TimelineItems}
+        </RootDiv>
+    );
 }

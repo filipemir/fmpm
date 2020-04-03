@@ -10,6 +10,7 @@ export const RootDiv = styled.div`
     max-width: 220px;
     border-left: 1px solid ${COLOR_BG_ACCENT};
     position: relative;
+    z-index: 0;
 `;
 
 export const TimelineItem = css`
@@ -17,6 +18,7 @@ export const TimelineItem = css`
     cursor: pointer;
     display: flex;
     align-items: center;
+    transition: color 300ms ease-in-out;
 
     &:hover {
         color: ${COLOR_ACCENT};
@@ -31,17 +33,22 @@ export const PhaseDiv = styled.div`
     padding: 0 1em;
 `;
 
-export const DynamicJob = ({ active }: { active: boolean }) => `
-    background-color: ${active && COLOR_BG_ACCENT};
-    border-left: 3px solid ${active ? COLOR_ACCENT : 'transparent'};
-    border-radius: 0 6px 6px 0;
-    position: relative;
-    left: -1px;
-`;
-
 export const JobDiv = styled.div`
     ${TimelineItem};
     ${DynamicColor};
-    ${DynamicJob};
+    position: relative;
+    left: -1px;
     padding: 0 1em 0 2em;
+`;
+
+export const activeJobPanelCss = css`
+    display: block;
+    position: absolute;
+    left: -1px;
+    height: 30px;
+    background-color: ${COLOR_BG_ACCENT};
+    border-left: 3px solid ${COLOR_ACCENT};
+    border-radius: 0 6px 6px 0;
+    width: 210px;
+    z-index: -1;
 `;
