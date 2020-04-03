@@ -4,7 +4,7 @@ export function isJob(experience: Job | Degree): experience is Job {
     return (experience as Job).company !== undefined;
 }
 
-function getTenureEndDates(tenure: Tenure): { startDate: Date; endDate: Date } {
+function getTenureDates(tenure: Tenure): { startDate: Date; endDate: Date } {
     const { experiences } = tenure;
 
     let minStartDate = experiences[0].startDate,

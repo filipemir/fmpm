@@ -1,12 +1,12 @@
-import { parse } from 'date-and-time';
+import parseISO from 'date-fns/parseISO';
 
 import { Degree, School } from 'models/experience';
 import { Tech } from 'models/tech';
 
 export const scuDegree: Degree = {
     title: 'B.S. Mathematics',
-    startDate: parse('09-2003', 'MM-YYYY') as Date,
-    endDate: parse('06-2007', 'MM-YYYY') as Date,
+    startDate: parseISO('2003-09'),
+    endDate: parseISO('2007-07'),
     school: School.SCU,
     description: `I graduated <i>cum laude</i> from Santa Clara University with a degree in Math and a minor in English.
          I was also the recipient of the 
@@ -17,15 +17,15 @@ export const scuDegree: Degree = {
 
 export const tuftsDegree: Degree = {
     title: 'M.S. Economics',
-    startDate: parse('09-2010', 'MM-YYYY') as Date,
-    endDate: parse('12-2011', 'MM-YYYY') as Date,
+    startDate: parseISO('2010-09'),
+    endDate: parseISO('2011-11'),
     school: School.TUFTS
 };
 
 export const launchAcademy: Degree = {
     title: 'Full Stack Web Development Bootcamp',
-    startDate: parse('02-2016', 'MM-YYYY') as Date,
-    endDate: parse('05-2016', 'MM-YYYY') as Date,
+    startDate: parseISO('2016-02'),
+    endDate: parseISO('2016-05'),
     school: School.LAUNCH,
     technologies: [Tech.RUBY, Tech.RAILS, Tech.D3],
     description: `This was my first official step into software engineering. After months of learning on my own, I joined

@@ -1,17 +1,20 @@
 import React from 'react';
-import { format } from 'date-and-time';
+import format from 'date-fns/format';
+import getYear from 'date-fns/getYear';
 import parse from 'react-html-parser';
 
 import { RootDiv, TopRowDiv, JobTitleSpan, TeamSpan, DatesDiv, TechDiv, DescriptionDiv } from './styles';
 import { Job } from 'models/experience';
 import TechTag from 'components/TechTag';
 
-const DATE_FORMAT = 'MMMM YYYY';
+const DATE_FORMAT = 'MMMM yyyy';
 
 export default function JobCard({ job }: { job: Job }) {
     const { title, team, startDate, technologies, description, endDate } = job,
-        startDateStr = format(startDate, DATE_FORMAT),
+        sameYear = endDate && getYear(startDate) === getYear(endDate),
+        startDateStr = format(startDate, sameYear ? 'MMMM' : DATE_FORMAT),
         dateStr = endDate ? `${startDateStr} to ${format(endDate, DATE_FORMAT)}` : `since ${startDateStr}`;
+
     return (
         <RootDiv>
             <TopRowDiv>
