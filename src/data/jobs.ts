@@ -95,7 +95,7 @@ export const nprIntern: Job = {
     title: 'Intern',
     team: 'Planet Money',
     startDate: parseISO('2011-06'),
-    endDate: parseISO('2011-08'),
+    endDate: parseISO('2011-09'),
     description: `I spent a summer on NPR’s Planet Money team conducting research for stories, editing interviews for 
         radio, and contributing to their blog.`
 };
@@ -124,7 +124,7 @@ export const irdTeacher: Job = {
     company: Company.IRD,
     title: 'Teacher',
     startDate: parseISO('2008-06'),
-    endDate: parseISO('2009-09'),
+    endDate: parseISO('2008-09'),
     description: `I spent a summer teaching reading courses to students ranging from preschoolers to working adults.
         This work involved traveling weekly to teaching sites in California, Oregon, and Washington.`
 };

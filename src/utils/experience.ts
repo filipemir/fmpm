@@ -1,3 +1,5 @@
+import differenceInMonths from 'date-fns/differenceInMonths';
+
 import { Degree, Job, Tenure } from 'models/experience';
 
 export function isJob(experience: Job | Degree): experience is Job {
@@ -24,5 +26,19 @@ function getTenureDates(tenure: Tenure): { startDate: Date; endDate: Date } {
 }
 
 export function getTenureDurationString(tenure: Tenure): string {
-    return `4 years`;
+    const { startDate, endDate } = getTenureDates(tenure),
+        months = differenceInMonths(endDate, startDate),
+        remainder = months % 12,
+        years = (months - remainder) / 12;
+
+    if (remainder > 7) {
+        const nextYear = years + 1;
+        return `almost ${nextYear} year${nextYear === 1 ? '' : 's'}`;
+    }
+
+    if (years < 1) {
+        return `${months} month${months === 1 ? '' : 's'}`;
+    }
+
+    return `${years} year${years === 1 ? '' : 's'}`;
 }
