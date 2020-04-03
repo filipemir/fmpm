@@ -33,7 +33,7 @@ export const PhaseDiv = styled.div`
     padding: 0 1em;
 `;
 
-export const JobDiv = styled.div`
+export const TenureDiv = styled.div`
     ${TimelineItem};
     ${DynamicColor};
     position: relative;
@@ -41,7 +41,7 @@ export const JobDiv = styled.div`
     padding: 0 1em 0 2em;
 `;
 
-export const activeJobPanelCss = css`
+export const activeTenurePanelCss = css`
     display: block;
     position: absolute;
     left: -1px;
