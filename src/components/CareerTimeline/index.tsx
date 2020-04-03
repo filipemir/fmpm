@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSpring, useTrail, animated } from 'react-spring';
 import useMeasure, { RectReadOnly } from 'react-use-measure';
 
@@ -16,14 +16,14 @@ function getActiveTenurePanelSpring({
     return { top: activeTenureRect.top - rootRect.top, left: 0, opacity: 1 };
 }
 
-export default function CareerTimeline() {
-    const [activePhase, setActivePhase] = useState(CAREER[0]),
-        [activeTenure, setActiveTenure] = useState(activePhase.tenures[0]),
-        changeActiveTenure = ({ phase, tenure }: { phase: CareerPhase; tenure?: Tenure }) => {
-            setActivePhase(phase);
-            setActiveTenure(tenure || phase.tenures[0]);
-        },
-        [rootRef, rootRect] = useMeasure(),
+interface CareerTimelineProps {
+    activePhase: CareerPhase;
+    activeTenure: Tenure;
+    onTenureChange: (e: Tenure) => void;
+}
+
+export default function CareerTimeline({ activePhase, activeTenure, onTenureChange }: CareerTimelineProps) {
+    const [rootRef, rootRect] = useMeasure(),
         [activeTenureRef, activeTenureRect] = useMeasure(),
         activeTenurePanelSpring = useSpring(getActiveTenurePanelSpring({ rootRect, activeTenureRect })),
         phasesTrail = useTrail(CAREER.length, { opacity: 1, x: 0, from: { opacity: 0, x: 20 } });
@@ -41,7 +41,7 @@ export default function CareerTimeline() {
                         style={{ opacity, transform: x.interpolate((x) => `translateX(${-x}px)`) }}
                         key={`phase-${name}`}
                     >
-                        <PhaseDiv active={phase === activePhase} onClick={() => changeActiveTenure({ phase })}>
+                        <PhaseDiv active={phase === activePhase} onClick={() => onTenureChange(phase.tenures[0])}>
                             {name}
                         </PhaseDiv>
                         {tenuresTrail.map((style, i) => {
@@ -51,7 +51,7 @@ export default function CareerTimeline() {
                                 <animated.div style={style} key={`tenure-${tenure.company}`}>
                                     <TenureDiv
                                         active={isActive}
-                                        onClick={() => changeActiveTenure({ phase, tenure })}
+                                        onClick={() => onTenureChange(tenure)}
                                         ref={isActive ? activeTenureRef : undefined}
                                     >
                                         {tenure.company}

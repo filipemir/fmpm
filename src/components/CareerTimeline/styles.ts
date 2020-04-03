@@ -37,14 +37,12 @@ export const TenureDiv = styled.div`
     ${TimelineItem};
     ${DynamicColor};
     position: relative;
-    left: -1px;
     padding: 0 1em 0 2em;
 `;
 
 export const activeTenurePanelCss = css`
     display: block;
     position: absolute;
-    left: -1px;
     height: 30px;
     background-color: ${COLOR_BG_ACCENT};
     border-left: 3px solid ${COLOR_ACCENT};
