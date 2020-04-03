@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect, MutableRefObject } from 'react';
 import { useTrail, animated } from 'react-spring';
 import { RootDiv, ExperienceDiv, TenureDiv, TenureDurationDiv, TenureNameDiv, SlashDiv } from './styles';
 import { CAREER } from 'data/resume';
@@ -7,13 +7,20 @@ import JobCard from 'components/JobCard';
 import DegreeCard from 'components/DegreeCard';
 import { ReactSVG } from 'react-svg';
 import underlineSvg from 'images/underline.svg';
+import { Tenure } from 'models/experience';
 
 function useTrailItems<T>(collection: T[]) {
     return useTrail(collection.length, { opacity: 1, x: 0, from: { opacity: 0, x: 20 } });
 }
 
-export default function JobFeed() {
-    const outerTrail = useTrailItems(CAREER);
+export default function JobFeed({ activeTenure }: { activeTenure: Tenure }) {
+    const outerTrail = useTrailItems(CAREER),
+        activeTenureRef = useRef() as MutableRefObject<HTMLDivElement | null>;
+
+    useEffect(() => {
+        const el = activeTenureRef.current;
+        el && el.scrollIntoView({ behavior: 'smooth' });
+    }, [activeTenureRef.current]);
 
     return (
         <RootDiv>
@@ -29,7 +36,10 @@ export default function JobFeed() {
                                 innerTrail = useTrailItems(experiences);
 
                             return (
-                                <TenureDiv key={`tenure-${company}`}>
+                                <TenureDiv
+                                    key={`tenure-${company}`}
+                                    ref={tenure === activeTenure ? activeTenureRef : undefined}
+                                >
                                     <TenureNameDiv>
                                         {company}
                                         <SlashDiv>

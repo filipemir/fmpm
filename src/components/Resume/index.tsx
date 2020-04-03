@@ -17,7 +17,7 @@ export default function Resume() {
                 <CareerTimeline activePhase={phase} activeTenure={tenure} onTenureChange={onTenureChange} />
             </TimelineWrapper>
             <JobsWrapper>
-                <JobFeed />
+                <JobFeed activeTenure={tenure} />
             </JobsWrapper>
         </RootDiv>
     );

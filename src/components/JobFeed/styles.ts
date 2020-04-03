@@ -6,6 +6,7 @@ export const RootDiv = styled.div`
     overflow-y: scroll;
     padding-right: 20px;
     max-width: 690px;
+    height: 100%;
 `;
 
 export const TenureDiv = styled.div`
