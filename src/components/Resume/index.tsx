@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTrail, animated } from 'react-spring';
 import {
     RootDiv,
     TimelineWrapper,
@@ -19,8 +20,14 @@ import { Tenure } from 'models/experience';
 import { ReactSVG } from 'react-svg';
 import underline from 'images/underline.svg';
 
+function useTrailItems<T>(collection: T[]) {
+    return useTrail(collection.length, { opacity: 1, x: 0, from: { opacity: 0, x: 20 } });
+}
+
 function TenureWrapper({ tenure }: { tenure: Tenure }) {
-    const { company, experiences } = tenure;
+    const { company, experiences } = tenure,
+        trail = useTrailItems(experiences);
+
     return (
         <TenureDiv>
             <TenureNameDiv>
@@ -30,11 +37,15 @@ function TenureWrapper({ tenure }: { tenure: Tenure }) {
                 </SlashDiv>
             </TenureNameDiv>
             <TenureDurationDiv>{getTenureDurationString(tenure)}</TenureDurationDiv>
-            {experiences.map((e) => {
+            {trail.map(({ opacity, x }, i) => {
+                const e = experiences[i];
                 return (
-                    <ExperienceDiv key={`experience-${e.title}`}>
-                        {isJob(e) ? <JobCard job={e} /> : <DegreeCard degree={e} />}
-                    </ExperienceDiv>
+                    <animated.div
+                        style={{ opacity, transform: x.interpolate((x) => `translateY(${-x}px)`) }}
+                        key={`experience-${e.title}`}
+                    >
+                        <ExperienceDiv>{isJob(e) ? <JobCard job={e} /> : <DegreeCard degree={e} />}</ExperienceDiv>
+                    </animated.div>
                 );
             })}
         </TenureDiv>
@@ -42,20 +53,28 @@ function TenureWrapper({ tenure }: { tenure: Tenure }) {
 }
 
 export default function Resume() {
+    const trail = useTrailItems(CAREER);
+
     return (
         <RootDiv>
             <TimelineWrapper>
                 <CareerTimeline />
             </TimelineWrapper>
             <PhasesWrapper>
-                {CAREER.map((careerPhase) => {
-                    const { name, tenures } = careerPhase;
+                {trail.map(({ opacity, x }, i) => {
+                    const careerPhase = CAREER[i],
+                        { name, tenures } = careerPhase;
                     return (
-                        <PhaseDiv key={`phase-${name}`}>
-                            {tenures.map((tenure) => (
-                                <TenureWrapper tenure={tenure} key={`tenure-${tenure.company}`} />
-                            ))}
-                        </PhaseDiv>
+                        <animated.div
+                            style={{ opacity, transform: x.interpolate((x) => `translateY(${-x}px)`) }}
+                            key={`phase-${name}`}
+                        >
+                            <PhaseDiv>
+                                {tenures.map((tenure) => (
+                                    <TenureWrapper tenure={tenure} key={`tenure-${tenure.company}`} />
+                                ))}
+                            </PhaseDiv>
+                        </animated.div>
                     );
                 })}
             </PhasesWrapper>
