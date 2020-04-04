@@ -1,18 +1,27 @@
 import differenceInMonths from 'date-fns/differenceInMonths';
 
-import { Degree, Job, Tenure } from 'models/experience';
+import { CareerPhase, Degree, Job, ResumeItem, ResumeSection, Tenure } from 'models/experience';
+import { RESUME } from 'data/resume';
 
-export function isJob(experience: Job | Degree): experience is Job {
-    return (experience as Job).company !== undefined;
+export function isJob(item: ResumeItem): item is Job {
+    return (item as Job).company !== undefined;
+}
+
+export function isTenure(o: Tenure | Degree): o is Tenure {
+    return (o as Tenure).company !== undefined;
+}
+
+export function isCareerPhase(o: CareerPhase | Tenure | Degree): o is CareerPhase {
+    return (o as CareerPhase).tenures != undefined;
 }
 
 function getTenureDates(tenure: Tenure): { startDate: Date; endDate: Date } {
-    const { experiences } = tenure;
+    const { jobs } = tenure;
 
-    let minStartDate = experiences[0].startDate,
-        maxEndDate = experiences[0].endDate;
+    let minStartDate = jobs[0].startDate,
+        maxEndDate = jobs[0].endDate;
 
-    experiences.forEach(({ startDate, endDate = new Date() }) => {
+    jobs.forEach(({ startDate, endDate = new Date() }) => {
         if (!minStartDate || startDate < minStartDate) {
             minStartDate = startDate;
         }
@@ -41,4 +50,20 @@ export function getTenureDurationString(tenure: Tenure): string {
     }
 
     return `${years} year${years === 1 ? '' : 's'}`;
+}
+
+export function getAllJobs(): Job[] {
+    const result: Job[] = [];
+
+    RESUME[ResumeSection.EXPERIENCE].forEach(({ tenures }) => {
+        tenures.forEach(({ jobs }) => {
+            result.push(...jobs);
+        });
+    });
+
+    return result;
+}
+
+export function getAllDegrees(): Degree[] {
+    return RESUME[ResumeSection.EDUCATION];
 }

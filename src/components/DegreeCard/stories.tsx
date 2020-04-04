@@ -4,21 +4,16 @@ import { select } from '@storybook/addon-knobs';
 
 import DegreeCard from './index';
 import { Degree } from 'models/experience';
-import { CAREER } from 'data/resume';
-import { isJob } from 'utils/experience';
-import { launchAcademy } from 'data/degrees';
+import { getAllDegrees } from 'utils/experience';
+import { scuDegree } from 'data/degrees';
 
 const degrees: { [key: string]: Degree } = {};
 
-CAREER.forEach(({ tenures }) => {
-    tenures.forEach((tenure) => {
-        tenure.experiences.forEach((e) => {
-            !isJob(e) && (degrees[e.title] = e);
-        });
-    });
+getAllDegrees().forEach((d) => {
+    degrees[d.name] = d;
 });
 
 storiesOf(`Resume|DegreeCard`, module).add(`default`, () => {
-    const degree = select('Degree', Object.keys(degrees), launchAcademy.title);
+    const degree = select('Degree', Object.keys(degrees), scuDegree.name);
     return <DegreeCard degree={degrees[degree]} />;
 });

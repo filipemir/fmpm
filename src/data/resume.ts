@@ -1,4 +1,4 @@
-import { CareerPhase, Company, Phase, School, Tenure } from 'models/experience';
+import { CareerPhaseName, Org, Resume, ResumeSection, Tenure } from 'models/experience';
 import {
     adventTeacher,
     americorps,
@@ -6,62 +6,73 @@ import {
     crbResearchAssociate,
     crbSeniorAnalyst,
     irdTeacher,
+    launchAcademy,
     nprIntern,
+    samaritans,
     scuRA,
     stIntegrationEngineer,
     stSoftwareEngineer,
     tuftsRA,
     tuftsTA
 } from 'data/jobs';
-import { launchAcademy, scuDegree, tuftsDegree } from 'data/degrees';
+import { scuDegree, tuftsDegree } from 'data/degrees';
 
 const ST: Tenure = {
-    company: Company.ST,
-    experiences: [stSoftwareEngineer, stIntegrationEngineer]
+    company: Org.ST,
+    jobs: [stSoftwareEngineer, stIntegrationEngineer]
 };
 
 const Launch: Tenure = {
-    company: School.LAUNCH,
-    experiences: [launchAcademy]
+    company: Org.LAUNCH,
+    jobs: [launchAcademy]
 };
 
 const CR: Tenure = {
-    company: Company.CR,
-    experiences: [crbResearchAssociate, crbSeniorAnalyst, crbAnalyst]
+    company: Org.CR,
+    jobs: [crbResearchAssociate, crbSeniorAnalyst, crbAnalyst]
 };
 
 const Tufts: Tenure = {
-    company: School.TUFTS,
-    experiences: [tuftsRA, tuftsTA, tuftsDegree]
+    company: Org.TUFTS,
+    jobs: [tuftsRA, tuftsTA]
 };
 
 const NPR: Tenure = {
-    company: Company.NPR,
-    experiences: [nprIntern]
+    company: Org.NPR,
+    jobs: [nprIntern]
 };
 
 const Advent: Tenure = {
-    company: Company.ADVENT,
-    experiences: [adventTeacher]
+    company: Org.ADVENT,
+    jobs: [adventTeacher]
 };
 
 const RT: Tenure = {
-    company: Company.RT,
-    experiences: [americorps]
+    company: Org.RT,
+    jobs: [americorps]
 };
 
 const IRD: Tenure = {
-    company: Company.IRD,
-    experiences: [irdTeacher]
+    company: Org.IRD,
+    jobs: [irdTeacher]
 };
 
 const SCU: Tenure = {
-    company: School.SCU,
-    experiences: [scuRA, scuDegree]
+    company: Org.SCU,
+    jobs: [scuRA]
 };
 
-export const CAREER: CareerPhase[] = [
-    { name: Phase.ENGINEERING, tenures: [ST, Launch] },
-    { name: Phase.CONSULTING, tenures: [CR] },
-    { name: Phase.OTHER, tenures: [Tufts, NPR, Advent, RT, IRD, SCU] }
-];
+const Samaritans: Tenure = {
+    company: Org.SAMARITANS,
+    jobs: [samaritans]
+};
+
+export const RESUME: Resume = {
+    [ResumeSection.EXPERIENCE]: [
+        { name: CareerPhaseName.ENGINEERING, tenures: [ST, Launch] },
+        { name: CareerPhaseName.CONSULTING, tenures: [CR] },
+        { name: CareerPhaseName.OTHER, tenures: [Tufts, NPR, Advent, RT, IRD, SCU] }
+    ],
+    [ResumeSection.VOLUNTEERING]: [Samaritans],
+    [ResumeSection.EDUCATION]: [tuftsDegree, scuDegree]
+};

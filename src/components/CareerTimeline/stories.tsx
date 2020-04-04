@@ -1,16 +1,22 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import CareerTimeline from './index';
-import useCareer from 'hooks/useCareer';
-import { Tenure } from 'models/experience';
+import useResumeReducer from 'hooks/useResumeReducer';
 
 function CareerTimelineWrapper() {
-    const { tenure, phase, setExperience } = useCareer(),
-        onTenureChange = (tenure: Tenure) => {
-            setExperience(tenure.experiences[0]);
-        };
+    const { state, actions } = useResumeReducer(),
+        { section, tenure, phase } = state,
+        { setTenure, setPhase } = actions;
 
-    return <CareerTimeline activePhase={phase} activeTenure={tenure} onTenureChange={onTenureChange} />;
+    return (
+        <CareerTimeline
+            activeSection={section}
+            activeTenure={tenure}
+            activeCareerPhase={phase}
+            onTenureClick={setTenure}
+            onCareerPhaseClick={setPhase}
+        />
+    );
 }
 
 storiesOf(`Resume|CareerTimeline`, module).add(`default`, () => <CareerTimelineWrapper />);

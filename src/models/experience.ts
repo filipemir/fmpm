@@ -1,50 +1,62 @@
 import { Tech } from 'models/tech';
 
-export enum Phase {
-    ENGINEERING = 'Engineering',
-    CONSULTING = 'Consulting',
-    OTHER = 'Other'
-}
-
-export enum Company {
+export enum Org {
     ST = 'SmarterTravel',
     CR = 'Cornerstone Research',
     NPR = 'NPR',
     ADVENT = 'Advent School',
     RT = 'Rebuilding Together',
-    IRD = 'IRD'
-}
-
-export enum School {
+    IRD = 'IRD',
     SCU = 'Santa Clara University',
     TUFTS = 'Tufts University',
-    LAUNCH = 'Launch Academy'
+    LAUNCH = 'Launch Academy',
+    SAMARITANS = 'Samaritans'
 }
 
-export interface Experience {
+export interface Job {
     title: string;
+    company: Org;
     startDate: Date;
     endDate?: Date;
+    team?: string;
     technologies?: Tech[];
     description?: string;
 }
 
-export interface Job extends Experience {
-    company: Company | School;
-    team?: string;
-}
-
-export interface Degree extends Experience {
-    school: School;
+export interface Degree {
+    school: Org;
+    name: string;
+    startDate: Date;
     endDate: Date;
+    description?: string;
 }
 
 export interface Tenure {
-    company: Company | School;
-    experiences: (Job | Degree)[];
+    company: Org;
+    jobs: Job[];
+}
+
+export type ResumeItem = Job | Degree;
+
+export enum CareerPhaseName {
+    ENGINEERING = 'Engineering',
+    CONSULTING = 'Consulting',
+    OTHER = 'Other'
 }
 
 export interface CareerPhase {
-    name: Phase;
+    name: CareerPhaseName;
     tenures: Tenure[];
+}
+
+export enum ResumeSection {
+    EXPERIENCE,
+    EDUCATION,
+    VOLUNTEERING
+}
+
+export interface Resume {
+    [ResumeSection.EXPERIENCE]: CareerPhase[];
+    [ResumeSection.EDUCATION]: Degree[];
+    [ResumeSection.VOLUNTEERING]: Tenure[];
 }

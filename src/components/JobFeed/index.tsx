@@ -4,13 +4,13 @@ import { Waypoint } from 'react-waypoint';
 import throttle from 'lodash/throttle';
 
 import { RootDiv, ExperienceDiv, TenureDiv, TenureDurationDiv, TenureNameDiv, SlashDiv } from './styles';
-import { CAREER } from 'data/resume';
+import { RESUME } from 'data/resume';
 import { getTenureDurationString, isJob } from 'utils/experience';
 import JobCard from 'components/JobCard';
 import DegreeCard from 'components/DegreeCard';
 import { ReactSVG } from 'react-svg';
 import underlineSvg from 'images/underline.svg';
-import { Tenure } from 'models/experience';
+import { ResumeSection, Tenure } from 'models/experience';
 
 function useTrailItems<T>(collection: T[]) {
     return useTrail(collection.length, { opacity: 1, x: 0, from: { opacity: 0, x: 20 } });
@@ -23,7 +23,8 @@ export default function JobFeed({
     activeTenure?: Tenure;
     setActiveTenure?: (tenure: Tenure) => void;
 }) {
-    const outerTrail = useTrailItems(CAREER),
+    const section = RESUME[ResumeSection.EXPERIENCE],
+        outerTrail = useTrailItems(section),
         rootRef = useRef() as MutableRefObject<HTMLDivElement | null>,
         activeTenureRef = useRef() as MutableRefObject<HTMLDivElement | null>,
         throttledSetTenure = setActiveTenure && throttle(setActiveTenure, 100, { trailing: true });
@@ -36,15 +37,15 @@ export default function JobFeed({
     return (
         <RootDiv ref={rootRef}>
             {outerTrail.map(({ opacity, x }, i) => {
-                const careerPhase = CAREER[i],
+                const careerPhase = section[i],
                     { name, tenures } = careerPhase,
                     transform = x.interpolate((x) => `translateY(${-x}px)`);
 
                 return (
                     <animated.div style={{ opacity, transform }} key={`phase-${name}`}>
                         {tenures.map((tenure) => {
-                            const { company, experiences } = tenure,
-                                innerTrail = useTrailItems(experiences);
+                            const { company, jobs } = tenure,
+                                innerTrail = useTrailItems(jobs);
 
                             return (
                                 <TenureDiv
@@ -59,7 +60,7 @@ export default function JobFeed({
                                     </TenureNameDiv>
                                     <TenureDurationDiv>{getTenureDurationString(tenure)}</TenureDurationDiv>
                                     {innerTrail.map(({ opacity, x }, i) => {
-                                        const e = experiences[i],
+                                        const e = jobs[i],
                                             transform = x.interpolate((x) => `translateY(${-x}px)`),
                                             onEnter = () => throttledSetTenure && throttledSetTenure(tenure);
 

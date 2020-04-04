@@ -5,17 +5,12 @@ import { select } from '@storybook/addon-knobs';
 import JobCard from './index';
 import { Job } from 'models/experience';
 import { stSoftwareEngineer } from 'data/jobs';
-import { CAREER } from 'data/resume';
-import { isJob } from 'utils/experience';
+import { getAllJobs } from 'utils/experience';
 
 const jobs: { [key: string]: Job } = {};
 
-CAREER.forEach(({ tenures }) => {
-    tenures.forEach((tenure) => {
-        tenure.experiences.forEach((e) => {
-            isJob(e) && (jobs[e.title] = e);
-        });
-    });
+getAllJobs().forEach((j) => {
+    jobs[j.title] = j;
 });
 
 storiesOf(`Resume|JobCard`, module).add(`default`, () => {

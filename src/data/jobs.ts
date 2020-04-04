@@ -1,10 +1,10 @@
 import parseISO from 'date-fns/parseISO';
 
-import { Company, Job, School } from 'models/experience';
+import { Job, Org } from 'models/experience';
 import { Tech } from 'models/tech';
 
 export const stSoftwareEngineer: Job = {
-    company: Company.ST,
+    company: Org.ST,
     title: 'Software Engineer',
     team: 'Sites Team',
     technologies: [Tech.TS, Tech.REACT, Tech.SPRING_BOOT, Tech.AWS, Tech.REDIS, Tech.STORYBOOK],
@@ -19,7 +19,7 @@ export const stSoftwareEngineer: Job = {
 };
 
 export const stIntegrationEngineer: Job = {
-    company: Company.ST,
+    company: Org.ST,
     title: 'Integration Engineer',
     team: 'SmarterAds Team',
     technologies: [Tech.ES6, Tech.REACT, Tech.SPRING_BOOT, Tech.KAFKA, Tech.REDIS],
@@ -32,8 +32,25 @@ export const stIntegrationEngineer: Job = {
             backend Spring Boot syndication service.`
 };
 
+export const launchAcademy: Job = {
+    title: 'Full Stack Web Development Bootcamp',
+    startDate: parseISO('2016-02'),
+    endDate: parseISO('2016-05'),
+    company: Org.LAUNCH,
+    technologies: [Tech.RUBY, Tech.RAILS, Tech.D3],
+    description: `This was my first official step into software engineering. After months of learning on my own, I joined
+        Launch Academy to learn the basics of web development. I spent 10 weeks there learning how the web works.
+        My capstone was a project exploring the lyrical diversity of my favorite musicians using
+        <a href="https://d3js.org/" target="_blank" rel="noopener">d3.js</a> and the
+        <a href="https://last.fm" target="_blank" rel="noopener">last.fm API</a>. You can see it 
+        <a href="https://github.com/filipemir/Musicabulary/" target="_blank" rel="noopener">here</a>
+        or in in this
+        <a href="https://www.youtube.com/watch?v=OsIAMMB1Kj0" target="_blank" rel="noopener">promotional video</a>
+        Launch made.`
+};
+
 export const crbResearchAssociate: Job = {
-    company: Company.CR,
+    company: Org.CR,
     title: 'Research Associate',
     startDate: parseISO('2014-01'),
     endDate: parseISO('2016-01'),
@@ -45,7 +62,7 @@ export const crbResearchAssociate: Job = {
 };
 
 export const crbSeniorAnalyst: Job = {
-    company: Company.CR,
+    company: Org.CR,
     title: 'Senior Analyst',
     startDate: parseISO('2013-07'),
     endDate: parseISO('2014-07'),
@@ -57,7 +74,7 @@ export const crbSeniorAnalyst: Job = {
 };
 
 export const crbAnalyst: Job = {
-    company: Company.CR,
+    company: Org.CR,
     title: 'Analyst',
     startDate: parseISO('2012-01'),
     endDate: parseISO('2013-07'),
@@ -69,7 +86,7 @@ export const crbAnalyst: Job = {
 };
 
 export const tuftsRA: Job = {
-    company: School.TUFTS,
+    company: Org.TUFTS,
     title: 'Research Assistant',
     startDate: parseISO('2011-09'),
     endDate: parseISO('2011-12'),
@@ -81,7 +98,7 @@ export const tuftsRA: Job = {
 };
 
 export const tuftsTA: Job = {
-    company: School.TUFTS,
+    company: Org.TUFTS,
     title: 'Teaching Assistant',
     startDate: parseISO('2010-09'),
     endDate: parseISO('2011-12'),
@@ -91,7 +108,7 @@ export const tuftsTA: Job = {
 };
 
 export const nprIntern: Job = {
-    company: Company.NPR,
+    company: Org.NPR,
     title: 'Intern',
     team: 'Planet Money',
     startDate: parseISO('2011-06'),
@@ -101,7 +118,7 @@ export const nprIntern: Job = {
 };
 
 export const adventTeacher: Job = {
-    company: Company.ADVENT,
+    company: Org.ADVENT,
     title: 'Teacher',
     startDate: parseISO('2009-09'),
     endDate: parseISO('2010-08'),
@@ -110,7 +127,7 @@ export const adventTeacher: Job = {
 };
 
 export const americorps: Job = {
-    company: Company.RT,
+    company: Org.RT,
     title: 'Americorps Outreach Coordinator',
     startDate: parseISO('2009-01'),
     endDate: parseISO('2009-09'),
@@ -121,7 +138,7 @@ export const americorps: Job = {
 };
 
 export const irdTeacher: Job = {
-    company: Company.IRD,
+    company: Org.IRD,
     title: 'Teacher',
     startDate: parseISO('2008-06'),
     endDate: parseISO('2008-09'),
@@ -130,11 +147,17 @@ export const irdTeacher: Job = {
 };
 
 export const scuRA: Job = {
-    company: School.SCU,
+    company: Org.SCU,
     title: 'Research Assistant',
     startDate: parseISO('2006-06'),
     endDate: parseISO('2006-08'),
     description: `I spent a summer working with Professor Glenn Appleby to implement in Matlab an algorithm he 
         developed to calculate specific invariants in matrices.
 `
+};
+
+export const samaritans: Job = {
+    company: Org.SAMARITANS,
+    title: 'Crisis Line Volunteer & Mentor',
+    startDate: parseISO('2004-01')
 };

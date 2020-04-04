@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { RootDiv, TimelineWrapper, JobsWrapper } from './styles';
 import CareerTimeline from 'components/CareerTimeline';
-import { Tenure } from 'models/experience';
-import useCareer from 'hooks/useCareer';
+import useResumeReducer from 'hooks/useResumeReducer';
 import JobFeed from 'components/JobFeed';
 
 export default function Resume() {
-    const { tenure, phase, setExperience } = useCareer(),
-        [scrollListenerEnabled, setScrollListenerEnabled] = useState(false),
-        onTenureChange = (tenure: Tenure) => {
-            setExperience(tenure.experiences[0]);
-        };
+    const { state, actions } = useResumeReducer(),
+        { section, phase, tenure } = state,
+        { setTenure, setPhase } = actions,
+        [scrollListenerEnabled, setScrollListenerEnabled] = useState(false);
 
     return (
         <RootDiv>
@@ -18,10 +16,16 @@ export default function Resume() {
                 onMouseEnter={() => setScrollListenerEnabled(false)}
                 onMouseLeave={() => setScrollListenerEnabled(true)}
             >
-                <CareerTimeline activePhase={phase} activeTenure={tenure} onTenureChange={onTenureChange} />
+                <CareerTimeline
+                    activeSection={section}
+                    activeTenure={tenure}
+                    activeCareerPhase={phase}
+                    onCareerPhaseClick={setPhase}
+                    onTenureClick={setTenure}
+                />
             </TimelineWrapper>
             <JobsWrapper>
-                <JobFeed activeTenure={tenure} setActiveTenure={scrollListenerEnabled ? onTenureChange : undefined} />
+                <JobFeed activeTenure={tenure} setActiveTenure={scrollListenerEnabled ? setTenure : undefined} />
             </JobsWrapper>
         </RootDiv>
     );
