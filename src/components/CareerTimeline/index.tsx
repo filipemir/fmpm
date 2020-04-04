@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { RefCallback } from 'react';
 import { animated, useSpring, useTrail } from 'react-spring';
 import useMeasure, { RectReadOnly } from 'react-use-measure';
 
-import { activeTenurePanelCss, PhaseDiv, RootDiv, TenureDiv } from './styles';
+import { activeTenurePanelCss, RootDiv, SectionHeader, SectionItem } from './styles';
 import { RESUME } from 'data/resume';
-import { CareerPhase, ResumeSection, Tenure } from 'models/experience';
+import { CareerPhase, ResumeItem, ResumeSection, Tenure } from 'models/experience';
 
 function getActiveTenurePanelSpring({
     rootRect,
@@ -23,28 +23,27 @@ function getActiveTenurePanelSpring({
 
 interface CareerTimelineProps {
     activeSection: ResumeSection;
+    activeItem: ResumeItem;
     activeTenure?: Tenure;
     activeCareerPhase?: CareerPhase;
-    onCareerPhaseClick?: (c: CareerPhase) => void;
-    onTenureClick?: (t: Tenure) => void;
+    onCareerPhaseClick: (c: CareerPhase) => void;
+    onTenureClick: (t: Tenure) => void;
+    onItemClick: (i: ResumeItem) => void;
+    onSectionClick: (s: ResumeSection) => void;
 }
 
-export default function CareerTimeline({
-    activeSection,
+function ExperienceSection({
     activeTenure,
     activeCareerPhase,
     onCareerPhaseClick,
-    onTenureClick
-}: CareerTimelineProps) {
-    const [rootRef, rootRect] = useMeasure(),
-        [activeItemRef, activeItemRect] = useMeasure(),
-        activeTenurePanelSpring = useSpring(getActiveTenurePanelSpring({ rootRect, activeItemRect })),
-        phases = RESUME[ResumeSection.EXPERIENCE],
+    onTenureClick,
+    activeItemRef
+}: CareerTimelineProps & { activeItemRef: RefCallback<HTMLDivElement | null> }) {
+    const phases = RESUME[ResumeSection.EXPERIENCE],
         outerTrail = useTrail(phases.length, { opacity: 1, x: 0, from: { opacity: 0, x: 20 } });
 
     return (
-        <RootDiv ref={rootRef}>
-            <animated.div style={activeTenurePanelSpring} css={activeTenurePanelCss} />
+        <>
             {outerTrail.map(({ opacity, x }, i) => {
                 const phase = phases[i],
                     { name, tenures } = phase,
@@ -56,9 +55,9 @@ export default function CareerTimeline({
                         style={{ opacity, transform: x.interpolate((x) => `translateX(${-x}px)`) }}
                         key={`section-${name}`}
                     >
-                        <PhaseDiv active={isActive} onClick={() => onCareerPhaseClick && onCareerPhaseClick(phase)}>
+                        <SectionHeader active={isActive} onClick={() => onCareerPhaseClick(phase)}>
                             {name}
-                        </PhaseDiv>
+                        </SectionHeader>
                         {innerTrail.map((style, j) => {
                             const tenure = tenures[j],
                                 isActive = tenure === activeTenure,
@@ -66,16 +65,84 @@ export default function CareerTimeline({
 
                             return (
                                 <animated.div style={style} key={`tenure-${company}`}>
-                                    <TenureDiv
+                                    <SectionItem
                                         active={isActive}
-                                        onClick={() => onTenureClick && onTenureClick(tenure)}
+                                        onClick={() => onTenureClick(tenure)}
                                         ref={isActive ? activeItemRef : undefined}
                                     >
                                         {company}
-                                    </TenureDiv>
+                                    </SectionItem>
                                 </animated.div>
                             );
                         })}
+                    </animated.div>
+                );
+            })}
+        </>
+    );
+}
+
+function EducationSection({
+    activeSection,
+    activeItem,
+    onSectionClick,
+    onItemClick,
+    activeItemRef
+}: CareerTimelineProps & { activeItemRef: RefCallback<HTMLDivElement | null> }) {
+    const section = RESUME[ResumeSection.EDUCATION],
+        isActive = activeSection === ResumeSection.EDUCATION,
+        trail = useTrail(section.length, { opacity: 1, x: 0, from: { opacity: 0, x: 20 } });
+
+    return (
+        <>
+            <SectionHeader active={isActive} onClick={() => onSectionClick(ResumeSection.EDUCATION)}>
+                {ResumeSection.EDUCATION}
+            </SectionHeader>
+            {trail.map(({ opacity, x }, i) => {
+                const degree = section[i],
+                    isActive = degree === activeItem,
+                    { name } = degree;
+                return (
+                    <animated.div
+                        style={{ opacity, transform: x.interpolate((x) => `translateX(${-x}px)`) }}
+                        key={`degree-${name}`}
+                    >
+                        <SectionItem
+                            active={isActive}
+                            onClick={() => onItemClick(degree)}
+                            ref={isActive ? activeItemRef : undefined}
+                        >
+                            {name}
+                        </SectionItem>
+                    </animated.div>
+                );
+            })}
+        </>
+    );
+}
+
+export default function CareerTimeline(props: CareerTimelineProps) {
+    const [rootRef, rootRect] = useMeasure(),
+        [activeItemRef, activeItemRect] = useMeasure(),
+        activeTenurePanelSpring = useSpring(getActiveTenurePanelSpring({ rootRect, activeItemRect })),
+        components = [
+            <ExperienceSection {...props} activeItemRef={activeItemRef} />,
+            <EducationSection {...props} activeItemRef={activeItemRef} />
+        ],
+        trail = useTrail(components.length, { opacity: 1, x: 0, from: { opacity: 0, x: 20 } });
+
+    return (
+        <RootDiv ref={rootRef}>
+            <animated.div style={activeTenurePanelSpring} css={activeTenurePanelCss} />
+
+            {trail.map(({ opacity, x }, i) => {
+                const Component = components[i];
+                return (
+                    <animated.div
+                        style={{ opacity, transform: x.interpolate((x) => `translateX(${-x}px)`) }}
+                        key={`degree-${name}`}
+                    >
+                        {Component}
                     </animated.div>
                 );
             })}

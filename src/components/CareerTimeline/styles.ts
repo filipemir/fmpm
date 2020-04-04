@@ -13,7 +13,7 @@ export const RootDiv = styled.div`
     z-index: 0;
 `;
 
-export const TimelineItem = css`
+const TimelineItem = css`
     height: 30px;
     cursor: pointer;
     display: flex;
@@ -27,13 +27,13 @@ export const TimelineItem = css`
 
 export const DynamicColor = ({ active }: { active: boolean }) => `color: ${active ? COLOR_ACCENT : COLOR_TERNARY};`;
 
-export const PhaseDiv = styled.div`
+export const SectionHeader = styled.div`
     ${TimelineItem};
     ${DynamicColor};
     padding: 0 1em;
 `;
 
-export const TenureDiv = styled.div`
+export const SectionItem = styled.div`
     ${TimelineItem};
     ${DynamicColor};
     position: relative;
