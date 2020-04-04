@@ -1,5 +1,8 @@
 import React, { useRef, useEffect, MutableRefObject } from 'react';
 import { useTrail, animated } from 'react-spring';
+import { Waypoint } from 'react-waypoint';
+import throttle from 'lodash/throttle';
+
 import { RootDiv, ExperienceDiv, TenureDiv, TenureDurationDiv, TenureNameDiv, SlashDiv } from './styles';
 import { CAREER } from 'data/resume';
 import { getTenureDurationString, isJob } from 'utils/experience';
@@ -13,17 +16,25 @@ function useTrailItems<T>(collection: T[]) {
     return useTrail(collection.length, { opacity: 1, x: 0, from: { opacity: 0, x: 20 } });
 }
 
-export default function JobFeed({ activeTenure }: { activeTenure?: Tenure }) {
+export default function JobFeed({
+    activeTenure,
+    setActiveTenure
+}: {
+    activeTenure?: Tenure;
+    setActiveTenure?: (tenure: Tenure) => void;
+}) {
     const outerTrail = useTrailItems(CAREER),
-        activeTenureRef = useRef() as MutableRefObject<HTMLDivElement | null>;
+        rootRef = useRef() as MutableRefObject<HTMLDivElement | null>,
+        activeTenureRef = useRef() as MutableRefObject<HTMLDivElement | null>,
+        throttledSetTenure = setActiveTenure && throttle(setActiveTenure, 100, { trailing: true });
 
     useEffect(() => {
         const el = activeTenureRef.current;
         el && el.scrollIntoView({ behavior: 'smooth' });
-    }, [activeTenureRef.current]);
+    }, [activeTenure, activeTenureRef]);
 
     return (
-        <RootDiv>
+        <RootDiv ref={rootRef}>
             {outerTrail.map(({ opacity, x }, i) => {
                 const careerPhase = CAREER[i],
                     { name, tenures } = careerPhase,
@@ -49,10 +60,12 @@ export default function JobFeed({ activeTenure }: { activeTenure?: Tenure }) {
                                     <TenureDurationDiv>{getTenureDurationString(tenure)}</TenureDurationDiv>
                                     {innerTrail.map(({ opacity, x }, i) => {
                                         const e = experiences[i],
-                                            transform = x.interpolate((x) => `translateY(${-x}px)`);
+                                            transform = x.interpolate((x) => `translateY(${-x}px)`),
+                                            onEnter = () => throttledSetTenure && throttledSetTenure(tenure);
 
                                         return (
                                             <animated.div style={{ opacity, transform }} key={`experience-${e.title}`}>
+                                                <Waypoint onEnter={onEnter} />
                                                 <ExperienceDiv>
                                                     {isJob(e) ? <JobCard job={e} /> : <DegreeCard degree={e} />}
                                                 </ExperienceDiv>
