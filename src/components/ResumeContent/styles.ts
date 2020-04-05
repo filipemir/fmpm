@@ -26,12 +26,15 @@ export const ResumeSectionDiv = styled.div`
     }
 `;
 
+export const withLogo = ({ withLogo }: { withLogo: boolean }) => `margin-left: ${withLogo ? '50px' : 0}`;
+
 export const ResumeSectionNameDiv = styled.div`
+    ${withLogo};
     font-size: 16px;
     color: ${COLOR_ACCENT};
     padding: 0 15px;
     margin-bottom: 1em;
-    text-shadow: 2px 2px 0 ${COLOR_BG_ACCENT};
+    text-shadow: 2px 4px 0 ${COLOR_BG_ACCENT};
     position: relative;
     display: inline-block;
 `;
@@ -59,4 +62,14 @@ export const SlashDiv = styled.div`
     div {
         height: 100%;
     }
+`;
+
+export const Logo = styled.img`
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    border-radius: 4px;
+    top: 0px;
+    left: -40px;
+    box-shadow: 2px 2px 0 ${COLOR_QUATERNARY};
 `;

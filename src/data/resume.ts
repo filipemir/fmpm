@@ -16,50 +16,68 @@ import {
     tuftsTA
 } from 'data/jobs';
 import { scuDegree, tuftsDegree } from 'data/degrees';
+import adventLogo from 'images/advent.png';
+import irdLogo from 'images/ird.png';
+import nprLogo from 'images/npr.png';
+import rtLogo from 'images/rt.png';
+import scuLogo from 'images/scu.png';
+import tuftsLogo from 'images/tufts.png';
+import stLogo from 'images/st.png';
+import launchLogo from 'images/launch.png';
+import crLogo from 'images/cr.png';
 
 const ST: Tenure = {
     company: Org.ST,
-    jobs: [stSoftwareEngineer, stIntegrationEngineer]
+    jobs: [stSoftwareEngineer, stIntegrationEngineer],
+    logo: stLogo
 };
 
 const Launch: Tenure = {
     company: Org.LAUNCH,
-    jobs: [launchAcademy]
+    jobs: [launchAcademy],
+    logo: launchLogo
 };
 
 const CR: Tenure = {
     company: Org.CR,
-    jobs: [crbResearchAssociate, crbSeniorAnalyst, crbAnalyst]
+    jobs: [crbResearchAssociate, crbSeniorAnalyst, crbAnalyst],
+    logo: crLogo
 };
 
 const Tufts: Tenure = {
     company: Org.TUFTS,
-    jobs: [tuftsRA, tuftsTA]
+    jobs: [tuftsRA, tuftsTA],
+    logo: tuftsLogo
 };
 
 const NPR: Tenure = {
     company: Org.NPR,
-    jobs: [nprIntern]
+    jobs: [nprIntern],
+    logo: nprLogo
 };
 
 const Advent: Tenure = {
     company: Org.ADVENT,
-    jobs: [adventTeacher]
+    jobs: [adventTeacher],
+    logo: adventLogo
 };
 
 const RT: Tenure = {
     company: Org.RT,
-    jobs: [americorps]
+    jobs: [americorps],
+    logo: rtLogo
 };
 
 const IRD: Tenure = {
     company: Org.IRD,
-    jobs: [irdTeacher]
+    jobs: [irdTeacher],
+    logo: irdLogo
 };
 
 const SCU: Tenure = {
     company: Org.SCU,
-    jobs: [scuRA]
+    jobs: [scuRA],
+    logo: scuLogo
 };
 
 const Samaritans: Tenure = {

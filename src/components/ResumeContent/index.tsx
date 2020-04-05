@@ -3,7 +3,7 @@ import { useTrail, animated, useSpring, config } from 'react-spring';
 import { Waypoint } from 'react-waypoint';
 import throttle from 'lodash/throttle';
 
-import { RootDiv, ResumeItemDiv, ResumeSectionDiv, DurationSpan, ResumeSectionNameDiv, SlashDiv } from './styles';
+import { RootDiv, ResumeItemDiv, ResumeSectionDiv, DurationSpan, ResumeSectionNameDiv, SlashDiv, Logo } from './styles';
 import { RESUME } from 'data/resume';
 import { getTenureDurationString } from 'utils/experience';
 import JobCard from 'components/JobCard';
@@ -41,7 +41,7 @@ function ExperienceSection({
                 return (
                     <div key={`phase-${name}`}>
                         {tenures.map((tenure) => {
-                            const { company, jobs } = tenure,
+                            const { company, jobs, logo } = tenure,
                                 innerTrail = useTrail(jobs.length, {
                                     opacity: 1,
                                     x: 0,
@@ -54,8 +54,9 @@ function ExperienceSection({
                                     key={`tenure-${company}`}
                                     ref={tenure === activeTenure ? activeItemRef : undefined}
                                 >
-                                    <ResumeSectionNameDiv>
+                                    <ResumeSectionNameDiv withLogo={!!logo}>
                                         {company}
+                                        {logo && <Logo src={logo} />}
                                         <SlashDiv>
                                             <ReactSVG src={underlineSvg} />
                                         </SlashDiv>
@@ -100,7 +101,7 @@ function EducationSection({
     return (
         <animated.div style={spring}>
             <ResumeSectionDiv>
-                <ResumeSectionNameDiv>
+                <ResumeSectionNameDiv withLogo={false}>
                     Education
                     <SlashDiv>
                         <ReactSVG src={underlineSvg} />
