@@ -53,4 +53,6 @@ export const DescriptionDiv = styled.div`
     font-family: ${FONT_FAMILY_SANS_SERIF};
     color: ${COLOR_SECONDARY};
     line-height: 20px;
+    font-size: 14px;
+    font-weight: 300;
 `;
