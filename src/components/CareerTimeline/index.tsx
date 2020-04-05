@@ -81,7 +81,7 @@ function getEducationComponents({
     const section = RESUME[ResumeSection.EDUCATION],
         isActive = activeSection === ResumeSection.EDUCATION,
         components = [
-            <SectionHeader active={isActive} onClick={() => onSectionClick(ResumeSection.EDUCATION)}>
+            <SectionHeader active={isActive} onClick={() => onSectionClick(ResumeSection.EDUCATION)} key={'education'}>
                 {ResumeSection.EDUCATION}
             </SectionHeader>
         ];
@@ -94,6 +94,7 @@ function getEducationComponents({
                 active={isActive}
                 onClick={() => onItemClick(degree)}
                 ref={isActive ? activeItemRef : undefined}
+                key={`degree-${name}`}
             >
                 {name}
             </SectionItem>

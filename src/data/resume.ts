@@ -8,7 +8,6 @@ import {
     irdTeacher,
     launchAcademy,
     nprIntern,
-    samaritans,
     scuRA,
     stIntegrationEngineer,
     stSoftwareEngineer,
@@ -78,11 +77,6 @@ const SCU: Tenure = {
     company: Org.SCU,
     jobs: [scuRA],
     logo: scuLogo
-};
-
-const Samaritans: Tenure = {
-    company: Org.SAMARITANS,
-    jobs: [samaritans]
 };
 
 export const RESUME: Resume = {

@@ -17,6 +17,8 @@ export const TEXT_SHADOW = `2px 4px 0 ${COLOR_BG_ACCENT}`;
 const globalCss = css`
     html,
     body {
+        height: 100%;
+        position: relative;
         background-color: ${COLOR_BG};
         color: ${COLOR_PRIMARY};
         font-family: ${FONT_FAMILY_SANS_SERIF};

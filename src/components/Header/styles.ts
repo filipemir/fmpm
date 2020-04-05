@@ -6,7 +6,7 @@ export const RootDiv = styled.div`
     font-size: 40px;
     text-shadow: 2px 4px ${COLOR_BG_ACCENT};
     z-index: 0;
-    position: absolute;
+    position: relative;
     font-weight: 400;
 `;
 

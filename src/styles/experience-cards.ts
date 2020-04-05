@@ -6,8 +6,7 @@ import {
     COLOR_TERNARY,
     FONT_FAMILY_MONO,
     FONT_FAMILY_SANS_SERIF,
-    FONT_FAMILY_SERIF,
-    TEXT_SHADOW
+    FONT_FAMILY_SERIF
 } from 'styles/global';
 
 export const ExperienceRootDiv = styled.div`

@@ -1,11 +1,7 @@
 import React from 'react';
 
-import Layout from 'components/Layout';
+import HomePage from 'pages/Home';
 
-export default function HomePage() {
-    return (
-        <Layout>
-            hi
-        </Layout>
-    );
+export default function Home() {
+    return <HomePage />;
 }

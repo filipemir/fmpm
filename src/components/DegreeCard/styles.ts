@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { ExperienceRootDiv, DescriptionDiv, TitleSpan } from 'styles/experience-cards';
+import { ExperienceRootDiv, TitleSpan } from 'styles/experience-cards';
 import { COLOR_ACCENT, COLOR_TERNARY } from 'styles/global';
 
 export const RootDiv = ExperienceRootDiv;
