@@ -12,10 +12,6 @@ import { ReactSVG } from 'react-svg';
 import underlineSvg from 'images/underline.svg';
 import { CareerPhase, ResumeItem, ResumeSection, Tenure } from 'models/experience';
 
-function useTrailItems<T>(collection: T[]) {
-    return useTrail(collection.length, { opacity: 1, x: 0, from: { opacity: 0, x: 20 } });
-}
-
 interface ResumeContentProps {
     activeSection: ResumeSection;
     activeCareerPhase?: CareerPhase;
@@ -46,7 +42,12 @@ function ExperienceSection({
                     <div key={`phase-${name}`}>
                         {tenures.map((tenure) => {
                             const { company, jobs } = tenure,
-                                innerTrail = useTrailItems(jobs);
+                                innerTrail = useTrail(jobs.length, {
+                                    opacity: 1,
+                                    x: 0,
+                                    from: { opacity: 1, x: 20 },
+                                    config: config.wobbly
+                                });
 
                             return (
                                 <ResumeSectionDiv
@@ -62,7 +63,7 @@ function ExperienceSection({
                                     <DurationSpan>{getTenureDurationString(tenure)}</DurationSpan>
                                     {innerTrail.map(({ opacity, x }, i) => {
                                         const e = jobs[i],
-                                            transform = x.interpolate((x) => `translateY(${-x}px)`),
+                                            transform = x.interpolate((x) => `translateX(${-x}px)`),
                                             onEnter = () => throttledSetTenure && throttledSetTenure(tenure);
 
                                         return (
