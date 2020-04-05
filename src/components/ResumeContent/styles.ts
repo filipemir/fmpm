@@ -33,7 +33,7 @@ export const ResumeSectionNameDiv = styled.div`
     font-size: 16px;
     color: ${COLOR_ACCENT};
     padding: 0 15px;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
     text-shadow: 2px 4px 0 ${COLOR_BG_ACCENT};
     position: relative;
     display: inline-block;

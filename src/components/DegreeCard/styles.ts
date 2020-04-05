@@ -10,6 +10,7 @@ export const SchoolSpan = styled.span`
     text-shadow: none;
     font-style: normal;
     font-size: 0.8em;
+    font-weight: 100;
 
     &:before {
         content: ' | ';
