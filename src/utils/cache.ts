@@ -52,11 +52,5 @@ export class ResumeItemsCache {
         RESUME[ResumeSection.EDUCATION].forEach((degree) => {
             this.cache[ResumeItemsCache.getKey(degree)] = { section: ResumeSection.EDUCATION };
         });
-
-        RESUME[ResumeSection.VOLUNTEERING].forEach(({ jobs }) => {
-            jobs.forEach((job) => {
-                this.cache[ResumeItemsCache.getKey(job)] = { section: ResumeSection.VOLUNTEERING };
-            });
-        });
     }
 }

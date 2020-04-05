@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { RootDiv, TimelineWrapper, JobsWrapper } from './styles';
 import CareerTimeline from 'components/CareerTimeline';
 import useResumeReducer from 'hooks/useResumeReducer';
-import JobFeed from 'components/JobFeed';
+import ResumeContent from 'components/ResumeContent';
 
 export default function Resume() {
     const { state, actions } = useResumeReducer(),
-        { section, phase, tenure } = state,
-        { setTenure, setPhase } = actions,
+        { item, section, phase, tenure } = state,
+        { setTenure, setPhase, setItem, setSection } = actions,
         [scrollListenerEnabled, setScrollListenerEnabled] = useState(false);
 
     return (
@@ -17,15 +17,25 @@ export default function Resume() {
                 onMouseLeave={() => setScrollListenerEnabled(true)}
             >
                 <CareerTimeline
+                    activeItem={item}
                     activeSection={section}
                     activeTenure={tenure}
                     activeCareerPhase={phase}
                     onCareerPhaseClick={setPhase}
                     onTenureClick={setTenure}
+                    onSectionClick={setSection}
+                    onItemClick={setItem}
                 />
             </TimelineWrapper>
             <JobsWrapper>
-                <JobFeed activeTenure={tenure} setActiveTenure={scrollListenerEnabled ? setTenure : undefined} />
+                <ResumeContent
+                    activeItem={item}
+                    activeSection={section}
+                    activeTenure={tenure}
+                    activeCareerPhase={phase}
+                    setActiveTenure={scrollListenerEnabled ? setTenure : undefined}
+                    setActiveItem={scrollListenerEnabled ? setItem : undefined}
+                />
             </JobsWrapper>
         </RootDiv>
     );

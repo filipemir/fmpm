@@ -58,5 +58,4 @@ export enum ResumeSection {
 export interface Resume {
     [ResumeSection.EXPERIENCE]: CareerPhase[];
     [ResumeSection.EDUCATION]: Degree[];
-    [ResumeSection.VOLUNTEERING]: Tenure[];
 }

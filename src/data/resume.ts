@@ -73,6 +73,5 @@ export const RESUME: Resume = {
         { name: CareerPhaseName.CONSULTING, tenures: [CR] },
         { name: CareerPhaseName.OTHER, tenures: [Tufts, NPR, Advent, RT, IRD, SCU] }
     ],
-    [ResumeSection.VOLUNTEERING]: [Samaritans],
     [ResumeSection.EDUCATION]: [tuftsDegree, scuDegree]
 };

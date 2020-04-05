@@ -9,7 +9,7 @@ export const RootDiv = styled.div`
     height: 100%;
 `;
 
-export const TenureDiv = styled.div`
+export const ResumeSectionDiv = styled.div`
     position: relative;
     z-index: 0;
     font-weight: 300;
@@ -26,7 +26,7 @@ export const TenureDiv = styled.div`
     }
 `;
 
-export const TenureNameDiv = styled.div`
+export const ResumeSectionNameDiv = styled.div`
     font-size: 16px;
     color: ${COLOR_ACCENT};
     padding: 0 15px;
@@ -36,13 +36,13 @@ export const TenureNameDiv = styled.div`
     display: inline-block;
 `;
 
-export const TenureDurationDiv = styled.span`
+export const DurationSpan = styled.span`
     font-size: 12px;
     color: ${COLOR_TERNARY};
     margin-left: 1em;
 `;
 
-export const ExperienceDiv = styled.div`
+export const ResumeItemDiv = styled.div`
     text-align: left;
     margin-bottom: 2em;
 `;
