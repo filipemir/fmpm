@@ -11,6 +11,7 @@ export const RootDiv = styled.div`
     border-left: 1px solid ${COLOR_BG_ACCENT};
     position: relative;
     z-index: 0;
+    height: 100%;
 `;
 
 const TimelineItem = css`

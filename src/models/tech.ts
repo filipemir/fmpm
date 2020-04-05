@@ -13,5 +13,6 @@ export enum Tech {
     STORYBOOK = 'Storybook',
     RUBY = 'Ruby',
     RAILS = 'Ruby on Rails',
-    D3 = 'd3.js'
+    D3 = 'd3.js',
+    GOOGLE_FNS = 'Google Functions'
 }
