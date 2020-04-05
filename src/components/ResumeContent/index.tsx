@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, MutableRefObject } from 'react';
-import { useTrail, animated, useSpring, config } from 'react-spring';
+import { useTrail, animated, useSpring, config, OpaqueInterpolation } from 'react-spring';
 import { Waypoint } from 'react-waypoint';
 import throttle from 'lodash/throttle';
 
@@ -64,11 +64,19 @@ function ExperienceSection({
                                     <DurationSpan>{getTenureDurationString(tenure)}</DurationSpan>
                                     {innerTrail.map(({ opacity, x }, i) => {
                                         const e = jobs[i],
-                                            transform = x.interpolate((x) => `translateX(${-x}px)`),
-                                            onEnter = () => throttledSetTenure && throttledSetTenure(tenure);
+                                            onEnter = () => throttledSetTenure && throttledSetTenure(tenure),
+                                            transform = (x as OpaqueInterpolation<number>).interpolate(
+                                                (x) => `translateX(${-x}px)`
+                                            );
 
                                         return (
-                                            <animated.div style={{ opacity, transform }} key={`experience-${e.title}`}>
+                                            <animated.div
+                                                style={{
+                                                    opacity,
+                                                    transform
+                                                }}
+                                                key={`experience-${e.title}`}
+                                            >
                                                 <Waypoint onEnter={onEnter} />
                                                 <ResumeItemDiv>
                                                     <JobCard job={e} />

@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
 
 import { RESUME } from 'data/resume';
-import { CareerPhase, ResumeItem, ResumeSection, Tenure } from 'models/experience';
+import { CareerPhase, Degree, ResumeItem, ResumeSection, Tenure } from 'models/experience';
 import { ResumeItemsCache } from 'utils/cache';
 import { isCareerPhase, isTenure } from 'utils/experience';
 
@@ -34,7 +34,7 @@ function reduceSetItem(item: ResumeItem) {
 }
 
 function reduceSetSection(section: ResumeSection) {
-    const first = RESUME[section][0];
+    const first: CareerPhase | Tenure | Degree = RESUME[section][0];
 
     if (isCareerPhase(first)) {
         const tenure = first.tenures[0] as Tenure,

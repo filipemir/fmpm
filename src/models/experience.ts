@@ -52,8 +52,7 @@ export interface CareerPhase {
 
 export enum ResumeSection {
     EXPERIENCE = 'Experience',
-    EDUCATION = 'Education',
-    VOLUNTEERING = 'Volunteering'
+    EDUCATION = 'Education'
 }
 
 export interface Resume {
