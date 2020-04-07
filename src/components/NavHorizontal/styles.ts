@@ -19,6 +19,10 @@ const dynamic = ({ active }: { active: boolean }) => css`
     color: ${active && COLOR_ACCENT};
 `;
 
+export const PageDivWrapper = styled.div`
+    display: inline-block;
+`;
+
 export const PageDiv = styled.div`
     ${dynamic};
     cursor: pointer;
@@ -51,5 +55,5 @@ export const dotCss = css`
     border-radius: 50%;
     box-shadow: 2px 2px ${COLOR_BG_ACCENT};
     transform: translateX(-50%);
-    top: -10px;
+    top: -15px;
 `;
