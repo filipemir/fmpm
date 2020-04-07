@@ -8,8 +8,7 @@ import { RESUME } from 'data/resume';
 import { getTenureDurationString } from 'utils/experience';
 import JobCard from 'components/JobCard';
 import DegreeCard from 'components/DegreeCard';
-import { ReactSVG } from 'react-svg';
-import underlineSvg from 'images/underline.svg';
+import Underline from 'images/underline.svg';
 import { CareerPhase, ResumeItem, ResumeSection, Tenure } from 'models/experience';
 
 interface ResumeContentProps {
@@ -58,7 +57,7 @@ function ExperienceSection({
                                         {company}
                                         {logo && <Logo src={logo} />}
                                         <SlashDiv>
-                                            <ReactSVG src={underlineSvg} />
+                                            <Underline />
                                         </SlashDiv>
                                     </ResumeSectionNameDiv>
                                     <DurationSpan>{getTenureDurationString(tenure)}</DurationSpan>
@@ -111,9 +110,7 @@ function EducationSection({
             <ResumeSectionDiv>
                 <ResumeSectionNameDiv withLogo={false}>
                     Education
-                    <SlashDiv>
-                        <ReactSVG src={underlineSvg} />
-                    </SlashDiv>
+                    <SlashDiv>{/*<ReactSVG src={underlineSvg} />*/}</SlashDiv>
                 </ResumeSectionNameDiv>
                 {degrees.map((degree) => {
                     const { name } = degree,

@@ -1,13 +1,12 @@
 import React from 'react';
 import Emoji from 'a11y-react-emoji';
 
-import { RootDiv, TextSpan, EmojiSpan, SlashDiv } from './styles';
-import { ReactSVG } from 'react-svg';
-import underline from 'images/underline.svg';
+import { Root, TextSpan, EmojiSpan, SlashDiv } from './styles';
+import Underline from 'images/underline.svg';
 
 export default function Header({ text, emoji }: { text: string; emoji?: string }) {
     return (
-        <RootDiv>
+        <Root>
             {emoji && (
                 <EmojiSpan>
                     <Emoji symbol={emoji} />
@@ -15,8 +14,8 @@ export default function Header({ text, emoji }: { text: string; emoji?: string }
             )}
             <TextSpan>{text}</TextSpan>
             <SlashDiv>
-                <ReactSVG src={underline} />
+                <Underline />
             </SlashDiv>
-        </RootDiv>
+        </Root>
     );
 }

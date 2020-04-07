@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { ReactSVG } from 'react-svg';
 import useMeasure, { RectReadOnly } from 'react-use-measure';
 import { useSpring, animated, useTrail } from 'react-spring';
 
 import { RootDiv, PageDiv, PageSeparator, underlineDivCss, dotCss } from './styles';
-import underlineSvg from 'images/underline.svg';
+import Underline from 'images/underline.svg';
 import Page from 'models/page';
 
 function getUnderlinePosition(activePageRect: RectReadOnly) {
@@ -39,7 +38,7 @@ export default function NavHorizontal({
         <RootDiv>
             <animated.div style={dotPosition} css={dotCss} />
             <animated.div style={underlinePosition} css={underlineDivCss}>
-                <ReactSVG src={underlineSvg} />
+                <Underline />
             </animated.div>
             {trail.map(({ opacity }, i) => {
                 const p = pages[i],

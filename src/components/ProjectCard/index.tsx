@@ -1,5 +1,4 @@
 import React from 'react';
-import { ReactSVG } from 'react-svg';
 
 import {
     RootWithDropShadow,
@@ -13,8 +12,8 @@ import {
 } from './styles';
 import { Project } from 'models/project';
 import TechTag from 'components/TechTag';
-import githubLogo from 'images/github.svg';
-import linkSvg from 'images/link.svg';
+import GithubSvg from 'images/github.svg';
+import LinkSvg from 'images/link.svg';
 
 export default function ProjectCard({ project }: { project: Project }) {
     const { name, description, technologies, githubUrl, url } = project;
@@ -31,12 +30,12 @@ export default function ProjectCard({ project }: { project: Project }) {
                 <ExternalLinks>
                     {githubUrl && (
                         <GithubLogo href={githubUrl} target={'_blank'} rel='noopener'>
-                            <ReactSVG src={githubLogo} />
+                            <GithubSvg />
                         </GithubLogo>
                     )}
                     {url && (
                         <ExternalLinkSvg href={url} target={'_blank'} rel='noopener'>
-                            <ReactSVG src={linkSvg} />
+                            <LinkSvg />
                         </ExternalLinkSvg>
                     )}
                 </ExternalLinks>
