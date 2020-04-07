@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, MutableRefObject } from 'react';
 import useMeasure, { RectReadOnly } from 'react-use-measure';
 import { useSpring, animated, useTrail } from 'react-spring';
 
@@ -6,18 +6,45 @@ import { RootDiv, PageDiv, PageSeparator, underlineDivCss, dotCss } from './styl
 import Underline from 'images/underline.svg';
 import Page from 'models/page';
 
-function getUnderlinePosition(activePageRect: RectReadOnly) {
-    const { left, top, width, height } = activePageRect;
+function getUnderlinePosition({
+    rootRef,
+    activePageRect
+}: {
+    rootRef?: MutableRefObject<HTMLDivElement | null>;
+    activePageRect: RectReadOnly;
+}) {
+    if (!rootRef || !rootRef.current) {
+        return { left: 0, opacity: 0, width: 45 };
+    }
+
+    const rootRect = rootRef.current.getBoundingClientRect();
+
+    const { left, width } = activePageRect;
     return {
-        left: left + width / 2,
-        top: top + height - 3,
-        width: width
+        left: left - rootRect.left,
+        width: width,
+        opacity: 1
     };
 }
 
-function getDotPosition(hoveredRect: DOMRect | RectReadOnly) {
-    const { top, left, width } = hoveredRect;
-    return { top: top - 10, left: left + width / 2, opacity: 1 };
+function getDotPosition({
+    rootRef,
+    activePageRect
+}: {
+    rootRef?: MutableRefObject<HTMLDivElement | null>;
+    activePageRect: RectReadOnly;
+}) {
+    if (!rootRef || !rootRef.current) {
+        return { left: 0, opacity: 0 };
+    }
+
+    const rootRect = rootRef.current.getBoundingClientRect();
+
+    const { left, width } = activePageRect;
+    return {
+        left: left - rootRect.left + width / 2,
+        opacity: 1
+    };
 }
 
 export default function NavHorizontal({
@@ -29,13 +56,17 @@ export default function NavHorizontal({
 }) {
     const pages = Object.values(Page),
         [skipAnimations, setSkipAnimations] = useState(true),
+        rootRef = useRef() as MutableRefObject<HTMLDivElement | null>,
         [activePageRef, activePageRect] = useMeasure(),
-        underlinePosition = useSpring({ ...getUnderlinePosition(activePageRect), immediate: skipAnimations }),
-        dotPosition = useSpring({ ...getDotPosition(activePageRect), immediate: skipAnimations }),
+        underlinePosition = useSpring({
+            ...getUnderlinePosition({ rootRef, activePageRect }),
+            immediate: skipAnimations
+        }),
+        dotPosition = useSpring({ ...getDotPosition({ rootRef, activePageRect }), immediate: skipAnimations }),
         trail = useTrail(pages.length, { opacity: 1, from: { opacity: 0 } });
 
     return (
-        <RootDiv>
+        <RootDiv ref={rootRef}>
             <animated.div style={dotPosition} css={dotCss} />
             <animated.div style={underlinePosition} css={underlineDivCss}>
                 <Underline />

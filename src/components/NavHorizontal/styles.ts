@@ -30,12 +30,12 @@ export const PageSeparator = styled.span`
 `;
 
 export const underlineDivCss = css`
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: 10px;
     z-index: -1;
     fill: ${COLOR_BG_ACCENT};
-    transform: translate(-50%, -100%);
+    top: 6px;
 
     div {
         height: 100%;
@@ -44,11 +44,12 @@ export const underlineDivCss = css`
 
 const circleSize = '8px';
 export const dotCss = css`
-    position: fixed;
+    position: absolute;
     width: ${circleSize};
     height: ${circleSize};
     background-color: ${COLOR_ACCENT};
     border-radius: 50%;
     box-shadow: 2px 2px ${COLOR_BG_ACCENT};
     transform: translateX(-50%);
+    top: -10px;
 `;
