@@ -26,3 +26,5 @@ export const SBS: Project = {
     description: `The website for Stonybrook Strings, a violin teaching studio in Boston entirely 
         coincidentally owned and run by my wife.`
 };
+
+export const PROJECTS = [BPD, BEST_WORDS, SBS];

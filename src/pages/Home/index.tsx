@@ -2,9 +2,11 @@ import React from 'react';
 
 import Layout from 'components/Layout';
 import Resume from 'components/Resume';
-import { RootDiv, WelcomeSection, ExperienceSection, ResumeWrapper } from './styles';
+import { RootDiv, WelcomeSection, Section, HeaderWrapper, ResumeWrapper, ProjectsWrapper } from './styles';
 import Header from 'components/Header';
 import Welcome from 'components/Welcome';
+import { PROJECTS } from 'data/projects';
+import ProjectCard from 'components/ProjectCard';
 
 export default function HomePage() {
     return (
@@ -13,14 +15,24 @@ export default function HomePage() {
                 <WelcomeSection>
                     <Welcome />
                 </WelcomeSection>
-                <ExperienceSection>
-                    <h2>
+                <Section>
+                    <HeaderWrapper>
+                        <Header text={'projects'} emoji={'🛠'} />
+                    </HeaderWrapper>
+                    <ProjectsWrapper>
+                        {PROJECTS.map((p, i) => (
+                            <ProjectCard project={p} key={`project-${i}`} />
+                        ))}
+                    </ProjectsWrapper>
+                </Section>
+                <Section>
+                    <HeaderWrapper>
                         <Header text={'experience'} emoji={'👨‍💻'} />
-                    </h2>
+                    </HeaderWrapper>
                     <ResumeWrapper>
                         <Resume />
                     </ResumeWrapper>
-                </ExperienceSection>
+                </Section>
             </RootDiv>
         </Layout>
     );

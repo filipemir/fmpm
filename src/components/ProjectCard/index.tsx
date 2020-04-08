@@ -1,42 +1,41 @@
-import React from 'react';
+import React, { useRef, MutableRefObject } from 'react';
 
-import {
-    RootWithDropShadow,
-    Title,
-    Description,
-    Wrapper,
-    Technologies,
-    GithubLogo,
-    ExternalLinks,
-    ExternalLinkSvg
-} from './styles';
+import { RootWithDropShadow, Title, Description, Wrapper, Technologies, GithubLogo, ExternalLinks } from './styles';
 import { Project } from 'models/project';
 import TechTag from 'components/TechTag';
 import GithubSvg from 'images/github.svg';
-import LinkSvg from 'images/link.svg';
 
 export default function ProjectCard({ project }: { project: Project }) {
-    const { name, description, technologies, githubUrl, url } = project;
+    const { name, description, technologies, githubUrl, url } = project,
+        githubLinkRef = useRef() as MutableRefObject<HTMLAnchorElement | null>,
+        onClick = (evt: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+            const hasUrl = url || githubUrl,
+                githubLinkEl = githubLinkRef.current,
+                isGithubLinkClick = !!githubLinkEl && githubLinkEl.contains(evt.target as Node);
+
+            if (!hasUrl || isGithubLinkClick) {
+                return;
+            }
+
+            window.open(url || githubUrl, '_blank');
+        };
     return (
-        <RootWithDropShadow>
+        <RootWithDropShadow onClick={onClick}>
             <Wrapper>
-                <Title>{name}</Title>
+                <Title href={url || githubUrl} target={'_blank'} rel='noopener'>
+                    {name}
+                </Title>
                 <Description>{description}</Description>
                 <Technologies>
                     {technologies.map((t) => (
-                        <TechTag technology={t} />
+                        <TechTag technology={t} key={t} />
                     ))}
                 </Technologies>
                 <ExternalLinks>
                     {githubUrl && (
-                        <GithubLogo href={githubUrl} target={'_blank'} rel='noopener'>
+                        <GithubLogo href={githubUrl} target={'_blank'} rel='noopener' ref={githubLinkRef}>
                             <GithubSvg />
                         </GithubLogo>
-                    )}
-                    {url && (
-                        <ExternalLinkSvg href={url} target={'_blank'} rel='noopener'>
-                            <LinkSvg />
-                        </ExternalLinkSvg>
                     )}
                 </ExternalLinks>
             </Wrapper>

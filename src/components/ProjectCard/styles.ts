@@ -11,6 +11,8 @@ import {
 
 export const RootWithDropShadow = styled.div`
     filter: drop-shadow(5px 5px 0 ${COLOR_QUATERNARY});
+    display: inline-block;
+    cursor: pointer;
 `;
 
 export const Wrapper = styled.div`
@@ -22,16 +24,25 @@ export const Wrapper = styled.div`
     box-shadow: 5px 5px 0 ${COLOR_QUATERNARY};
     clip-path: polygon(50% 0%, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 0);
     position: relative;
+    transition: transform 100ms ease-in-out;
+
+    &:hover {
+        transform: scale(1.03);
+    }
 `;
 
-export const Title = styled.div`
+export const Title = styled.a`
     font-family: ${FONT_FAMILY_SERIF};
     color: ${COLOR_PRIMARY};
     font-style: italic;
-    font-weight: 600;
     font-size: 22px;
     margin-bottom: 0.5em;
     margin-right: 50px;
+    display: inline-block;
+
+    &:hover {
+        text-decoration: none;
+    }
 `;
 
 export const Description = styled.div`
