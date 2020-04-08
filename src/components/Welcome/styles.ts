@@ -7,6 +7,7 @@ export const Root = styled.div`
     position: relative;
     z-index: 0;
     display: flex;
+    height: fit-content;
 `;
 
 export const AvatarWrapper = styled.div`

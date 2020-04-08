@@ -5,7 +5,15 @@ export const RootDiv = styled.div`
     margin: 0 auto;
 `;
 
-export const ResumeSection = styled.div``;
+export const WelcomeSection = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-height: 800px;
+`;
+
+export const ExperienceSection = styled.div``;
 
 export const ResumeWrapper = styled.div`
     display: block;

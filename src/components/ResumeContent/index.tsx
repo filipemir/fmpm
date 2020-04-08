@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, MutableRefObject } from 'react';
+import React, { useRef, useState, useEffect, MutableRefObject } from 'react';
 import { useTrail, animated, useSpring, config, OpaqueInterpolation } from 'react-spring';
 import { Waypoint } from 'react-waypoint';
 import throttle from 'lodash/throttle';
@@ -110,7 +110,9 @@ function EducationSection({
             <ResumeSectionDiv>
                 <ResumeSectionNameDiv withLogo={false}>
                     Education
-                    <SlashDiv>{/*<ReactSVG src={underlineSvg} />*/}</SlashDiv>
+                    <SlashDiv>
+                        <Underline />
+                    </SlashDiv>
                 </ResumeSectionNameDiv>
                 {degrees.map((degree) => {
                     const { name } = degree,
@@ -132,10 +134,18 @@ function EducationSection({
 
 export default function ResumeContent(props: ResumeContentProps) {
     const { activeItem } = props,
+        [scrollIntoView, setScrollIntoView] = useState(false),
         rootRef = useRef() as MutableRefObject<HTMLDivElement | null>,
         activeItemRef = useRef() as MutableRefObject<HTMLDivElement | null>;
 
     useEffect(() => {
+        // Prevent scrolling into view upon the first render so that page
+        // doesn't snap to the first active resume item
+        if (!scrollIntoView) {
+            activeItem && setScrollIntoView(true);
+            return;
+        }
+
         const el = activeItemRef.current;
         el && el.scrollIntoView({ behavior: 'smooth' });
     }, [activeItem, activeItemRef]);
