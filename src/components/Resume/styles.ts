@@ -18,5 +18,5 @@ export const JobsWrapper = styled.div`
     justify-content: right;
     overflow-y: scroll;
     padding-right: 20px;
-    height: 680px;
+    height: 80vh;
 `;

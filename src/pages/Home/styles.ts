@@ -10,7 +10,9 @@ export const WelcomeSection = styled.div`
     justify-content: center;
     align-items: center;
     height: 100vh;
-    max-height: 800px;
+    > div {
+        transform: translateY(-150px);
+    }
 `;
 
 export const Section = styled.div`
