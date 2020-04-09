@@ -1,6 +1,7 @@
 import React, { useState, useRef, MutableRefObject } from 'react';
 import useMeasure, { RectReadOnly } from 'react-use-measure';
 import { useSpring, animated, useTrail } from 'react-spring';
+import { Link } from 'gatsby';
 
 import { RootDiv, PageDivWrapper, PageDiv, PageSeparator, underlineDivCss, dotCss } from './styles';
 import Underline from 'images/underline.svg';
@@ -80,7 +81,8 @@ export default function NavHorizontal({
                 const p = pages[i],
                     isActive = p === currentPage,
                     isHovered = p === hoveredPage,
-                    isLast = i === pages.length - 1;
+                    isLast = i === pages.length - 1,
+                    path = p === Page.ABOUT ? '/' : `/${p}`;
                 return (
                     <animated.span
                         style={{ opacity }}
@@ -92,13 +94,15 @@ export default function NavHorizontal({
                         onMouseLeave={() => setHoveredPage(undefined)}
                     >
                         <PageDivWrapper ref={isHovered ? hoveredPageRef : undefined}>
-                            <PageDiv
-                                active={isActive}
-                                ref={isActive ? activePageRef : undefined}
-                                onClick={() => onPageClick(p)}
-                            >
-                                {p}
-                            </PageDiv>
+                            <Link to={path}>
+                                <PageDiv
+                                    active={isActive}
+                                    ref={isActive ? activePageRef : undefined}
+                                    onClick={() => onPageClick(p)}
+                                >
+                                    {p}
+                                </PageDiv>
+                            </Link>
                         </PageDivWrapper>
                         {!isLast && <PageSeparator>.</PageSeparator>}
                     </animated.span>
