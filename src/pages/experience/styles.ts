@@ -5,18 +5,8 @@ export const RootDiv = styled.div`
     margin: 0 auto;
 `;
 
-export const WelcomeSection = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    > div {
-        transform: translateY(-150px);
-    }
-`;
-
 export const Section = styled.div`
-    margin-bottom: 100px;
+    padding: 0 30px;
 `;
 
 export const HeaderWrapper = styled.h2`
@@ -26,18 +16,5 @@ export const HeaderWrapper = styled.h2`
 export const ResumeWrapper = styled.div`
     display: block;
     position: relative;
-`;
-
-export const ProjectsWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    margin-right: 20px;
-
-    > div {
-        margin-right: 40px;
-
-        &:last-of-type {
-            margin-right: 0;
-        }
-    }
+    height: calc(100vh - 350px);
 `;

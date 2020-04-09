@@ -7,11 +7,11 @@ export const RootDiv = styled.div`
     font-family: ${FONT_FAMILY_MONO};
     font-size: 13px;
     color: ${COLOR_TERNARY};
-    max-width: 220px;
     border-left: 1px solid ${COLOR_BG_ACCENT};
     position: relative;
     z-index: 0;
     height: 100%;
+    width: 220px;
 `;
 
 const TimelineItem = css`

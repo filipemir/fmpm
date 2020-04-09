@@ -4,7 +4,8 @@ export const RootDiv = styled.div`
     display: flex;
     align-content: center;
     max-width: 1000px;
-    margin: 30px auto 0 auto;
+    margin: 0 auto;
+    padding: 30px 20px;
 `;
 
 export const LeftDiv = styled.div`

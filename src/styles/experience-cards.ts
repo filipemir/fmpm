@@ -10,7 +10,6 @@ import {
 } from 'styles/global';
 
 export const ExperienceRootDiv = styled.div`
-    max-width: 690px;
     font-size: 14px;
 `;
 
