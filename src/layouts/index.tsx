@@ -6,13 +6,15 @@ import { LayoutRoot } from './styles';
 import NavBar from 'components/NavBar';
 import Page from 'models/page';
 
-export default function Layout({ children }: { children: ReactNode }) {
+import Transition from './transition';
+
+export default function Layout({ children, location }: { children: ReactNode; location: Location }) {
     const [page, setPage] = useState(Page.ABOUT);
     return (
         <LayoutRoot>
             <Global styles={globalCss} />
             <NavBar currentPage={page} onPageClick={setPage} />
-            {children}
+            <Transition location={location}>{children}</Transition>
         </LayoutRoot>
     );
 }
