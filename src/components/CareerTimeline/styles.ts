@@ -47,7 +47,7 @@ export const activeTenurePanelCss = css`
     height: 30px;
     background-color: ${COLOR_BG_ACCENT};
     border-left: 3px solid ${COLOR_ACCENT};
-    border-radius: 0 6px 6px 0;
+    border-radius: 0 3px 3px 0;
     width: 210px;
     z-index: -1;
 `;

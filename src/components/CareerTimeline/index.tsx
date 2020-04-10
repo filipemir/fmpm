@@ -122,7 +122,7 @@ export default function CareerTimeline(props: CareerTimelineProps) {
             opacity: 1,
             x: 0,
             from: { opacity: 0, x: 20 },
-            config: { ...config.default, tension: 300, friction: 20 }
+            config: { ...config.default, tension: 500, friction: 40 }
         });
 
     return (

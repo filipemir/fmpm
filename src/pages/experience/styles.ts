@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const RootDiv = styled.div`
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
 `;
 
@@ -10,11 +10,12 @@ export const Section = styled.div`
 `;
 
 export const HeaderWrapper = styled.h2`
-    margin-bottom: 50px;
+    margin: 0 0 50px 0;
+    text-align: center;
 `;
 
 export const ResumeWrapper = styled.div`
     display: block;
     position: relative;
-    height: calc(100vh - 350px);
+    height: calc(100vh - 300px);
 `;

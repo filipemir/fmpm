@@ -8,7 +8,7 @@ export default function Resume() {
     const { state, actions } = useResumeReducer(),
         { item, section, phase, tenure } = state,
         { setTenure, setPhase, setItem, setSection } = actions,
-        [scrollListenerEnabled, setScrollListenerEnabled] = useState(false);
+        [scrollListenerEnabled, setScrollListenerEnabled] = useState(true);
 
     return (
         <RootDiv>

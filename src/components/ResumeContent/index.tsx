@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, MutableRefObject } from 'react';
+import React, { useRef, useState, useEffect, MutableRefObject, useLayoutEffect } from 'react';
 import { useTrail, animated, useSpring, config, OpaqueInterpolation } from 'react-spring';
 import { Waypoint } from 'react-waypoint';
 import throttle from 'lodash/throttle';
@@ -30,6 +30,7 @@ function ExperienceSection({
 }) {
     const careerPhases = RESUME[ResumeSection.EXPERIENCE],
         spring = useSpring({ opacity: 1, from: { opacity: 0 }, config: config.slow }),
+        [scrollIntoView, setScrollIntoView] = useState(false),
         throttledSetTenure = setActiveTenure && throttle(setActiveTenure, 100, { trailing: true });
 
     return (
@@ -45,7 +46,8 @@ function ExperienceSection({
                                     opacity: 1,
                                     x: 0,
                                     from: { opacity: 1, x: 20 },
-                                    config: config.wobbly
+                                    config: config.wobbly,
+                                    onRest: () => setScrollIntoView(true)
                                 });
 
                             return (
@@ -63,7 +65,8 @@ function ExperienceSection({
                                     <DurationSpan>{getTenureDurationString(tenure)}</DurationSpan>
                                     {innerTrail.map(({ opacity, x }, i) => {
                                         const e = jobs[i],
-                                            onEnter = () => throttledSetTenure && throttledSetTenure(tenure),
+                                            onEnter = () =>
+                                                scrollIntoView && throttledSetTenure && throttledSetTenure(tenure),
                                             transform = (x as OpaqueInterpolation<number>).interpolate(
                                                 (x) => `translateX(${-x}px)`
                                             );
@@ -152,8 +155,18 @@ export default function ResumeContent(props: ResumeContentProps) {
 
     return (
         <RootDiv ref={rootRef}>
-            <ExperienceSection {...props} rootRef={rootRef} activeItemRef={activeItemRef} />
-            <EducationSection {...props} rootRef={rootRef} activeItemRef={activeItemRef} />
+            <ExperienceSection
+                {...props}
+                rootRef={rootRef}
+                activeItemRef={activeItemRef}
+                scrollIntoView={scrollIntoView}
+            />
+            <EducationSection
+                {...props}
+                rootRef={rootRef}
+                activeItemRef={activeItemRef}
+                scrollIntoView={scrollIntoView}
+            />
         </RootDiv>
     );
 }
