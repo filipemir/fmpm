@@ -11,6 +11,7 @@ import {
 
 export const ExperienceRootDiv = styled.div`
     font-size: 14px;
+    max-width: 1100px;
 `;
 
 export const TopRowDiv = styled.div`
