@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { COLOR_BG_ACCENT, FONT_FAMILY_SERIF } from 'styles/global';
 
 export const Root = styled.span`
-    font-size: 40px;
     text-shadow: 2px 4px ${COLOR_BG_ACCENT};
     z-index: 0;
     position: relative;

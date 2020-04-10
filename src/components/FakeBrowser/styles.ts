@@ -8,10 +8,8 @@ const BAR_COLOR = '#E4E3E3',
     MAX_COLOR = '#54C22C';
 
 export const Root = styled.div`
-    max-width: 550px;
-    max-height: 350px;
-    width: 100%;
-    height: 100%;
+    width: 550px;
+    height: 350px;
     position: relative;
     border-radius: 5px;
     overflow: hidden;
