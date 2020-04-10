@@ -6,4 +6,5 @@ export interface Project {
     githubUrl?: string;
     description: string;
     technologies: Tech[];
+    img: string
 }
