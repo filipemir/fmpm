@@ -137,7 +137,7 @@ function EducationSection({
 
 export default function ResumeContent(props: ResumeContentProps) {
     const { activeItem } = props,
-        [scrollIntoView, setScrollIntoView] = useState(false),
+        [scrollIntoView, setScrollIntoView] = useState<boolean>(false),
         rootRef = useRef() as MutableRefObject<HTMLDivElement | null>,
         activeItemRef = useRef() as MutableRefObject<HTMLDivElement | null>;
 
@@ -155,18 +155,8 @@ export default function ResumeContent(props: ResumeContentProps) {
 
     return (
         <RootDiv ref={rootRef}>
-            <ExperienceSection
-                {...props}
-                rootRef={rootRef}
-                activeItemRef={activeItemRef}
-                scrollIntoView={scrollIntoView}
-            />
-            <EducationSection
-                {...props}
-                rootRef={rootRef}
-                activeItemRef={activeItemRef}
-                scrollIntoView={scrollIntoView}
-            />
+            <ExperienceSection {...props} rootRef={rootRef} activeItemRef={activeItemRef} />
+            <EducationSection {...props} rootRef={rootRef} activeItemRef={activeItemRef} />
         </RootDiv>
     );
 }

@@ -3,14 +3,14 @@ import { useSpring, animated } from 'react-spring';
 
 import { Root, Bar, Dots, CloseDot, MinDot, MaxDot, Content } from './styles';
 
-export default function FakeBrowser({ img, active }: { img: string; active: boolean }) {
+export default function FakeBrowser({ img, active }: { img: string; active?: boolean }) {
     const [ready, setReady] = useState(false),
         spring = useSpring({ opacity: ready ? 1 : 0 });
 
     return (
         <>
             <animated.div style={{ ...spring, height: '100%' }}>
-                <Root active={active}>
+                <Root active={!!active}>
                     <Bar>
                         <Dots>
                             <CloseDot />

@@ -27,6 +27,15 @@ module.exports = {
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
         `gatsby-plugin-react-svg`,
-        `gatsby-plugin-layout`
+        `gatsby-plugin-layout`,
+        {
+            resolve: 'gatsby-plugin-page-creator',
+            options: {
+                path: `${__dirname}/src/pages`,
+                ignore: {
+                  patterns: [`**/styles.(js|ts)?(x)`],
+                }
+              },
+        }
     ]
 };
