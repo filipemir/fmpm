@@ -7,12 +7,19 @@ const BAR_COLOR = '#E4E3E3',
     MIN_COLOR = '#E6C029',
     MAX_COLOR = '#54C22C';
 
+const dynamicSize = ({ active }: { active: boolean }) => css`
+    transform: scale(${active ? 1.04 : 1});
+`;
+
 export const Root = styled.div`
     width: 550px;
     height: 350px;
     position: relative;
     border-radius: 5px;
     overflow: hidden;
+    box-shadow: rgba(2, 12, 27, 0.3) 0px 20px 30px -15px;
+    transition: all 0.2s ease-in-out;
+    ${dynamicSize}
 `;
 
 export const Bar = styled.div`

@@ -9,7 +9,6 @@ import {
     DescriptionBoxWrapper,
     Title,
     Technologies,
-    ExternalLinks,
     GithubLogo
 } from './styles';
 import { Project } from 'models/project';
@@ -19,14 +18,20 @@ import TechTag from 'components/TechTag';
 import GithubSvg from 'images/github.svg';
 
 export default function ProjectRow({ project }: { project: Project }) {
-    const { img, name, description, technologies, githubUrl } = project;
+    const { img, name, description, technologies, githubUrl } = project,
+        [hovered, setHovered] = useState(false);
     return (
-        <Root>
+        <Root onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
             <Preview>
-                <FakeBrowser img={img} />
+                <FakeBrowser img={img} active={hovered} />
             </Preview>
             <Content>
                 <Title>
+                    {githubUrl && (
+                        <GithubLogo href={githubUrl} target={'_blank'} rel='noopener'>
+                            <GithubSvg />
+                        </GithubLogo>
+                    )}
                     <Header text={name} fontSize={28} />
                 </Title>
                 <DescriptionBoxWrapper>
@@ -39,13 +44,6 @@ export default function ProjectRow({ project }: { project: Project }) {
                         <TechTag technology={t} key={t} />
                     ))}
                 </Technologies>
-                <ExternalLinks>
-                    {githubUrl && (
-                        <GithubLogo href={githubUrl} target={'_blank'} rel='noopener'>
-                            <GithubSvg />
-                        </GithubLogo>
-                    )}
-                </ExternalLinks>
             </Content>
         </Root>
     );

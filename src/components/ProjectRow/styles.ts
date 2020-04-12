@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { COLOR_ACCENT, COLOR_BG_ACCENT, COLOR_QUATERNARY, COLOR_SECONDARY, COLOR_TERNARY } from 'styles/global';
+import { COLOR_ACCENT, COLOR_BG_ACCENT, COLOR_QUATERNARY, COLOR_SECONDARY } from 'styles/global';
 
 export const Root = styled.div`
     position: relative;
@@ -9,6 +9,7 @@ export const Root = styled.div`
 
 export const Preview = styled.div`
     justify-self: start;
+    position: relative;
 `;
 
 export const Content = styled.div`
@@ -22,6 +23,8 @@ export const Title = styled.div`
     font-size: 28px;
     font-style: italic;
     color: ${COLOR_ACCENT};
+    position: relative;
+    text-transform: lowercase;
 `;
 
 export const DescriptionBoxWrapper = styled.div`
@@ -47,7 +50,8 @@ export const Description = styled.div`
 `;
 
 export const Technologies = styled.div`
-    margin-top: 20px;
+    position: relative;
+    margin-top: 30px;
     > div {
         margin-left: 8px;
 
@@ -57,26 +61,19 @@ export const Technologies = styled.div`
     }
 `;
 
-export const ExternalLinks = styled.div`
-    margin-top: 15px;
-`;
-
-export const ExternalLinkSvg = styled.a`
-    margin-right: 4px;
+export const GithubLogo = styled.a`
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
     display: inline-block;
-    fill: ${COLOR_TERNARY};
-    width: 22px;
-    height: 22px;
+    fill: ${COLOR_ACCENT};
+    width: 25px;
+    height: 25px;
     cursor: pointer;
     transition: fill 500ms ease-in-out;
-
-    &:hover {
-        fill: ${COLOR_ACCENT};
-    }
 
     &:last-of-type {
         margin-right: 0;
     }
 `;
-
-export const GithubLogo = ExternalLinkSvg;

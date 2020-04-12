@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, MutableRefObject, useLayoutEffect } from 'react';
+import React, { useRef, useState, useEffect, MutableRefObject } from 'react';
 import { useTrail, animated, useSpring, config, OpaqueInterpolation } from 'react-spring';
 import { Waypoint } from 'react-waypoint';
 import throttle from 'lodash/throttle';
