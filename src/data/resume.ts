@@ -48,7 +48,7 @@ const CR: Tenure = {
     logo: crLogo,
     url: 'https://www.cornerstone.com/',
     description: `Cornerstone Research is an economic consulting firm that does research and analysis for expert
-        witnesses who testify in commercial and financial legal cases. I were a lot of different hats during my time
+        witnesses who testify in commercial and financial legal cases. I wore a lot of different hats during my time
         there: team manager, researcher, analyst, even recruiter.`
 };
 
