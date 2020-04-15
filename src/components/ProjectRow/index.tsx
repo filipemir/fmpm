@@ -28,7 +28,7 @@ export default function ProjectRow({ project }: { project: Project }) {
             <Content>
                 <Title>
                     {githubUrl && (
-                        <GithubLogo href={githubUrl} target={'_blank'} rel='noopener'>
+                        <GithubLogo href={githubUrl} target={'_blank'} rel='noopener noreferrer'>
                             <GithubSvg />
                         </GithubLogo>
                     )}

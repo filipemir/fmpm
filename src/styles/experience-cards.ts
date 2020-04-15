@@ -54,4 +54,5 @@ export const DescriptionDiv = styled.div`
     line-height: 20px;
     font-size: 14px;
     font-weight: 300;
+    font-style: normal;
 `;

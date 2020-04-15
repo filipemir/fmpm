@@ -28,55 +28,70 @@ import crLogo from 'images/cr.png';
 const ST: Tenure = {
     company: Org.ST,
     jobs: [stSoftwareEngineer, stIntegrationEngineer],
-    logo: stLogo
+    logo: stLogo,
+    url: 'https://www.wearesmartertravel.com/',
+    description: `SmarterTravel is a subsidiary of TripAdvisor that owns a network of travel-content
+        sites. When I first joined the team we also ran an ad syndication platform. I've been fortunate to work 
+        across the stack on both sides of the business.`
 };
 
 const Launch: Tenure = {
     company: Org.LAUNCH,
     jobs: [launchAcademy],
-    logo: launchLogo
+    logo: launchLogo,
+    url: 'https://launchacademy.com/'
 };
 
 const CR: Tenure = {
     company: Org.CR,
     jobs: [crbResearchAssociate, crbSeniorAnalyst, crbAnalyst],
-    logo: crLogo
+    logo: crLogo,
+    url: 'https://www.cornerstone.com/',
+    description: `Cornerstone Research is an economic consulting firm that does research and analysis for expert
+        witnesses who testify in commercial and financial legal cases. I were a lot of different hats during my time
+        there: team manager, researcher, analyst, even recruiter.`
 };
 
 const Tufts: Tenure = {
     company: Org.TUFTS,
     jobs: [tuftsRA, tuftsTA],
-    logo: tuftsLogo
+    logo: tuftsLogo,
+    url: 'https://www.tufts.edu/'
 };
 
 const NPR: Tenure = {
     company: Org.NPR,
     jobs: [nprIntern],
-    logo: nprLogo
+    logo: nprLogo,
+    url: 'https://www.npr.org/sections/money/'
 };
 
 const Advent: Tenure = {
     company: Org.ADVENT,
     jobs: [adventTeacher],
-    logo: adventLogo
+    logo: adventLogo,
+    url: 'https://adventschool.org/'
 };
 
 const RT: Tenure = {
     company: Org.RT,
     jobs: [americorps],
-    logo: rtLogo
+    logo: rtLogo,
+    url: 'https://rebuildingtogether.org/'
 };
 
 const IRD: Tenure = {
     company: Org.IRD,
     jobs: [irdTeacher],
-    logo: irdLogo
+    logo: irdLogo,
+    url: 'https://readingprograms.org/'
 };
 
 const SCU: Tenure = {
     company: Org.SCU,
     jobs: [scuRA],
-    logo: scuLogo
+    logo: scuLogo,
+    url: 'https://www.scu.edu/'
 };
 
 export const RESUME: Resume = {

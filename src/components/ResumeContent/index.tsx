@@ -2,8 +2,18 @@ import React, { useRef, useState, useEffect, MutableRefObject } from 'react';
 import { useTrail, animated, useSpring, config, OpaqueInterpolation } from 'react-spring';
 import { Waypoint } from 'react-waypoint';
 import throttle from 'lodash/throttle';
+import parse from 'react-html-parser';
 
-import { RootDiv, ResumeItemDiv, ResumeSectionDiv, DurationSpan, ResumeSectionNameDiv, SlashDiv, Logo } from './styles';
+import {
+    RootDiv,
+    ResumeItemDiv,
+    ResumeSectionDiv,
+    DurationSpan,
+    TenureDescription,
+    ResumeSectionNameDiv,
+    SlashDiv,
+    Logo
+} from './styles';
 import { RESUME } from 'data/resume';
 import { getTenureDurationString } from 'utils/experience';
 import JobCard from 'components/JobCard';
@@ -41,7 +51,7 @@ function ExperienceSection({
                 return (
                     <div key={`phase-${name}`}>
                         {tenures.map((tenure) => {
-                            const { company, jobs, logo } = tenure,
+                            const { company, jobs, logo, description, url } = tenure,
                                 innerTrail = useTrail(jobs.length, {
                                     opacity: 1,
                                     x: 0,
@@ -55,14 +65,17 @@ function ExperienceSection({
                                     key={`tenure-${company}`}
                                     ref={tenure === activeTenure ? activeItemRef : undefined}
                                 >
-                                    <ResumeSectionNameDiv withLogo={!!logo}>
-                                        {company}
-                                        {logo && <Logo src={logo} />}
-                                        <SlashDiv>
-                                            <Underline />
-                                        </SlashDiv>
-                                    </ResumeSectionNameDiv>
+                                    <a href={url} target='_blank' rel='noopener noreferrer'>
+                                        <ResumeSectionNameDiv withLogo={!!logo}>
+                                            {company}
+                                            {logo && <Logo src={logo} />}
+                                            <SlashDiv>
+                                                <Underline />
+                                            </SlashDiv>
+                                        </ResumeSectionNameDiv>
+                                    </a>
                                     <DurationSpan>{getTenureDurationString(tenure)}</DurationSpan>
+                                    {description && <TenureDescription>{parse(description)}</TenureDescription>}
                                     {innerTrail.map(({ opacity, x }, i) => {
                                         const e = jobs[i],
                                             onEnter = () =>

@@ -34,6 +34,8 @@ export interface Degree {
 export interface Tenure {
     company: Org;
     jobs: Job[];
+    url: string;
+    description?: string;
     logo?: string;
 }
 
