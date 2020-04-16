@@ -12,13 +12,13 @@ export const COLOR_SECONDARY = '#848282';
 export const COLOR_TERNARY = '#B4B4B4';
 export const COLOR_QUATERNARY = '#E4E3E3';
 
-// export const COLOR_BG = '#00233E';
-// export const COLOR_BG_ACCENT = '#005E88';
-// export const COLOR_ACCENT = '#F15C44';
+// export const COLOR_BG = '#0A192F';
+// export const COLOR_BG_ACCENT = '#01527A';
+// export const COLOR_ACCENT = '#F4A345';
 // export const COLOR_PRIMARY = '#FFFFFF';
 // export const COLOR_SECONDARY = '#A3BACF';
 // export const COLOR_TERNARY = '#A3BACF';
-// export const COLOR_QUATERNARY = '#005E88';
+// export const COLOR_QUATERNARY = '#063C5C';
 
 export const TEXT_SHADOW = `2px 4px 0 ${COLOR_BG_ACCENT}`;
 
