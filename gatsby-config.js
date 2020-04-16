@@ -1,8 +1,10 @@
 const path = require('path');
 
+const BASE_TITLE = 'Filipe Miranda | Software Engineer';
+
 module.exports = {
     siteMetadata: {
-        baseTitle: 'Filipe Miranda | Software Engineer',
+        baseTitle: BASE_TITLE,
         baseCanonicalUrl: 'https://fmpm.dev'
     },
     plugins: [
@@ -41,6 +43,18 @@ module.exports = {
                   patterns: [`**/styles.(js|ts)?(x)`],
                 }
               },
+        },
+        {
+            resolve: `gatsby-plugin-manifest`,
+            options: {
+                name: BASE_TITLE,
+                short_name: 'fmpm.dev',
+                start_url: `/`,
+                background_color: '#F0EFEF',
+                theme_color: '#BC4124',
+                display: `standalone`,
+                icon: `src/images/favicon.png`
+            },
         }
     ]
 };
