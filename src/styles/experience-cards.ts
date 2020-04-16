@@ -22,7 +22,7 @@ export const TopRowDiv = styled.div`
 `;
 
 export const TitleSpan = styled.span`
-    color: ${COLOR_PRIMARY};
+    color: ${COLOR_SECONDARY};
     font-weight: 500;
     text-shadow: 2px 2px 0 ${COLOR_BG_ACCENT};
 `;
