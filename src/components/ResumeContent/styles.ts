@@ -77,7 +77,7 @@ export const SlashDiv = styled.div`
     position: absolute;
     height: 0.7em;
     z-index: -1;
-    fill: #fff;
+    fill: ${COLOR_BG_ACCENT};
     left: 0;
     width: 100%;
     top: 6px;
