@@ -4,9 +4,9 @@ import globalCss from 'styles/global';
 import 'styles/global.scss';
 import { LayoutRoot } from './styles';
 import NavBar from 'components/NavBar';
-import Page from 'models/page';
 
 import Transition from './transition';
+import { getPage } from 'utils/location';
 
 interface LayoutProps {
     children: ReactNode;
@@ -14,7 +14,7 @@ interface LayoutProps {
 }
 
 export default function Layout({ children, location }: LayoutProps) {
-    const [page, setPage] = useState(Page.ABOUT);
+    const [page, setPage] = useState(getPage(location));
 
     return (
         <LayoutRoot>

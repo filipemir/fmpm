@@ -10,6 +10,10 @@ export const RootDiv = styled.div`
 
 export const LeftDiv = styled.div`
     justify-self: left;
+
+    a:hover {
+        text-decoration: none;
+    }
 `;
 
 export const RightDiv = styled.div`
