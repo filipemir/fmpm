@@ -8,8 +8,14 @@ import Page from 'models/page';
 
 import Transition from './transition';
 
-export default function Layout({ children, location }: { children: ReactNode; location: Location }) {
+interface LayoutProps {
+    children: ReactNode;
+    location: Location;
+}
+
+export default function Layout({ children, location }: LayoutProps) {
     const [page, setPage] = useState(Page.ABOUT);
+
     return (
         <LayoutRoot>
             <Global styles={globalCss} />

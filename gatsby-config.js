@@ -1,6 +1,10 @@
 const path = require('path');
 
 module.exports = {
+    siteMetadata: {
+        baseTitle: 'Filipe Miranda | Software Engineer',
+        baseCanonicalUrl: 'https://fmpm.dev'
+    },
     plugins: [
         `gatsby-plugin-typescript`,
         `gatsby-plugin-sass`,
@@ -28,6 +32,7 @@ module.exports = {
         `gatsby-transformer-sharp`,
         `gatsby-plugin-react-svg`,
         `gatsby-plugin-layout`,
+        `gatsby-plugin-react-helmet`,
         {
             resolve: 'gatsby-plugin-page-creator',
             options: {
