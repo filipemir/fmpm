@@ -13,3 +13,14 @@ export function getPage(location: Location): Page {
             return Page.ABOUT;
     }
 }
+
+export function getPath(page: Page): string {
+    switch (page) {
+        case Page.ABOUT:
+            return '/';
+        case Page.EXPERIENCE:
+            return '/experience/';
+        case Page.PROJECTS:
+            return '/projects/';
+    }
+}

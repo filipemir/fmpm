@@ -2,14 +2,16 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import 'styles/global.scss';
 import { Helmet as ReactHelmet } from 'react-helmet';
+import { getPath } from 'utils/location';
+import Page from 'models/page';
 
 interface HelmetProps {
+    page: Page;
     pageTitle?: string;
     description: string;
-    location?: Location;
 }
 
-export default function Helmet({ pageTitle, description, location = window.location }: HelmetProps) {
+export default function Helmet({ page, pageTitle, description }: HelmetProps) {
     const data = useStaticQuery(graphql`
             query HelmetQuery {
                 site {
@@ -22,7 +24,7 @@ export default function Helmet({ pageTitle, description, location = window.locat
         `),
         { baseTitle, baseCanonicalUrl } = data.site.siteMetadata,
         title = pageTitle ? pageTitle + ' | ' + baseTitle : baseTitle,
-        canonicalUrl = baseCanonicalUrl + location.pathname;
+        canonicalUrl = baseCanonicalUrl + getPath(page);
 
     return (
         <ReactHelmet>
