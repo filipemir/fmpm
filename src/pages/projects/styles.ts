@@ -14,11 +14,13 @@ export const HeaderWrapper = styled.h2`
 `;
 
 export const ProjectsWrapper = styled.div`
-    > div {
-        margin-top: 60px;
+    padding: 0 20px;
+`;
 
-        &:first-of-type {
-            margin-top: 0;
-        }
+export const Project = styled.div`
+    margin-top: 100px;
+
+    &:first-of-type {
+        margin-top: 0;
     }
 `;

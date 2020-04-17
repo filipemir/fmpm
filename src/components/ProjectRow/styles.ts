@@ -9,7 +9,7 @@ export const Root = styled.div`
     z-index: 0;
 `;
 
-export const Preview = styled.div`
+export const Preview = styled.a`
     justify-self: start;
     position: relative;
     order: ${(p: { alignLeft: boolean }) => (p.alignLeft ? 1 : 2)};
@@ -27,14 +27,23 @@ export const Content = styled.div`
     align-content: center;
 `;
 
-export const Title = styled.div`
+export const TitleWrapper = styled.div`
+    margin: 0 10px;
+    display: flex;
+    justify-content: ${(p: { alignLeft: boolean }) => (p.alignLeft ? 'flex-start' : 'flex-end')};
+`;
+
+export const Title = styled.a`
     font-size: 18px;
     display: inline-block;
     color: ${COLOR_ACCENT};
     position: relative;
     text-transform: uppercase;
-    font-weight: 300;
+    font-weight: 400;
     font-family: ${FONT_FAMILY_MONO};
+    &:hover {
+        text-decoration: none;
+    }
 `;
 
 export const SlashDiv = styled.div`
@@ -107,4 +116,5 @@ export const GithubLogo = styled.a`
     margin: 0 20px;
     position: relative;
     top: 3px;
+    order: ${(p: { alignLeft: boolean }) => (p.alignLeft ? -1 : undefined)};
 `;

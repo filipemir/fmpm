@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { HeaderWrapper, ProjectsWrapper, RootDiv, Section } from './styles';
+import { HeaderWrapper, ProjectsWrapper, RootDiv, Section, Project } from './styles';
 import Header from 'components/Header';
 import { PROJECTS } from 'data/projects';
 import ProjectRow from 'components/ProjectRow';
@@ -19,7 +19,9 @@ export default function HomePage() {
                 </HeaderWrapper>
                 <ProjectsWrapper>
                     {PROJECTS.map((p, i) => (
-                        <ProjectRow project={p} key={`project-${i}`} leftAlignedContent={i % 2 === 0} />
+                        <Project key={`project-${i}`}>
+                            <ProjectRow project={p} leftAlignedContent={i % 2 === 0} />
+                        </Project>
                     ))}
                 </ProjectsWrapper>
             </Section>
