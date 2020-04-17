@@ -9,33 +9,38 @@ import {
     DescriptionBoxWrapper,
     Title,
     Technologies,
-    GithubLogo
+    SlashDiv
+    // GithubLogo
 } from './styles';
 import { Project } from 'models/project';
 import FakeBrowser from 'components/FakeBrowser';
-import Header from 'components/Header';
 import TechTag from 'components/TechTag';
-import GithubSvg from 'images/github.svg';
+// import GithubSvg from 'images/github.svg';
+import Underline from 'images/underline.svg';
 
-export default function ProjectRow({ project }: { project: Project }) {
-    const { img, name, description, technologies, githubUrl } = project,
+export default function ProjectRow({
+    project,
+    leftAlignedContent = false
+}: {
+    project: Project;
+    leftAlignedContent?: boolean;
+}) {
+    const { img, name, description, technologies } = project,
         [hovered, setHovered] = useState(false);
     return (
         <Root onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
-            <Preview>
+            <Preview alignLeft={!leftAlignedContent}>
                 <FakeBrowser img={img} active={hovered} />
             </Preview>
-            <Content>
+            <Content alignLeft={leftAlignedContent}>
                 <Title>
-                    {githubUrl && (
-                        <GithubLogo href={githubUrl} target={'_blank'} rel='noopener noreferrer'>
-                            <GithubSvg />
-                        </GithubLogo>
-                    )}
-                    <Header text={name} fontSize={28} />
+                    <span>{name}</span>
+                    <SlashDiv>
+                        <Underline />
+                    </SlashDiv>
                 </Title>
                 <DescriptionBoxWrapper>
-                    <DescriptionBox>
+                    <DescriptionBox alignLeft={leftAlignedContent}>
                         <Description>{description}</Description>
                     </DescriptionBox>
                 </DescriptionBoxWrapper>
@@ -44,6 +49,11 @@ export default function ProjectRow({ project }: { project: Project }) {
                         <TechTag technology={t} key={t} />
                     ))}
                 </Technologies>
+                {/*{githubUrl && (*/}
+                {/*    <GithubLogo href={githubUrl} target={'_blank'} rel='noopener noreferrer'>*/}
+                {/*        <GithubSvg />*/}
+                {/*    </GithubLogo>*/}
+                {/*)}*/}
             </Content>
         </Root>
     );

@@ -22,7 +22,7 @@ export default function ProjectCard({ project }: { project: Project }) {
     return (
         <RootWithDropShadow onClick={onClick}>
             <Wrapper>
-                <Title href={url || githubUrl} target={'_blank'} rel="noopener noreferrer">
+                <Title href={url || githubUrl} target={'_blank'} rel='noopener noreferrer'>
                     {name}
                 </Title>
                 <Description>{description}</Description>
@@ -33,7 +33,7 @@ export default function ProjectCard({ project }: { project: Project }) {
                 </Technologies>
                 <ExternalLinks>
                     {githubUrl && (
-                        <GithubLogo href={githubUrl} target={'_blank'} rel="noopener noreferrer" ref={githubLinkRef}>
+                        <GithubLogo href={githubUrl} target={'_blank'} rel='noopener noreferrer' ref={githubLinkRef}>
                             <GithubSvg />
                         </GithubLogo>
                     )}

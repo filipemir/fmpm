@@ -19,7 +19,7 @@ export default function HomePage() {
                 </HeaderWrapper>
                 <ProjectsWrapper>
                     {PROJECTS.map((p, i) => (
-                        <ProjectRow project={p} key={`project-${i}`} />
+                        <ProjectRow project={p} key={`project-${i}`} leftAlignedContent={i % 2 === 0} />
                     ))}
                 </ProjectsWrapper>
             </Section>
