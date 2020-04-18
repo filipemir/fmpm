@@ -1,5 +1,12 @@
 import styled from '@emotion/styled';
-import { COLOR_ACCENT, COLOR_BG_ACCENT, COLOR_PRIMARY, COLOR_SECONDARY } from 'styles/global';
+import {
+    COLOR_ACCENT,
+    COLOR_BG_ACCENT,
+    COLOR_PRIMARY,
+    COLOR_QUATERNARY,
+    COLOR_SECONDARY,
+    COLOR_TERNARY
+} from 'styles/global';
 
 export const Root = styled.div`
     position: relative;
@@ -21,7 +28,7 @@ export const Preview = styled.div`
 `;
 
 export const DescriptionBoxWrapper = styled.div`
-    filter: drop-shadow(-5px 5px 5px ${COLOR_SECONDARY + 50});
+    filter: drop-shadow(-5px 5px 5px ${COLOR_SECONDARY + 90});
     position: absolute;
     top: 50%;
     left: 50%;
@@ -31,12 +38,11 @@ export const DescriptionBoxWrapper = styled.div`
 
 export const Description = styled.div`
     background-color: ${COLOR_BG_ACCENT};
-    font-size: 13px;
-    color: ${COLOR_PRIMARY};
+    color: ${COLOR_SECONDARY};
     letter-spacing: -0.26px;
-    line-height: 18px;
+    line-height: 1.3;
     padding: 20px;
-    opacity: 0.9;
+    opacity: 0.95;
 
     text-align: left;
     box-shadow: -5px 5px 5px ${COLOR_SECONDARY + 50};

@@ -5,8 +5,11 @@ import NavHorizontal from 'components/NavHorizontal';
 import FmpmLogo from 'components/FmpmLogo';
 import Page from 'models/page';
 import { Link } from 'gatsby';
+import useMedia from 'use-media';
+import Hamburger from 'components/Hamburger';
 
 export default function NavBar({ currentPage, onPageClick }: { currentPage: Page; onPageClick: (page: Page) => void }) {
+    const isMobile = useMedia({ maxWidth: '900px' });
     return (
         <RootDiv>
             <LeftDiv>
@@ -15,7 +18,7 @@ export default function NavBar({ currentPage, onPageClick }: { currentPage: Page
                 </Link>
             </LeftDiv>
             <RightDiv>
-                <NavHorizontal currentPage={currentPage} onPageClick={onPageClick} />
+                {isMobile ? <Hamburger /> : <NavHorizontal currentPage={currentPage} onPageClick={onPageClick} />}
             </RightDiv>
         </RootDiv>
     );

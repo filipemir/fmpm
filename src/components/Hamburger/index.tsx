@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'hamburgers/_sass/hamburgers/hamburgers.scss';
 import { Root } from './styles';
 
-export default function Welcome() {
+export default function Hamburger() {
     const [active, setActive] = useState(false);
     return (
         <Root>

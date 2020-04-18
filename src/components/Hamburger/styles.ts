@@ -3,8 +3,7 @@ import styled from '@emotion/styled';
 import { COLOR_ACCENT } from 'styles/global';
 
 const BAR_WIDTH = 30,
-    BAR_HEIGHT = 2,
-    SPACE = 8;
+    BAR_HEIGHT = 2;
 
 export const Root = styled.div`
     .hamburger {
@@ -27,18 +26,6 @@ export const Root = styled.div`
                     background-color: ${COLOR_ACCENT};
                     width: ${BAR_WIDTH}px;
                     height: ${BAR_HEIGHT}px;
-                }
-            }
-        }
-
-        & {
-            .hamburger-inner {
-                &:before {
-                    top: ${SPACE}px;
-                }
-
-                &:after {
-                    top: ${2 * SPACE}px;
                 }
             }
         }
