@@ -17,6 +17,7 @@ export function getPage(location: Location): Page {
 export function getPath(page: Page): string {
     switch (page) {
         case Page.ABOUT:
+        case Page.CONTACT:
             return '/';
         case Page.EXPERIENCE:
             return '/experience/';
