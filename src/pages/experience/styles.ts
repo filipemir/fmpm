@@ -7,10 +7,6 @@ export const RootDiv = styled.div`
     padding-top: ${PADDING_TOP_PAGE}px;
 `;
 
-export const Section = styled.div`
-    padding: 0 30px;
-`;
-
 export const ResumeWrapper = styled.div`
     display: block;
     position: relative;

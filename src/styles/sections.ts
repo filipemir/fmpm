@@ -15,3 +15,7 @@ export const SectionIntro = styled.div`
     line-height: 1.4;
     font-size: 16px;
 `;
+
+export const Section = styled.div`
+    padding: 0 20px;
+`;

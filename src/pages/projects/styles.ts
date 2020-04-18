@@ -7,12 +7,8 @@ export const RootDiv = styled.div`
     padding-top: ${PADDING_TOP_PAGE}px;
 `;
 
-export const Section = styled.div`
-    margin-bottom: 100px;
-`;
-
 export const ProjectsWrapper = styled.div`
-    padding: 30px 20px 0 20px;
+    padding-top: 30px;
 `;
 
 export const Project = styled.div`

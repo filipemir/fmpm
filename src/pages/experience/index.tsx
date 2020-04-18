@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Resume from 'components/Resume';
-import { ResumeWrapper, RootDiv, Section } from './styles';
-import { SectionHeaderWrapper, SectionIntro } from 'styles/sections';
+import { ResumeWrapper, RootDiv } from './styles';
+import { SectionHeaderWrapper, SectionIntro, Section } from 'styles/sections';
 import Header from 'components/Header';
 import Helmet from 'components/Helmet';
 import Page from 'models/page';

@@ -36,6 +36,7 @@ export const Description = styled.div`
     line-height: 1.3;
     padding: 20px;
     opacity: 0.95;
+    font-weight: 300;
 
     text-align: left;
     box-shadow: -5px 5px 5px ${COLOR_SECONDARY + 50};
