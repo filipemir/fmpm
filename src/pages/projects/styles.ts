@@ -11,7 +11,8 @@ export const Section = styled.div`
 `;
 
 export const HeaderWrapper = styled.h2`
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+    text-align: center;
 `;
 
 export const ProjectsWrapper = styled.div`
@@ -22,7 +23,7 @@ export const Project = styled.div`
     margin-top: 100px;
 
     @media (max-width: 900px) {
-        padding-bottom: 25px;
+        padding-bottom: 30px;
         margin-top: 25px;
         border-bottom: 1px solid ${COLOR_QUATERNARY};
     }

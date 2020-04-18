@@ -10,12 +10,12 @@ export const Section = styled.div`
 `;
 
 export const HeaderWrapper = styled.h2`
-    margin: 0 0 50px 0;
+    margin: 0 0 30px 0;
     text-align: center;
 `;
 
 export const ResumeWrapper = styled.div`
     display: block;
     position: relative;
-    height: calc(100vh - 300px);
+    height: calc(100vh - 340px);
 `;
