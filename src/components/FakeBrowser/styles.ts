@@ -20,10 +20,11 @@ export const Root = styled.div`
     overflow: hidden;
     box-shadow: rgba(2, 12, 27, 0.3) 0px 20px 30px -15px;
     transition: all 0.2s ease-in-out;
+    margin: 0 auto;
     ${dynamicSize};
 
     @media (max-width: 420px) {
-        height: 230px;
+        height: 300px;
     }
 `;
 

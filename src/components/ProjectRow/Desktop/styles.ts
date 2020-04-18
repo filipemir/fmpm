@@ -2,11 +2,17 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { COLOR_ACCENT, COLOR_BG_ACCENT, COLOR_SECONDARY, FONT_FAMILY_MONO } from 'styles/global';
 
+const LAYOUT_BREAK_POINT = '600px';
+
 export const Root = styled.div`
     position: relative;
     max-width: 1000px;
     display: flex;
     z-index: 0;
+
+    @media (max-width: ${LAYOUT_BREAK_POINT}) {
+        display: block;
+    }
 `;
 
 export const Preview = styled.a`
@@ -14,6 +20,12 @@ export const Preview = styled.a`
     position: relative;
     order: ${(p: { alignLeft: boolean }) => (p.alignLeft ? 1 : 2)};
     z-index: 1;
+    flex-grow: 1;
+
+    @media (max-width: ${LAYOUT_BREAK_POINT}) {
+        display: block;
+        width: 100%;
+    }
 `;
 
 export const Content = styled.div`
@@ -25,40 +37,13 @@ export const Content = styled.div`
     order: ${(p: { alignLeft: boolean }) => (p.alignLeft ? 1 : 2)};
     z-index: 2;
     align-content: center;
+    max-width: 400px;
 `;
 
 export const TitleWrapper = styled.div`
     margin: 0 10px;
     display: flex;
     justify-content: ${(p: { alignLeft: boolean }) => (p.alignLeft ? 'flex-start' : 'flex-end')};
-`;
-
-export const Title = styled.a`
-    font-size: 18px;
-    display: inline-block;
-    color: ${COLOR_ACCENT};
-    position: relative;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-family: ${FONT_FAMILY_MONO};
-    &:hover {
-        text-decoration: none;
-    }
-`;
-
-export const SlashDiv = styled.div`
-    position: absolute;
-    height: 0.7em;
-    z-index: -1;
-    fill: ${COLOR_BG_ACCENT};
-    top: 50%;
-    left: 50%;
-    width: 110%;
-    transform: translate(-50%, -50%);
-
-    div {
-        height: 100%;
-    }
 `;
 
 export const DescriptionBoxWrapper = styled.div`
@@ -90,18 +75,6 @@ export const Description = styled.div`
     color: ${COLOR_SECONDARY};
     letter-spacing: -0.26px;
     line-height: 20px;
-`;
-
-export const Technologies = styled.div`
-    position: relative;
-    margin-top: 30px;
-    > div {
-        margin-left: 8px;
-
-        &:first-of-type {
-            margin-left: 0;
-        }
-    }
 `;
 
 const logoSize = '18px';
