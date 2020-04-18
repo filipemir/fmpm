@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { COLOR_QUATERNARY } from 'styles/global';
 
 export const RootDiv = styled.div`
     max-width: 1000px;
@@ -20,7 +21,17 @@ export const ProjectsWrapper = styled.div`
 export const Project = styled.div`
     margin-top: 100px;
 
+    @media (max-width: 900px) {
+        padding-bottom: 25px;
+        margin-top: 25px;
+        border-bottom: 1px solid ${COLOR_QUATERNARY};
+    }
+
     &:first-of-type {
         margin-top: 0;
+    }
+
+    &:last-of-type {
+        border-bottom: none;
     }
 `;

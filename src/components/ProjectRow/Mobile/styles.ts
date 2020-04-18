@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { COLOR_ACCENT, COLOR_BG_ACCENT, COLOR_SECONDARY, FONT_FAMILY_MONO } from 'styles/global';
+import { COLOR_ACCENT, COLOR_BG_ACCENT, COLOR_PRIMARY, COLOR_SECONDARY } from 'styles/global';
 
 export const Root = styled.div`
     position: relative;
@@ -32,10 +32,11 @@ export const DescriptionBoxWrapper = styled.div`
 export const Description = styled.div`
     background-color: ${COLOR_BG_ACCENT};
     font-size: 13px;
-    color: ${COLOR_SECONDARY};
+    color: ${COLOR_PRIMARY};
     letter-spacing: -0.26px;
-    line-height: 15px;
-    padding: 10px 20px;
+    line-height: 18px;
+    padding: 20px;
+    opacity: 0.9;
 
     text-align: left;
     box-shadow: -5px 5px 5px ${COLOR_SECONDARY + 50};

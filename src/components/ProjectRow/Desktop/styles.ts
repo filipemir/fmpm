@@ -1,18 +1,12 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { COLOR_ACCENT, COLOR_BG_ACCENT, COLOR_SECONDARY, FONT_FAMILY_MONO } from 'styles/global';
-
-const LAYOUT_BREAK_POINT = '600px';
+import { COLOR_ACCENT, COLOR_BG_ACCENT, COLOR_SECONDARY } from 'styles/global';
 
 export const Root = styled.div`
     position: relative;
     max-width: 1000px;
     display: flex;
     z-index: 0;
-
-    @media (max-width: ${LAYOUT_BREAK_POINT}) {
-        display: block;
-    }
 `;
 
 export const Preview = styled.a`
@@ -21,11 +15,6 @@ export const Preview = styled.a`
     order: ${(p: { alignLeft: boolean }) => (p.alignLeft ? 1 : 2)};
     z-index: 1;
     flex-grow: 1;
-
-    @media (max-width: ${LAYOUT_BREAK_POINT}) {
-        display: block;
-        width: 100%;
-    }
 `;
 
 export const Content = styled.div`
