@@ -1,5 +1,6 @@
 import React, { useState, useRef, MutableRefObject, ReactNode } from 'react';
 import useMeasure, { RectReadOnly } from 'react-use-measure';
+import { ResizeObserver } from '@juggle/resize-observer';
 import { useSpring, animated, useTrail } from 'react-spring';
 import { Link } from 'gatsby';
 
@@ -59,8 +60,8 @@ export default function NavHorizontal({
         [skipAnimations, setSkipAnimations] = useState(true),
         [hoveredPage, setHoveredPage] = useState<Page | null>(),
         rootRef = useRef() as MutableRefObject<HTMLDivElement | null>,
-        [activePageRef, activePageRect] = useMeasure(),
-        [hoveredPageRef, hoveredPageRect] = useMeasure(),
+        [activePageRef, activePageRect] = useMeasure({ polyfill: ResizeObserver }),
+        [hoveredPageRef, hoveredPageRect] = useMeasure({ polyfill: ResizeObserver }),
         underlinePosition = useSpring({
             ...getUnderlinePosition({ rootRef, activePageRect }),
             immediate: skipAnimations
