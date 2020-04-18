@@ -1,4 +1,4 @@
-import { Project } from 'models/project';
+import { Project, ProjectId } from 'models/project';
 import { Tech } from 'models/tech';
 import bpdImg from 'images/bpd-screen.png';
 import sbsImg from 'images/sbs-screen.png';
@@ -6,6 +6,7 @@ import tbwImg from 'images/tbw-screen.png';
 import musicabularyImg from 'images/musicabulary-screen.png';
 
 export const BPD: Project = {
+    id: ProjectId.BPD,
     name: 'BPD Incident Map',
     technologies: [Tech.REACT, Tech.LEAFLET],
     githubUrl: 'https://github.com/filipemir/police-incident-dashboard-react',
@@ -17,6 +18,7 @@ export const BPD: Project = {
 };
 
 export const SBS: Project = {
+    id: ProjectId.SBS,
     name: 'Stonybrook Strings',
     url: 'https://www.stonybrookstrings.com',
     technologies: [Tech.GATSBY, Tech.GOOGLE_FNS],
@@ -26,6 +28,7 @@ export const SBS: Project = {
 };
 
 export const BEST_WORDS: Project = {
+    id: ProjectId.TBW,
     name: 'The Best Words',
     githubUrl: 'https://github.com/filipemir/trump',
     url: 'http://www.the-best-words.com',
@@ -36,6 +39,7 @@ export const BEST_WORDS: Project = {
 };
 
 export const MUSICABULARY: Project = {
+    id: ProjectId.MUSICABULARY,
     name: 'Musicabulary',
     githubUrl: 'https://github.com/filipemir/musicabulary',
     technologies: [Tech.RUBY, Tech.RAILS, Tech.D3],

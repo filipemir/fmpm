@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { COLOR_BG_ACCENT } from 'styles/global';
 
 const BAR_COLOR = '#E4E3E3',
     CLOSE_COLOR = '#FF5A52',
@@ -68,10 +67,18 @@ export const MaxDot = styled.div`
     background-color: ${MAX_COLOR};
 `;
 
-export const Content = styled.div`
-    background-color: ${COLOR_BG_ACCENT};
-    background-size: cover;
-    background-position: center center;
-    height: 100%;
+export const ImgWrapper = styled.div`
     position: relative;
+    height: 100%;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    > div {
+        left: 50%;
+        height: 100%;
+        top: 0;
+        transform: translateX(-50%);
+    }
 `;

@@ -43,18 +43,6 @@ export const Description = styled.div`
     clip-path: polygon(100% 0px, 100% 75%, 95% 100%, 1px 100%, 0px 0px);
 `;
 
-export const Technologies = styled.div`
-    margin-top: 20px;
-    position: relative;
-    > div {
-        margin-left: 8px;
-
-        &:first-of-type {
-            margin-left: 0;
-        }
-    }
-`;
-
 const logoSize = '18px';
 
 export const GithubLogo = styled.a`
