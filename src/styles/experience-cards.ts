@@ -25,6 +25,7 @@ export const TitleSpan = styled.span`
     color: ${COLOR_PRIMARY};
     font-weight: 500;
     text-shadow: 2px 2px 0 ${COLOR_BG_ACCENT};
+    white-space: nowrap;
 `;
 
 export const DatesDiv = styled.div`
@@ -38,6 +39,7 @@ export const DatesDiv = styled.div`
 export const TechDiv = styled.div`
     overflow-y: scroll;
     margin: 10px 0 10px 0;
+    white-space: nowrap;
 
     > * {
         margin-left: 8px;

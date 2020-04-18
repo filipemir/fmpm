@@ -11,7 +11,7 @@ export const Section = styled.div`
 `;
 
 export const ProjectsWrapper = styled.div`
-    padding: 0 20px;
+    padding: 30px 20px 0 20px;
 `;
 
 export const Project = styled.div`

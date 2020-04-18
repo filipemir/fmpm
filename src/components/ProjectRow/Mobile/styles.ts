@@ -1,12 +1,5 @@
 import styled from '@emotion/styled';
-import {
-    COLOR_ACCENT,
-    COLOR_BG_ACCENT,
-    COLOR_PRIMARY,
-    COLOR_QUATERNARY,
-    COLOR_SECONDARY,
-    COLOR_TERNARY
-} from 'styles/global';
+import { COLOR_ACCENT, COLOR_BG_ACCENT, COLOR_SECONDARY } from 'styles/global';
 
 export const Root = styled.div`
     position: relative;

@@ -9,6 +9,7 @@ export const JobTitleSpan = TitleSpan;
 
 export const TeamSpan = styled.span`
     color: ${COLOR_TERNARY};
+    white-space: nowrap;
 `;
 
 export { TopRowDiv, TechDiv, DatesDiv, DescriptionDiv } from 'styles/experience-cards';

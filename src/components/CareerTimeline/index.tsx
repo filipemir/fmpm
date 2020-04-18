@@ -1,32 +1,11 @@
 import React, { RefCallback, ReactNode, useRef, MutableRefObject } from 'react';
-import { animated, useSpring, useTrail, config } from 'react-spring';
-import useMeasure, { RectReadOnly } from 'react-use-measure';
+import { animated, useTrail, config } from 'react-spring';
+import useMeasure from 'react-use-measure';
 import { ResizeObserver } from '@juggle/resize-observer';
 
-import { activeTenurePanelCss, RootDiv, SectionHeader, SectionItem } from './styles';
+import { RootDiv, SectionHeader, SectionItem } from './styles';
 import { RESUME } from 'data/resume';
 import { CareerPhase, ResumeItem, ResumeSection, Tenure } from 'models/experience';
-
-function getActiveTenurePanelSpring({
-    rootRef,
-    activeItemRect
-}: {
-    rootRef?: MutableRefObject<HTMLDivElement | null>;
-    activeItemRect: RectReadOnly;
-}) {
-    if (!rootRef || !rootRef.current) {
-        return { top: 0, left: 0, opacity: 0 };
-    }
-
-    const rootRect = rootRef.current.getBoundingClientRect();
-
-    return {
-        top: activeItemRect.top - rootRect.top,
-        left: 0,
-        opacity: 1,
-        from: { top: 0, left: 0, opacity: 0 }
-    };
-}
 
 interface CareerTimelineProps {
     activeSection: ResumeSection;
@@ -113,8 +92,7 @@ function getEducationComponents({
 
 export default function CareerTimeline(props: CareerTimelineProps) {
     const rootRef = useRef() as MutableRefObject<HTMLDivElement | null>,
-        [activeItemRef, activeItemRect] = useMeasure({ polyfill: ResizeObserver }),
-        activeTenurePanelSpring = useSpring(getActiveTenurePanelSpring({ rootRef, activeItemRect })),
+        [activeItemRef] = useMeasure({ polyfill: ResizeObserver }),
         components = [
             ...getJobComponents({ ...props, activeItemRef }),
             ...getEducationComponents({ ...props, activeItemRef })
@@ -128,8 +106,6 @@ export default function CareerTimeline(props: CareerTimelineProps) {
 
     return (
         <RootDiv ref={rootRef}>
-            <animated.div style={activeTenurePanelSpring} css={activeTenurePanelCss} />
-
             {trail.map(({ opacity, x }, i) => {
                 const component = components[i];
                 return (

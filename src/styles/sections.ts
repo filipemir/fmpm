@@ -10,7 +10,7 @@ export const SectionIntro = styled.div`
     font-family: ${FONT_FAMILY_SANS_SERIF};
     color: ${COLOR_SECONDARY};
     max-width: 45em;
-    margin: 0 auto 50px auto;
+    margin: 0 auto 20px auto;
     font-weight: 300;
     line-height: 1.4;
     text-align: center;

@@ -9,10 +9,12 @@ import {
 } from 'styles/global';
 
 export const RootDiv = styled.div`
-    justify-content: right;
-    overflow-y: scroll;
     padding-right: 20px;
     height: 100%;
+
+    @media (max-width: 900px) {
+        padding-right: 0;
+    }
 `;
 
 export const ResumeSectionDiv = styled.div`
@@ -20,7 +22,8 @@ export const ResumeSectionDiv = styled.div`
     z-index: 0;
     font-weight: 300;
     font-family: ${FONT_FAMILY_MONO};
-    margin-bottom: 4em;
+    margin-bottom: 2em;
+    padding-top: 30px;
 
     &:after {
         content: ' ';
@@ -29,7 +32,7 @@ export const ResumeSectionDiv = styled.div`
         z-index: -2;
         width: 100%;
         left: 0;
-        top: 16px;
+        top: 46px;
     }
 `;
 
@@ -44,6 +47,7 @@ export const ResumeSectionNameDiv = styled.div`
     text-shadow: 2px 4px 0 ${COLOR_BG_ACCENT};
     position: relative;
     display: inline-block;
+    white-space: nowrap;
 
     &:hover {
         text-decoration: none;
@@ -54,6 +58,11 @@ export const DurationSpan = styled.span`
     font-size: 12px;
     color: ${COLOR_TERNARY};
     margin-left: 1em;
+    white-space: nowrap;
+
+    @media (max-width: 900px) {
+        display: none;
+    }
 `;
 
 export const TenureDescription = styled.div`
