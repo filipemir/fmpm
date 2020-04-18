@@ -1,7 +1,8 @@
 enum Page {
     ABOUT = 'about',
     EXPERIENCE = 'experience',
-    PROJECTS = 'projects'
+    PROJECTS = 'projects',
+    CONTACT = 'contact'
 }
 
 export default Page;

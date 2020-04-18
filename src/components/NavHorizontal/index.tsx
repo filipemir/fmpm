@@ -1,4 +1,4 @@
-import React, { useState, useRef, MutableRefObject } from 'react';
+import React, { useState, useRef, MutableRefObject, ReactNode } from 'react';
 import useMeasure, { RectReadOnly } from 'react-use-measure';
 import { useSpring, animated, useTrail } from 'react-spring';
 import { Link } from 'gatsby';
@@ -55,7 +55,7 @@ export default function NavHorizontal({
     currentPage: Page;
     onPageClick: (page: Page) => void;
 }) {
-    const pages = [Page.ABOUT, Page.PROJECTS, Page.EXPERIENCE],
+    const pages = [Page.ABOUT, Page.PROJECTS, Page.EXPERIENCE, Page.CONTACT],
         [skipAnimations, setSkipAnimations] = useState(true),
         [hoveredPage, setHoveredPage] = useState<Page | null>(),
         rootRef = useRef() as MutableRefObject<HTMLDivElement | null>,
@@ -82,7 +82,19 @@ export default function NavHorizontal({
                     isActive = p === currentPage,
                     isHovered = p === hoveredPage,
                     isLast = i === pages.length - 1,
-                    path = p === Page.ABOUT ? '/' : `/${p}`;
+                    path = p === Page.ABOUT ? '/' : `/${p}`,
+                    PageLink = ({ children }: { children: ReactNode }) => {
+                        if (p === Page.CONTACT) {
+                            return (
+                                <a href='mailto:filipe@fmpm.dev' target={'_blank'} rel='noopener noreferrer'>
+                                    {children}
+                                </a>
+                            );
+                        }
+
+                        return <Link to={path}>{children}</Link>;
+                    };
+
                 return (
                     <animated.span
                         style={{ opacity }}
@@ -94,15 +106,15 @@ export default function NavHorizontal({
                         onMouseLeave={() => setHoveredPage(undefined)}
                     >
                         <PageDivWrapper ref={isHovered ? hoveredPageRef : undefined}>
-                            <Link to={path}>
+                            <PageLink>
                                 <PageDiv
                                     active={isActive}
                                     ref={isActive ? activePageRef : undefined}
-                                    onClick={() => onPageClick(p)}
+                                    onClick={() => p !== Page.CONTACT && onPageClick(p)}
                                 >
                                     {p}
                                 </PageDiv>
-                            </Link>
+                            </PageLink>
                         </PageDivWrapper>
                         {!isLast && <PageSeparator>.</PageSeparator>}
                     </animated.span>
