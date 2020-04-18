@@ -20,7 +20,7 @@ export default function HomePage() {
                 </SectionHeaderWrapper>
                 <SectionIntro>
                     Some side-projects I have put together over the years with various degrees of seriousness and in
-                    varying stages of completion.
+                    varying degrees of completion.
                 </SectionIntro>
                 <ProjectsWrapper>
                     {PROJECTS.map((p, i) => (
