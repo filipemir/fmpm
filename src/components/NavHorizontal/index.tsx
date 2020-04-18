@@ -55,7 +55,7 @@ export default function NavHorizontal({
     currentPage: Page;
     onPageClick: (page: Page) => void;
 }) {
-    const pages = Object.values(Page),
+    const pages = [Page.ABOUT, Page.PROJECTS, Page.EXPERIENCE],
         [skipAnimations, setSkipAnimations] = useState(true),
         [hoveredPage, setHoveredPage] = useState<Page | null>(),
         rootRef = useRef() as MutableRefObject<HTMLDivElement | null>,

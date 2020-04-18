@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import parse from 'react-html-parser';
+import { useSpring, animated } from 'react-spring';
 
 import { Title, SlashDiv, Technologies } from '../common/styles';
 import {
@@ -16,7 +18,6 @@ import TechTag from 'components/TechTag';
 import GithubSvg from 'images/github.svg';
 import Underline from 'images/underline.svg';
 import { ProjectRowProps } from 'components/ProjectRow/common/props';
-import { useSpring, animated } from 'react-spring';
 
 export default function ProjectRowDesktop({ project, leftAlignedContent = false }: ProjectRowProps) {
     const { img, name, description, technologies, url, githubUrl } = project,
@@ -56,7 +57,7 @@ export default function ProjectRowDesktop({ project, leftAlignedContent = false 
                     </TitleWrapper>
                     <DescriptionBoxWrapper>
                         <DescriptionBox alignLeft={leftAlignedContent}>
-                            <Description>{description}</Description>
+                            <Description>{parse(description)}</Description>
                         </DescriptionBox>
                     </DescriptionBoxWrapper>
                     <Technologies>

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import parse from 'react-html-parser';
+import { useSpring, animated } from 'react-spring';
 
 import { Title, SlashDiv, Technologies } from '../common/styles';
 import { Root, Preview, Description, DescriptionBoxWrapper, GithubLogo } from './styles';
@@ -7,7 +9,6 @@ import TechTag from 'components/TechTag';
 import GithubSvg from 'images/github.svg';
 import Underline from 'images/underline.svg';
 import { ProjectRowProps } from 'components/ProjectRow/common/props';
-import { useSpring, animated } from 'react-spring';
 
 export default function ProjectRowMobile({ project }: ProjectRowProps) {
     const { img, name, description, url, githubUrl, technologies } = project,
@@ -26,7 +27,7 @@ export default function ProjectRowMobile({ project }: ProjectRowProps) {
                 <Preview>
                     <FakeBrowser img={img} active={hovered} onReady={() => setReady(true)} />
                     <DescriptionBoxWrapper>
-                        <Description>{description}</Description>
+                        <Description>{parse(description)}</Description>
                     </DescriptionBoxWrapper>
                 </Preview>
                 <Technologies>

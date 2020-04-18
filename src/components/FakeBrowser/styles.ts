@@ -24,7 +24,8 @@ export const Root = styled.div`
     ${dynamicSize};
 
     @media (max-width: 420px) {
-        height: 300px;
+        height: 60vh;
+        max-height: 350px;
     }
 `;
 
