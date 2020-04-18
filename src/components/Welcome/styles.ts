@@ -77,11 +77,14 @@ export const About = styled.div`
     font-style: italic;
     font-weight: 300;
     line-height: 1.5;
+
+    > div {
+        margin-top: 0.5em;
+    }
 `;
 
 export const Technologies = styled.div`
-    margin-top: 15px;
-    font-style: normal;
+    margin: 10px 0 20px 0;
 
     > * {
         margin-left: 8px;

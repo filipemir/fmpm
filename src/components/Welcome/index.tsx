@@ -36,16 +36,25 @@ export default function Welcome() {
                             <Underline />
                         </Slash>
                     </Header1Wrapper>
-                    <Header2>I&apos;m a software engineer from Boston.</Header2>
+                    <Header2>I&apos;m a software engineer living in Boston.</Header2>
+                    <Technologies>
+                        {tech.map((t) => (
+                            <TechTag technology={t} key={t} />
+                        ))}
+                    </Technologies>
                     <About>
-                        I like building beautiful products and finding problems that can be meaningfully addressed with
-                        technology. If you have one, I&apos;d love to hear about it. I&apos;m also a lover of music,
-                        books, movies, and rock climbing and may occasionally muse about any or all of those here.
-                        <Technologies>
-                            {tech.map((t) => (
-                                <TechTag technology={t} key={t} />
-                            ))}
-                        </Technologies>
+                        <div>
+                            I like building beautiful products and finding problems that can be meaningfully addressed
+                            with technology. If you have one, I&apos;d love to{' '}
+                            <a href='mailto:filipe@fmpm.dev' target={'_blank'} rel='noopener noreferrer'>
+                                hear about it
+                            </a>
+                            .
+                        </div>
+                        <div>
+                            I&apos;m also a lover of music, books, movies, and rock climbing and may occasionally muse
+                            about any or all of those here.
+                        </div>
                     </About>
                 </Content>
             </animated.div>
