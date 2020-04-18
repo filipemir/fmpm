@@ -12,14 +12,19 @@ const dynamicSize = ({ active }: { active: boolean }) => css`
 `;
 
 export const Root = styled.div`
-    width: 550px;
+    width: 100%;
+    max-width: 550px;
     height: 350px;
     position: relative;
     border-radius: 5px;
     overflow: hidden;
     box-shadow: rgba(2, 12, 27, 0.3) 0px 20px 30px -15px;
     transition: all 0.2s ease-in-out;
-    ${dynamicSize}
+    ${dynamicSize};
+
+    @media (max-width: 420px) {
+        height: 230px;
+    }
 `;
 
 export const Bar = styled.div`
@@ -28,6 +33,7 @@ export const Bar = styled.div`
     position: relative;
     top: 0;
     background-color: ${BAR_COLOR};
+    text-align: left;
 `;
 
 export const Dots = styled.div`
@@ -65,4 +71,5 @@ export const Content = styled.div`
     background-size: cover;
     background-position: center center;
     height: 100%;
+    position: relative;
 `;
