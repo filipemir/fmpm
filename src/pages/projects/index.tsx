@@ -18,7 +18,10 @@ export default function HomePage() {
                 <SectionHeaderWrapper>
                     <Header text={'projects'} emoji={'🛠'} />
                 </SectionHeaderWrapper>
-                <SectionIntro>Some side-projects I have worked on over the years, mostly for fun.</SectionIntro>
+                <SectionIntro>
+                    Some side-projects I have put together over the years with various degrees of seriousness and in
+                    varying stages of completion.
+                </SectionIntro>
                 <ProjectsWrapper>
                     {PROJECTS.map((p, i) => (
                         <Project key={`project-${i}`}>

@@ -2,7 +2,7 @@ import React, { useState, ReactNode } from 'react';
 import { Global } from '@emotion/core';
 import globalCss from 'styles/global';
 import 'styles/global.scss';
-import { LayoutRoot } from './styles';
+import { LayoutRoot, NavBarWrapper } from './styles';
 import NavBar from 'components/NavBar';
 
 import Transition from './transition';
@@ -19,7 +19,9 @@ export default function Layout({ children, location }: LayoutProps) {
     return (
         <LayoutRoot>
             <Global styles={globalCss} />
-            <NavBar currentPage={page} onPageClick={setPage} />
+            <NavBarWrapper>
+                <NavBar currentPage={page} onPageClick={setPage} />
+            </NavBarWrapper>
             <Transition location={location}>{children}</Transition>
         </LayoutRoot>
     );

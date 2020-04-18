@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
-import { COLOR_QUATERNARY } from 'styles/global';
+import { COLOR_QUATERNARY, PADDING_TOP_PAGE } from 'styles/global';
 
 export const RootDiv = styled.div`
     max-width: 1000px;
     margin: 0 auto;
+    padding-top: ${PADDING_TOP_PAGE}px;
 `;
 
 export const Section = styled.div`
@@ -15,12 +16,13 @@ export const ProjectsWrapper = styled.div`
 `;
 
 export const Project = styled.div`
-    margin-top: 100px;
+    border-bottom: 1px solid ${COLOR_QUATERNARY};
+    padding-bottom: 55px;
+    margin-top: 45px;
 
     @media (max-width: 900px) {
         padding-bottom: 30px;
         margin-top: 25px;
-        border-bottom: 1px solid ${COLOR_QUATERNARY};
     }
 
     &:first-of-type {

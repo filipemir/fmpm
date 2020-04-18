@@ -13,6 +13,5 @@ export const SectionIntro = styled.div`
     margin: 0 auto 20px auto;
     font-weight: 300;
     line-height: 1.4;
-    text-align: center;
-    font-size: 1em;
+    font-size: 16px;
 `;

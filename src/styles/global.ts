@@ -20,7 +20,8 @@ export const COLOR_QUATERNARY = '#E4E3E3';
 // export const COLOR_TERNARY = '#A3BACF';
 // export const COLOR_QUATERNARY = '#063C5C';
 
-export const TEXT_SHADOW = `2px 4px 0 ${COLOR_BG_ACCENT}`;
+export const HEADER_HEIGHT = 65;
+export const PADDING_TOP_PAGE = HEADER_HEIGHT + 40;
 
 const globalCss = css`
     html,
@@ -44,6 +45,11 @@ const globalCss = css`
         &:hover {
             text-decoration: underline;
         }
+    }
+
+    #___gatsby,
+    #gatsby-focus-wrapper {
+        height: 100%;
     }
 `;
 

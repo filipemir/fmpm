@@ -6,19 +6,46 @@ import { COLOR_ACCENT, COLOR_BG_ACCENT, COLOR_PRIMARY, COLOR_SECONDARY, FONT_FAM
 export const Root = styled.div`
     position: relative;
     z-index: 0;
+`;
+
+export const Part1 = styled.div`
+    position: relative;
+    display: block;
+    height: 100vh;
+`;
+
+export const Part1Inner = styled.div`
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     height: fit-content;
+
+    @media (max-width: 900px) {
+        display: block;
+        position: relative;
+    }
 `;
 
 export const AvatarWrapper = styled.div`
     margin-right: 50px;
     display: flex;
     align-items: center;
+
+    @media (max-width: 900px) {
+        display: inline-block;
+        margin: 0;
+        height: 220px;
+    }
 `;
 
 export const Content = styled.div`
     font-family: ${FONT_FAMILY_SERIF};
     letter-spacing: -0.2px;
+
+    @media (max-width: 900px) {
+        display: block;
+    }
 `;
 
 export const Avatar = styled.div`
@@ -45,6 +72,10 @@ export const Header1 = styled.h1`
     z-index: 2;
     text-shadow: 2px 4px 0 ${COLOR_BG_ACCENT};
     margin: 0;
+
+    @media (max-width: 900px) {
+        font-size: 37px;
+    }
 `;
 
 export const Slash = styled.div`
@@ -68,6 +99,12 @@ export const Header2 = styled.h2`
     font-style: italic;
     font-weight: 300;
     margin: 5px 0 15px 0;
+
+    @media (max-width: 900px) {
+        line-height: 1.2;
+        margin: 0;
+        font-size: 20px;
+    }
 `;
 
 export const JobTitle = styled.span`
@@ -92,6 +129,7 @@ export const About = styled.div`
     max-width: 540px;
     color: ${COLOR_SECONDARY};
     font-weight: 300;
+    text-align: left;
 
     > div {
         margin-top: 1em;
