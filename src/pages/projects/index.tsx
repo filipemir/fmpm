@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { HeaderWrapper, ProjectsWrapper, RootDiv, Section, Project } from './styles';
+import { ProjectsWrapper, RootDiv, Section, Project } from './styles';
 import Header from 'components/Header';
 import { PROJECTS } from 'data/projects';
 import ProjectRow from 'components/ProjectRow';
 import Helmet from 'components/Helmet';
 import Page from 'models/page';
-import { SectionIntro } from 'styles/sections';
+import { SectionHeaderWrapper, SectionIntro } from 'styles/sections';
 
 const DESCRIPTION = "A few of the side-projects I've built over the years.";
 
@@ -15,9 +15,9 @@ export default function HomePage() {
         <RootDiv>
             <Helmet page={Page.PROJECTS} pageTitle='Projects' description={DESCRIPTION} />
             <Section>
-                <HeaderWrapper>
+                <SectionHeaderWrapper>
                     <Header text={'projects'} emoji={'🛠'} />
-                </HeaderWrapper>
+                </SectionHeaderWrapper>
                 <SectionIntro>Some side-projects I have worked on over the years, mostly for fun.</SectionIntro>
                 <ProjectsWrapper>
                     {PROJECTS.map((p, i) => (

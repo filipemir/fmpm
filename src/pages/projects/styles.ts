@@ -10,11 +10,6 @@ export const Section = styled.div`
     margin-bottom: 100px;
 `;
 
-export const HeaderWrapper = styled.h2`
-    margin-bottom: 40px;
-    text-align: center;
-`;
-
 export const ProjectsWrapper = styled.div`
     padding: 0 20px;
 `;

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Resume from 'components/Resume';
-import { HeaderWrapper, ResumeWrapper, RootDiv, Section } from './styles';
-import { SectionIntro } from 'styles/sections';
+import { ResumeWrapper, RootDiv, Section } from './styles';
+import { SectionHeaderWrapper, SectionIntro } from 'styles/sections';
 import Header from 'components/Header';
 import Helmet from 'components/Helmet';
 import Page from 'models/page';
@@ -15,9 +15,9 @@ export default function HomePage() {
         <RootDiv>
             <Helmet page={Page.EXPERIENCE} pageTitle='Experience' description={DESCRIPTION} />
             <Section>
-                <HeaderWrapper>
+                <SectionHeaderWrapper>
                     <Header text={'experience'} emoji={'🎩'} />
-                </HeaderWrapper>
+                </SectionHeaderWrapper>
                 <SectionIntro>
                     I&apos;ve been lucky to wear a lot of different hats on my way to software engineering: teacher,
                     researcher, reporter, analyst, consultant. Not all those roles connect directly to the work I do
