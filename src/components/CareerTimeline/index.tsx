@@ -1,6 +1,7 @@
 import React, { RefCallback, ReactNode, useRef, MutableRefObject } from 'react';
 import { animated, useSpring, useTrail, config } from 'react-spring';
 import useMeasure, { RectReadOnly } from 'react-use-measure';
+import { ResizeObserver } from '@juggle/resize-observer'
 
 import { activeTenurePanelCss, RootDiv, SectionHeader, SectionItem } from './styles';
 import { RESUME } from 'data/resume';
@@ -112,7 +113,7 @@ function getEducationComponents({
 
 export default function CareerTimeline(props: CareerTimelineProps) {
     const rootRef = useRef() as MutableRefObject<HTMLDivElement | null>,
-        [activeItemRef, activeItemRect] = useMeasure(),
+        [activeItemRef, activeItemRect] = useMeasure({ polyfill: ResizeObserver }),
         activeTenurePanelSpring = useSpring(getActiveTenurePanelSpring({ rootRef, activeItemRect })),
         components = [
             ...getJobComponents({ ...props, activeItemRef }),
