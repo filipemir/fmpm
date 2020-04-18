@@ -14,4 +14,5 @@ export const SectionIntro = styled.div`
     font-weight: 300;
     line-height: 1.4;
     text-align: center;
+    font-size: 1.1em;
 `;
