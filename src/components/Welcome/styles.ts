@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import img from './mtns.jpg';
 
-import { COLOR_BG_ACCENT, COLOR_PRIMARY, COLOR_SECONDARY, FONT_FAMILY_SERIF } from 'styles/global';
+import { COLOR_ACCENT, COLOR_BG_ACCENT, COLOR_PRIMARY, COLOR_SECONDARY, FONT_FAMILY_SERIF } from 'styles/global';
 
 export const Root = styled.div`
     position: relative;
@@ -17,7 +17,6 @@ export const AvatarWrapper = styled.div`
 `;
 
 export const Content = styled.div`
-    max-width: 600px;
     font-family: ${FONT_FAMILY_SERIF};
     letter-spacing: -0.2px;
 `;
@@ -71,20 +70,40 @@ export const Header2 = styled.h2`
     margin: 5px 0 15px 0;
 `;
 
-export const About = styled.div`
-    font-size: 18px;
-    color: ${COLOR_SECONDARY};
-    font-style: italic;
-    font-weight: 300;
-    line-height: 1.5;
+export const JobTitle = styled.span`
+    color: ${COLOR_ACCENT};
+    position: relative;
+    z-index: 0;
 
-    > div {
-        margin-top: 0.5em;
+    &:after {
+        background-color: ${COLOR_BG_ACCENT};
+        content: ' ';
+        position: absolute;
+        width: 100%;
+        height: 5px;
+        left: 0;
+        bottom: 5px;
+        z-index: -1;
     }
 `;
 
+export const About = styled.div`
+    font-size: 18px;
+    max-width: 540px;
+    color: ${COLOR_SECONDARY};
+    font-weight: 300;
+
+    > div {
+        margin-top: 1em;
+    }
+
+    font-family: ${FONT_FAMILY_SERIF};
+    line-height: 1.4;
+    font-style: normal;
+`;
+
 export const Technologies = styled.div`
-    margin: 10px 0 20px 0;
+    margin: 20px 0 25px 0;
 
     > * {
         margin-left: 8px;

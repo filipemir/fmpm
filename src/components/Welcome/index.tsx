@@ -11,7 +11,8 @@ import {
     Header2,
     About,
     Slash,
-    Technologies
+    Technologies,
+    JobTitle
 } from './styles';
 import Emoji from 'a11y-react-emoji';
 import Underline from 'images/underline.svg';
@@ -36,7 +37,9 @@ export default function Welcome() {
                             <Underline />
                         </Slash>
                     </Header1Wrapper>
-                    <Header2>I&apos;m a software engineer living in Boston.</Header2>
+                    <Header2>
+                        I&apos;m a <JobTitle>software engineer</JobTitle> living in Boston.
+                    </Header2>
                     <Technologies>
                         {tech.map((t) => (
                             <TechTag technology={t} key={t} />
