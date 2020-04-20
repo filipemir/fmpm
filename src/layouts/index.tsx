@@ -4,7 +4,6 @@ import globalCss from 'styles/global';
 import 'styles/global.scss';
 import { LayoutRoot, NavBarWrapper } from './styles';
 import NavBar from 'components/NavBar';
-
 import Transition from './transition';
 import { getPage } from 'utils/location';
 

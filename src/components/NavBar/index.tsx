@@ -11,15 +11,18 @@ import Hamburger from 'components/Hamburger';
 export default function NavBar({ currentPage, onPageClick }: { currentPage: Page; onPageClick: (page: Page) => void }) {
     const isMobile = useMedia({ maxWidth: '900px' });
     return (
-        <RootDiv>
-            <LeftDiv>
-                <Link to={'/'} onClick={() => onPageClick(Page.ABOUT)}>
-                    <FmpmLogo />
-                </Link>
-            </LeftDiv>
-            <RightDiv>
-                {isMobile ? <Hamburger /> : <NavHorizontal currentPage={currentPage} onPageClick={onPageClick} />}
-            </RightDiv>
-        </RootDiv>
+        <>
+            <RootDiv>
+                <LeftDiv>
+                    <Link to={'/'} onClick={() => onPageClick(Page.ABOUT)}>
+                        <FmpmLogo />
+                    </Link>
+                </LeftDiv>
+                <RightDiv>
+                    {!isMobile && <NavHorizontal currentPage={currentPage} onPageClick={onPageClick} />}
+                </RightDiv>
+            </RootDiv>
+            {isMobile && <Hamburger currentPage={currentPage} onPageClick={onPageClick} />}
+        </>
     );
 }
