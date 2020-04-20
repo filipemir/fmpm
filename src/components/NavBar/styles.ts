@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { HEADER_HEIGHT, HEADER_HEIGHT_MOBILE } from 'styles/global';
+import { HEADER_HEIGHT } from 'styles/global';
 
 export const RootDiv = styled.div`
     display: flex;
@@ -17,7 +17,6 @@ export const RootDiv = styled.div`
 
     @media (max-width: 900px) {
         padding: 0 15px;
-        height: ${HEADER_HEIGHT_MOBILE}px;
     }
 `;
 

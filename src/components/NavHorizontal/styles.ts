@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { COLOR_ACCENT, COLOR_BG_ACCENT, COLOR_PRIMARY, FONT_FAMILY_MONO } from 'styles/global';
+import { COLOR_ACCENT, COLOR_BG_ACCENT, COLOR_PRIMARY, COLOR_QUATERNARY, FONT_FAMILY_MONO } from 'styles/global';
 
 export const RootDiv = styled.div`
     font-family: ${FONT_FAMILY_MONO};
     text-transform: lowercase;
-    font-size: 15px;
+    font-size: 14px;
     color: ${COLOR_PRIMARY};
     position: relative;
     z-index: 0;
@@ -56,4 +56,15 @@ export const dotCss = css`
     box-shadow: 2px 2px ${COLOR_BG_ACCENT};
     transform: translateX(-50%);
     top: -15px;
+`;
+
+export const ContactMe = styled.a`
+    background-color: ${COLOR_BG_ACCENT};
+    border-radius: 6px;
+    padding: 10px;
+    box-shadow: 2px 2px 0 ${COLOR_QUATERNARY};
+
+    div {
+        color: ${COLOR_ACCENT};
+    }
 `;

@@ -4,7 +4,7 @@ import { COLOR_ACCENT, COLOR_BG_ACCENT, FONT_FAMILY_SERIF } from 'styles/global'
 
 export const RootAnchor = styled.div`
     display: block;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 900;
     color: ${COLOR_ACCENT};
     font-family: ${FONT_FAMILY_SERIF};

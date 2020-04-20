@@ -21,9 +21,7 @@ export const COLOR_QUATERNARY = '#E4E3E3';
 // export const COLOR_QUATERNARY = '#063C5C';
 
 export const HEADER_HEIGHT = 65;
-export const HEADER_HEIGHT_MOBILE = 55;
-export const PADDING_TOP_PAGE = HEADER_HEIGHT + 20;
-export const PADDING_TOP_PAGE_MOBILE = HEADER_HEIGHT_MOBILE + 10;
+export const PADDING_TOP_PAGE = HEADER_HEIGHT + 10;
 
 const globalCss = css`
     html,

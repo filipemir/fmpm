@@ -44,7 +44,7 @@ export const Root = styled.div`
     .bm-menu-wrap {
         position: fixed;
         height: 100%;
-        width: 180px !important;
+        width: 200px !important;
     }
 
     .bm-menu {
@@ -66,7 +66,6 @@ export const Root = styled.div`
         position: relative;
         display: block;
         text-align: center;
-        margin-bottom: 100px;
     }
 `;
 

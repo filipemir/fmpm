@@ -1,14 +1,10 @@
 import styled from '@emotion/styled';
-import { COLOR_QUATERNARY, PADDING_TOP_PAGE, PADDING_TOP_PAGE_MOBILE } from 'styles/global';
+import { COLOR_QUATERNARY, PADDING_TOP_PAGE } from 'styles/global';
 
 export const RootDiv = styled.div`
     max-width: 1000px;
     margin: 0 auto;
     padding-top: ${PADDING_TOP_PAGE}px;
-
-    @media (max-width: 900px) {
-        padding-top: ${PADDING_TOP_PAGE_MOBILE}px;
-    }
 `;
 
 export const ProjectsWrapper = styled.div`

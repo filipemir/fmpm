@@ -4,7 +4,7 @@ import { ResizeObserver } from '@juggle/resize-observer';
 import { useSpring, animated, useTrail } from 'react-spring';
 import { Link } from 'gatsby';
 
-import { RootDiv, PageDivWrapper, PageDiv, PageSeparator, underlineDivCss, dotCss } from './styles';
+import { RootDiv, PageDivWrapper, PageDiv, PageSeparator, underlineDivCss, dotCss, ContactMe } from './styles';
 import Underline from 'images/underline.svg';
 import Page from 'models/page';
 
@@ -87,9 +87,9 @@ export default function NavHorizontal({
                     PageLink = ({ children }: { children: ReactNode }) => {
                         if (p === Page.CONTACT) {
                             return (
-                                <a href='mailto:filipe@fmpm.dev' target={'_blank'} rel='noopener noreferrer'>
+                                <ContactMe href='mailto:filipe@fmpm.dev' target={'_blank'} rel='noopener noreferrer'>
                                     {children}
-                                </a>
+                                </ContactMe>
                             );
                         }
 
