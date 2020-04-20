@@ -10,4 +10,8 @@ export const RootAnchor = styled.div`
     font-family: ${FONT_FAMILY_SERIF};
     font-style: italic;
     text-shadow: 2px 4px 0 ${COLOR_BG_ACCENT};
+
+    @media (max-width: 900px) {
+        font-size: 30px;
+    }
 `;

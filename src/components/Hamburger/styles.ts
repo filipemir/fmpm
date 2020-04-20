@@ -7,8 +7,8 @@ export const Root = styled.div`
         position: absolute;
         width: 26px;
         height: 15px;
-        right: 36px;
-        top: 36px;
+        right: 15px;
+        top: 22px;
     }
 
     .bm-burger-bars {
@@ -66,6 +66,7 @@ export const Root = styled.div`
         position: relative;
         display: block;
         text-align: center;
+        margin-bottom: 100px;
     }
 `;
 
