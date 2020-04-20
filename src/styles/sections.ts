@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { COLOR_SECONDARY, FONT_FAMILY_SANS_SERIF } from 'styles/global';
 
-export const SectionHeaderWrapper = styled.h2`
+export const SectionHeaderWrapper = styled.h1`
     margin: 0 0 30px 0;
     text-align: center;
 `;

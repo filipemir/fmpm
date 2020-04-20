@@ -68,7 +68,7 @@ function ExperienceSection({
                                     <a href={url} target='_blank' rel='noopener noreferrer'>
                                         <ResumeSectionNameDiv withLogo={!!logo}>
                                             {company}
-                                            {logo && <Logo src={logo} />}
+                                            {logo && <Logo src={logo} alt={company} />}
                                             <SlashDiv>
                                                 <Underline />
                                             </SlashDiv>

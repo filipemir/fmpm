@@ -54,5 +54,5 @@ function useProjectFixedImage(project: Project) {
 export default function ConnectedFakeBrowser({ project, active }: { project: Project; active?: boolean }) {
     const img = useProjectFixedImage(project);
 
-    return <FakeBrowser active={active} image={<Img fluid={img} />} />;
+    return <FakeBrowser active={active} image={<Img alt={project.name} fluid={img} />} />;
 }
