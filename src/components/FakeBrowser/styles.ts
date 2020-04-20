@@ -21,11 +21,6 @@ export const Root = styled.div`
     transition: all 0.2s ease-in-out;
     margin: 0 auto;
     ${dynamicSize};
-
-    @media (max-width: 420px) {
-        height: 60vh;
-        max-height: 350px;
-    }
 `;
 
 export const Bar = styled.div`
