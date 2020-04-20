@@ -12,6 +12,7 @@ import useMeasure from 'react-use-measure';
 import { ResizeObserver } from '@juggle/resize-observer';
 import Page from 'models/page';
 import useMedia from 'use-media';
+import Footer from 'components/Footer';
 
 interface LayoutProps {
     children: ReactNode;
@@ -55,6 +56,7 @@ export default function Layout({ children, location }: LayoutProps) {
                     </PersonalLinksWrapper>
                 </animated.div>
             )}
+            <Footer />
         </LayoutRoot>
     );
 }

@@ -4,6 +4,7 @@ import { Root, PageDiv, PageDivWrapper, ContactMe } from './styles';
 import { slide as Menu } from 'react-burger-menu';
 import Page from 'models/page';
 import { Link } from 'gatsby';
+import { PERSONAL_EMAIL } from 'data/personal';
 
 export default function Hamburger({
     currentPage,
@@ -25,7 +26,7 @@ export default function Hamburger({
                             if (p === Page.CONTACT) {
                                 return (
                                     <ContactMe
-                                        href='mailto:filipe@fmpm.dev'
+                                        href={`mailto:${PERSONAL_EMAIL}`}
                                         target={'_blank'}
                                         rel='noopener noreferrer'
                                     >

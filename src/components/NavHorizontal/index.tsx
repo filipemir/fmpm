@@ -7,6 +7,7 @@ import { Link } from 'gatsby';
 import { RootDiv, PageDivWrapper, PageDiv, PageSeparator, underlineDivCss, dotCss, ContactMe } from './styles';
 import Underline from 'images/underline.svg';
 import Page from 'models/page';
+import { PERSONAL_EMAIL } from 'data/personal';
 
 function getUnderlinePosition({
     rootRef,
@@ -87,7 +88,11 @@ export default function NavHorizontal({
                     PageLink = ({ children }: { children: ReactNode }) => {
                         if (p === Page.CONTACT) {
                             return (
-                                <ContactMe href='mailto:filipe@fmpm.dev' target={'_blank'} rel='noopener noreferrer'>
+                                <ContactMe
+                                    href={`mailto:${PERSONAL_EMAIL}`}
+                                    target={'_blank'}
+                                    rel='noopener noreferrer'
+                                >
                                     {children}
                                 </ContactMe>
                             );

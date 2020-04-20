@@ -10,5 +10,4 @@ export const RootDiv = styled.div`
 export const ResumeWrapper = styled.div`
     display: block;
     position: relative;
-    height: calc(100vh - 340px);
 `;

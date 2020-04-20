@@ -21,6 +21,7 @@ import Underline from 'images/underline.svg';
 import { Tech } from 'models/tech';
 import TechTag from 'components/TechTag';
 import useMedia from 'use-media';
+import { PERSONAL_EMAIL } from 'data/personal';
 
 export default function Welcome() {
     const tech = [Tech.REACT, Tech.TS, Tech.JAVA, Tech.SPRING_BOOT],
@@ -56,7 +57,11 @@ export default function Welcome() {
                                     <div>
                                         I like building beautiful products and finding problems that can be meaningfully
                                         addressed with technology. If you have one, I&apos;d love to{' '}
-                                        <a href='mailto:filipe@fmpm.dev' target={'_blank'} rel='noopener noreferrer'>
+                                        <a
+                                            href={`mailto:${PERSONAL_EMAIL}`}
+                                            target={'_blank'}
+                                            rel='noopener noreferrer'
+                                        >
                                             hear about it
                                         </a>
                                         .
