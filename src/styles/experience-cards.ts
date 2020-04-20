@@ -25,7 +25,6 @@ export const TitleSpan = styled.span`
     color: ${COLOR_PRIMARY};
     font-weight: 500;
     text-shadow: 2px 2px 0 ${COLOR_BG_ACCENT};
-    white-space: nowrap;
 `;
 
 export const DatesDiv = styled.div`
