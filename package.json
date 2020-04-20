@@ -86,6 +86,7 @@
     "gatsby-plugin-layout": "1.2.1",
     "gatsby-plugin-react-svg": "3.0.0",
     "gatsby-plugin-sass": "2.2.1",
+    "gatsby-plugin-sitemap": "2.3.5",
     "gatsby-plugin-typescript": "2.3.1",
     "gatsby-source-filesystem": "2.2.2",
     "node-sass": "4.13.1",

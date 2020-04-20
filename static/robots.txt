@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://fmpm.dev/sitemap.xml
+Host: https://fmpm.dev

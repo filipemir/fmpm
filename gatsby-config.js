@@ -5,7 +5,8 @@ const BASE_TITLE = 'Filipe Miranda | Software Engineer';
 module.exports = {
     siteMetadata: {
         baseTitle: BASE_TITLE,
-        baseCanonicalUrl: 'https://fmpm.dev'
+        siteUrl: 'https://fmpm.dev',
+        shareImageUrl: 'https://fmpm.dev/share.png'
     },
     plugins: [
         `gatsby-plugin-typescript`,
@@ -35,6 +36,7 @@ module.exports = {
         `gatsby-plugin-react-svg`,
         `gatsby-plugin-layout`,
         `gatsby-plugin-react-helmet`,
+        `gatsby-plugin-sitemap`,
         {
             resolve: 'gatsby-plugin-page-creator',
             options: {

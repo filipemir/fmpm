@@ -17,14 +17,15 @@ export default function Helmet({ page, pageTitle, description }: HelmetProps) {
                 site {
                     siteMetadata {
                         baseTitle
-                        baseCanonicalUrl
+                        siteUrl
+                        shareImageUrl
                     }
                 }
             }
         `),
-        { baseTitle, baseCanonicalUrl } = data.site.siteMetadata,
+        { baseTitle, siteUrl, shareImageUrl } = data.site.siteMetadata,
         title = pageTitle ? pageTitle + ' | ' + baseTitle : baseTitle,
-        canonicalUrl = baseCanonicalUrl + getPath(page);
+        canonicalUrl = siteUrl + getPath(page);
 
     return (
         <ReactHelmet>
@@ -33,10 +34,10 @@ export default function Helmet({ page, pageTitle, description }: HelmetProps) {
             <meta property='og:title' content={title} />
             <meta property='og:type' content='website' />
             <meta property='og:url' content={canonicalUrl} />
-            {/*<meta property="og:image" content={shareImageUrl} />*/}
+            <meta property='og:image' content={shareImageUrl} />
             <meta property='og:description' content={description} />
             <meta name='description' content={description} />
-            {/*<meta name="twitter:card" content="summary_large_image" />*/}
+            <meta name='twitter:card' content='summary_large_image' />
             <meta name='twitter:description' content={description} />
         </ReactHelmet>
     );
