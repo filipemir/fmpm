@@ -11,3 +11,14 @@ export const NavBarWrapper = styled.div`
     width: 100%;
     z-index: 2;
 `;
+
+export const Column = styled.div`
+    max-width: 1000px;
+    margin: 0 auto;
+`;
+
+export const PersonalLinksWrapper = styled.div`
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+`;

@@ -4,6 +4,7 @@ import { RootWithDropShadow, Title, Description, Wrapper, Technologies, GithubLo
 import { Project } from 'models/project';
 import TechTag from 'components/TechTag';
 import GithubSvg from 'images/github.svg';
+import parse from 'react-html-parser';
 
 export default function ProjectCard({ project }: { project: Project }) {
     const { name, description, technologies, githubUrl, url } = project,
@@ -25,7 +26,7 @@ export default function ProjectCard({ project }: { project: Project }) {
                 <Title href={url || githubUrl} target={'_blank'} rel='noopener noreferrer'>
                     {name}
                 </Title>
-                <Description>{description}</Description>
+                <Description>{parse(description)}</Description>
                 <Technologies>
                     {technologies.map((t) => (
                         <TechTag technology={t} key={t} />
