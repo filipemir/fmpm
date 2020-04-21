@@ -1,7 +1,7 @@
 # [fmpm.dev](https://fmpm.dev)
 
 My personal site, built with [Gatsby](https://www.gatsbyjs.org/) and [TypeScript](https://www.typescriptlang.org/),
-deployed through zeit.
+deployed through zeit. 
 
 ![demo](./static/share.png)
 
