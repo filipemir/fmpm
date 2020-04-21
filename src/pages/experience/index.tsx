@@ -6,7 +6,6 @@ import { SectionHeaderWrapper, SectionIntro, Section } from 'styles/sections';
 import Header from 'components/Header';
 import Helmet from 'components/Helmet';
 import Page from 'models/page';
-import PdfSvg from './pdf.svg';
 const DESCRIPTION =
     "My online resume. I've been lucky to do a lot of interesting things over the years. This is where I keep a running tally.";
 
