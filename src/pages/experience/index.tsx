@@ -26,7 +26,6 @@ export default function HomePage() {
                         <ResumeButton href={`/resume.pdf`} target={'_blank'} rel='noopener noreferrer'>
                             resume
                         </ResumeButton>
-                        .
                     </Note>
                 </SectionIntro>
                 <ResumeWrapper>
