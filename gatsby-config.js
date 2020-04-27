@@ -57,6 +57,15 @@ module.exports = {
                 display: `standalone`,
                 icon: `src/images/favicon.png`
             },
-        }
+        },
+        {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+              trackingId: "UA-164614103-1",
+              head: true,
+              anonymize: true,
+              respectDNT: true
+            }
+        },
     ]
 };
