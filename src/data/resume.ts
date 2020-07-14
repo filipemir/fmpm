@@ -2,6 +2,7 @@ import { CareerPhaseName, Org, Resume, ResumeSection, Tenure } from 'models/expe
 import {
     adventTeacher,
     americorps,
+    buoySoftwareEngineer,
     crbAnalyst,
     crbResearchAssociate,
     crbSeniorAnalyst,
@@ -24,6 +25,15 @@ import tuftsLogo from 'images/tufts.png';
 import stLogo from 'images/st.png';
 import launchLogo from 'images/launch.png';
 import crLogo from 'images/cr.png';
+import buoyLogo from 'images/buoy.jpeg';
+
+const Buoy: Tenure = {
+    company: Org.BUOY,
+    jobs: [buoySoftwareEngineer],
+    logo: buoyLogo,
+    url: 'https://www.buoyhealth.com/',
+    description: `Buoy is a web-based, AI-powered health assistant that helps people figure out what to do when they are sick.`
+};
 
 const ST: Tenure = {
     company: Org.ST,
@@ -96,7 +106,7 @@ const SCU: Tenure = {
 
 export const RESUME: Resume = {
     [ResumeSection.EXPERIENCE]: [
-        { name: CareerPhaseName.ENGINEERING, tenures: [ST, Launch] },
+        { name: CareerPhaseName.ENGINEERING, tenures: [Buoy, ST, Launch] },
         { name: CareerPhaseName.CONSULTING, tenures: [CR] },
         { name: CareerPhaseName.OTHER, tenures: [Tufts, NPR, Advent, RT, IRD, SCU] }
     ],

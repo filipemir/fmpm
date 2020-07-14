@@ -1,6 +1,7 @@
 import { Tech } from 'models/tech';
 
 export enum Org {
+    BUOY = 'Buoy Health',
     ST = 'SmarterTravel',
     CR = 'Cornerstone Research',
     NPR = 'NPR',

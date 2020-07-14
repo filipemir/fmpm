@@ -1,4 +1,6 @@
 export enum Tech {
+    PYTHON = 'Python',
+    DJANGO = 'Django',
     TS = 'TypeScript',
     REACT = 'React',
     ES6 = 'ES6+',
@@ -14,5 +16,6 @@ export enum Tech {
     RUBY = 'Ruby',
     RAILS = 'Ruby on Rails',
     D3 = 'd3.js',
-    GOOGLE_FNS = 'Google Functions'
+    GOOGLE_FNS = 'Google Functions',
+    K8S = 'Kubernetes'
 }

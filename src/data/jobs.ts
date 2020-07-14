@@ -3,12 +3,24 @@ import parseISO from 'date-fns/parseISO';
 import { Job, Org } from 'models/experience';
 import { Tech } from 'models/tech';
 
+export const buoySoftwareEngineer: Job = {
+    company: Org.ST,
+    title: 'Senior Software Engineer',
+    team: 'Care Marketplace Team',
+    technologies: [Tech.PYTHON, Tech.DJANGO, Tech.REACT, Tech.AWS, Tech.STORYBOOK, Tech.K8S],
+    startDate: parseISO('2020-06'),
+    description: `At Buoy, I'm a part of the small team responsible for directing our users
+        to whatever healthcare providers best fit their needs. It's a full-stack role revolving
+        around a number of Javascript frontends and Django microservices.`
+};
+
 export const stSoftwareEngineer: Job = {
     company: Org.ST,
     title: 'Software Engineer',
     team: 'Sites Team',
     technologies: [Tech.TS, Tech.REACT, Tech.SPRING_BOOT, Tech.AWS, Tech.REDIS, Tech.STORYBOOK],
     startDate: parseISO('2017-12'),
+    endDate: parseISO('2020-05'),
     description: `As a Full Stack Software Engineer at SmarterTravel, I work on the small team that 
             develops and maintains a large network of travel content sites. There I most recently led the 
             effort to incrementally modernize 
