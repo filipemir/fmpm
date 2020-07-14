@@ -9,7 +9,7 @@ export const buoySoftwareEngineer: Job = {
     team: 'Care Marketplace Team',
     technologies: [Tech.PYTHON, Tech.DJANGO, Tech.REACT, Tech.AWS, Tech.STORYBOOK, Tech.K8S],
     startDate: parseISO('2020-06'),
-    description: `At Buoy, I'm a a member of the small team responsible for directing our users
+    description: `At Buoy, I'm a member of the small team responsible for directing our users
         to whatever healthcare providers best fit their needs. It's a full-stack role revolving
         around a number of React frontends and Django microservices.`
 };
