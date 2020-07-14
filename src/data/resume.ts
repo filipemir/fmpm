@@ -32,7 +32,7 @@ const Buoy: Tenure = {
     jobs: [buoySoftwareEngineer],
     logo: buoyLogo,
     url: 'https://www.buoyhealth.com/',
-    description: `Buoy is a web-based, AI-powered health assistant that helps people figure out what to do when they are sick.`
+    description: `Buoy is an AI-powered health assistant that helps people make the best decisions about their health.`
 };
 
 const ST: Tenure = {
