@@ -24,7 +24,7 @@ import useMedia from 'use-media';
 import { PERSONAL_EMAIL } from 'data/personal';
 
 export default function Welcome() {
-    const tech = [Tech.REACT, Tech.TS, Tech.JAVA, Tech.SPRING_BOOT],
+    const tech = [Tech.REACT, Tech.TS, Tech.JAVA, Tech.PYTHON],
         spring = useSpring({ opacity: 1, from: { opacity: 0 } }),
         isMobile = useMedia({ maxWidth: '900px' });
     return (
