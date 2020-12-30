@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/camelcase */
+
 const path = require('path');
 
 const BASE_TITLE = 'Filipe Miranda | Software Engineer';
@@ -15,21 +17,21 @@ module.exports = {
             resolve: `gatsby-plugin-alias-imports`,
             options: {
                 alias: {
-                    "components": path.resolve(__dirname, 'src/components')
+                    components: path.resolve(__dirname, 'src/components')
                 },
                 extensions: []
             }
         },
         {
             resolve: `gatsby-plugin-emotion`,
-            options: {},
+            options: {}
         },
         {
             resolve: `gatsby-source-filesystem`,
             options: {
                 name: `images`,
-                path: path.join(__dirname, `src`, `images`),
-            },
+                path: path.join(__dirname, `src`, `images`)
+            }
         },
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
@@ -42,9 +44,9 @@ module.exports = {
             options: {
                 path: `${__dirname}/src/pages`,
                 ignore: {
-                  patterns: [`**/styles.(js|ts)?(x)`],
+                    patterns: [`**/styles.(js|ts)?(x)`]
                 }
-              },
+            }
         },
         {
             resolve: `gatsby-plugin-manifest`,
@@ -56,16 +58,39 @@ module.exports = {
                 theme_color: '#BC4124',
                 display: `standalone`,
                 icon: `src/images/favicon.png`
-            },
+            }
         },
         {
             resolve: `gatsby-plugin-google-analytics`,
             options: {
-              trackingId: "UA-164614103-1",
-              head: true,
-              anonymize: true,
-              respectDNT: true
+                trackingId: 'UA-164614103-1',
+                head: true,
+                anonymize: true,
+                respectDNT: true
             }
         },
+        {
+            resolve: 'gatsby-plugin-prettier-eslint',
+            options: {
+                prettier: {
+                    patterns: [
+                        // the pattern "**/*.{js,jsx,ts,tsx}" is not used because we will rely on `eslint --fix`
+                        '**/*.{css,scss,less}',
+                        '**/*.{json,json5}',
+                        '**/*.{graphql}',
+                        '**/*.{md,mdx}',
+                        '**/*.{html}',
+                        '**/*.{yaml,yml}'
+                    ]
+                },
+                eslint: {
+                    patterns: '**/*.{js,jsx,ts,tsx}',
+                    customOptions: {
+                        fix: true,
+                        cache: true
+                    }
+                }
+            }
+        }
     ]
 };

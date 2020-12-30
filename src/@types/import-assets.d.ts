@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 /**
  * TS needs to know how to interpret files that aren't JS or CSS, like images so we need to give it some hints
  * See here: https://www.typescriptlang.org/docs/handbook/modules.html
