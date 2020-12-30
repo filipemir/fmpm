@@ -1,12 +1,11 @@
 import React from 'react';
 
-import { ProjectsWrapper, RootDiv, Project } from './styles';
+import { ProjectsWrapper, RootDiv } from './styles';
 import Header from 'components/Header';
-import { PROJECTS } from 'data/projects';
-import ProjectRow from 'components/ProjectRow';
 import Helmet from 'components/Helmet';
 import Page from 'models/page';
 import { SectionHeaderWrapper, SectionIntro, Section } from 'styles/sections';
+import { BOOKS } from '../../data/books';
 
 const DESCRIPTION = "Filipe's books";
 
@@ -20,11 +19,7 @@ export default function HomePage() {
                 </SectionHeaderWrapper>
                 <SectionIntro>Books I&apos;ve read because otherwise I can&apos;t keep track of them.</SectionIntro>
                 <ProjectsWrapper>
-                    {PROJECTS.map((p, i) => (
-                        <Project key={`project-${i}`}>
-                            <ProjectRow project={p} leftAlignedContent={i % 2 === 0} />
-                        </Project>
-                    ))}
+                    <img src={BOOKS[0].image} />
                 </ProjectsWrapper>
             </Section>
         </RootDiv>
