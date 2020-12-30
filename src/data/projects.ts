@@ -31,8 +31,8 @@ export const BEST_WORDS: Project = {
     id: ProjectId.TBW,
     name: 'The Best Words',
     githubUrl: 'https://github.com/filipemir/trump',
-    url: 'http://www.the-best-words.com',
-    technologies: [Tech.ES6, Tech.NETLIFY],
+    url: 'http://the-best-words.now.sh',
+    technologies: [Tech.ES6],
     img: tbwImg,
     description: `A small sampling of Donald Trump’s choicest words. I worked on this in the
         Spring of 2016 when it seemed far funnier than it does now.`
