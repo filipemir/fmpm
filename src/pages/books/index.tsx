@@ -9,6 +9,7 @@ import styled from '@emotion/styled';
 import { FONT_FAMILY_SANS_SERIF } from 'styles/global';
 
 import { BOOKS } from '../../data/books';
+import { BookEntry } from '../../models/media';
 
 const DESCRIPTION = "Filipe's books";
 
@@ -22,8 +23,8 @@ const BookGrid = styled.div`
     margin: 0 auto;
     max-width: 900px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 200px));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(65px, 130px));
+    gap: 15px;
     justify-content: center;
     align-items: center;
 `;
@@ -38,7 +39,7 @@ const Book = styled.div<BookProps>`
     transition: transform 150ms ease-in-out, box-shadow 150ms ease-in-out;
     box-shadow: rgba(2, 12, 27, 0.2) 5px 10px 10px 0px;
     z-index: 0;
-
+    grid-auto-flow: row dense;
     &:before {
         content: '';
         display: block;
@@ -50,7 +51,7 @@ const Book = styled.div<BookProps>`
 
     &:hover {
         box-shadow: rgba(2, 12, 27, 0.5) 10px 20px 30px 0px;
-        transform: scale(1.2);
+        transform: scale(1.1);
         z-index: 1;
     }
 `;
@@ -69,7 +70,70 @@ const BookCover = styled.img`
     }
 `;
 
+const ActiveBook = styled(Book)`
+    position: relative;
+    grid-column: auto / span 2;
+    grid-row: auto / span 2;
+
+    box-shadow: rgba(2, 12, 27, 0.5) 10px 20px 30px 0px;
+    z-index: 2;
+    transition: all 150ms ease-in-out;
+
+    &:hover {
+        transform: none;
+    }
+`;
+
+const ActiveBookInfoWrapper = styled.div`
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    box-sizing: border-box;
+    vertical-align: bottom;
+
+    &:before {
+        position: absolute;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        content: ' ';
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+`;
+
+const ActiveBookInfo = styled.div`
+    padding: 20px;
+    color: #bc4124;
+    text-align: end;
+    bottom: 0;
+`;
+
+interface BookCardProps {
+    isActive: boolean;
+    onClick: () => void;
+    book: BookEntry;
+}
+
+const BookCard = ({ isActive, onClick, book }: BookCardProps) => {
+    const { title, image } = book,
+        Root = isActive ? ActiveBook : Book;
+    return (
+        <Root key={title} onClick={onClick}>
+            <BookCover src={image} />
+            {isActive && (
+                <ActiveBookInfoWrapper>
+                    <ActiveBookInfo>{title}</ActiveBookInfo>
+                </ActiveBookInfoWrapper>
+            )}
+        </Root>
+    );
+};
+
 export default function BooksPage() {
+    const [activeBook, setActiveBook] = useState<BookEntry | null>(null);
     return (
         <RootDiv>
             <Helmet page={Page.PROJECTS} pageTitle='Books' description={DESCRIPTION} />
@@ -80,10 +144,13 @@ export default function BooksPage() {
                 <SectionIntro>Books I&apos;ve read because otherwise I can&apos;t keep track of them.</SectionIntro>
                 <Year>2020</Year>
                 <BookGrid>
-                    {BOOKS.map(({ title, image }) => (
-                        <Book key={title}>
-                            <BookCover src={image} />
-                        </Book>
+                    {BOOKS.map((book) => (
+                        <BookCard
+                            key={book.title}
+                            book={book}
+                            onClick={() => setActiveBook(activeBook === book ? null : book)}
+                            isActive={!!activeBook && activeBook === book}
+                        />
                     ))}
                 </BookGrid>
             </Section>

@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { COLOR_QUATERNARY, PADDING_TOP_PAGE } from 'styles/global';
 
 export const RootDiv = styled.div`
-    max-width: 1000px;
     margin: 0 auto;
     padding-top: ${PADDING_TOP_PAGE}px;
 `;
