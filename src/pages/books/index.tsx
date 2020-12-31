@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { RootDiv } from './styles';
 import Header from 'components/Header';
@@ -18,11 +18,12 @@ const Year = styled.h2`
 `;
 
 const BookGrid = styled.div`
+    position: relative;
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 900px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 150px));
-
+    grid-template-columns: repeat(auto-fill, minmax(100px, 200px));
+    gap: 20px;
     justify-content: center;
     align-items: center;
 `;
@@ -34,7 +35,8 @@ type BookProps = {
 const Book = styled.div<BookProps>`
     position: relative;
     cursor: pointer;
-    transition: transform 150ms ease-in-out;
+    transition: transform 150ms ease-in-out, box-shadow 150ms ease-in-out;
+    box-shadow: rgba(2, 12, 27, 0.2) 5px 10px 10px 0px;
     z-index: 0;
 
     &:before {
