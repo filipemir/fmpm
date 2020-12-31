@@ -11,7 +11,7 @@ export const ProjectsWrapper = styled.div`
     padding-top: 30px;
 `;
 
-export const Project = styled.div`
+export const Book = styled.div`
     border-bottom: 1px solid ${COLOR_QUATERNARY};
     padding-bottom: 55px;
     margin-top: 45px;
