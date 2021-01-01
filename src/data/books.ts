@@ -43,6 +43,16 @@ export const BOOKS: BookEntry[] = [
         image: STUBBORN_ATTACHMENTS_COVER
     },
     {
+        title: 'Measure What Matters',
+        subtitle: 'How Google, Bono, and the Gates Foundation Rock the World with OKRs',
+        author: 'John Doerr',
+        url: 'https://www.indiebound.org/book/9780525536222',
+        startDate: parseISO('2020-09-10'),
+        endDate: parseISO('2020-12-27'),
+        favorite: false,
+        image: MEASURE_WHAT_MATTERS_COVER
+    },
+    {
         title: 'Painting Resilience',
         subtitle: 'The Life and Art of Fred Terna',
         author: 'Julia Mayer',
@@ -62,14 +72,14 @@ export const BOOKS: BookEntry[] = [
         image: ICE_COVER
     },
     {
-        title: 'The Revenant',
-        subtitle: 'A Novel of Revenge',
-        author: 'Michael Punke',
-        url: 'https://www.indiebound.org/book/9781250101198',
-        startDate: parseISO('2020-11-16'),
-        endDate: parseISO('2020-11-24'),
+        title: 'The Birth Partner',
+        subtitle: 'A Complete Guide to Childbirth for Dads, Partners, Doulas, and All Other Labor Companions',
+        author: 'Penny Simkin',
+        url: 'https://www.indiebound.org/book/9781558329102',
+        startDate: parseISO('2020-10-14'),
+        endDate: parseISO('2020-12-24'),
         favorite: false,
-        image: THE_REVENANT_COVER
+        image: BIRTH_PARTNER_COVER
     },
     {
         title: 'Code',
@@ -82,6 +92,16 @@ export const BOOKS: BookEntry[] = [
         image: CODE_COVER
     },
     {
+        title: 'The Revenant',
+        subtitle: 'A Novel of Revenge',
+        author: 'Michael Punke',
+        url: 'https://www.indiebound.org/book/9781250101198',
+        startDate: parseISO('2020-11-16'),
+        endDate: parseISO('2020-11-24'),
+        favorite: false,
+        image: THE_REVENANT_COVER
+    },
+    {
         title: 'The Children of Men',
         author: 'P.D. James',
         url: 'https://www.indiebound.org/book/9780307275431',
@@ -91,14 +111,14 @@ export const BOOKS: BookEntry[] = [
         image: CHILDREN_OF_MEN_COVER
     },
     {
-        title: 'The Birth Partner',
-        subtitle: 'A Complete Guide to Childbirth for Dads, Partners, Doulas, and All Other Labor Companions',
-        author: 'Penny Simkin',
-        url: 'https://www.indiebound.org/book/9781558329102',
-        startDate: parseISO('2020-10-14'),
-        endDate: parseISO('2020-12-24'),
+        title: 'The Pragmatic Programmer',
+        subtitle: 'Your Journey to Mastery',
+        author: 'David Thomas, Andrew Hunt',
+        url: 'https://www.indiebound.org/buy-local/9780135957059',
+        startDate: parseISO('2020-03-01'),
+        endDate: parseISO('2020-10-16'),
         favorite: false,
-        image: BIRTH_PARTNER_COVER
+        image: PRAGMATIC_PROGRAMMER_COVER
     },
     {
         title: 'Stalin',
@@ -111,14 +131,14 @@ export const BOOKS: BookEntry[] = [
         image: STALIN_COVER
     },
     {
-        title: 'Measure What Matters',
-        subtitle: 'How Google, Bono, and the Gates Foundation Rock the World with OKRs',
-        author: 'John Doerr',
-        url: 'https://www.indiebound.org/book/9780525536222',
-        startDate: parseISO('2020-09-10'),
-        endDate: parseISO('2020-12-27'),
+        title: 'Cribsheet',
+        subtitle: 'A Data-Driven Guide to Better, More Relaxed Parenting, from Birth to Preschool',
+        author: 'Emily Oster',
+        url: 'https://www.indiebound.org/book/9780525559276',
+        startDate: parseISO('2020-09-01'),
+        endDate: parseISO('2020-10-08'),
         favorite: false,
-        image: MEASURE_WHAT_MATTERS_COVER
+        image: CRIBSHEET_COVER
     },
     {
         title: 'Ethics In The Real World',
@@ -141,16 +161,6 @@ export const BOOKS: BookEntry[] = [
         image: OPEN_BORDERS_COVER
     },
     {
-        title: 'Cribsheet',
-        subtitle: 'A Data-Driven Guide to Better, More Relaxed Parenting, from Birth to Preschool',
-        author: 'Emily Oster',
-        url: 'https://www.indiebound.org/book/9780525559276',
-        startDate: parseISO('2020-09-01'),
-        endDate: parseISO('2020-10-08'),
-        favorite: false,
-        image: CRIBSHEET_COVER
-    },
-    {
         title: 'Lenin',
         subtitle: 'The Man, the Dictator, and the Master of Terror',
         author: 'Victor Sebestyen',
@@ -169,6 +179,15 @@ export const BOOKS: BookEntry[] = [
         endDate: parseISO('2020-08-02'),
         favorite: false,
         image: BLUEPRINT_COVER
+    },
+    {
+        title: 'The Overstory',
+        author: 'Richard Powers',
+        url: 'https://www.indiebound.org/book/9780393635522',
+        startDate: parseISO('2020-06-07'),
+        endDate: parseISO('2020-07-31'),
+        favorite: false,
+        image: OVERSTORY_COVER
     },
     {
         title: 'The Bluest Eye',
@@ -199,25 +218,6 @@ export const BOOKS: BookEntry[] = [
         image: SELFISH_REASONS_COVER
     },
     {
-        title: 'The Overstory',
-        author: 'Richard Powers',
-        url: 'https://www.indiebound.org/book/9780393635522',
-        startDate: parseISO('2020-06-07'),
-        endDate: parseISO('2020-07-31'),
-        favorite: false,
-        image: OVERSTORY_COVER
-    },
-    {
-        title: 'Underland',
-        subtitle: 'A Deep Time Journey',
-        author: 'Robert McFarlane',
-        url: 'https://www.indiebound.org/book/9780393242140',
-        startDate: parseISO('2020-05-01'),
-        endDate: parseISO('2020-0515'),
-        favorite: false,
-        image: UNDERLAND_COVER
-    },
-    {
         title: 'Golden Compass',
         author: 'Bill Pullman',
         url: 'https://www.indiebound.org/book/9780679893103',
@@ -236,6 +236,16 @@ export const BOOKS: BookEntry[] = [
         image: NEVER_LET_ME_GO_COVER
     },
     {
+        title: 'Underland',
+        subtitle: 'A Deep Time Journey',
+        author: 'Robert McFarlane',
+        url: 'https://www.indiebound.org/book/9780393242140',
+        startDate: parseISO('2020-05-01'),
+        endDate: parseISO('2020-05-15'),
+        favorite: false,
+        image: UNDERLAND_COVER
+    },
+    {
         title: 'The Strange Bird',
         subtitle: 'A Borne Story',
         author: 'Jeff VanderMeer',
@@ -244,16 +254,6 @@ export const BOOKS: BookEntry[] = [
         endDate: parseISO('2020-04-30'),
         favorite: true,
         image: STRANGE_BIRD_COVER
-    },
-    {
-        title: 'The Pragmatic Programmer',
-        subtitle: 'Your Journey to Mastery',
-        author: 'David Thomas, Andrew Hunt',
-        url: 'https://www.indiebound.org/buy-local/9780135957059',
-        startDate: parseISO('2020-03-01'),
-        endDate: parseISO('2020-10-16'),
-        favorite: false,
-        image: PRAGMATIC_PROGRAMMER_COVER
     },
     {
         title: 'Big Sur',
@@ -293,15 +293,6 @@ export const BOOKS: BookEntry[] = [
         image: A_WRINKLE_IN_TIME_COVER
     },
     {
-        title: 'The Fall of Hyperion',
-        author: 'Dan Simmons',
-        url: 'https://www.indiebound.org/book/9780553288209',
-        startDate: parseISO('2020-01-11'),
-        endDate: parseISO('2020-01-24'),
-        favorite: false,
-        image: FALL_OF_HYPERION_COVER
-    },
-    {
         title: 'Exhalation',
         subtitle: 'Stories',
         author: 'Ted Chiang',
@@ -310,6 +301,15 @@ export const BOOKS: BookEntry[] = [
         endDate: parseISO('2020-02-02'),
         favorite: true,
         image: EXHALATION_COVER
+    },
+    {
+        title: 'The Fall of Hyperion',
+        author: 'Dan Simmons',
+        url: 'https://www.indiebound.org/book/9780553288209',
+        startDate: parseISO('2020-01-11'),
+        endDate: parseISO('2020-01-24'),
+        favorite: false,
+        image: FALL_OF_HYPERION_COVER
     },
     {
         title: 'Stories of Your Life And Others',
