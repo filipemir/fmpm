@@ -21,17 +21,21 @@ const Wrapper = styled.div`
 export default function DogearedTile({
     height,
     width,
+    maxHeight,
+    maxWidth,
     children,
     onClick
 }: {
     height?: string;
+    maxHeight?: string;
     width?: string;
+    maxWidth?: string;
     children?: ReactNode;
     onClick?: (evt: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }) {
     return (
         <RootWithDropShadow onClick={(evt) => onClick && onClick(evt)}>
-            <Wrapper style={{ height, width }}>{children}</Wrapper>
+            <Wrapper style={{ height, width, maxHeight, maxWidth }}>{children}</Wrapper>
         </RootWithDropShadow>
     );
 }

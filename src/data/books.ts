@@ -105,7 +105,7 @@ export const BOOKS: BookEntry[] = [
         subtitle: 'New Biography Of A Dictator',
         author: 'Oleg Khlevniuk',
         url: 'https://www.indiebound.org/book/9780300219784',
-        startDate: parseISO('2020-9-14'),
+        startDate: parseISO('2020-09-14'),
         endDate: parseISO('2020-10-13'),
         favorite: false,
         image: STALIN_COVER
@@ -269,7 +269,7 @@ export const BOOKS: BookEntry[] = [
         author: 'Jeff VanderMeer',
         url: 'https://www.indiebound.org/book/9780374537654',
         startDate: parseISO('2020-02-11'),
-        endDate: parseISO('2020-02-31'),
+        endDate: parseISO('2020-02-28'),
         favorite: true,
         image: BORNE_COVER
     },
@@ -297,7 +297,7 @@ export const BOOKS: BookEntry[] = [
         author: 'Dan Simmons',
         url: 'https://www.indiebound.org/book/9780553288209',
         startDate: parseISO('2020-01-11'),
-        endDate: parseISO('2020-01*24'),
+        endDate: parseISO('2020-01-24'),
         favorite: false,
         image: FALL_OF_HYPERION_COVER
     },
