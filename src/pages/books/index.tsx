@@ -21,9 +21,9 @@ const Year = styled.h2`
 const BookGrid = styled.div`
     position: relative;
     margin: 0 auto;
-    max-width: 900px;
+    max-width: 1100px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(65px, 130px));
+    grid-template-columns: repeat(auto-fill, minmax(30px, 120px));
     gap: 15px;
     justify-content: center;
     align-items: center;
@@ -51,7 +51,7 @@ const Book = styled.div<BookProps>`
 
     &:hover {
         box-shadow: rgba(2, 12, 27, 0.5) 10px 20px 30px 0px;
-        transform: scale(1.1);
+        transform: scale(1.3);
         z-index: 1;
     }
 `;
