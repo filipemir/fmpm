@@ -8,11 +8,17 @@ import getYear from 'date-fns/getYear';
 
 const Root = styled.div`
     position: fixed;
+    z-index: 100;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 10;
+`;
+
+const ModalShadowBox = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 50%);
 `;
 
@@ -69,10 +75,11 @@ const getDateRangeString = (book: BookEntry) => {
     return `${startDateStr} to ${endDateStr}`;
 };
 
-const BookModal = ({ book }: { book: BookEntry }) => {
+const BookModal = ({ book, onClose }: { book: BookEntry; onClose?: () => void }) => {
     const { title, subtitle, image, author, url } = book;
     return (
         <Root>
+            <ModalShadowBox onClick={() => onClose && onClose()} />
             <Content>
                 <Cover src={image} />
                 <Info>
