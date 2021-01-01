@@ -29,7 +29,8 @@ import THE_PROBLEM_WITH_EVERYTHING_COVER from 'images/books/the-problem-with-eve
 import A_WRINKLE_IN_TIME_COVER from 'images/books/a-wrinkle-in-time.jpg';
 import FALL_OF_HYPERION_COVER from 'images/books/fall-of-hyperion.jpg';
 import EXHALATION_COVER from 'images/books/exhalation.jpg';
-import STORIES_OF_YOUR_LIFE from 'images/books/stories-of-your-life.jpg';
+import STORIES_OF_YOUR_LIFE_COVER from 'images/books/stories-of-your-life.jpg';
+import LIBRA_COVER from 'images/books/libra.jpg';
 
 export const BOOKS: BookEntry[] = [
     {
@@ -318,6 +319,17 @@ export const BOOKS: BookEntry[] = [
         startDate: parseISO('2019-12-10'),
         endDate: parseISO('2020-01-07'),
         favorite: true,
-        image: STORIES_OF_YOUR_LIFE
+        image: STORIES_OF_YOUR_LIFE_COVER
+    },
+
+    // 2019
+    {
+        title: 'Libra',
+        author: 'Don Delillo',
+        url: 'https://www.indiebound.org/book/9780140156041',
+        startDate: parseISO('2019-10-12'),
+        endDate: parseISO('2019-12-09'),
+        favorite: false,
+        image: LIBRA_COVER
     }
 ];
