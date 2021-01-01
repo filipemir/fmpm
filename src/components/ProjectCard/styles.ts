@@ -1,35 +1,12 @@
 import styled from '@emotion/styled';
 import {
     COLOR_ACCENT,
-    COLOR_BG_ACCENT,
     COLOR_PRIMARY,
     COLOR_QUATERNARY,
     COLOR_SECONDARY,
     FONT_FAMILY_SANS_SERIF,
     FONT_FAMILY_SERIF
 } from 'styles/global';
-
-export const RootWithDropShadow = styled.div`
-    filter: drop-shadow(5px 5px 0 ${COLOR_QUATERNARY});
-    display: inline-block;
-    cursor: pointer;
-`;
-
-export const Wrapper = styled.div`
-    width: 290px;
-    height: 240px;
-    padding: 20px 30px 40px 30px;
-    box-sizing: border-box;
-    background-color: ${COLOR_BG_ACCENT};
-    box-shadow: 5px 5px 0 ${COLOR_QUATERNARY};
-    clip-path: polygon(50% 0%, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 0);
-    position: relative;
-    transition: transform 100ms ease-in-out;
-
-    &:hover {
-        transform: scale(1.03);
-    }
-`;
 
 export const Title = styled.a`
     font-family: ${FONT_FAMILY_SERIF};
