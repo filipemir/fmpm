@@ -19,12 +19,12 @@ const ModalShadowBox = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 50%);
+    background-color: rgba(0, 0, 0, 70%);
 `;
 
 const Content = styled.div`
     position: absolute;
-    height: 400px;
+    height: 600px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -37,7 +37,7 @@ const Cover = styled.img`
 
 const Info = styled.div`
     position: relative;
-    top: -50%;
+    top: -40%;
     transform: translate(50%, -50%);
 `;
 
@@ -83,7 +83,7 @@ const BookModal = ({ book, onClose }: { book: BookEntry; onClose?: () => void })
             <Content>
                 <Cover src={image} />
                 <Info>
-                    <DogearedTile maxWidth={'300px'}>
+                    <DogearedTile maxWidth={'350px'}>
                         <Title href={url} target={'_blank'}>
                             {title}
                         </Title>

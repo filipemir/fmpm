@@ -8,7 +8,7 @@ import BookModal from './index';
 const bookTitles = BOOKS.map((b) => b.title);
 
 storiesOf(`BookModal`, module).add(`default`, () => {
-    const bookTitle = select('Job', bookTitles, bookTitles[0]),
+    const bookTitle = select('Book', bookTitles, bookTitles[0]),
         book = BOOKS.find((b) => b.title === bookTitle)!;
     return <BookModal book={book} onClose={action('Close modal')} />;
 });
