@@ -14,6 +14,7 @@ import {
     StyledTitle,
     StyledSubtitle
 } from './styles';
+import useCancelKeydown from 'hooks/useCancelKeydown';
 
 const getDateRangeString = (book: BookEntry) => {
     const { startDate, endDate } = book,
@@ -27,26 +28,7 @@ const getDateRangeString = (book: BookEntry) => {
 const BookModal = ({ book, onClose }: { book: BookEntry; onClose?: () => void }) => {
     const { title, subtitle, image, author, url } = book;
 
-    useEffect(() => {
-        if (!onClose) {
-            return;
-        }
-
-        const handleKeydown = (evt: KeyboardEvent) => {
-            const { key, keyCode } = evt;
-
-            if (key === 'Escape' || keyCode === 27) {
-                onClose();
-            }
-        };
-
-        window.document.addEventListener('keydown', handleKeydown);
-
-        // Remove event listener on cleanup
-        return () => {
-            window.document.removeEventListener('keydown', handleKeydown);
-        };
-    }, [onClose]);
+    useCancelKeydown(onClose);
 
     return (
         <StyledRoot>
