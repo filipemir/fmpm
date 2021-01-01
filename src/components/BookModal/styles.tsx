@@ -23,6 +23,7 @@ export const StyledContent = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    cursor: pointer;
 `;
 
 export const StyledCover = styled.img`

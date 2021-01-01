@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BookEntry } from '../../models/media';
 import styled from '@emotion/styled';
 import BookModal from '../BookModal';
+import { useTransition, animated } from 'react-spring';
 
 const Root = styled.div`
     position: relative;
@@ -50,7 +51,14 @@ const BookCover = styled.img`
 `;
 
 const BookGrid = ({ books }: { books: BookEntry[] }) => {
-    const [activeBook, setActiveBook] = useState<BookEntry | null>(null);
+    const [activeBook, setActiveBook] = useState<BookEntry | null>(null),
+        transitions = useTransition(activeBook, null, {
+            from: { zIndex: 100, opacity: 0 },
+            enter: { opacity: 1 },
+            leave: { opacity: 0 },
+            config: { duration: 100 }
+        });
+
     return (
         <Root>
             {books.map((book) => {
@@ -62,7 +70,14 @@ const BookGrid = ({ books }: { books: BookEntry[] }) => {
                     </Book>
                 );
             })}
-            {activeBook && <BookModal book={activeBook} onClose={() => setActiveBook(null)} />}
+            {transitions.map(
+                ({ item, key, props }) =>
+                    item && (
+                        <animated.div key={key} style={props}>
+                            <BookModal book={item} onClose={() => setActiveBook(null)} />
+                        </animated.div>
+                    )
+            )}
         </Root>
     );
 };
