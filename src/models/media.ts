@@ -4,7 +4,7 @@ export interface BookEntry {
     author: string;
     favorite: boolean;
     startDate: Date;
-    endDate?: Date;
+    endDate: Date;
     url?: string;
     image?: string;
 }
