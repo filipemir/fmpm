@@ -14,6 +14,7 @@ import {
     StyledTitle,
     StyledSubtitle
 } from './styles';
+import { config, useSpring, animated } from 'react-spring';
 
 const getDateRangeString = (book: BookEntry) => {
     const { startDate, endDate } = book,
@@ -25,23 +26,27 @@ const getDateRangeString = (book: BookEntry) => {
 };
 
 const BookModal = ({ book, onClose }: { book: BookEntry; onClose?: () => void }) => {
-    const { title, subtitle, image, author, url } = book;
+    const { title, subtitle, image, author, url } = book,
+        spring = useSpring({ opacity: 1, from: { opacity: 0 }, config: config.default });
+
     return (
         <StyledRoot>
-            <StyledModalShadowBox onClick={() => onClose && onClose()} />
-            <StyledContent>
-                <StyledCover src={image} />
-                <StyledInfo>
-                    <DogearedTile maxWidth={'350px'}>
-                        <StyledTitle href={url} target={'_blank'}>
-                            {title}
-                        </StyledTitle>
-                        {subtitle && <StyledSubtitle>{subtitle}</StyledSubtitle>}
-                        <StyledAuthor>by {author}</StyledAuthor>
-                        <StyledDates>read {getDateRangeString(book)}</StyledDates>
-                    </DogearedTile>
-                </StyledInfo>
-            </StyledContent>
+            <animated.div style={spring}>
+                <StyledModalShadowBox onClick={() => onClose && onClose()} />
+                <StyledContent>
+                    <StyledCover src={image} />
+                    <StyledInfo>
+                        <DogearedTile maxWidth={'350px'}>
+                            <StyledTitle href={url} target={'_blank'}>
+                                {title}
+                            </StyledTitle>
+                            {subtitle && <StyledSubtitle>{subtitle}</StyledSubtitle>}
+                            <StyledAuthor>by {author}</StyledAuthor>
+                            <StyledDates>read {getDateRangeString(book)}</StyledDates>
+                        </DogearedTile>
+                    </StyledInfo>
+                </StyledContent>
+            </animated.div>
         </StyledRoot>
     );
 };
