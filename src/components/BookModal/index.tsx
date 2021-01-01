@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import DogearedTile from 'components/DogearedTile';
 import { BookEntry } from '../../models/media';
 import format from 'date-fns/format';
@@ -26,6 +26,27 @@ const getDateRangeString = (book: BookEntry) => {
 
 const BookModal = ({ book, onClose }: { book: BookEntry; onClose?: () => void }) => {
     const { title, subtitle, image, author, url } = book;
+
+    useEffect(() => {
+        if (!onClose) {
+            return;
+        }
+
+        const handleKeydown = (evt: KeyboardEvent) => {
+            const { key, keyCode } = evt;
+
+            if (key === 'Escape' || keyCode === 27) {
+                onClose();
+            }
+        };
+
+        window.document.addEventListener('keydown', handleKeydown);
+
+        // Remove event listener on cleanup
+        return () => {
+            window.document.removeEventListener('keydown', handleKeydown);
+        };
+    }, [onClose]);
 
     return (
         <StyledRoot>
