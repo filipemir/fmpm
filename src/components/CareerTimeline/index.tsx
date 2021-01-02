@@ -24,7 +24,9 @@ function getJobComponents({
     onCareerPhaseClick,
     onTenureClick,
     activeItemRef
-}: CareerTimelineProps & { activeItemRef: RefCallback<HTMLDivElement | null> }) {
+}: CareerTimelineProps & {
+    activeItemRef: RefCallback<HTMLDivElement | null>;
+}) {
     const phases = RESUME[ResumeSection.EXPERIENCE],
         components: ReactNode[] = [];
 
@@ -63,7 +65,9 @@ function getEducationComponents({
     onSectionClick,
     onItemClick,
     activeItemRef
-}: CareerTimelineProps & { activeItemRef: RefCallback<HTMLDivElement | null> }) {
+}: CareerTimelineProps & {
+    activeItemRef: RefCallback<HTMLDivElement | null>;
+}) {
     const section = RESUME[ResumeSection.EDUCATION],
         isActive = activeSection === ResumeSection.EDUCATION,
         components = [
@@ -110,7 +114,10 @@ export default function CareerTimeline(props: CareerTimelineProps) {
                 const component = components[i];
                 return (
                     <animated.div
-                        style={{ opacity, transform: x.interpolate((x) => `translateX(${-x}px)`) }}
+                        style={{
+                            opacity,
+                            transform: x.interpolate((x) => `translateX(${-x}px)`)
+                        }}
                         key={`component-${i}`}
                     >
                         {component}

@@ -1,7 +1,13 @@
 import { useReducer } from 'react';
 
 import { RESUME } from 'data/resume';
-import { CareerPhase, Degree, ResumeItem, ResumeSection, Tenure } from 'models/experience';
+import {
+    CareerPhase,
+    Degree,
+    ResumeItem,
+    ResumeSection,
+    Tenure
+} from 'models/experience';
 import { ResumeItemsCache } from 'utils/cache';
 import { isCareerPhase, isTenure } from 'utils/experience';
 
@@ -73,13 +79,25 @@ function resumeReducer(state: ResumeState, action: ResumeAction): ResumeState {
 
 export default function useResumeReducer() {
     const { section, phase, tenure } = cache.get(mostRecentJob),
-        initialState: ResumeState = { item: mostRecentJob, section, phase, tenure },
+        initialState: ResumeState = {
+            item: mostRecentJob,
+            section,
+            phase,
+            tenure
+        },
         [state, dispatch] = useReducer(resumeReducer, initialState),
         actions = {
-            setItem: (item: ResumeItem) => dispatch({ type: ResumeActionType.SET_ITEM, payload: item }),
-            setSection: (section: ResumeSection) => dispatch({ type: ResumeActionType.SET_SECTION, payload: section }),
-            setPhase: (phase: CareerPhase) => dispatch({ type: ResumeActionType.SET_PHASE, payload: phase }),
-            setTenure: (tenure: Tenure) => dispatch({ type: ResumeActionType.SET_TENURE, payload: tenure })
+            setItem: (item: ResumeItem) =>
+                dispatch({ type: ResumeActionType.SET_ITEM, payload: item }),
+            setSection: (section: ResumeSection) =>
+                dispatch({
+                    type: ResumeActionType.SET_SECTION,
+                    payload: section
+                }),
+            setPhase: (phase: CareerPhase) =>
+                dispatch({ type: ResumeActionType.SET_PHASE, payload: phase }),
+            setTenure: (tenure: Tenure) =>
+                dispatch({ type: ResumeActionType.SET_TENURE, payload: tenure })
         };
 
     return { state, actions };

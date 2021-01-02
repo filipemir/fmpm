@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {FONT_FAMILY_SANS_SERIF, PADDING_TOP_PAGE} from 'styles/global';
+import { FONT_FAMILY_SANS_SERIF, PADDING_TOP_PAGE } from 'styles/global';
 
 export const StyledRoot = styled.div`
     margin: 0 auto;

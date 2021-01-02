@@ -61,14 +61,21 @@ export default function NavHorizontal({
         [skipAnimations, setSkipAnimations] = useState(true),
         [hoveredPage, setHoveredPage] = useState<Page | null>(),
         rootRef = useRef() as MutableRefObject<HTMLDivElement | null>,
-        [activePageRef, activePageRect] = useMeasure({ polyfill: ResizeObserver }),
-        [hoveredPageRef, hoveredPageRect] = useMeasure({ polyfill: ResizeObserver }),
+        [activePageRef, activePageRect] = useMeasure({
+            polyfill: ResizeObserver
+        }),
+        [hoveredPageRef, hoveredPageRect] = useMeasure({
+            polyfill: ResizeObserver
+        }),
         underlinePosition = useSpring({
             ...getUnderlinePosition({ rootRef, activePageRect }),
             immediate: skipAnimations
         }),
         dotPosition = useSpring({
-            ...getDotPosition({ rootRef, dottedPageRect: hoveredPage ? hoveredPageRect : activePageRect }),
+            ...getDotPosition({
+                rootRef,
+                dottedPageRect: hoveredPage ? hoveredPageRect : activePageRect
+            }),
             immediate: skipAnimations
         }),
         trail = useTrail(pages.length, { opacity: 1, from: { opacity: 0 } });

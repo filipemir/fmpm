@@ -3,7 +3,12 @@ import { useSpring, animated } from 'react-spring';
 import { Global } from '@emotion/core';
 import globalCss from 'styles/global';
 import 'styles/global.scss';
-import { LayoutRoot, NavBarWrapper, PersonalLinksWrapper, Column } from './styles';
+import {
+    LayoutRoot,
+    NavBarWrapper,
+    PersonalLinksWrapper,
+    Column
+} from './styles';
 import NavBar from 'components/NavBar';
 import Transition from './transition';
 import { getPage } from 'utils/location';
@@ -51,7 +56,9 @@ export default function Layout({ children, location }: LayoutProps) {
 
             {!isMobile && (
                 <animated.div style={spring}>
-                    <PersonalLinksWrapper style={{ left: columnRect.x + columnRect.width + 30 }}>
+                    <PersonalLinksWrapper
+                        style={{ left: columnRect.x + columnRect.width + 30 }}
+                    >
                         <PersonalLinks />
                     </PersonalLinksWrapper>
                 </animated.div>

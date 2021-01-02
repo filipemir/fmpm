@@ -43,7 +43,10 @@ module.exports = ({ config }) => {
     });
 
     config.resolve.extensions.push('.ts', '.tsx');
-    config.resolve.modules = [path.resolve(__dirname, '../src'), 'node_modules'];
+    config.resolve.modules = [
+        path.resolve(__dirname, '../src'),
+        'node_modules'
+    ];
 
     rules.push({
         test: /\.(j|t)sx?$/,
@@ -63,7 +66,9 @@ module.exports = ({ config }) => {
     });
 
     // Override the default svg loader to use svg-react-loader:
-    const fileLoaderRule = config.module.rules.find((rule) => rule.test.test('.svg'));
+    const fileLoaderRule = config.module.rules.find((rule) =>
+        rule.test.test('.svg')
+    );
     fileLoaderRule.exclude = /\.svg$/;
     config.module.rules.push({
         test: /\.svg$/,

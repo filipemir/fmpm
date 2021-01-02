@@ -15,12 +15,19 @@ const DESCRIPTION = "Filipe's books",
 export default function BooksPage() {
     return (
         <StyledRoot>
-            <Helmet page={Page.PROJECTS} pageTitle='Books' description={DESCRIPTION} />
+            <Helmet
+                page={Page.PROJECTS}
+                pageTitle='Books'
+                description={DESCRIPTION}
+            />
             <Section>
                 <SectionHeaderWrapper>
                     <Header text={'books'} emoji={'📚'} />
                 </SectionHeaderWrapper>
-                <SectionIntro>Books I&apos;ve read because otherwise I can&apos;t keep track of them.</SectionIntro>
+                <SectionIntro>
+                    Books I&apos;ve read because otherwise I can&apos;t keep
+                    track of them.
+                </SectionIntro>
                 <div>
                     {YEARS.map((year) => (
                         <>

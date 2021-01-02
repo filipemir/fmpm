@@ -7,5 +7,9 @@ import ProjectRowDesktop from 'components/ProjectRow/Desktop';
 export default function ProjectRow(props: ProjectRowProps) {
     const isMobile = useMedia({ maxWidth: '900px' });
 
-    return isMobile ? <ProjectRowMobile {...props} /> : <ProjectRowDesktop {...props} />;
+    return isMobile ? (
+        <ProjectRowMobile {...props} />
+    ) : (
+        <ProjectRowDesktop {...props} />
+    );
 }

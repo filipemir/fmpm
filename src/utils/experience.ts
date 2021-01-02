@@ -1,6 +1,13 @@
 import differenceInMonths from 'date-fns/differenceInMonths';
 
-import { CareerPhase, Degree, Job, ResumeItem, ResumeSection, Tenure } from 'models/experience';
+import {
+    CareerPhase,
+    Degree,
+    Job,
+    ResumeItem,
+    ResumeSection,
+    Tenure
+} from 'models/experience';
 import { RESUME } from 'data/resume';
 
 export function isJob(item: ResumeItem): item is Job {
@@ -11,7 +18,9 @@ export function isTenure(o: Tenure | Degree): o is Tenure {
     return (o as Tenure).company !== undefined;
 }
 
-export function isCareerPhase(o: CareerPhase | Tenure | Degree): o is CareerPhase {
+export function isCareerPhase(
+    o: CareerPhase | Tenure | Degree
+): o is CareerPhase {
     return (o as CareerPhase).tenures != undefined;
 }
 

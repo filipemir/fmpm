@@ -15,7 +15,9 @@ function useProjectFixedImage(project: Project) {
                     }
                 }
             }
-            musicabulary: file(relativePath: { eq: "musicabulary-screen.png" }) {
+            musicabulary: file(
+                relativePath: { eq: "musicabulary-screen.png" }
+            ) {
                 childImageSharp {
                     fluid(maxWidth: 600, quality: 100) {
                         ...GatsbyImageSharpFluid
@@ -51,8 +53,19 @@ function useProjectFixedImage(project: Project) {
     }
 }
 
-export default function ConnectedFakeBrowser({ project, active }: { project: Project; active?: boolean }) {
+export default function ConnectedFakeBrowser({
+    project,
+    active
+}: {
+    project: Project;
+    active?: boolean;
+}) {
     const img = useProjectFixedImage(project);
 
-    return <FakeBrowser active={active} image={<Img alt={project.name} fluid={img} />} />;
+    return (
+        <FakeBrowser
+            active={active}
+            image={<Img alt={project.name} fluid={img} />}
+        />
+    );
 }

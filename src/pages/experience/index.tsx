@@ -12,18 +12,28 @@ const DESCRIPTION =
 export default function HomePage() {
     return (
         <RootDiv>
-            <Helmet page={Page.EXPERIENCE} pageTitle='Experience' description={DESCRIPTION} />
+            <Helmet
+                page={Page.EXPERIENCE}
+                pageTitle='Experience'
+                description={DESCRIPTION}
+            />
             <Section>
                 <SectionHeaderWrapper>
                     <Header text={'experience'} emoji={'🎩'} />
                 </SectionHeaderWrapper>
                 <SectionIntro>
-                    I&apos;ve been lucky to wear a lot of different hats on my way to software engineering: teacher,
-                    researcher, reporter, analyst, consultant. Not all those roles connect directly to the work I do
-                    today, but each taught me something that has made me a better engineer. The full list is below.
+                    I&apos;ve been lucky to wear a lot of different hats on my
+                    way to software engineering: teacher, researcher, reporter,
+                    analyst, consultant. Not all those roles connect directly to
+                    the work I do today, but each taught me something that has
+                    made me a better engineer. The full list is below.
                     <Note>
                         For a much abbreviated print version, see my{' '}
-                        <ResumeButton href={`/resume.pdf`} target={'_blank'} rel='noopener noreferrer'>
+                        <ResumeButton
+                            href={`/resume.pdf`}
+                            target={'_blank'}
+                            rel='noopener noreferrer'
+                        >
                             resume
                         </ResumeButton>
                     </Note>

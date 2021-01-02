@@ -1,5 +1,8 @@
 import React, { ReactNode, CSSProperties } from 'react';
-import { TransitionGroup, Transition as ReactTransition } from 'react-transition-group';
+import {
+    TransitionGroup,
+    Transition as ReactTransition
+} from 'react-transition-group';
 
 const timeout = 200,
     transitionStyles: { [key: string]: CSSProperties } = {
@@ -17,7 +20,13 @@ const timeout = 200,
         }
     };
 
-export default function Transition({ children, location }: { children: ReactNode; location: Location }) {
+export default function Transition({
+    children,
+    location
+}: {
+    children: ReactNode;
+    location: Location;
+}) {
     return (
         <TransitionGroup>
             <ReactTransition

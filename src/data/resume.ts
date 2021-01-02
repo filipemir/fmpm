@@ -108,7 +108,10 @@ export const RESUME: Resume = {
     [ResumeSection.EXPERIENCE]: [
         { name: CareerPhaseName.ENGINEERING, tenures: [Buoy, ST, Launch] },
         { name: CareerPhaseName.CONSULTING, tenures: [CR] },
-        { name: CareerPhaseName.OTHER, tenures: [Tufts, NPR, Advent, RT, IRD, SCU] }
+        {
+            name: CareerPhaseName.OTHER,
+            tenures: [Tufts, NPR, Advent, RT, IRD, SCU]
+        }
     ],
     [ResumeSection.EDUCATION]: [tuftsDegree, scuDegree]
 };

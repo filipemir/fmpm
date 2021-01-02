@@ -39,7 +39,11 @@ function ExperienceSection({
     activeItemRef: MutableRefObject<HTMLDivElement | null>;
 }) {
     const careerPhases = RESUME[ResumeSection.EXPERIENCE],
-        spring = useSpring({ opacity: 1, from: { opacity: 0 }, config: config.slow }),
+        spring = useSpring({
+            opacity: 1,
+            from: { opacity: 0 },
+            config: config.slow
+        }),
         [scrollIntoView, setScrollIntoView] = useState(false),
         throttledSetTenure = setActiveTenure && throttle(setActiveTenure, 100, { trailing: true });
 
