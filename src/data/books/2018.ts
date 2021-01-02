@@ -17,6 +17,7 @@ import ACCEPTANCE_COVER from 'images/books/acceptance.jpg';
 import AUTHORITY_COVER from 'images/books/authority.jpg';
 import ANNIHILATION_COVER from 'images/books/annihilation.jpg';
 import GOING_CLEAR_COVER from 'images/books/going-clear.jpg';
+import STATE_OF_AFFAIRS_COVER from 'images/books/state-of-affairs.jpg';
 
 export const BOOKS_2018: BookEntry[] = [
     {
@@ -151,6 +152,16 @@ export const BOOKS_2018: BookEntry[] = [
         endDate: parseISO('2018-03-27'),
         favorite: true,
         image: BLOOD_MERIDIAN_COVER
+    },
+    {
+        title: 'The State of Affairs',
+        subtitle: 'Rethinking Infidelity',
+        author: 'Esther Perel',
+        url: 'https://www.indiebound.org/book/9780062322593',
+        startDate: parseISO('2018-02-21'),
+        endDate: parseISO('2018-02-28'),
+        favorite: false,
+        image: STATE_OF_AFFAIRS_COVER
     },
     {
         title: 'Twin Peaks',
