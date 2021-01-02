@@ -25,13 +25,7 @@ const getDateRangeString = (book: BookEntry) => {
     return `${startDateStr} to ${endDateStr}`;
 };
 
-const BookModal = ({
-    book,
-    onClose
-}: {
-    book: BookEntry;
-    onClose?: () => void;
-}) => {
+const BookModal = ({ book, onClose }: { book: BookEntry; onClose?: () => void }) => {
     const { title, subtitle, image, author, url } = book;
 
     useCancelKeydown(onClose);
@@ -46,13 +40,9 @@ const BookModal = ({
                         <StyledTitle href={url} target={'_blank'}>
                             {title}
                         </StyledTitle>
-                        {subtitle && (
-                            <StyledSubtitle>{subtitle}</StyledSubtitle>
-                        )}
+                        {subtitle && <StyledSubtitle>{subtitle}</StyledSubtitle>}
                         <StyledAuthor>by {author}</StyledAuthor>
-                        <StyledDates>
-                            read {getDateRangeString(book)}
-                        </StyledDates>
+                        <StyledDates>read {getDateRangeString(book)}</StyledDates>
                     </DogearedTile>
                 </StyledInfo>
             </StyledContent>
