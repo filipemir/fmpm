@@ -3,7 +3,7 @@ export interface BookEntry {
     subtitle?: string;
     author: string;
     favorite: boolean;
-    startDate: Date;
+    startDate?: Date;
     endDate: Date;
     url?: string;
     image?: string;

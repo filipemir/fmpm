@@ -18,14 +18,25 @@ import useCancelKeydown from 'hooks/useCancelKeydown';
 
 const getDateRangeString = (book: BookEntry) => {
     const { startDate, endDate } = book,
-        sameYear = !!endDate && getYear(startDate) === getYear(endDate),
-        startDateStr = format(startDate, sameYear ? 'MMM d' : 'MMM d, yyy'),
-        endDateStr = endDate && format(endDate, 'MMM d, yyy');
+        endDateStr = format(endDate, 'MMM d, yyy');
+
+    if (!startDate) {
+        return `Finished on ${endDateStr}`;
+    }
+
+    const sameYear = getYear(startDate) === getYear(endDate),
+        startDateStr = format(startDate, sameYear ? 'MMM d' : 'MMM d, yyy');
 
     return `${startDateStr} to ${endDateStr}`;
 };
 
-const BookModal = ({ book, onClose }: { book: BookEntry; onClose?: () => void }) => {
+const BookModal = ({
+    book,
+    onClose
+}: {
+    book: BookEntry;
+    onClose?: () => void;
+}) => {
     const { title, subtitle, image, author, url } = book;
 
     useCancelKeydown(onClose);
@@ -40,9 +51,13 @@ const BookModal = ({ book, onClose }: { book: BookEntry; onClose?: () => void })
                         <StyledTitle href={url} target={'_blank'}>
                             {title}
                         </StyledTitle>
-                        {subtitle && <StyledSubtitle>{subtitle}</StyledSubtitle>}
+                        {subtitle && (
+                            <StyledSubtitle>{subtitle}</StyledSubtitle>
+                        )}
                         <StyledAuthor>by {author}</StyledAuthor>
-                        <StyledDates>read {getDateRangeString(book)}</StyledDates>
+                        <StyledDates>
+                            read {getDateRangeString(book)}
+                        </StyledDates>
                     </DogearedTile>
                 </StyledInfo>
             </StyledContent>
