@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import DogearedTile from 'components/DogearedTile';
-import { BookEntry } from '../../models/media';
+import { BookEntry } from 'models/media';
 import format from 'date-fns/format';
 import getYear from 'date-fns/getYear';
 import {
@@ -25,7 +25,13 @@ const getDateRangeString = (book: BookEntry) => {
     return `${startDateStr} to ${endDateStr}`;
 };
 
-const BookModal = ({ book, onClose }: { book: BookEntry; onClose?: () => void }) => {
+const BookModal = ({
+    book,
+    onClose
+}: {
+    book: BookEntry;
+    onClose?: () => void;
+}) => {
     const { title, subtitle, image, author, url } = book;
 
     useCancelKeydown(onClose);
@@ -40,9 +46,13 @@ const BookModal = ({ book, onClose }: { book: BookEntry; onClose?: () => void })
                         <StyledTitle href={url} target={'_blank'}>
                             {title}
                         </StyledTitle>
-                        {subtitle && <StyledSubtitle>{subtitle}</StyledSubtitle>}
+                        {subtitle && (
+                            <StyledSubtitle>{subtitle}</StyledSubtitle>
+                        )}
                         <StyledAuthor>by {author}</StyledAuthor>
-                        <StyledDates>read {getDateRangeString(book)}</StyledDates>
+                        <StyledDates>
+                            read {getDateRangeString(book)}
+                        </StyledDates>
                     </DogearedTile>
                 </StyledInfo>
             </StyledContent>
