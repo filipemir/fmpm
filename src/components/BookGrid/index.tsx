@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import { BookEntry } from '../../models/media';
 import styled from '@emotion/styled';
-import BookModal from '../BookModal';
+import BookModal from 'components/BookModal';
 import { useTransition, animated } from 'react-spring';
+import {
+    COLOR_ACCENT,
+    COLOR_BG_ACCENT,
+    COLOR_QUATERNARY,
+    FONT_FAMILY_SANS_SERIF
+} from 'styles/global';
+import getYear from 'date-fns/getYear';
 
 const Root = styled.div`
     position: relative;
@@ -30,10 +37,27 @@ const Book = styled.div`
     }
 
     &:hover {
-        box-shadow: rgba(2, 12, 27, 0.5) 10px 20px 30px 0px;
+        box-shadow: rgba(2, 12, 27, 0.5) 10px 20px 30px 0;
         transform: scale(1.3);
         z-index: 1;
     }
+`;
+
+const StyledYear = styled.div`
+    color: ${COLOR_ACCENT};
+    font-size: 70px;
+    font-weight: 700;
+    font-family: ${FONT_FAMILY_SANS_SERIF};
+    background-color: ${COLOR_BG_ACCENT};
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    line-height: 0.9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 10px 10px 0 ${COLOR_QUATERNARY};
+    border: 1px dashed ${COLOR_ACCENT};
 `;
 
 const BookCover = styled.img`
@@ -50,6 +74,18 @@ const BookCover = styled.img`
     }
 `;
 
+const YearCard = ({ date }: { date: Date }) => {
+    const yearStr = `${getYear(date)}`;
+
+    return (
+        <StyledYear>
+            {yearStr.slice(0, 2)}
+            <br />
+            {yearStr.slice(2, 4)}
+        </StyledYear>
+    );
+};
+
 const BookGrid = ({ books }: { books: BookEntry[] }) => {
     const [activeBook, setActiveBook] = useState<BookEntry | null>(null),
         transitions = useTransition(activeBook, null, {
@@ -61,20 +97,34 @@ const BookGrid = ({ books }: { books: BookEntry[] }) => {
 
     return (
         <Root>
-            {books.map((book) => {
-                const { title, author, image } = book,
-                    description = `"${title}" by ${author}`;
+            {books.map((book, index) => {
+                const { title, author, image, endDate } = book,
+                    description = `"${title}" by ${author}`,
+                    prevBook = index === 0 ? null : books[index - 1],
+                    prevBookYear = prevBook ? getYear(prevBook.endDate) : -9999,
+                    isFirstOfYear = getYear(endDate) != prevBookYear;
+
                 return (
-                    <Book key={title} onClick={() => setActiveBook(book)}>
-                        <BookCover src={image} alt={description} title={description} />
-                    </Book>
+                    <>
+                        {isFirstOfYear && <YearCard date={endDate} />}
+                        <Book key={title} onClick={() => setActiveBook(book)}>
+                            <BookCover
+                                src={image}
+                                alt={description}
+                                title={description}
+                            />
+                        </Book>
+                    </>
                 );
             })}
             {transitions.map(
                 ({ item, key, props }) =>
                     item && (
                         <animated.div key={key} style={props}>
-                            <BookModal book={item} onClose={() => setActiveBook(null)} />
+                            <BookModal
+                                book={item}
+                                onClose={() => setActiveBook(null)}
+                            />
                         </animated.div>
                     )
             )}
