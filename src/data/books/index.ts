@@ -3,10 +3,11 @@ import getYear from 'date-fns/getYear';
 import getTime from 'date-fns/getTime';
 import { BOOKS_2020 } from './2020';
 import { BOOKS_2019 } from './2019';
+import { BOOKS_2018 } from './2018';
 
-const BOOKS: BookEntry[] = [...BOOKS_2020, ...BOOKS_2019];
-
-export const BOOKS_SORTED = BOOKS.sort((a, b) => getTime(b.endDate) - getTime(a.endDate));
+export const BOOKS_SORTED = [...BOOKS_2020, ...BOOKS_2019, ...BOOKS_2018].sort(
+    (a, b) => getTime(b.endDate) - getTime(a.endDate)
+);
 
 export const BOOKS_BY_YEAR = BOOKS_SORTED.reduce<{ [key: number]: BookEntry[] }>((acc, book) => {
     const year = getYear(book.endDate);
