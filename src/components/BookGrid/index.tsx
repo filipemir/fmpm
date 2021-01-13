@@ -3,12 +3,7 @@ import { BookEntry } from '../../models/media';
 import styled from '@emotion/styled';
 import BookModal from 'components/BookModal';
 import { useTransition, animated } from 'react-spring';
-import {
-    COLOR_ACCENT,
-    COLOR_BG_ACCENT,
-    COLOR_QUATERNARY,
-    FONT_FAMILY_SANS_SERIF
-} from 'styles/global';
+import { COLOR_ACCENT, COLOR_BG_ACCENT, COLOR_QUATERNARY, FONT_FAMILY_SANS_SERIF } from 'styles/global';
 import getYear from 'date-fns/getYear';
 
 const Root = styled.div`
@@ -58,6 +53,13 @@ const StyledYear = styled.div`
     justify-content: center;
     box-shadow: 10px 10px 0 ${COLOR_QUATERNARY};
     border: 1px solid ${COLOR_ACCENT};
+    transition: transform 150ms ease-in-out, box-shadow 150ms ease-in-out;
+
+    &:hover {
+        transform: scale(1.1);
+        z-index: 1;
+        box-shadow: unset;
+    }
 `;
 
 const BookCover = styled.img`
@@ -108,11 +110,7 @@ const BookGrid = ({ books }: { books: BookEntry[] }) => {
                     <>
                         {isFirstOfYear && <YearCard date={endDate} />}
                         <Book key={title} onClick={() => setActiveBook(book)}>
-                            <BookCover
-                                src={image}
-                                alt={description}
-                                title={description}
-                            />
+                            <BookCover src={image} alt={description} title={description} />
                         </Book>
                     </>
                 );
@@ -121,10 +119,7 @@ const BookGrid = ({ books }: { books: BookEntry[] }) => {
                 ({ item, key, props }) =>
                     item && (
                         <animated.div key={key} style={props}>
-                            <BookModal
-                                book={item}
-                                onClose={() => setActiveBook(null)}
-                            />
+                            <BookModal book={item} onClose={() => setActiveBook(null)} />
                         </animated.div>
                     )
             )}
