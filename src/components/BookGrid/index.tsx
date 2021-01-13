@@ -57,7 +57,7 @@ const StyledYear = styled.div`
     align-items: center;
     justify-content: center;
     box-shadow: 10px 10px 0 ${COLOR_QUATERNARY};
-    border: 1px dashed ${COLOR_ACCENT};
+    border: 1px solid ${COLOR_ACCENT};
 `;
 
 const BookCover = styled.img`
