@@ -21,22 +21,16 @@ const getDateRangeString = (book: BookEntry) => {
         endDateStr = format(endDate, 'MMM d, yyy');
 
     if (!startDate) {
-        return `Finished on ${endDateStr}`;
+        return `finished on ${endDateStr}`;
     }
 
     const sameYear = getYear(startDate) === getYear(endDate),
         startDateStr = format(startDate, sameYear ? 'MMM d' : 'MMM d, yyy');
 
-    return `${startDateStr} to ${endDateStr}`;
+    return `read ${startDateStr} to ${endDateStr}`;
 };
 
-const BookModal = ({
-    book,
-    onClose
-}: {
-    book: BookEntry;
-    onClose?: () => void;
-}) => {
+const BookModal = ({ book, onClose }: { book: BookEntry; onClose?: () => void }) => {
     const { title, subtitle, image, author, url } = book;
 
     useCancelKeydown(onClose);
@@ -51,13 +45,9 @@ const BookModal = ({
                         <StyledTitle href={url} target={'_blank'}>
                             {title}
                         </StyledTitle>
-                        {subtitle && (
-                            <StyledSubtitle>{subtitle}</StyledSubtitle>
-                        )}
+                        {subtitle && <StyledSubtitle>{subtitle}</StyledSubtitle>}
                         <StyledAuthor>by {author}</StyledAuthor>
-                        <StyledDates>
-                            read {getDateRangeString(book)}
-                        </StyledDates>
+                        <StyledDates>{getDateRangeString(book)}</StyledDates>
                     </DogearedTile>
                 </StyledInfo>
             </StyledContent>
