@@ -95,7 +95,7 @@ const YearCard = ({ date }: { date: Date }) => {
 
 const BookGrid = ({ books }: { books: BookEntry[] }) => {
     const [activeBook, setActiveBook] = useState<BookEntry | null>(null),
-        transitions = useTransition(activeBook, null, {
+        modalTransitions = useTransition(activeBook, null, {
             from: { zIndex: 100, opacity: 0 },
             enter: { opacity: 1 },
             leave: { opacity: 0 },
@@ -112,9 +112,9 @@ const BookGrid = ({ books }: { books: BookEntry[] }) => {
                     isFirstOfYear = getYear(endDate) != prevBookYear;
 
                 return (
-                    <>
+                    <React.Fragment key={title + endDate}>
                         {isFirstOfYear && <YearCard date={endDate} />}
-                        <Book key={title} onClick={() => setActiveBook(book)}>
+                        <Book onClick={() => setActiveBook(book)}>
                             <BookCover
                                 src={image}
                                 alt={description}
@@ -122,10 +122,10 @@ const BookGrid = ({ books }: { books: BookEntry[] }) => {
                                 loading='lazy'
                             />
                         </Book>
-                    </>
+                    </React.Fragment>
                 );
             })}
-            {transitions.map(
+            {modalTransitions.map(
                 ({ item, key, props }) =>
                     item && (
                         <animated.div key={key} style={props}>
