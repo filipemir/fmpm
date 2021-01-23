@@ -1,4 +1,10 @@
-import { CareerPhaseName, Org, Resume, ResumeSection, Tenure } from 'models/experience';
+import {
+    CareerPhaseName,
+    Org,
+    Resume,
+    ResumeSection,
+    Tenure
+} from 'models/experience';
 import {
     adventTeacher,
     americorps,

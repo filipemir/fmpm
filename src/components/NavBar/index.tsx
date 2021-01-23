@@ -8,7 +8,13 @@ import { Link } from 'gatsby';
 import useMedia from 'use-media';
 import Hamburger from 'components/Hamburger';
 
-export default function NavBar({ currentPage, onPageClick }: { currentPage: Page; onPageClick: (page: Page) => void }) {
+export default function NavBar({
+    currentPage,
+    onPageClick
+}: {
+    currentPage: Page;
+    onPageClick: (page: Page) => void;
+}) {
     const isMobile = useMedia({ maxWidth: '900px' });
     return (
         <>
@@ -19,10 +25,20 @@ export default function NavBar({ currentPage, onPageClick }: { currentPage: Page
                     </Link>
                 </LeftDiv>
                 <RightDiv>
-                    {!isMobile && <NavHorizontal currentPage={currentPage} onPageClick={onPageClick} />}
+                    {!isMobile && (
+                        <NavHorizontal
+                            currentPage={currentPage}
+                            onPageClick={onPageClick}
+                        />
+                    )}
                 </RightDiv>
             </RootDiv>
-            {isMobile && <Hamburger currentPage={currentPage} onPageClick={onPageClick} />}
+            {isMobile && (
+                <Hamburger
+                    currentPage={currentPage}
+                    onPageClick={onPageClick}
+                />
+            )}
         </>
     );
 }

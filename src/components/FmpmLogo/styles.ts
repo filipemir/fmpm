@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 
-import { COLOR_ACCENT, COLOR_BG_ACCENT, FONT_FAMILY_SERIF } from 'styles/global';
+import {
+    COLOR_ACCENT,
+    COLOR_BG_ACCENT,
+    FONT_FAMILY_SERIF
+} from 'styles/global';
 
 export const RootAnchor = styled.div`
     display: block;

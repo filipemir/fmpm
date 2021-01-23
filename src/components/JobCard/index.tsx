@@ -3,7 +3,15 @@ import format from 'date-fns/format';
 import getYear from 'date-fns/getYear';
 import parse from 'react-html-parser';
 
-import { RootDiv, TopRowDiv, JobTitleSpan, TeamSpan, DatesDiv, TechDiv, DescriptionDiv } from './styles';
+import {
+    RootDiv,
+    TopRowDiv,
+    JobTitleSpan,
+    TeamSpan,
+    DatesDiv,
+    TechDiv,
+    DescriptionDiv
+} from './styles';
 import { Job } from 'models/experience';
 import TechTag from 'components/TechTag';
 
@@ -13,7 +21,9 @@ export default function JobCard({ job }: { job: Job }) {
     const { title, team, startDate, technologies, description, endDate } = job,
         sameYear = endDate && getYear(startDate) === getYear(endDate),
         startDateStr = format(startDate, sameYear ? 'MMMM' : DATE_FORMAT),
-        dateStr = endDate ? `${startDateStr} to ${format(endDate, DATE_FORMAT)}` : `since ${startDateStr}`;
+        dateStr = endDate
+            ? `${startDateStr} to ${format(endDate, DATE_FORMAT)}`
+            : `since ${startDateStr}`;
 
     return (
         <RootDiv>
@@ -29,7 +39,9 @@ export default function JobCard({ job }: { job: Job }) {
                     ))}
                 </TechDiv>
             )}
-            {description && <DescriptionDiv>{parse(description)}</DescriptionDiv>}
+            {description && (
+                <DescriptionDiv>{parse(description)}</DescriptionDiv>
+            )}
         </RootDiv>
     );
 }

@@ -29,7 +29,9 @@ export default function Welcome() {
         isMobile = useMedia({ maxWidth: '900px' });
     return (
         <Root>
-            <animated.div style={{ ...spring, display: isMobile ? 'block' : 'flex' }}>
+            <animated.div
+                style={{ ...spring, display: isMobile ? 'block' : 'flex' }}
+            >
                 <Part1>
                     <Part1Inner>
                         <AvatarWrapper>
@@ -45,7 +47,9 @@ export default function Welcome() {
                                 </Slash>
                             </Header1Wrapper>
                             <Header2>
-                                I&apos;m a <JobTitle>software engineer</JobTitle> living in Boston.
+                                I&apos;m a{' '}
+                                <JobTitle>software engineer</JobTitle> living in
+                                Boston.
                             </Header2>
                             <Technologies>
                                 {tech.map((t) => (
@@ -55,8 +59,10 @@ export default function Welcome() {
                             {!isMobile && (
                                 <About>
                                     <div>
-                                        I like building beautiful products and finding problems that can be meaningfully
-                                        addressed with technology. If you have one, I&apos;d love to{' '}
+                                        I like building beautiful products and
+                                        finding problems that can be
+                                        meaningfully addressed with technology.
+                                        If you have one, I&apos;d love to{' '}
                                         <a
                                             href={`mailto:${PERSONAL_EMAIL}`}
                                             target={'_blank'}
@@ -67,8 +73,10 @@ export default function Welcome() {
                                         .
                                     </div>
                                     <div>
-                                        I&apos;m also a lover of music, books, movies, and rock climbing and may
-                                        occasionally muse about any or all of those here.
+                                        I&apos;m also a lover of music, books,
+                                        movies, and rock climbing and may
+                                        occasionally muse about any or all of
+                                        those here.
                                     </div>
                                 </About>
                             )}

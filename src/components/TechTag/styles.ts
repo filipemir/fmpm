@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 
-import { COLOR_ACCENT, COLOR_QUATERNARY, FONT_FAMILY_MONO } from 'styles/global';
+import {
+    COLOR_ACCENT,
+    COLOR_QUATERNARY,
+    FONT_FAMILY_MONO
+} from 'styles/global';
 
 export const RootDiv = styled.div`
     border-radius: 4px;

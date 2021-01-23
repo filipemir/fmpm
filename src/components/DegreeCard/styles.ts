@@ -19,4 +19,9 @@ export const SchoolSpan = styled.span`
     }
 `;
 
-export { TopRowDiv, TechDiv, DatesDiv, DescriptionDiv } from 'styles/experience-cards';
+export {
+    TopRowDiv,
+    TechDiv,
+    DatesDiv,
+    DescriptionDiv
+} from 'styles/experience-cards';

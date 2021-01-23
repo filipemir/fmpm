@@ -35,7 +35,9 @@ export default function DogearedTile({
 }) {
     return (
         <RootWithDropShadow onClick={(evt) => onClick && onClick(evt)}>
-            <Wrapper style={{ height, width, maxHeight, maxWidth }}>{children}</Wrapper>
+            <Wrapper style={{ height, width, maxHeight, maxWidth }}>
+                {children}
+            </Wrapper>
         </RootWithDropShadow>
     );
 }

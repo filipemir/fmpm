@@ -5,7 +5,12 @@ import { ResizeObserver } from '@juggle/resize-observer';
 
 import { RootDiv, SectionHeader, SectionItem } from './styles';
 import { RESUME } from 'data/resume';
-import { CareerPhase, ResumeItem, ResumeSection, Tenure } from 'models/experience';
+import {
+    CareerPhase,
+    ResumeItem,
+    ResumeSection,
+    Tenure
+} from 'models/experience';
 
 interface CareerTimelineProps {
     activeSection: ResumeSection;
@@ -35,7 +40,10 @@ function getJobComponents({
             isActive = phase === activeCareerPhase;
 
         components.push(
-            <SectionHeader active={isActive} onClick={() => onCareerPhaseClick(phase)}>
+            <SectionHeader
+                active={isActive}
+                onClick={() => onCareerPhaseClick(phase)}
+            >
                 {name}
             </SectionHeader>
         );
@@ -71,7 +79,11 @@ function getEducationComponents({
     const section = RESUME[ResumeSection.EDUCATION],
         isActive = activeSection === ResumeSection.EDUCATION,
         components = [
-            <SectionHeader active={isActive} onClick={() => onSectionClick(ResumeSection.EDUCATION)} key={'education'}>
+            <SectionHeader
+                active={isActive}
+                onClick={() => onSectionClick(ResumeSection.EDUCATION)}
+                key={'education'}
+            >
                 {ResumeSection.EDUCATION}
             </SectionHeader>
         ];
@@ -116,7 +128,9 @@ export default function CareerTimeline(props: CareerTimelineProps) {
                     <animated.div
                         style={{
                             opacity,
-                            transform: x.interpolate((x) => `translateX(${-x}px)`)
+                            transform: x.interpolate(
+                                (x) => `translateX(${-x}px)`
+                            )
                         }}
                         key={`component-${i}`}
                     >

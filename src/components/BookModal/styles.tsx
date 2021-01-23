@@ -1,5 +1,10 @@
 import styled from '@emotion/styled';
-import { COLOR_SECONDARY, COLOR_TERNARY, FONT_FAMILY_SANS_SERIF, FONT_FAMILY_SERIF } from 'styles/global';
+import {
+    COLOR_SECONDARY,
+    COLOR_TERNARY,
+    FONT_FAMILY_SANS_SERIF,
+    FONT_FAMILY_SERIF
+} from 'styles/global';
 
 const MOBILE_THRESHOLD = '900px';
 

@@ -17,7 +17,11 @@ export default function Hamburger({
         pages = [Page.ABOUT, Page.PROJECTS, Page.EXPERIENCE, Page.CONTACT];
     return (
         <Root>
-            <Menu isOpen={open} right={true} onStateChange={({ isOpen }) => setOpen(isOpen)}>
+            <Menu
+                isOpen={open}
+                right={true}
+                onStateChange={({ isOpen }) => setOpen(isOpen)}
+            >
                 {pages.map((page, i) => {
                     const p = pages[i],
                         isActive = p === currentPage,

@@ -1,6 +1,12 @@
 import React, { useRef, MutableRefObject } from 'react';
 
-import { Title, Description, Technologies, GithubLogo, ExternalLinks } from './styles';
+import {
+    Title,
+    Description,
+    Technologies,
+    GithubLogo,
+    ExternalLinks
+} from './styles';
 import { Project } from 'models/project';
 import TechTag from 'components/TechTag';
 import GithubSvg from 'images/github.svg';
@@ -13,7 +19,8 @@ export default function ProjectCard({ project }: { project: Project }) {
         onClick = (evt: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
             const hasUrl = url || githubUrl,
                 githubLinkEl = githubLinkRef.current,
-                isGithubLinkClick = !!githubLinkEl && githubLinkEl.contains(evt.target as Node);
+                isGithubLinkClick =
+                    !!githubLinkEl && githubLinkEl.contains(evt.target as Node);
 
             if (!hasUrl || isGithubLinkClick) {
                 return;
@@ -23,7 +30,11 @@ export default function ProjectCard({ project }: { project: Project }) {
         };
     return (
         <DogearedTile onClick={onClick} height={'240px'} width={'290px'}>
-            <Title href={url || githubUrl} target={'_blank'} rel='noopener noreferrer'>
+            <Title
+                href={url || githubUrl}
+                target={'_blank'}
+                rel='noopener noreferrer'
+            >
                 {name}
             </Title>
             <Description>{parse(description)}</Description>
@@ -34,7 +45,12 @@ export default function ProjectCard({ project }: { project: Project }) {
             </Technologies>
             <ExternalLinks>
                 {githubUrl && (
-                    <GithubLogo href={githubUrl} target={'_blank'} rel='noopener noreferrer' ref={githubLinkRef}>
+                    <GithubLogo
+                        href={githubUrl}
+                        target={'_blank'}
+                        rel='noopener noreferrer'
+                        ref={githubLinkRef}
+                    >
                         <GithubSvg />
                     </GithubLogo>
                 )}

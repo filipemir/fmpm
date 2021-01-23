@@ -22,7 +22,8 @@ import STATE_OF_AFFAIRS_COVER from 'images/books/state-of-affairs.jpg';
 export const BOOKS_2018: BookEntry[] = [
     {
         title: 'The Coddling of the American Mind',
-        subtitle: 'How Good Intentions and Bad Ideas Are Setting Up a Generation for Failure',
+        subtitle:
+            'How Good Intentions and Bad Ideas Are Setting Up a Generation for Failure',
         author: 'Greg Lukianoff, Jonathan Haidt',
         url: 'https://www.indiebound.org/book/9780735224919',
         startDate: parseISO('2018-11-16'),
@@ -115,7 +116,8 @@ export const BOOKS_2018: BookEntry[] = [
     },
     {
         title: 'This Gulf of Fire',
-        subtitle: 'The Great Lisbon Earthquake, or Apocalypse in the Age of Science and Reason',
+        subtitle:
+            'The Great Lisbon Earthquake, or Apocalypse in the Age of Science and Reason',
         author: 'Mark Molesky',
         url: 'https://www.indiebound.org/book/9780307387509',
         startDate: parseISO('2018-04-01'),

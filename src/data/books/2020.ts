@@ -34,9 +34,11 @@ import { ICE } from './common';
 export const BOOKS_2020: BookEntry[] = [
     {
         title: 'Stubborn Attachments',
-        subtitle: 'A Vision for a Society of Free, Prosperous, and Responsible Individuals',
+        subtitle:
+            'A Vision for a Society of Free, Prosperous, and Responsible Individuals',
         author: 'Tyler Cowen',
-        url: 'https://www.amazon.com/Stubborn-Attachments-Prosperous-Responsible-Individuals/dp/1732265135',
+        url:
+            'https://www.amazon.com/Stubborn-Attachments-Prosperous-Responsible-Individuals/dp/1732265135',
         startDate: parseISO('2020-12-26'),
         endDate: parseISO('2020-12-28'),
         favorite: false,
@@ -44,7 +46,8 @@ export const BOOKS_2020: BookEntry[] = [
     },
     {
         title: 'Measure What Matters',
-        subtitle: 'How Google, Bono, and the Gates Foundation Rock the World with OKRs',
+        subtitle:
+            'How Google, Bono, and the Gates Foundation Rock the World with OKRs',
         author: 'John Doerr',
         url: 'https://www.indiebound.org/book/9780525536222',
         startDate: parseISO('2020-09-10'),
@@ -69,7 +72,8 @@ export const BOOKS_2020: BookEntry[] = [
     },
     {
         title: 'The Birth Partner',
-        subtitle: 'A Complete Guide to Childbirth for Dads, Partners, Doulas, and All Other Labor Companions',
+        subtitle:
+            'A Complete Guide to Childbirth for Dads, Partners, Doulas, and All Other Labor Companions',
         author: 'Penny Simkin',
         url: 'https://www.indiebound.org/book/9781558329102',
         startDate: parseISO('2020-10-14'),
@@ -128,7 +132,8 @@ export const BOOKS_2020: BookEntry[] = [
     },
     {
         title: 'Cribsheet',
-        subtitle: 'A Data-Driven Guide to Better, More Relaxed Parenting, from Birth to Preschool',
+        subtitle:
+            'A Data-Driven Guide to Better, More Relaxed Parenting, from Birth to Preschool',
         author: 'Emily Oster',
         url: 'https://www.indiebound.org/book/9780525559276',
         startDate: parseISO('2020-09-01'),
@@ -205,7 +210,8 @@ export const BOOKS_2020: BookEntry[] = [
     },
     {
         title: 'Selfish Reasons To Have More Kids',
-        subtitle: 'Why Being a Great Parent is Less Work and More Fun Than You Think',
+        subtitle:
+            'Why Being a Great Parent is Less Work and More Fun Than You Think',
         author: 'Bryan Caplan',
         url: 'https://www.indiebound.org/book/9780465028610',
         startDate: parseISO('2020-07-01'),

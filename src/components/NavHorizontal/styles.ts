@@ -1,7 +1,13 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { COLOR_ACCENT, COLOR_BG_ACCENT, COLOR_PRIMARY, COLOR_QUATERNARY, FONT_FAMILY_MONO } from 'styles/global';
+import {
+    COLOR_ACCENT,
+    COLOR_BG_ACCENT,
+    COLOR_PRIMARY,
+    COLOR_QUATERNARY,
+    FONT_FAMILY_MONO
+} from 'styles/global';
 
 export const RootDiv = styled.div`
     font-family: ${FONT_FAMILY_MONO};

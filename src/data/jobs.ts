@@ -7,7 +7,14 @@ export const buoySoftwareEngineer: Job = {
     company: Org.ST,
     title: 'Senior Software Engineer',
     team: 'Care Marketplace Team',
-    technologies: [Tech.PYTHON, Tech.DJANGO, Tech.REACT, Tech.AWS, Tech.STORYBOOK, Tech.K8S],
+    technologies: [
+        Tech.PYTHON,
+        Tech.DJANGO,
+        Tech.REACT,
+        Tech.AWS,
+        Tech.STORYBOOK,
+        Tech.K8S
+    ],
     startDate: parseISO('2020-06'),
     description: `At Buoy, I'm a member of the small team responsible for directing our users
         to whatever healthcare providers best fit their needs. It's a full-stack role revolving
@@ -18,7 +25,14 @@ export const stSoftwareEngineer: Job = {
     company: Org.ST,
     title: 'Software Engineer',
     team: 'Sites Team',
-    technologies: [Tech.TS, Tech.REACT, Tech.SPRING_BOOT, Tech.AWS, Tech.REDIS, Tech.STORYBOOK],
+    technologies: [
+        Tech.TS,
+        Tech.REACT,
+        Tech.SPRING_BOOT,
+        Tech.AWS,
+        Tech.REDIS,
+        Tech.STORYBOOK
+    ],
     startDate: parseISO('2017-12'),
     endDate: parseISO('2020-05'),
     description: `As a Full Stack Software Engineer at SmarterTravel, I work on the small team that 
@@ -34,7 +48,13 @@ export const stIntegrationEngineer: Job = {
     company: Org.ST,
     title: 'Integration Engineer',
     team: 'SmarterAds Team',
-    technologies: [Tech.ES6, Tech.REACT, Tech.SPRING_BOOT, Tech.KAFKA, Tech.REDIS],
+    technologies: [
+        Tech.ES6,
+        Tech.REACT,
+        Tech.SPRING_BOOT,
+        Tech.KAFKA,
+        Tech.REDIS
+    ],
     startDate: parseISO('2016-05'),
     endDate: parseISO('2017-12'),
     description: `I initially joined SmarterTravel as an Integration Engineer on our ad syndication team. I

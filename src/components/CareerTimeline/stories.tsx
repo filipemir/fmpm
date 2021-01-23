@@ -22,4 +22,6 @@ function CareerTimelineWrapper() {
     );
 }
 
-storiesOf(`Resume|CareerTimeline`, module).add(`default`, () => <CareerTimelineWrapper />);
+storiesOf(`Resume|CareerTimeline`, module).add(`default`, () => (
+    <CareerTimelineWrapper />
+));

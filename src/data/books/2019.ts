@@ -111,7 +111,8 @@ export const BOOKS_2019: BookEntry[] = [
     {
         title: 'Espresso Lessons',
         author: 'Arno Ilgner',
-        url: 'https://www.amazon.com/Espresso-Lessons-Rock-Warriors-Way/dp/0974011231',
+        url:
+            'https://www.amazon.com/Espresso-Lessons-Rock-Warriors-Way/dp/0974011231',
         startDate: parseISO('2019-01-19'),
         endDate: parseISO('2019-03-18'),
         favorite: false,
@@ -137,7 +138,8 @@ export const BOOKS_2019: BookEntry[] = [
     },
     {
         title: 'Free Range Kids',
-        subtitle: 'How To Raise Safe, Self-Reliant Children (Without Going Nuts With Worry)',
+        subtitle:
+            'How To Raise Safe, Self-Reliant Children (Without Going Nuts With Worry)',
         author: 'Lenore Skenazy',
         url: 'https://www.indiebound.org/book/9780470574751',
         startDate: parseISO('2019-01-28'),

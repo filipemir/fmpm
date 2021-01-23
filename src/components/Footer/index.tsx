@@ -11,13 +11,25 @@ export default function Footer() {
     return (
         <Root>
             <FooterLinks>
-                <ExternalLinkSvg href={GITHUB_LINK} target={'_blank'} rel='noopener noreferrer'>
+                <ExternalLinkSvg
+                    href={GITHUB_LINK}
+                    target={'_blank'}
+                    rel='noopener noreferrer'
+                >
                     <GithubSvg />
                 </ExternalLinkSvg>
-                <ExternalLinkSvg href={LINKEDIN_LINK} target={'_blank'} rel='noopener noreferrer'>
+                <ExternalLinkSvg
+                    href={LINKEDIN_LINK}
+                    target={'_blank'}
+                    rel='noopener noreferrer'
+                >
                     <LinkedInSvg />
                 </ExternalLinkSvg>
-                <ExternalLinkSvg href={`mailto:${PERSONAL_EMAIL}`} target={'_blank'} rel='noopener noreferrer'>
+                <ExternalLinkSvg
+                    href={`mailto:${PERSONAL_EMAIL}`}
+                    target={'_blank'}
+                    rel='noopener noreferrer'
+                >
                     <EnvelopeSvg />
                 </ExternalLinkSvg>
             </FooterLinks>

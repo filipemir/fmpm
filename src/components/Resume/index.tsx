@@ -37,8 +37,14 @@ export default function Resume() {
                     activeSection={section}
                     activeTenure={tenure}
                     activeCareerPhase={phase}
-                    setActiveTenure={!isMobile && scrollListenerEnabled ? setTenure : undefined}
-                    setActiveItem={!isMobile && scrollListenerEnabled ? setItem : undefined}
+                    setActiveTenure={
+                        !isMobile && scrollListenerEnabled
+                            ? setTenure
+                            : undefined
+                    }
+                    setActiveItem={
+                        !isMobile && scrollListenerEnabled ? setItem : undefined
+                    }
                 />
             </JobsWrapper>
         </RootDiv>

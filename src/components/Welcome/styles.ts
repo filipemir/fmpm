@@ -1,7 +1,13 @@
 import styled from '@emotion/styled';
 import img from './mtns.jpg';
 
-import { COLOR_ACCENT, COLOR_BG_ACCENT, COLOR_PRIMARY, COLOR_SECONDARY, FONT_FAMILY_SERIF } from 'styles/global';
+import {
+    COLOR_ACCENT,
+    COLOR_BG_ACCENT,
+    COLOR_PRIMARY,
+    COLOR_SECONDARY,
+    FONT_FAMILY_SERIF
+} from 'styles/global';
 
 export const Root = styled.div`
     position: relative;
