@@ -1,6 +1,6 @@
 import parseISO from 'date-fns/parseISO';
 import { BookEntry } from 'models/media';
-import GRATITUDE_COVER from 'images/books/gratitude.jpg';
+import JEEVES_OMNIBUS_COVER from 'images/books/jeeves-omnibus.jpg';
 import FAR_FROM_THE_TREE_COVER from 'images/books/far-from-the-tree.jpg';
 import THE_SATANIC_VERSES_COVER from 'images/books/the-satanic-verses.jpg';
 import OSCAR_WAO_COVER from 'images/books/the-brief-wondrous-life-of-oscar-wao.jpg';
@@ -66,13 +66,14 @@ export const BOOKS_2016: BookEntry[] = [
         image: THE_SATANIC_VERSES_COVER
     },
     {
-        title: 'Jeeves Omnibus',
+        title: 'The Jeeves Omnibus',
         author: 'P.G. Wodehouse',
-        url: '',
+        url:
+            'https://www.amazon.com/Jeeves-omnibus-Wodehouse-P-G/dp/0091745748', // TODO: CHECK WHICH
         startDate: parseISO('2016-01-06'),
         endDate: parseISO('2016-05-05'),
         favorite: true,
-        image: GRATITUDE_COVER
+        image: JEEVES_OMNIBUS_COVER
     },
     {
         title: 'Far From The Tree',
