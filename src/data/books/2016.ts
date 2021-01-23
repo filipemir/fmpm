@@ -69,7 +69,7 @@ export const BOOKS_2016: BookEntry[] = [
         title: 'The Jeeves Omnibus',
         author: 'P.G. Wodehouse',
         url:
-            'https://www.amazon.com/Jeeves-omnibus-Wodehouse-P-G/dp/0091745748', // TODO: CHECK WHICH
+            'https://www.amazon.com/Jeeves-omnibus-Wodehouse-P-G/dp/0091745748',
         startDate: parseISO('2016-01-06'),
         endDate: parseISO('2016-05-05'),
         favorite: true,
