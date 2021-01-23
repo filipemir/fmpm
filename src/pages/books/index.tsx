@@ -22,8 +22,8 @@ export default function BooksPage() {
                     <Header text={'books'} emoji={'📚'} />
                 </SectionHeaderWrapper>
                 <SectionIntro>
-                    Books I&apos;ve read because otherwise I can&apos;t keep
-                    track of them.
+                    Books I&apos;ve read cover-to-cover. I have a hard time
+                    remembering what I read otherwise.
                 </SectionIntro>
                 <BookGrid books={BOOKS_SORTED} />
             </Section>

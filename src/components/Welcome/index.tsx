@@ -22,6 +22,7 @@ import { Tech } from 'models/tech';
 import TechTag from 'components/TechTag';
 import useMedia from 'use-media';
 import { PERSONAL_EMAIL } from 'data/personal';
+import { Link } from 'gatsby';
 
 export default function Welcome() {
     const tech = [Tech.REACT, Tech.TS, Tech.JAVA, Tech.PYTHON],
@@ -73,7 +74,8 @@ export default function Welcome() {
                                         .
                                     </div>
                                     <div>
-                                        I&apos;m also a lover of music, books,
+                                        I&apos;m also a lover of music,{' '}
+                                        <Link to={'/books'}>books</Link>,
                                         movies, and rock climbing and may
                                         occasionally muse about any or all of
                                         those here.
