@@ -8,7 +8,7 @@ import { SectionHeaderWrapper, SectionIntro, Section } from 'styles/sections';
 import BookGrid from 'components/BookGrid';
 import usePaginatedBooks from 'hooks/usePaginatedBooks';
 
-const DESCRIPTION = "Filipe's books";
+const DESCRIPTION = "Books I've read over the years";
 
 export default function BooksPage() {
     const { books, getMoreBooks } = usePaginatedBooks(),
@@ -25,8 +25,8 @@ export default function BooksPage() {
                     <Header text={'books'} emoji={'📚'} />
                 </SectionHeaderWrapper>
                 <SectionIntro>
-                    Books I&apos;ve read cover-to-cover. I have a hard time
-                    remembering what I read otherwise.
+                    A mostly chronological list of books I've finished over the
+                    years.
                 </SectionIntro>
                 <BookGrid books={books} />
                 <Waypoint

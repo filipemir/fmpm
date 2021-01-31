@@ -14,6 +14,7 @@ export const SectionIntro = styled.div`
     font-weight: 300;
     line-height: 1.4;
     font-size: 16px;
+    text-align: center;
 `;
 
 export const Section = styled.div`
