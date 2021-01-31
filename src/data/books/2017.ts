@@ -1,28 +1,5 @@
 import parseISO from 'date-fns/parseISO';
 import { BookEntry } from 'models/media';
-import WAKING_UP_COVER from 'images/books/waking-up.jpg';
-import ASSHOLES_COVER from 'images/books/assholes-trump.jpg';
-import TERROR_YEARS_COVER from 'images/books/terror-years.jpg';
-import COURSE_OF_LOVE_COVER from 'images/books/the-course-of-love.jpg';
-import FELICITY_COVER from 'images/books/felicity.jpg';
-import MY_STRUGGLE_COVER from 'images/books/my-struggle.jpg';
-import ALONE_ON_THE_WALL_COVER from 'images/books/alone-on-the-wall.jpg';
-import THE_VEGETARIAN_COVER from 'images/books/the-vegetarian.jpg';
-import WIND_UP_BIRD_CHRONICLE_COVER from 'images/books/wind-up-bird-chronicle.jpg';
-import FAHRENHEIT_451_COVER from 'images/books/fahrenheit-451.jpg';
-import GRATITUDE_COVER from 'images/books/gratitude.jpg';
-import ON_TYRANNY_COVER from 'images/books/on-tyranny.jpg';
-import DEEP_WORK_COVER from 'images/books/deep-work.jpg';
-import A_MAN_CALLED_OVE_COVER from 'images/books/a-man-called-ove.jpg';
-import CREATIVE_SCHOOLS_COVER from 'images/books/creative-schools.jpg';
-import LINCOLN_IN_THE_BARDO_COVER from 'images/books/lincoln-in-the-bardo.jpg';
-import WHY_BUDDHISM_IS_TRUE_COVER from 'images/books/why-buddhism-is-true.jpg';
-import THE_SYMPATHIZER_COVER from 'images/books/the-sympathizer.jpg';
-import LYING_COVER from 'images/books/lying.jpg';
-import DOING_GOOD_BETTER_COVER from 'images/books/doing-good-better.jpg';
-import THE_PUSH_COVER from 'images/books/the-push.jpg';
-import MANS_SEARCH_FOR_MEANING_COVER from 'images/books/mans-search-for-meaning.jpg';
-import WOLF_IN_WHITE_VAN_COVER from 'images/books/wolf-in-white-van.jpg';
 
 export const BOOKS_2017: BookEntry[] = [
     {
@@ -32,7 +9,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-12-25'),
         endDate: parseISO('2017-12-30'),
         favorite: true,
-        image: WOLF_IN_WHITE_VAN_COVER
+        covers: {
+            thumbnail: require('images/books/wolf-in-white-van.jpg?{"width":200}'),
+            full: require('images/books/wolf-in-white-van.jpg?{"width":600}')
+        }
     },
     {
         title: "Man's Search for Meaning",
@@ -41,7 +21,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-12-20'),
         endDate: parseISO('2017-12-25'),
         favorite: true,
-        image: MANS_SEARCH_FOR_MEANING_COVER
+        covers: {
+            thumbnail: require('images/books/mans-search-for-meaning.jpg?{"width":200}'),
+            full: require('images/books/mans-search-for-meaning.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Push',
@@ -52,7 +35,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-11-30'),
         endDate: parseISO('2017-12-24'),
         favorite: false,
-        image: THE_PUSH_COVER
+        covers: {
+            thumbnail: require('images/books/the-push.jpg?{"width":200}'),
+            full: require('images/books/the-push.jpg?{"width":600}')
+        }
     },
     {
         title: 'Doing Good Better',
@@ -63,7 +49,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-11-30'),
         endDate: parseISO('2017-12-21'),
         favorite: false,
-        image: DOING_GOOD_BETTER_COVER
+        covers: {
+            thumbnail: require('images/books/doing-good-better.jpg?{"width":200}'),
+            full: require('images/books/doing-good-better.jpg?{"width":600}')
+        }
     },
     {
         title: 'Lying',
@@ -72,7 +61,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-11-30'),
         endDate: parseISO('2017-11-30'),
         favorite: false,
-        image: LYING_COVER
+        covers: {
+            thumbnail: require('images/books/lying.jpg?{"width":200}'),
+            full: require('images/books/lying.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Sympathizer',
@@ -81,7 +73,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-10-23'),
         endDate: parseISO('2017-11-29'),
         favorite: false,
-        image: THE_SYMPATHIZER_COVER
+        covers: {
+            thumbnail: require('images/books/the-sympathizer.jpg?{"width":200}'),
+            full: require('images/books/the-sympathizer.jpg?{"width":600}')
+        }
     },
     {
         title: 'Why Buddhism is True',
@@ -91,7 +86,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-09-23'),
         endDate: parseISO('2017-10-23'),
         favorite: false,
-        image: WHY_BUDDHISM_IS_TRUE_COVER
+        covers: {
+            thumbnail: require('images/books/why-buddhism-is-true.jpg?{"width":200}'),
+            full: require('images/books/why-buddhism-is-true.jpg?{"width":600}')
+        }
     },
     {
         title: 'Lincoln in the Bardo',
@@ -100,7 +98,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-10-06'),
         endDate: parseISO('2017-10-18'),
         favorite: true,
-        image: LINCOLN_IN_THE_BARDO_COVER
+        covers: {
+            thumbnail: require('images/books/lincoln-in-the-bardo.jpg?{"width":200}'),
+            full: require('images/books/lincoln-in-the-bardo.jpg?{"width":600}')
+        }
     },
     {
         title: 'Creative Schools',
@@ -110,7 +111,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-09-01'),
         endDate: parseISO('2017-10-01'),
         favorite: false,
-        image: CREATIVE_SCHOOLS_COVER
+        covers: {
+            thumbnail: require('images/books/creative-schools.jpg?{"width":200}'),
+            full: require('images/books/creative-schools.jpg?{"width":600}')
+        }
     },
     {
         title: 'A Man Called Ove',
@@ -119,7 +123,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-08-26'),
         endDate: parseISO('2017-09-26'),
         favorite: false,
-        image: A_MAN_CALLED_OVE_COVER
+        covers: {
+            thumbnail: require('images/books/a-man-called-ove.jpg?{"width":200}'),
+            full: require('images/books/a-man-called-ove.jpg?{"width":600}')
+        }
     },
     {
         title: 'Deep Work',
@@ -129,7 +136,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-08-10'),
         endDate: parseISO('2017-08-25'),
         favorite: false,
-        image: DEEP_WORK_COVER
+        covers: {
+            thumbnail: require('images/books/deep-work.jpg?{"width":200}'),
+            full: require('images/books/deep-work.jpg?{"width":600}')
+        }
     },
     {
         title: 'On Tyranny',
@@ -139,7 +149,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-08-07'),
         endDate: parseISO('2017-08-09'),
         favorite: false,
-        image: ON_TYRANNY_COVER
+        covers: {
+            thumbnail: require('images/books/on-tyranny.jpg?{"width":200}'),
+            full: require('images/books/on-tyranny.jpg?{"width":600}')
+        }
     },
     {
         title: 'Gratitude',
@@ -148,7 +161,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-08-01'),
         endDate: parseISO('2017-08-02'),
         favorite: true,
-        image: GRATITUDE_COVER
+        covers: {
+            thumbnail: require('images/books/gratitude.jpg?{"width":200}'),
+            full: require('images/books/gratitude.jpg?{"width":600}')
+        }
     },
     {
         title: 'Fahrenheit 451',
@@ -157,7 +173,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-07-17'),
         endDate: parseISO('2017-07-27'),
         favorite: true,
-        image: FAHRENHEIT_451_COVER
+        covers: {
+            thumbnail: require('images/books/fahrenheit-451.jpg?{"width":200}'),
+            full: require('images/books/fahrenheit-451.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Wind-up Bird Chronicle',
@@ -166,7 +185,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-06-12'),
         endDate: parseISO('2017-07-16'),
         favorite: true,
-        image: WIND_UP_BIRD_CHRONICLE_COVER
+        covers: {
+            thumbnail: require('images/books/wind-up-bird-chronicle.jpg?{"width":200}'),
+            full: require('images/books/wind-up-bird-chronicle.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Vegetarian',
@@ -175,7 +197,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-05-28'),
         endDate: parseISO('2017-06-11'),
         favorite: false,
-        image: THE_VEGETARIAN_COVER
+        covers: {
+            thumbnail: require('images/books/the-vegetarian.jpg?{"width":200}'),
+            full: require('images/books/the-vegetarian.jpg?{"width":600}')
+        }
     },
     {
         title: 'Alone on the Wall',
@@ -184,7 +209,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-05-01'),
         endDate: parseISO('2017-05-31'),
         favorite: false,
-        image: ALONE_ON_THE_WALL_COVER
+        covers: {
+            thumbnail: require('images/books/alone-on-the-wall.jpg?{"width":200}'),
+            full: require('images/books/alone-on-the-wall.jpg?{"width":600}')
+        }
     },
     {
         title: 'My Struggle',
@@ -194,7 +222,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-05-15'),
         endDate: parseISO('2017-05-28'),
         favorite: false,
-        image: MY_STRUGGLE_COVER
+        covers: {
+            thumbnail: require('images/books/my-struggle.jpg?{"width":200}'),
+            full: require('images/books/my-struggle.jpg?{"width":600}')
+        }
     },
     {
         title: 'Felicity',
@@ -203,7 +234,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-05-10'),
         endDate: parseISO('2017-05-11'),
         favorite: false,
-        image: FELICITY_COVER
+        covers: {
+            thumbnail: require('images/books/felicity.jpg?{"width":200}'),
+            full: require('images/books/felicity.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Course of Love',
@@ -212,7 +246,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-03-15'),
         endDate: parseISO('2017-04-28'),
         favorite: false,
-        image: COURSE_OF_LOVE_COVER
+        covers: {
+            thumbnail: require('images/books/the-course-of-love.jpg?{"width":200}'),
+            full: require('images/books/the-course-of-love.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Terror Years',
@@ -222,7 +259,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-04-11'),
         endDate: parseISO('2017-04-21'),
         favorite: false,
-        image: TERROR_YEARS_COVER
+        covers: {
+            thumbnail: require('images/books/terror-years.jpg?{"width":200}'),
+            full: require('images/books/terror-years.jpg?{"width":600}')
+        }
     },
     {
         title: 'Assholes',
@@ -232,7 +272,10 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-03-15'),
         endDate: parseISO('2017-03-15'),
         favorite: false,
-        image: ASSHOLES_COVER
+        covers: {
+            thumbnail: require('images/books/assholes-trump.jpg?{"width":200}'),
+            full: require('images/books/assholes-trump.jpg?{"width":600}')
+        }
     },
     {
         title: 'Waking Up',
@@ -242,6 +285,9 @@ export const BOOKS_2017: BookEntry[] = [
         startDate: parseISO('2017-01-24'),
         endDate: parseISO('2017-02-02'),
         favorite: false,
-        image: WAKING_UP_COVER
+        covers: {
+            thumbnail: require('images/books/waking-up.jpg?{"width":200}'),
+            full: require('images/books/waking-up.jpg?{"width":600}')
+        }
     }
 ];

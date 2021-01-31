@@ -1,15 +1,5 @@
 import parseISO from 'date-fns/parseISO';
 import { BookEntry } from 'models/media';
-import THE_ROAD_COVER from 'images/books/the-road.jpg';
-import TIGERS_WIFE_COVER from 'images/books/tigers-wife.jpg';
-import THE_BIG_SHORT_COVER from 'images/books/the-big-short.jpg';
-import ZEITOUN_COVER from 'images/books/zeitoun.jpg';
-import CONSIDER_THE_LOBSTER_COVER from 'images/books/consider-the-lobster.jpg';
-import THIS_IS_WATER_COVER from 'images/books/this-is-water.jpg';
-import SUPPOSEDLY_FUN_COVER from 'images/books/a-supposedly-fun-thing.jpg';
-import FEYNMAN_COVER from 'images/books/surely-youre-joking-mr-feynman.jpg';
-import BLACK_SWAN_COVER from 'images/books/black-swan.jpg';
-import TO_END_ALL_WARS_COVER from 'images/books/to-end-all-wars.jpg';
 
 export const BOOKS_2011: BookEntry[] = [
     {
@@ -19,7 +9,10 @@ export const BOOKS_2011: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780547750316',
         endDate: parseISO('2011-12-01'),
         favorite: true,
-        image: TO_END_ALL_WARS_COVER
+        covers: {
+            thumbnail: require('images/books/to-end-all-wars.jpg?{"width":200}'),
+            full: require('images/books/to-end-all-wars.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Black Swan',
@@ -28,7 +21,10 @@ export const BOOKS_2011: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9781400063512',
         endDate: parseISO('2011-11-13'),
         favorite: false,
-        image: BLACK_SWAN_COVER
+        covers: {
+            thumbnail: require('images/books/black-swan.jpg?{"width":200}'),
+            full: require('images/books/black-swan.jpg?{"width":600}')
+        }
     },
     {
         title: "Surely You're Joking Mr. Feynman!",
@@ -37,7 +33,10 @@ export const BOOKS_2011: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780393355628',
         endDate: parseISO('2011-10-02'),
         favorite: false,
-        image: FEYNMAN_COVER
+        covers: {
+            thumbnail: require('images/books/surely-youre-joking-mr-feynman.jpg?{"width":200}'),
+            full: require('images/books/surely-youre-joking-mr-feynman.jpg?{"width":600}')
+        }
     },
     {
         title: "A Supposedly Fun Thing I'll Never Do Again",
@@ -46,7 +45,10 @@ export const BOOKS_2011: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780316925280',
         endDate: parseISO('2011-08-29'),
         favorite: true,
-        image: SUPPOSEDLY_FUN_COVER
+        covers: {
+            thumbnail: require('images/books/a-supposedly-fun-thing.jpg?{"width":200}'),
+            full: require('images/books/a-supposedly-fun-thing.jpg?{"width":600}')
+        }
     },
     {
         title: 'This is Water',
@@ -56,7 +58,10 @@ export const BOOKS_2011: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780316068222',
         endDate: parseISO('2011-08-18'),
         favorite: true,
-        image: THIS_IS_WATER_COVER
+        covers: {
+            thumbnail: require('images/books/this-is-water.jpg?{"width":200}'),
+            full: require('images/books/this-is-water.jpg?{"width":600}')
+        }
     },
     {
         title: 'Consider The Lobster',
@@ -65,7 +70,10 @@ export const BOOKS_2011: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780316013321',
         endDate: parseISO('2011-08-15'),
         favorite: true,
-        image: CONSIDER_THE_LOBSTER_COVER
+        covers: {
+            thumbnail: require('images/books/consider-the-lobster.jpg?{"width":200}'),
+            full: require('images/books/consider-the-lobster.jpg?{"width":600}')
+        }
     },
     {
         title: 'Zeitoun',
@@ -74,7 +82,10 @@ export const BOOKS_2011: BookEntry[] = [
             'https://www.indiebound.org/book/9780307387943/dave-eggers/zeitoun',
         endDate: parseISO('2011-08-03'),
         favorite: true,
-        image: ZEITOUN_COVER
+        covers: {
+            thumbnail: require('images/books/zeitoun.jpg?{"width":200}'),
+            full: require('images/books/zeitoun.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Big Short',
@@ -82,7 +93,10 @@ export const BOOKS_2011: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780393338829',
         endDate: parseISO('2011-07-13'),
         favorite: true,
-        image: THE_BIG_SHORT_COVER
+        covers: {
+            thumbnail: require('images/books/the-big-short.jpg?{"width":200}'),
+            full: require('images/books/the-big-short.jpg?{"width":600}')
+        }
     },
     {
         title: "The Tiger's Wife",
@@ -90,7 +104,10 @@ export const BOOKS_2011: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780385343848',
         endDate: parseISO('2011-05-07'),
         favorite: false,
-        image: TIGERS_WIFE_COVER
+        covers: {
+            thumbnail: require('images/books/tigers-wife.jpg?{"width":200}'),
+            full: require('images/books/tigers-wife.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Road',
@@ -98,6 +115,9 @@ export const BOOKS_2011: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9781606862193',
         endDate: parseISO('2011-05-30'),
         favorite: true,
-        image: THE_ROAD_COVER
+        covers: {
+            thumbnail: require('images/books/the-road.jpg?{"width":200}'),
+            full: require('images/books/the-road.jpg?{"width":600}')
+        }
     }
 ];

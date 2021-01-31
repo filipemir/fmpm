@@ -1,3 +1,8 @@
+type BookCovers = {
+    thumbnail: string;
+    full: string;
+};
+
 export interface BookEntry {
     title: string;
     subtitle?: string;
@@ -6,5 +11,5 @@ export interface BookEntry {
     startDate?: Date;
     endDate: Date;
     url?: string;
-    image?: string;
+    covers: BookCovers;
 }

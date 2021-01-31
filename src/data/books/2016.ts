@@ -1,13 +1,5 @@
 import parseISO from 'date-fns/parseISO';
 import { BookEntry } from 'models/media';
-import JEEVES_OMNIBUS_COVER from 'images/books/jeeves-omnibus.jpg';
-import FAR_FROM_THE_TREE_COVER from 'images/books/far-from-the-tree.jpg';
-import THE_SATANIC_VERSES_COVER from 'images/books/the-satanic-verses.jpg';
-import OSCAR_WAO_COVER from 'images/books/the-brief-wondrous-life-of-oscar-wao.jpg';
-import ZEN_AND_THE_ART_COVER from 'images/books/zen-and-the-art-of-motorcycle-maintenance.jpg';
-import ON_BEAUTY_COVER from 'images/books/on-beauty.jpg';
-import CRUCIBLE_COVER from 'images/books/crucible.jpg';
-import HITCHHIKERS_GUIDE_COVER from 'images/books/hitchhikers-guide.jpg';
 
 export const BOOKS_2016: BookEntry[] = [
     {
@@ -17,7 +9,10 @@ export const BOOKS_2016: BookEntry[] = [
         startDate: parseISO('2016-12-11'),
         endDate: parseISO('2016-12-28'),
         favorite: false,
-        image: HITCHHIKERS_GUIDE_COVER
+        covers: {
+            thumbnail: require('images/books/hitchhikers-guide.jpg?{"width":200}'),
+            full: require('images/books/hitchhikers-guide.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Crucible',
@@ -26,7 +21,10 @@ export const BOOKS_2016: BookEntry[] = [
         startDate: parseISO('2016-11-18'),
         endDate: parseISO('2016-11-26'),
         favorite: true,
-        image: CRUCIBLE_COVER
+        covers: {
+            thumbnail: require('images/books/crucible.jpg?{"width":200}'),
+            full: require('images/books/crucible.jpg?{"width":600}')
+        }
     },
     {
         title: 'On Beauty',
@@ -35,7 +33,10 @@ export const BOOKS_2016: BookEntry[] = [
         startDate: parseISO('2016-11-01'),
         endDate: parseISO('2016-11-16'),
         favorite: false,
-        image: ON_BEAUTY_COVER
+        covers: {
+            thumbnail: require('images/books/on-beauty.jpg?{"width":200}'),
+            full: require('images/books/on-beauty.jpg?{"width":600}')
+        }
     },
     {
         title: 'Zen and The Art of Motorcycle Maintenance',
@@ -45,7 +46,10 @@ export const BOOKS_2016: BookEntry[] = [
         startDate: parseISO('2016-09-01'),
         endDate: parseISO('2016-10-01'),
         favorite: true,
-        image: ZEN_AND_THE_ART_COVER
+        covers: {
+            thumbnail: require('images/books/zen-and-the-art-of-motorcycle-maintenance.jpg?{"width":200}'),
+            full: require('images/books/zen-and-the-art-of-motorcycle-maintenance.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Brief Wondrous Life of Oscar Wao',
@@ -54,7 +58,10 @@ export const BOOKS_2016: BookEntry[] = [
         startDate: parseISO('2016-03-01'),
         endDate: parseISO('2016-03-28'),
         favorite: false,
-        image: OSCAR_WAO_COVER
+        covers: {
+            thumbnail: require('images/books/the-brief-wondrous-life-of-oscar-wao.jpg?{"width":200}'),
+            full: require('images/books/the-brief-wondrous-life-of-oscar-wao.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Satanic Verses',
@@ -63,7 +70,10 @@ export const BOOKS_2016: BookEntry[] = [
         startDate: parseISO('2016-01-26'),
         endDate: parseISO('2016-02-12'),
         favorite: false,
-        image: THE_SATANIC_VERSES_COVER
+        covers: {
+            thumbnail: require('images/books/the-satanic-verses.jpg?{"width":200}'),
+            full: require('images/books/the-satanic-verses.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Jeeves Omnibus',
@@ -73,7 +83,10 @@ export const BOOKS_2016: BookEntry[] = [
         startDate: parseISO('2016-01-06'),
         endDate: parseISO('2016-05-05'),
         favorite: true,
-        image: JEEVES_OMNIBUS_COVER
+        covers: {
+            thumbnail: require('images/books/jeeves-omnibus.jpg?{"width":200}'),
+            full: require('images/books/jeeves-omnibus.jpg?{"width":600}')
+        }
     },
     {
         title: 'Far From The Tree',
@@ -83,6 +96,9 @@ export const BOOKS_2016: BookEntry[] = [
         startDate: parseISO('2016-10-01'),
         endDate: parseISO('2016-05-06'),
         favorite: true,
-        image: FAR_FROM_THE_TREE_COVER
+        covers: {
+            thumbnail: require('images/books/far-from-the-tree.jpg?{"width":200}'),
+            full: require('images/books/far-from-the-tree.jpg?{"width":600}')
+        }
     }
 ];

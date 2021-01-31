@@ -1,33 +1,5 @@
 import parseISO from 'date-fns/parseISO';
 import { BookEntry } from 'models/media';
-import PAINTING_RESILIENCE_COVER from 'images/books/painting-resilience.jpg';
-import THE_REVENANT_COVER from 'images/books/the-revenant.jpg';
-import CODE_COVER from 'images/books/code.jpg';
-import CHILDREN_OF_MEN_COVER from 'images/books/children-of-men.jpg';
-import BIRTH_PARTNER_COVER from 'images/books/birth-partner.jpg';
-import STALIN_COVER from 'images/books/stalin.jpg';
-import MEASURE_WHAT_MATTERS_COVER from 'images/books/measure-what-matters.jpg';
-import ETHICS_IN_THE_REAL_WORLD_COVER from 'images/books/ethics-in-the-real-world.jpg';
-import OPEN_BORDERS_COVER from 'images/books/open-borders.jpg';
-import CRIBSHEET_COVER from 'images/books/cribsheet.jpg';
-import LENIN_COVER from 'images/books/lenin.jpg';
-import BLUEPRINT_COVER from 'images/books/blueprint.jpg';
-import THE_BLUEST_EYE_COVER from 'images/books/the-bluest-eye.jpg';
-import REWORK_COVER from 'images/books/rework.png';
-import SELFISH_REASONS_COVER from 'images/books/selfish-reasons.jpg';
-import OVERSTORY_COVER from 'images/books/overstory.jpg';
-import UNDERLAND_COVER from 'images/books/underland.jpg';
-import GOLDEN_COMPASS_COVER from 'images/books/golden-compass.jpg';
-import NEVER_LET_ME_GO_COVER from 'images/books/never-let-me-go.jpg';
-import STRANGE_BIRD_COVER from 'images/books/strange-bird.jpg';
-import PRAGMATIC_PROGRAMMER_COVER from 'images/books/pragmatic-programmer.jpg';
-import BIG_SUR_COVER from 'images/books/big-sur.jpg';
-import BORNE_COVER from 'images/books/borne.jpg';
-import THE_PROBLEM_WITH_EVERYTHING_COVER from 'images/books/the-problem-with-everything.jpg';
-import A_WRINKLE_IN_TIME_COVER from 'images/books/a-wrinkle-in-time.jpg';
-import FALL_OF_HYPERION_COVER from 'images/books/fall-of-hyperion.jpg';
-import EXHALATION_COVER from 'images/books/exhalation.jpg';
-import STORIES_OF_YOUR_LIFE_COVER from 'images/books/stories-of-your-life.jpg';
 import { ICE } from './common';
 
 export const BOOKS_2020: BookEntry[] = [
@@ -41,7 +13,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-12-26'),
         endDate: parseISO('2020-12-28'),
         favorite: false,
-        image: require('images/books/stubborn-attachments.jpg?{"width":600}') // TODO: FIx
+        covers: {
+            thumbnail: require('images/books/stubborn-attachments.jpg?{"width":200}'),
+            full: require('images/books/stubborn-attachments.jpg?{"width":600}')
+        }
     },
     {
         title: 'Measure What Matters',
@@ -52,7 +27,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-09-10'),
         endDate: parseISO('2020-12-27'),
         favorite: false,
-        image: MEASURE_WHAT_MATTERS_COVER
+        covers: {
+            thumbnail: require('images/books/measure-what-matters.jpg?{"width":200}'),
+            full: require('images/books/measure-what-matters.jpg?{"width":600}')
+        }
     },
     {
         title: 'Painting Resilience',
@@ -62,7 +40,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-12-21'),
         endDate: parseISO('2020-12-26'),
         favorite: false,
-        image: PAINTING_RESILIENCE_COVER
+        covers: {
+            thumbnail: require('images/books/painting-resilience.jpg?{"width":200}'),
+            full: require('images/books/painting-resilience.jpg?{"width":600}')
+        }
     },
     {
         ...ICE,
@@ -78,7 +59,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-10-14'),
         endDate: parseISO('2020-12-24'),
         favorite: false,
-        image: BIRTH_PARTNER_COVER
+        covers: {
+            thumbnail: require('images/books/birth-partner.jpg?{"width":200}'),
+            full: require('images/books/birth-partner.jpg?{"width":600}')
+        }
     },
     {
         title: 'Code',
@@ -88,7 +72,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-10-23'),
         endDate: parseISO('2020-12-19'),
         favorite: true,
-        image: CODE_COVER
+        covers: {
+            thumbnail: require('images/books/code.jpg?{"width":200}'),
+            full: require('images/books/code.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Revenant',
@@ -98,7 +85,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-11-16'),
         endDate: parseISO('2020-11-24'),
         favorite: false,
-        image: THE_REVENANT_COVER
+        covers: {
+            thumbnail: require('images/books/the-revenant.jpg?{"width":200}'),
+            full: require('images/books/the-revenant.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Children of Men',
@@ -107,7 +97,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-10-14'),
         endDate: parseISO('2020-10-23'),
         favorite: false,
-        image: CHILDREN_OF_MEN_COVER
+        covers: {
+            thumbnail: require('images/books/children-of-men.jpg?{"width":200}'),
+            full: require('images/books/children-of-men.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Pragmatic Programmer',
@@ -117,7 +110,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-03-01'),
         endDate: parseISO('2020-10-16'),
         favorite: false,
-        image: PRAGMATIC_PROGRAMMER_COVER
+        covers: {
+            thumbnail: require('images/books/pragmatic-programmer.jpg?{"width":200}'),
+            full: require('images/books/pragmatic-programmer.jpg?{"width":600}')
+        }
     },
     {
         title: 'Stalin',
@@ -127,7 +123,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-09-14'),
         endDate: parseISO('2020-10-13'),
         favorite: false,
-        image: STALIN_COVER
+        covers: {
+            thumbnail: require('images/books/stalin.jpg?{"width":200}'),
+            full: require('images/books/stalin.jpg?{"width":600}')
+        }
     },
     {
         title: 'Cribsheet',
@@ -138,7 +137,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-09-01'),
         endDate: parseISO('2020-10-08'),
         favorite: false,
-        image: CRIBSHEET_COVER
+        covers: {
+            thumbnail: require('images/books/cribsheet.jpg?{"width":200}'),
+            full: require('images/books/cribsheet.jpg?{"width":600}')
+        }
     },
     {
         title: 'Ethics In The Real World',
@@ -148,7 +150,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-09-07'),
         endDate: parseISO('2020-09-26'),
         favorite: false,
-        image: ETHICS_IN_THE_REAL_WORLD_COVER
+        covers: {
+            thumbnail: require('images/books/ethics-in-the-real-world.jpg?{"width":200}'),
+            full: require('images/books/ethics-in-the-real-world.jpg?{"width":600}')
+        }
     },
     {
         title: 'Open Borders',
@@ -158,7 +163,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-09-02'),
         endDate: parseISO('2020-09-05'),
         favorite: false,
-        image: OPEN_BORDERS_COVER
+        covers: {
+            thumbnail: require('images/books/open-borders.jpg?{"width":200}'),
+            full: require('images/books/open-borders.jpg?{"width":600}')
+        }
     },
     {
         title: 'Lenin',
@@ -168,7 +176,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-08-10'),
         endDate: parseISO('2020-08-31'),
         favorite: false,
-        image: LENIN_COVER
+        covers: {
+            thumbnail: require('images/books/lenin.jpg?{"width":200}'),
+            full: require('images/books/lenin.jpg?{"width":600}')
+        }
     },
     {
         title: 'Blueprint',
@@ -178,7 +189,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-07-31'),
         endDate: parseISO('2020-08-02'),
         favorite: false,
-        image: BLUEPRINT_COVER
+        covers: {
+            thumbnail: require('images/books/blueprint.jpg?{"width":200}'),
+            full: require('images/books/blueprint.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Overstory',
@@ -187,7 +201,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-06-07'),
         endDate: parseISO('2020-07-31'),
         favorite: false,
-        image: OVERSTORY_COVER
+        covers: {
+            thumbnail: require('images/books/overstory.jpg?{"width":200}'),
+            full: require('images/books/overstory.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Bluest Eye',
@@ -196,7 +213,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-07-18'),
         endDate: parseISO('2020-07-25'),
         favorite: false,
-        image: THE_BLUEST_EYE_COVER
+        covers: {
+            thumbnail: require('images/books/the-bluest-eye.jpg?{"width":200}'),
+            full: require('images/books/the-bluest-eye.jpg?{"width":600}')
+        }
     },
     {
         title: 'Rework',
@@ -205,7 +225,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-07-04'),
         endDate: parseISO('2020-07-18'),
         favorite: false,
-        image: REWORK_COVER
+        covers: {
+            thumbnail: require('images/books/rework.png?{"width":200}'),
+            full: require('images/books/rework.png?{"width":600}')
+        }
     },
     {
         title: 'Selfish Reasons To Have More Kids',
@@ -216,7 +239,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-07-01'),
         endDate: parseISO('2020-07-10'),
         favorite: false,
-        image: SELFISH_REASONS_COVER
+        covers: {
+            thumbnail: require('images/books/selfish-reasons.jpg?{"width":200}'),
+            full: require('images/books/selfish-reasons.jpg?{"width":600}')
+        }
     },
     {
         title: 'Golden Compass',
@@ -225,7 +251,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-05-17'),
         endDate: parseISO('2020-06-05'),
         favorite: false,
-        image: GOLDEN_COMPASS_COVER
+        covers: {
+            thumbnail: require('images/books/golden-compass.jpg?{"width":200}'),
+            full: require('images/books/golden-compass.jpg?{"width":600}')
+        }
     },
     {
         title: 'Never Let Me Go',
@@ -234,7 +263,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-04-01'),
         endDate: parseISO('2020-05-17'),
         favorite: false,
-        image: NEVER_LET_ME_GO_COVER
+        covers: {
+            thumbnail: require('images/books/never-let-me-go.jpg?{"width":200}'),
+            full: require('images/books/never-let-me-go.jpg?{"width":600}')
+        }
     },
     {
         title: 'Underland',
@@ -244,7 +276,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-05-01'),
         endDate: parseISO('2020-05-15'),
         favorite: false,
-        image: UNDERLAND_COVER
+        covers: {
+            thumbnail: require('images/books/underland.jpg?{"width":200}'),
+            full: require('images/books/underland.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Strange Bird',
@@ -254,7 +289,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-04-05'),
         endDate: parseISO('2020-04-30'),
         favorite: true,
-        image: STRANGE_BIRD_COVER
+        covers: {
+            thumbnail: require('images/books/strange-bird.jpg?{"width":200}'),
+            full: require('images/books/strange-bird.jpg?{"width":600}')
+        }
     },
     {
         title: 'Big Sur',
@@ -263,7 +301,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-03-01'),
         endDate: parseISO('2020-03-21'),
         favorite: false,
-        image: BIG_SUR_COVER
+        covers: {
+            thumbnail: require('images/books/big-sur.jpg?{"width":200}'),
+            full: require('images/books/big-sur.jpg?{"width":600}')
+        }
     },
     {
         title: 'Borne',
@@ -272,7 +313,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-02-11'),
         endDate: parseISO('2020-02-28'),
         favorite: true,
-        image: BORNE_COVER
+        covers: {
+            thumbnail: require('images/books/borne.jpg?{"width":200}'),
+            full: require('images/books/borne.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Problem With Everything',
@@ -282,7 +326,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-02-03'),
         endDate: parseISO('2020-02-21'),
         favorite: true,
-        image: THE_PROBLEM_WITH_EVERYTHING_COVER
+        covers: {
+            thumbnail: require('images/books/the-problem-with-everything.jpg?{"width":200}'),
+            full: require('images/books/the-problem-with-everything.jpg?{"width":600}')
+        }
     },
     {
         title: 'A Wrinkle In Time',
@@ -291,7 +338,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-02-01'),
         endDate: parseISO('2020-02-12'),
         favorite: false,
-        image: A_WRINKLE_IN_TIME_COVER
+        covers: {
+            thumbnail: require('images/books/a-wrinkle-in-time.jpg?{"width":200}'),
+            full: require('images/books/a-wrinkle-in-time.jpg?{"width":600}')
+        }
     },
     {
         title: 'Exhalation',
@@ -301,7 +351,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2019-12-29'),
         endDate: parseISO('2020-02-02'),
         favorite: true,
-        image: EXHALATION_COVER
+        covers: {
+            thumbnail: require('images/books/exhalation.jpg?{"width":200}'),
+            full: require('images/books/exhalation.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Fall of Hyperion',
@@ -310,7 +363,10 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-01-11'),
         endDate: parseISO('2020-01-24'),
         favorite: false,
-        image: FALL_OF_HYPERION_COVER
+        covers: {
+            thumbnail: require('images/books/fall-of-hyperion.jpg?{"width":200}'),
+            full: require('images/books/fall-of-hyperion.jpg?{"width":600}')
+        }
     },
     {
         title: 'Stories of Your Life And Others',
@@ -319,6 +375,9 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2019-12-10'),
         endDate: parseISO('2020-01-07'),
         favorite: true,
-        image: STORIES_OF_YOUR_LIFE_COVER
+        covers: {
+            thumbnail: require('images/books/stories-of-your-life.jpg?{"width":200}'),
+            full: require('images/books/stories-of-your-life.jpg?{"width":600}')
+        }
     }
 ];

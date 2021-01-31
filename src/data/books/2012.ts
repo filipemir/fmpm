@@ -1,17 +1,5 @@
 import parseISO from 'date-fns/parseISO';
 import { BookEntry } from 'models/media';
-import STORM_OF_WAR_COVER from 'images/books/storm-of-war.jpg';
-import LATHE_OF_HEAVEN_COVER from 'images/books/lathe-of-heaven.jpg';
-import LIARS_POKER_COVER from 'images/books/liars-poker.jpg';
-import BOOMERANG_COVER from 'images/books/boomerang.jpg';
-import THE_TERROR_COVER from 'images/books/the-terror.jpg';
-import DOG_STARS_COVER from 'images/books/dog-stars.jpg';
-import MOBY_DICK_COVER from 'images/books/moby-dick.jpg';
-import THUNDERSTRUCK_COVER from 'images/books/thunderstruck.jpg';
-import HOLOGRAM_COVER from 'images/books/a-hologram-for-the-king.jpg';
-import BANNER_OF_HEAVEN_COVER from 'images/books/under-the-banner-of-heaven.jpg';
-import DFW_LAST_INTERVIEW_COVER from 'images/books/dfw-last-interview.jpg';
-import BOTH_FLESH_AND_NOT_COVER from 'images/books/both-flesh-and-not.jpg';
 
 export const BOOKS_2012: BookEntry[] = [
     {
@@ -20,7 +8,10 @@ export const BOOKS_2012: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780316182386',
         endDate: parseISO('2012-12-01'),
         favorite: false,
-        image: BOTH_FLESH_AND_NOT_COVER
+        covers: {
+            thumbnail: require('images/books/both-flesh-and-not.jpg?{"width":200}'),
+            full: require('images/books/both-flesh-and-not.jpg?{"width":600}')
+        }
     },
     {
         title: 'David Foster Wallace',
@@ -29,7 +20,10 @@ export const BOOKS_2012: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9781612192062',
         endDate: parseISO('2012-11-30'),
         favorite: false,
-        image: DFW_LAST_INTERVIEW_COVER
+        covers: {
+            thumbnail: require('images/books/dfw-last-interview.jpg?{"width":200}'),
+            full: require('images/books/dfw-last-interview.jpg?{"width":600}')
+        }
     },
     {
         title: 'Under The Banner of Heaven',
@@ -38,7 +32,10 @@ export const BOOKS_2012: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9781400032808',
         endDate: parseISO('2012-11-15'),
         favorite: true,
-        image: BANNER_OF_HEAVEN_COVER
+        covers: {
+            thumbnail: require('images/books/under-the-banner-of-heaven.jpg?{"width":200}'),
+            full: require('images/books/under-the-banner-of-heaven.jpg?{"width":600}')
+        }
     },
     {
         title: 'A Hologram for the King',
@@ -46,7 +43,10 @@ export const BOOKS_2012: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9781936365746',
         endDate: parseISO('2012-11-06'),
         favorite: false,
-        image: HOLOGRAM_COVER
+        covers: {
+            thumbnail: require('images/books/a-hologram-for-the-king.jpg?{"width":200}'),
+            full: require('images/books/a-hologram-for-the-king.jpg?{"width":600}')
+        }
     },
     {
         title: 'Thunderstruck',
@@ -54,7 +54,10 @@ export const BOOKS_2012: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9781400080670',
         endDate: parseISO('2012-11-03'),
         favorite: false,
-        image: THUNDERSTRUCK_COVER
+        covers: {
+            thumbnail: require('images/books/thunderstruck.jpg?{"width":200}'),
+            full: require('images/books/thunderstruck.jpg?{"width":600}')
+        }
     },
     {
         title: 'Moby Dick',
@@ -63,7 +66,10 @@ export const BOOKS_2012: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780143105954',
         endDate: parseISO('2012-10-31'),
         favorite: false,
-        image: MOBY_DICK_COVER
+        covers: {
+            thumbnail: require('images/books/moby-dick.jpg?{"width":200}'),
+            full: require('images/books/moby-dick.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Dog Stars',
@@ -71,7 +77,10 @@ export const BOOKS_2012: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780307959942',
         endDate: parseISO('2012-09-20'),
         favorite: true,
-        image: DOG_STARS_COVER
+        covers: {
+            thumbnail: require('images/books/dog-stars.jpg?{"width":200}'),
+            full: require('images/books/dog-stars.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Terror',
@@ -79,7 +88,10 @@ export const BOOKS_2012: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780316017459',
         endDate: parseISO('2012-09-18'),
         favorite: true,
-        image: THE_TERROR_COVER
+        covers: {
+            thumbnail: require('images/books/the-terror.jpg?{"width":200}'),
+            full: require('images/books/the-terror.jpg?{"width":600}')
+        }
     },
     {
         title: 'Boomerang',
@@ -88,7 +100,10 @@ export const BOOKS_2012: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780393081817',
         endDate: parseISO('2012-08-13'),
         favorite: false,
-        image: BOOMERANG_COVER
+        covers: {
+            thumbnail: require('images/books/boomerang.jpg?{"width":200}'),
+            full: require('images/books/boomerang.jpg?{"width":600}')
+        }
     },
     {
         title: "Liar's Poker",
@@ -96,7 +111,10 @@ export const BOOKS_2012: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780393338690',
         endDate: parseISO('2012-07-15'),
         favorite: true,
-        image: LIARS_POKER_COVER
+        covers: {
+            thumbnail: require('images/books/liars-poker.jpg?{"width":200}'),
+            full: require('images/books/liars-poker.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Lathe of Heaven',
@@ -104,7 +122,10 @@ export const BOOKS_2012: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9781416556961',
         endDate: parseISO('2012-07-02'),
         favorite: false,
-        image: LATHE_OF_HEAVEN_COVER
+        covers: {
+            thumbnail: require('images/books/lathe-of-heaven.jpg?{"width":200}'),
+            full: require('images/books/lathe-of-heaven.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Storm of War',
@@ -113,6 +134,9 @@ export const BOOKS_2012: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780061228599',
         endDate: parseISO('2012-01-06'),
         favorite: false,
-        image: STORM_OF_WAR_COVER
+        covers: {
+            thumbnail: require('images/books/storm-of-war.jpg?{"width":200}'),
+            full: require('images/books/storm-of-war.jpg?{"width":600}')
+        }
     }
 ];

@@ -105,7 +105,7 @@ const BookGrid = ({ books }: { books: BookEntry[] }) => {
     return (
         <Root>
             {books.map((book, index) => {
-                const { title, author, image, endDate } = book,
+                const { title, author, covers, endDate } = book,
                     description = `"${title}" by ${author}`,
                     prevBook = index === 0 ? null : books[index - 1],
                     prevBookYear = prevBook ? getYear(prevBook.endDate) : -9999,
@@ -116,7 +116,7 @@ const BookGrid = ({ books }: { books: BookEntry[] }) => {
                         {isFirstOfYear && <YearCard date={endDate} />}
                         <Book onClick={() => setActiveBook(book)}>
                             <BookCover
-                                src={image}
+                                src={covers.thumbnail}
                                 alt={description}
                                 title={description}
                                 loading='lazy'

@@ -37,7 +37,7 @@ const BookModal = ({
     book: BookEntry;
     onClose?: () => void;
 }) => {
-    const { title, subtitle, image, author, url } = book;
+    const { title, subtitle, covers, author, url } = book;
 
     useCancelKeydown(onClose);
 
@@ -45,7 +45,7 @@ const BookModal = ({
         <StyledRoot>
             <StyledModalShadowBox onClick={() => onClose && onClose()} />
             <StyledContent onClick={() => window.open(url, '_blank')}>
-                <StyledCover src={image} />
+                <StyledCover src={covers.full} />
                 <StyledInfo>
                     <DogearedTile maxWidth={'350px'}>
                         <StyledTitle href={url} target={'_blank'}>

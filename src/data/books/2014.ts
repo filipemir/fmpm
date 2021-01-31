@@ -1,17 +1,5 @@
 import parseISO from 'date-fns/parseISO';
 import { BookEntry } from 'models/media';
-import THE_SIGNAL_AND_THE_NOISE_COVER from 'images/books/the-sginal-and-the-noise.jpg';
-import HELL_OR_HIGH_WATER_COVER from 'images/books/hell-or-high-water.jpg';
-import THE_GIVER_COVER from 'images/books/the-giver.jpg';
-import SLOUCHING_TOWARDS_BETHLEHEM_COVER from 'images/books/slouching-towards-bethlehem.jpg';
-import YIDDISH_POLICEMENS_UNION_COVER from 'images/books/yiddish-policemens-union.jpg';
-import ALL_THE_PRETTY_HORSES_COVER from 'images/books/all-the-pretty-horses.jpg';
-import THE_CROSSING_COVER from 'images/books/the-crossing.jpg';
-import THE_ABOMINABLE_COVER from 'images/books/the-abominable.jpg';
-import KLOSTERMAN_COVER from 'images/books/chuck-klosterman-iv.jpg';
-import HEARTBREAKING_WORK_COVER from 'images/books/a-heartbreaking-work-of-staggering-genius.jpg';
-import FIRE_NEXT_TIME_COVER from 'images/books/the-fire-next-time.jpg';
-import THE_MARTIAN_COVER from 'images/books/the-martian.jpg';
 
 export const BOOKS_2014: BookEntry[] = [
     {
@@ -21,7 +9,10 @@ export const BOOKS_2014: BookEntry[] = [
         startDate: parseISO('2014-11-24'),
         endDate: parseISO('2014-12-12'),
         favorite: false,
-        image: THE_MARTIAN_COVER
+        covers: {
+            thumbnail: require('images/books/the-martian.jpg?{"width":200}'),
+            full: require('images/books/the-martian.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Fire Next Time',
@@ -30,7 +21,10 @@ export const BOOKS_2014: BookEntry[] = [
         startDate: parseISO('2014-12-06'),
         endDate: parseISO('2014-12-09'),
         favorite: true,
-        image: FIRE_NEXT_TIME_COVER
+        covers: {
+            thumbnail: require('images/books/the-fire-next-time.jpg?{"width":200}'),
+            full: require('images/books/the-fire-next-time.jpg?{"width":600}')
+        }
     },
     {
         title: 'A Heartbreaking Work of Staggering Genius',
@@ -39,7 +33,10 @@ export const BOOKS_2014: BookEntry[] = [
         startDate: parseISO('2014-10-04'),
         endDate: parseISO('2014-11-30'),
         favorite: false,
-        image: HEARTBREAKING_WORK_COVER
+        covers: {
+            thumbnail: require('images/books/a-heartbreaking-work-of-staggering-genius.jpg?{"width":200}'),
+            full: require('images/books/a-heartbreaking-work-of-staggering-genius.jpg?{"width":600}')
+        }
     },
     {
         title: 'Chuck Klosterman IV',
@@ -49,7 +46,10 @@ export const BOOKS_2014: BookEntry[] = [
         startDate: parseISO('2014-11-02'),
         endDate: parseISO('2014-11-28'),
         favorite: false,
-        image: KLOSTERMAN_COVER
+        covers: {
+            thumbnail: require('images/books/chuck-klosterman-iv.jpg?{"width":200}'),
+            full: require('images/books/chuck-klosterman-iv.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Abominable',
@@ -58,7 +58,10 @@ export const BOOKS_2014: BookEntry[] = [
         startDate: parseISO('2014-07-19'),
         endDate: parseISO('2014-09-21'),
         favorite: false,
-        image: THE_ABOMINABLE_COVER
+        covers: {
+            thumbnail: require('images/books/the-abominable.jpg?{"width":200}'),
+            full: require('images/books/the-abominable.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Crossing',
@@ -67,7 +70,10 @@ export const BOOKS_2014: BookEntry[] = [
         startDate: parseISO('2014-06-07'),
         endDate: parseISO('2014-07-15'),
         favorite: false,
-        image: THE_CROSSING_COVER
+        covers: {
+            thumbnail: require('images/books/the-crossing.jpg?{"width":200}'),
+            full: require('images/books/the-crossing.jpg?{"width":600}')
+        }
     },
     {
         title: 'All The Pretty Horses',
@@ -76,7 +82,10 @@ export const BOOKS_2014: BookEntry[] = [
         startDate: parseISO('2014-05-20'),
         endDate: parseISO('2014-06-07'),
         favorite: true,
-        image: ALL_THE_PRETTY_HORSES_COVER
+        covers: {
+            thumbnail: require('images/books/all-the-pretty-horses.jpg?{"width":200}'),
+            full: require('images/books/all-the-pretty-horses.jpg?{"width":600}')
+        }
     },
     {
         title: "The Yiddish Policemen's Union",
@@ -85,7 +94,10 @@ export const BOOKS_2014: BookEntry[] = [
         startDate: parseISO('2014-'),
         endDate: parseISO('2014-'),
         favorite: true,
-        image: YIDDISH_POLICEMENS_UNION_COVER
+        covers: {
+            thumbnail: require('images/books/yiddish-policemens-union.jpg?{"width":200}'),
+            full: require('images/books/yiddish-policemens-union.jpg?{"width":600}')
+        }
     },
     {
         title: 'Slouching Towards Bethlehem',
@@ -94,7 +106,10 @@ export const BOOKS_2014: BookEntry[] = [
         startDate: parseISO('2014-01-19'),
         endDate: parseISO('2014-02-01'),
         favorite: true,
-        image: SLOUCHING_TOWARDS_BETHLEHEM_COVER
+        covers: {
+            thumbnail: require('images/books/slouching-towards-bethlehem.jpg?{"width":200}'),
+            full: require('images/books/slouching-towards-bethlehem.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Giver',
@@ -103,7 +118,10 @@ export const BOOKS_2014: BookEntry[] = [
         startDate: parseISO('2014-01-13'),
         endDate: parseISO('2014-01-15'),
         favorite: true,
-        image: THE_GIVER_COVER
+        covers: {
+            thumbnail: require('images/books/the-giver.jpg?{"width":200}'),
+            full: require('images/books/the-giver.jpg?{"width":600}')
+        }
     },
     {
         title: 'Hell or High Water',
@@ -113,7 +131,10 @@ export const BOOKS_2014: BookEntry[] = [
         startDate: parseISO('2013-12-27'),
         endDate: parseISO('2014-01-13'),
         favorite: false,
-        image: HELL_OR_HIGH_WATER_COVER
+        covers: {
+            thumbnail: require('images/books/hell-or-high-water.jpg?{"width":200}'),
+            full: require('images/books/hell-or-high-water.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Signal and The Noise',
@@ -123,6 +144,9 @@ export const BOOKS_2014: BookEntry[] = [
         startDate: parseISO('2014-01-07'),
         endDate: parseISO('2014-01-11'),
         favorite: false,
-        image: THE_SIGNAL_AND_THE_NOISE_COVER
+        covers: {
+            thumbnail: require('images/books/the-sginal-and-the-noise.jpg?{"width":200}'),
+            full: require('images/books/the-sginal-and-the-noise.jpg?{"width":600}')
+        }
     }
 ];

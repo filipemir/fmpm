@@ -1,21 +1,5 @@
 import parseISO from 'date-fns/parseISO';
 import { BookEntry } from 'models/media';
-import LIBRA_COVER from 'images/books/libra.jpg';
-import HYPERION_COVER from 'images/books/hyperion.jpg';
-import TESTAMENTS_COVER from 'images/books/testaments.jpg';
-import TEAM_OF_RIVALS_COVER from 'images/books/team-of-rivals.jpg';
-import EMPIRE_OF_ILLUSION_COVER from 'images/books/empire-of-illusion.jpg';
-import JESUS_SON_COVER from 'images/books/jesus-son.jpg';
-import DIGITAL_MINIMALISM_COVER from 'images/books/digital-minimalism.jpg';
-import DEATH_IS_HARD_WORK_COVER from 'images/books/death-is-hard-work.jpg';
-import PALE_FIRE_COVER from 'images/books/pale-fire.jpg';
-import ESPRESSO_LESSONS_COVER from 'images/books/espresso-lessons.jpg';
-import STONER_COVER from 'images/books/stoner.jpg';
-import LABYRINTHS_COVER from 'images/books/labyrinths.jpg';
-import FREE_RANGE_KIDS_COVER from 'images/books/free-range-kids.jpg';
-import BULLET_JOURNAL_COVER from 'images/books/the-bullet-journal-method.jpg';
-import SUTTREE_COVER from 'images/books/suttree.jpg';
-import RESERVOIR_13_COVER from 'images/books/reservoir-13.jpg';
 import { ICE } from './common';
 
 export const BOOKS_2019: BookEntry[] = [
@@ -26,7 +10,10 @@ export const BOOKS_2019: BookEntry[] = [
         startDate: parseISO('2019-10-12'),
         endDate: parseISO('2019-12-09'),
         favorite: false,
-        image: LIBRA_COVER
+        covers: {
+            thumbnail: require('images/books/libra.jpg?{"width":200}'),
+            full: require('images/books/libra.jpg?{"width":600}')
+        }
     },
     {
         title: 'Hyperion',
@@ -35,7 +22,10 @@ export const BOOKS_2019: BookEntry[] = [
         startDate: parseISO('2019-10-26'),
         endDate: parseISO('2019-11-20'),
         favorite: false,
-        image: HYPERION_COVER
+        covers: {
+            thumbnail: require('images/books/hyperion.jpg?{"width":200}'),
+            full: require('images/books/hyperion.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Testaments',
@@ -44,7 +34,10 @@ export const BOOKS_2019: BookEntry[] = [
         startDate: parseISO('2019-10-13'),
         endDate: parseISO('2019-10-14'),
         favorite: false,
-        image: TESTAMENTS_COVER
+        covers: {
+            thumbnail: require('images/books/testaments.jpg?{"width":200}'),
+            full: require('images/books/testaments.jpg?{"width":600}')
+        }
     },
     {
         title: 'Team of Rivals',
@@ -54,7 +47,10 @@ export const BOOKS_2019: BookEntry[] = [
         startDate: parseISO('2019-09-07'),
         endDate: parseISO('2019-10-11'),
         favorite: true,
-        image: TEAM_OF_RIVALS_COVER
+        covers: {
+            thumbnail: require('images/books/team-of-rivals.jpg?{"width":200}'),
+            full: require('images/books/team-of-rivals.jpg?{"width":600}')
+        }
     },
     {
         title: 'Empire of Illusion',
@@ -64,7 +60,10 @@ export const BOOKS_2019: BookEntry[] = [
         startDate: parseISO('2019-09-09'),
         endDate: parseISO('2019-09-11'),
         favorite: false,
-        image: EMPIRE_OF_ILLUSION_COVER
+        covers: {
+            thumbnail: require('images/books/empire-of-illusion.jpg?{"width":200}'),
+            full: require('images/books/empire-of-illusion.jpg?{"width":600}')
+        }
     },
     {
         title: "Jesus' Son",
@@ -73,7 +72,10 @@ export const BOOKS_2019: BookEntry[] = [
         startDate: parseISO('2019-09-05'),
         endDate: parseISO('2019-09-09'),
         favorite: false,
-        image: JESUS_SON_COVER
+        covers: {
+            thumbnail: require('images/books/jesus-son.jpg?{"width":200}'),
+            full: require('images/books/jesus-son.jpg?{"width":600}')
+        }
     },
     {
         title: 'Digital Minimalism',
@@ -83,7 +85,10 @@ export const BOOKS_2019: BookEntry[] = [
         startDate: parseISO('2019-09-02'),
         endDate: parseISO('2019-09-04'),
         favorite: false,
-        image: DIGITAL_MINIMALISM_COVER
+        covers: {
+            thumbnail: require('images/books/digital-minimalism.jpg?{"width":200}'),
+            full: require('images/books/digital-minimalism.jpg?{"width":600}')
+        }
     },
     {
         ...ICE,
@@ -97,7 +102,10 @@ export const BOOKS_2019: BookEntry[] = [
         startDate: parseISO('2019-07-13'),
         endDate: parseISO('2019-08-25'),
         favorite: false,
-        image: DEATH_IS_HARD_WORK_COVER
+        covers: {
+            thumbnail: require('images/books/death-is-hard-work.jpg?{"width":200}'),
+            full: require('images/books/death-is-hard-work.jpg?{"width":600}')
+        }
     },
     {
         title: 'Pale Fire',
@@ -106,7 +114,10 @@ export const BOOKS_2019: BookEntry[] = [
         startDate: parseISO('2019-03-18'),
         endDate: parseISO('2019-05-15'),
         favorite: true,
-        image: PALE_FIRE_COVER
+        covers: {
+            thumbnail: require('images/books/pale-fire.jpg?{"width":200}'),
+            full: require('images/books/pale-fire.jpg?{"width":600}')
+        }
     },
     {
         title: 'Espresso Lessons',
@@ -116,7 +127,10 @@ export const BOOKS_2019: BookEntry[] = [
         startDate: parseISO('2019-01-19'),
         endDate: parseISO('2019-03-18'),
         favorite: false,
-        image: ESPRESSO_LESSONS_COVER
+        covers: {
+            thumbnail: require('images/books/espresso-lessons.jpg?{"width":200}'),
+            full: require('images/books/espresso-lessons.jpg?{"width":600}')
+        }
     },
     {
         title: 'Stoner',
@@ -125,7 +139,10 @@ export const BOOKS_2019: BookEntry[] = [
         startDate: parseISO('2019-03-13'),
         endDate: parseISO('2019-03-18'),
         favorite: false,
-        image: STONER_COVER
+        covers: {
+            thumbnail: require('images/books/stoner.jpg?{"width":200}'),
+            full: require('images/books/stoner.jpg?{"width":600}')
+        }
     },
     {
         title: 'Labyrinths',
@@ -134,7 +151,10 @@ export const BOOKS_2019: BookEntry[] = [
         startDate: parseISO('2018-01-18'),
         endDate: parseISO('2019-03-14'),
         favorite: true,
-        image: LABYRINTHS_COVER
+        covers: {
+            thumbnail: require('images/books/labyrinths.jpg?{"width":200}'),
+            full: require('images/books/labyrinths.jpg?{"width":600}')
+        }
     },
     {
         title: 'Free Range Kids',
@@ -145,7 +165,10 @@ export const BOOKS_2019: BookEntry[] = [
         startDate: parseISO('2019-01-28'),
         endDate: parseISO('2019-03-02'),
         favorite: false,
-        image: FREE_RANGE_KIDS_COVER
+        covers: {
+            thumbnail: require('images/books/free-range-kids.jpg?{"width":200}'),
+            full: require('images/books/free-range-kids.jpg?{"width":600}')
+        }
     },
     {
         title: 'The Bullet Journal Method',
@@ -155,7 +178,10 @@ export const BOOKS_2019: BookEntry[] = [
         startDate: parseISO('2019-01-28'),
         endDate: parseISO('2019-03-02'),
         favorite: false,
-        image: BULLET_JOURNAL_COVER
+        covers: {
+            thumbnail: require('images/books/the-bullet-journal-method.jpg?{"width":200}'),
+            full: require('images/books/the-bullet-journal-method.jpg?{"width":600}')
+        }
     },
     {
         title: 'Suttree',
@@ -164,7 +190,10 @@ export const BOOKS_2019: BookEntry[] = [
         startDate: parseISO('2018-11-16'),
         endDate: parseISO('2019-03-02'),
         favorite: false,
-        image: SUTTREE_COVER
+        covers: {
+            thumbnail: require('images/books/suttree.jpg?{"width":200}'),
+            full: require('images/books/suttree.jpg?{"width":600}')
+        }
     },
     {
         title: 'Reservoir 13',
@@ -173,6 +202,9 @@ export const BOOKS_2019: BookEntry[] = [
         startDate: parseISO('2018-12-24'),
         endDate: parseISO('2019-03-02'),
         favorite: false,
-        image: RESERVOIR_13_COVER
+        covers: {
+            thumbnail: require('images/books/reservoir-13.jpg?{"width":200}'),
+            full: require('images/books/reservoir-13.jpg?{"width":600}')
+        }
     }
 ];
