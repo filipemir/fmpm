@@ -1,6 +1,5 @@
 import parseISO from 'date-fns/parseISO';
 import { BookEntry } from 'models/media';
-import STUBBORN_ATTACHMENTS_COVER from 'images/books/stubborn-attachments.jpg';
 import PAINTING_RESILIENCE_COVER from 'images/books/painting-resilience.jpg';
 import THE_REVENANT_COVER from 'images/books/the-revenant.jpg';
 import CODE_COVER from 'images/books/code.jpg';
@@ -42,7 +41,7 @@ export const BOOKS_2020: BookEntry[] = [
         startDate: parseISO('2020-12-26'),
         endDate: parseISO('2020-12-28'),
         favorite: false,
-        image: STUBBORN_ATTACHMENTS_COVER
+        image: require('images/books/stubborn-attachments.jpg?{"width":600}') // TODO: FIx
     },
     {
         title: 'Measure What Matters',
