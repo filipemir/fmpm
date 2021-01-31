@@ -8,7 +8,7 @@ import { Project, ProjectId } from 'models/project';
 function useProjectFixedImage(project: Project) {
     const data = useStaticQuery(graphql`
         query {
-            sbs: file(relativePath: { eq: "sbs-screen.png" }) {
+            sbs: file(relativePath: { eq: "project-screens/sbs.png" }) {
                 childImageSharp {
                     fluid(maxWidth: 600, quality: 100) {
                         ...GatsbyImageSharpFluid
@@ -16,7 +16,7 @@ function useProjectFixedImage(project: Project) {
                 }
             }
             musicabulary: file(
-                relativePath: { eq: "musicabulary-screen.png" }
+                relativePath: { eq: "project-screens/musicabulary.png" }
             ) {
                 childImageSharp {
                     fluid(maxWidth: 600, quality: 100) {
@@ -24,14 +24,14 @@ function useProjectFixedImage(project: Project) {
                     }
                 }
             }
-            bpd: file(relativePath: { eq: "bpd-screen.png" }) {
+            bpd: file(relativePath: { eq: "project-screens/bpd.png" }) {
                 childImageSharp {
                     fluid(maxWidth: 600, quality: 100) {
                         ...GatsbyImageSharpFluid
                     }
                 }
             }
-            tbw: file(relativePath: { eq: "tbw-screen.png" }) {
+            tbw: file(relativePath: { eq: "project-screens/tbw.png" }) {
                 childImageSharp {
                     fluid(maxWidth: 600, quality: 100) {
                         ...GatsbyImageSharpFluid
