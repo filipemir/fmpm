@@ -25,8 +25,8 @@ export default function BooksPage() {
                     <Header text={'books'} emoji={'📚'} />
                 </SectionHeaderWrapper>
                 <SectionIntro>
-                    A mostly chronological list of books I've finished over the
-                    years.
+                    A mostly chronological list of books I&apos;ve finished over
+                    the years.
                 </SectionIntro>
                 <BookGrid books={books} />
                 <Waypoint

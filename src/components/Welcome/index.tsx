@@ -57,31 +57,28 @@ export default function Welcome() {
                                     <TechTag technology={t} key={t} />
                                 ))}
                             </Technologies>
-                            {!isMobile && (
-                                <About>
-                                    <div>
-                                        I like building beautiful products and
-                                        finding problems that can be
-                                        meaningfully addressed with technology.
-                                        If you have one, I&apos;d love to{' '}
-                                        <a
-                                            href={`mailto:${PERSONAL_EMAIL}`}
-                                            target={'_blank'}
-                                            rel='noopener noreferrer'
-                                        >
-                                            hear about it
-                                        </a>
-                                        .
-                                    </div>
-                                    <div>
-                                        I&apos;m also a lover of music,{' '}
-                                        <Link to={'/books'}>books</Link>,
-                                        movies, and rock climbing and may
-                                        occasionally muse about any or all of
-                                        those here.
-                                    </div>
-                                </About>
-                            )}
+                            <About>
+                                <div>
+                                    I like building beautiful products and
+                                    finding problems that can be meaningfully
+                                    addressed with technology. If you have one,
+                                    I&apos;d love to{' '}
+                                    <a
+                                        href={`mailto:${PERSONAL_EMAIL}`}
+                                        target={'_blank'}
+                                        rel='noopener noreferrer'
+                                    >
+                                        hear about it
+                                    </a>
+                                    .
+                                </div>
+                                <div>
+                                    I&apos;m also a lover of music,{' '}
+                                    <Link to={'/books'}>books</Link>, movies,
+                                    and rock climbing and may occasionally muse
+                                    about any or all of those here.
+                                </div>
+                            </About>
                         </Content>
                     </Part1Inner>
                 </Part1>
