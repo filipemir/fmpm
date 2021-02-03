@@ -1,5 +1,12 @@
 import styled from '@emotion/styled';
-import { COLOR_ACCENT, COLOR_BG, COLOR_BG_ACCENT, COLOR_PRIMARY, COLOR_TERNARY, FONT_FAMILY_MONO } from 'styles/global';
+import {
+    COLOR_ACCENT,
+    COLOR_BG,
+    COLOR_BG_ACCENT,
+    COLOR_PRIMARY,
+    COLOR_TERNARY,
+    FONT_FAMILY_MONO
+} from 'styles/global';
 import { css } from '@emotion/core';
 
 export const Root = styled.div`

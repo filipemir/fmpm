@@ -1,4 +1,9 @@
-import { CareerPhase, ResumeItem, ResumeSection, Tenure } from 'models/experience';
+import {
+    CareerPhase,
+    ResumeItem,
+    ResumeSection,
+    Tenure
+} from 'models/experience';
 import hash from 'object-hash';
 import { RESUME } from 'data/resume';
 
@@ -50,7 +55,9 @@ export class ResumeItemsCache {
         });
 
         RESUME[ResumeSection.EDUCATION].forEach((degree) => {
-            this.cache[ResumeItemsCache.getKey(degree)] = { section: ResumeSection.EDUCATION };
+            this.cache[ResumeItemsCache.getKey(degree)] = {
+                section: ResumeSection.EDUCATION
+            };
         });
     }
 }

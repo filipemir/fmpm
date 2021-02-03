@@ -9,7 +9,7 @@ import {
 } from 'styles/global';
 
 export const RootDiv = styled.div`
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
     padding-top: ${PADDING_TOP_PAGE}px;
 `;

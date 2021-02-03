@@ -1,4 +1,10 @@
-import { CareerPhaseName, Org, Resume, ResumeSection, Tenure } from 'models/experience';
+import {
+    CareerPhaseName,
+    Org,
+    Resume,
+    ResumeSection,
+    Tenure
+} from 'models/experience';
 import {
     adventTeacher,
     americorps,
@@ -16,16 +22,16 @@ import {
     tuftsTA
 } from 'data/jobs';
 import { scuDegree, tuftsDegree } from 'data/degrees';
-import adventLogo from 'images/advent.png';
-import irdLogo from 'images/ird.png';
-import nprLogo from 'images/npr.png';
-import rtLogo from 'images/rt.png';
-import scuLogo from 'images/scu.png';
-import tuftsLogo from 'images/tufts.png';
-import stLogo from 'images/st.png';
-import launchLogo from 'images/launch.png';
-import crLogo from 'images/cr.png';
-import buoyLogo from 'images/buoy.jpeg';
+import adventLogo from 'images/logos/advent.png';
+import irdLogo from 'images/logos/ird.png';
+import nprLogo from 'images/logos/npr.png';
+import rtLogo from 'images/logos/rt.png';
+import scuLogo from 'images/logos/scu.png';
+import tuftsLogo from 'images/logos/tufts.png';
+import stLogo from 'images/logos/st.png';
+import launchLogo from 'images/logos/launch.png';
+import crLogo from 'images/logos/cr.png';
+import buoyLogo from 'images/logos/buoy.jpeg';
 
 const Buoy: Tenure = {
     company: Org.BUOY,
@@ -108,7 +114,10 @@ export const RESUME: Resume = {
     [ResumeSection.EXPERIENCE]: [
         { name: CareerPhaseName.ENGINEERING, tenures: [Buoy, ST, Launch] },
         { name: CareerPhaseName.CONSULTING, tenures: [CR] },
-        { name: CareerPhaseName.OTHER, tenures: [Tufts, NPR, Advent, RT, IRD, SCU] }
+        {
+            name: CareerPhaseName.OTHER,
+            tenures: [Tufts, NPR, Advent, RT, IRD, SCU]
+        }
     ],
     [ResumeSection.EDUCATION]: [tuftsDegree, scuDegree]
 };

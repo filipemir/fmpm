@@ -36,7 +36,8 @@ export const ResumeSectionDiv = styled.div`
     }
 `;
 
-export const withLogo = ({ withLogo }: { withLogo: boolean }) => `margin-left: ${withLogo ? '50px' : 0}`;
+export const withLogo = ({ withLogo }: { withLogo: boolean }) =>
+    `margin-left: ${withLogo ? '50px' : 0}`;
 
 export const ResumeSectionNameDiv = styled.div`
     ${withLogo};

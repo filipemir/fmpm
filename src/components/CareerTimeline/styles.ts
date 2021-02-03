@@ -1,7 +1,12 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { COLOR_ACCENT, COLOR_BG_ACCENT, COLOR_TERNARY, FONT_FAMILY_MONO } from 'styles/global';
+import {
+    COLOR_ACCENT,
+    COLOR_BG_ACCENT,
+    COLOR_TERNARY,
+    FONT_FAMILY_MONO
+} from 'styles/global';
 
 export const RootDiv = styled.div`
     font-family: ${FONT_FAMILY_MONO};
@@ -25,7 +30,8 @@ const TimelineItem = css`
     }
 `;
 
-export const DynamicColor = ({ active }: { active: boolean }) => `color: ${active ? COLOR_ACCENT : COLOR_TERNARY};`;
+export const DynamicColor = ({ active }: { active: boolean }) =>
+    `color: ${active ? COLOR_ACCENT : COLOR_TERNARY};`;
 
 export const SectionHeader = styled.div`
     ${TimelineItem};

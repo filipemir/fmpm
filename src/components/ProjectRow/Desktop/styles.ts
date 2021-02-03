@@ -22,7 +22,8 @@ export const Content = styled.div`
     justify-self: end;
     margin-left: auto;
     padding-left: 30px;
-    text-align: ${(p: { alignLeft: boolean }) => (p.alignLeft ? 'left' : 'right')};
+    text-align: ${(p: { alignLeft: boolean }) =>
+        p.alignLeft ? 'left' : 'right'};
     order: ${(p: { alignLeft: boolean }) => (p.alignLeft ? 1 : 2)};
     z-index: 2;
     align-content: center;
@@ -32,7 +33,8 @@ export const Content = styled.div`
 export const TitleWrapper = styled.div`
     margin: 0 10px;
     display: flex;
-    justify-content: ${(p: { alignLeft: boolean }) => (p.alignLeft ? 'flex-start' : 'flex-end')};
+    justify-content: ${(p: { alignLeft: boolean }) =>
+        p.alignLeft ? 'flex-start' : 'flex-end'};
 `;
 
 export const DescriptionBoxWrapper = styled.div`

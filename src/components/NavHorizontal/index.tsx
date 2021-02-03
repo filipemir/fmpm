@@ -4,7 +4,15 @@ import { ResizeObserver } from '@juggle/resize-observer';
 import { useSpring, animated, useTrail } from 'react-spring';
 import { Link } from 'gatsby';
 
-import { RootDiv, PageDivWrapper, PageDiv, PageSeparator, underlineDivCss, dotCss, ContactMe } from './styles';
+import {
+    RootDiv,
+    PageDivWrapper,
+    PageDiv,
+    PageSeparator,
+    underlineDivCss,
+    dotCss,
+    ContactMe
+} from './styles';
 import Underline from 'images/underline.svg';
 import Page from 'models/page';
 import { PERSONAL_EMAIL } from 'data/personal';
@@ -61,14 +69,21 @@ export default function NavHorizontal({
         [skipAnimations, setSkipAnimations] = useState(true),
         [hoveredPage, setHoveredPage] = useState<Page | null>(),
         rootRef = useRef() as MutableRefObject<HTMLDivElement | null>,
-        [activePageRef, activePageRect] = useMeasure({ polyfill: ResizeObserver }),
-        [hoveredPageRef, hoveredPageRect] = useMeasure({ polyfill: ResizeObserver }),
+        [activePageRef, activePageRect] = useMeasure({
+            polyfill: ResizeObserver
+        }),
+        [hoveredPageRef, hoveredPageRect] = useMeasure({
+            polyfill: ResizeObserver
+        }),
         underlinePosition = useSpring({
             ...getUnderlinePosition({ rootRef, activePageRect }),
             immediate: skipAnimations
         }),
         dotPosition = useSpring({
-            ...getDotPosition({ rootRef, dottedPageRect: hoveredPage ? hoveredPageRect : activePageRect }),
+            ...getDotPosition({
+                rootRef,
+                dottedPageRect: hoveredPage ? hoveredPageRect : activePageRect
+            }),
             immediate: skipAnimations
         }),
         trail = useTrail(pages.length, { opacity: 1, from: { opacity: 0 } });
@@ -111,12 +126,16 @@ export default function NavHorizontal({
                         }}
                         onMouseLeave={() => setHoveredPage(undefined)}
                     >
-                        <PageDivWrapper ref={isHovered ? hoveredPageRef : undefined}>
+                        <PageDivWrapper
+                            ref={isHovered ? hoveredPageRef : undefined}
+                        >
                             <PageLink>
                                 <PageDiv
                                     active={isActive}
                                     ref={isActive ? activePageRef : undefined}
-                                    onClick={() => p !== Page.CONTACT && onPageClick(p)}
+                                    onClick={() =>
+                                        p !== Page.CONTACT && onPageClick(p)
+                                    }
                                 >
                                     {p}
                                 </PageDiv>

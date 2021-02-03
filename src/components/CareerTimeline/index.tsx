@@ -5,7 +5,12 @@ import { ResizeObserver } from '@juggle/resize-observer';
 
 import { RootDiv, SectionHeader, SectionItem } from './styles';
 import { RESUME } from 'data/resume';
-import { CareerPhase, ResumeItem, ResumeSection, Tenure } from 'models/experience';
+import {
+    CareerPhase,
+    ResumeItem,
+    ResumeSection,
+    Tenure
+} from 'models/experience';
 
 interface CareerTimelineProps {
     activeSection: ResumeSection;
@@ -24,7 +29,9 @@ function getJobComponents({
     onCareerPhaseClick,
     onTenureClick,
     activeItemRef
-}: CareerTimelineProps & { activeItemRef: RefCallback<HTMLDivElement | null> }) {
+}: CareerTimelineProps & {
+    activeItemRef: RefCallback<HTMLDivElement | null>;
+}) {
     const phases = RESUME[ResumeSection.EXPERIENCE],
         components: ReactNode[] = [];
 
@@ -33,7 +40,10 @@ function getJobComponents({
             isActive = phase === activeCareerPhase;
 
         components.push(
-            <SectionHeader active={isActive} onClick={() => onCareerPhaseClick(phase)}>
+            <SectionHeader
+                active={isActive}
+                onClick={() => onCareerPhaseClick(phase)}
+            >
                 {name}
             </SectionHeader>
         );
@@ -63,11 +73,17 @@ function getEducationComponents({
     onSectionClick,
     onItemClick,
     activeItemRef
-}: CareerTimelineProps & { activeItemRef: RefCallback<HTMLDivElement | null> }) {
+}: CareerTimelineProps & {
+    activeItemRef: RefCallback<HTMLDivElement | null>;
+}) {
     const section = RESUME[ResumeSection.EDUCATION],
         isActive = activeSection === ResumeSection.EDUCATION,
         components = [
-            <SectionHeader active={isActive} onClick={() => onSectionClick(ResumeSection.EDUCATION)} key={'education'}>
+            <SectionHeader
+                active={isActive}
+                onClick={() => onSectionClick(ResumeSection.EDUCATION)}
+                key={'education'}
+            >
                 {ResumeSection.EDUCATION}
             </SectionHeader>
         ];
@@ -110,7 +126,12 @@ export default function CareerTimeline(props: CareerTimelineProps) {
                 const component = components[i];
                 return (
                     <animated.div
-                        style={{ opacity, transform: x.interpolate((x) => `translateX(${-x}px)`) }}
+                        style={{
+                            opacity,
+                            transform: x.interpolate(
+                                (x) => `translateX(${-x}px)`
+                            )
+                        }}
                         key={`component-${i}`}
                     >
                         {component}

@@ -13,19 +13,27 @@ const DESCRIPTION = "A few of the side-projects I've built over the years.";
 export default function HomePage() {
     return (
         <RootDiv>
-            <Helmet page={Page.PROJECTS} pageTitle='Projects' description={DESCRIPTION} />
+            <Helmet
+                page={Page.PROJECTS}
+                pageTitle='Projects'
+                description={DESCRIPTION}
+            />
             <Section>
                 <SectionHeaderWrapper>
                     <Header text={'projects'} emoji={'🛠'} />
                 </SectionHeaderWrapper>
                 <SectionIntro>
-                    Some side-projects I have put together over the years with various degrees of seriousness and in
-                    varying degrees of completion.
+                    Some side-projects I have put together over the years with
+                    various degrees of seriousness and in varying degrees of
+                    completion.
                 </SectionIntro>
                 <ProjectsWrapper>
                     {PROJECTS.map((p, i) => (
                         <Project key={`project-${i}`}>
-                            <ProjectRow project={p} leftAlignedContent={i % 2 === 0} />
+                            <ProjectRow
+                                project={p}
+                                leftAlignedContent={i % 2 === 0}
+                            />
                         </Project>
                     ))}
                 </ProjectsWrapper>

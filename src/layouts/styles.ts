@@ -13,7 +13,6 @@ export const NavBarWrapper = styled.div`
 `;
 
 export const Column = styled.div`
-    max-width: 1000px;
     margin: 0 auto;
 `;
 

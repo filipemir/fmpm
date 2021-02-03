@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 
-import { COLOR_QUATERNARY, COLOR_SECONDARY, FONT_FAMILY_MONO } from 'styles/global';
+import {
+    COLOR_QUATERNARY,
+    COLOR_SECONDARY,
+    FONT_FAMILY_MONO
+} from 'styles/global';
 
 export const Root = styled.div`
     background-color: ${COLOR_QUATERNARY};

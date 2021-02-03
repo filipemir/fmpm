@@ -1,5 +1,11 @@
 import React, { useRef, useState, useEffect, MutableRefObject } from 'react';
-import { useTrail, animated, useSpring, config, OpaqueInterpolation } from 'react-spring';
+import {
+    useTrail,
+    animated,
+    useSpring,
+    config,
+    OpaqueInterpolation
+} from 'react-spring';
 import { Waypoint } from 'react-waypoint';
 import throttle from 'lodash/throttle';
 import parse from 'react-html-parser';
@@ -19,7 +25,12 @@ import { getTenureDurationString } from 'utils/experience';
 import JobCard from 'components/JobCard';
 import DegreeCard from 'components/DegreeCard';
 import Underline from 'images/underline.svg';
-import { CareerPhase, ResumeItem, ResumeSection, Tenure } from 'models/experience';
+import {
+    CareerPhase,
+    ResumeItem,
+    ResumeSection,
+    Tenure
+} from 'models/experience';
 
 interface ResumeContentProps {
     activeSection: ResumeSection;
@@ -39,9 +50,15 @@ function ExperienceSection({
     activeItemRef: MutableRefObject<HTMLDivElement | null>;
 }) {
     const careerPhases = RESUME[ResumeSection.EXPERIENCE],
-        spring = useSpring({ opacity: 1, from: { opacity: 0 }, config: config.slow }),
+        spring = useSpring({
+            opacity: 1,
+            from: { opacity: 0 },
+            config: config.slow
+        }),
         [scrollIntoView, setScrollIntoView] = useState(false),
-        throttledSetTenure = setActiveTenure && throttle(setActiveTenure, 100, { trailing: true });
+        throttledSetTenure =
+            setActiveTenure &&
+            throttle(setActiveTenure, 100, { trailing: true });
 
     return (
         <animated.div style={spring}>
@@ -51,7 +68,13 @@ function ExperienceSection({
                 return (
                     <div key={`phase-${name}`}>
                         {tenures.map((tenure) => {
-                            const { company, jobs, logo, description, url } = tenure,
+                            const {
+                                    company,
+                                    jobs,
+                                    logo,
+                                    description,
+                                    url
+                                } = tenure,
                                 innerTrail = useTrail(jobs.length, {
                                     opacity: 1,
                                     x: 0,
@@ -63,23 +86,44 @@ function ExperienceSection({
                             return (
                                 <ResumeSectionDiv
                                     key={`tenure-${company}`}
-                                    ref={tenure === activeTenure ? activeItemRef : undefined}
+                                    ref={
+                                        tenure === activeTenure
+                                            ? activeItemRef
+                                            : undefined
+                                    }
                                 >
-                                    <a href={url} target='_blank' rel='noopener noreferrer'>
+                                    <a
+                                        href={url}
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                    >
                                         <ResumeSectionNameDiv withLogo={!!logo}>
                                             {company}
-                                            {logo && <Logo src={logo} alt={company} />}
+                                            {logo && (
+                                                <Logo
+                                                    src={logo}
+                                                    alt={company}
+                                                />
+                                            )}
                                             <SlashDiv>
                                                 <Underline />
                                             </SlashDiv>
                                         </ResumeSectionNameDiv>
                                     </a>
-                                    <DurationSpan>{getTenureDurationString(tenure)}</DurationSpan>
-                                    {description && <TenureDescription>{parse(description)}</TenureDescription>}
+                                    <DurationSpan>
+                                        {getTenureDurationString(tenure)}
+                                    </DurationSpan>
+                                    {description && (
+                                        <TenureDescription>
+                                            {parse(description)}
+                                        </TenureDescription>
+                                    )}
                                     {innerTrail.map(({ opacity, x }, i) => {
                                         const e = jobs[i],
                                             onEnter = () =>
-                                                scrollIntoView && throttledSetTenure && throttledSetTenure(tenure),
+                                                scrollIntoView &&
+                                                throttledSetTenure &&
+                                                throttledSetTenure(tenure),
                                             transform = (x as OpaqueInterpolation<number>).interpolate(
                                                 (x) => `translateX(${-x}px)`
                                             );
@@ -119,7 +163,8 @@ function EducationSection({
 }) {
     const degrees = RESUME[ResumeSection.EDUCATION],
         spring = useSpring({ opacity: 1, from: { opacity: 0 } }),
-        throttledSetItem = setActiveItem && throttle(setActiveItem, 100, { trailing: true });
+        throttledSetItem =
+            setActiveItem && throttle(setActiveItem, 100, { trailing: true });
 
     return (
         <animated.div style={spring}>
@@ -132,12 +177,19 @@ function EducationSection({
                 </ResumeSectionNameDiv>
                 {degrees.map((degree) => {
                     const { name } = degree,
-                        onEnter = () => throttledSetItem && throttledSetItem(degree);
+                        onEnter = () =>
+                            throttledSetItem && throttledSetItem(degree);
 
                     return (
                         <div key={`degree-${name}`}>
                             <Waypoint onEnter={onEnter} />
-                            <ResumeItemDiv ref={degree === activeItem ? activeItemRef : undefined}>
+                            <ResumeItemDiv
+                                ref={
+                                    degree === activeItem
+                                        ? activeItemRef
+                                        : undefined
+                                }
+                            >
                                 <DegreeCard degree={degree} />
                             </ResumeItemDiv>
                         </div>
@@ -168,8 +220,16 @@ export default function ResumeContent(props: ResumeContentProps) {
 
     return (
         <RootDiv ref={rootRef}>
-            <ExperienceSection {...props} rootRef={rootRef} activeItemRef={activeItemRef} />
-            <EducationSection {...props} rootRef={rootRef} activeItemRef={activeItemRef} />
+            <ExperienceSection
+                {...props}
+                rootRef={rootRef}
+                activeItemRef={activeItemRef}
+            />
+            <EducationSection
+                {...props}
+                rootRef={rootRef}
+                activeItemRef={activeItemRef}
+            />
         </RootDiv>
     );
 }

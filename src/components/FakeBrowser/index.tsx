@@ -1,6 +1,14 @@
 import React, { ReactChild } from 'react';
 
-import { Root, Bar, Dots, CloseDot, MinDot, MaxDot, ImgWrapper } from './styles';
+import {
+    Root,
+    Bar,
+    Dots,
+    CloseDot,
+    MinDot,
+    MaxDot,
+    ImgWrapper
+} from './styles';
 
 interface FakeBrowserProps {
     active?: boolean;

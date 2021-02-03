@@ -1,7 +1,15 @@
 import styled from '@emotion/styled';
 import img from './mtns.jpg';
 
-import { COLOR_ACCENT, COLOR_BG_ACCENT, COLOR_PRIMARY, COLOR_SECONDARY, FONT_FAMILY_SERIF } from 'styles/global';
+import {
+    COLOR_ACCENT,
+    COLOR_BG_ACCENT,
+    COLOR_PRIMARY,
+    COLOR_SECONDARY,
+    FONT_FAMILY_SERIF
+} from 'styles/global';
+
+const MOBILE_MAX_WIDTH = '600px';
 
 export const Root = styled.div`
     position: relative;
@@ -21,7 +29,7 @@ export const Part1Inner = styled.div`
     display: flex;
     height: fit-content;
 
-    @media (max-width: 900px) {
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
         display: block;
         position: relative;
     }
@@ -32,10 +40,10 @@ export const AvatarWrapper = styled.div`
     display: flex;
     align-items: center;
 
-    @media (max-width: 900px) {
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
         display: inline-block;
         margin: 0;
-        height: 220px;
+        height: 160px;
     }
 `;
 
@@ -43,7 +51,7 @@ export const Content = styled.div`
     font-family: ${FONT_FAMILY_SERIF};
     letter-spacing: -0.2px;
 
-    @media (max-width: 900px) {
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
         display: block;
     }
 `;
@@ -57,6 +65,12 @@ export const Avatar = styled.div`
     background-position: center center;
     border: 3px solid ${COLOR_BG_ACCENT};
     box-shadow: 10px 22px 0 ${COLOR_BG_ACCENT};
+
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
+        height: 130px;
+        width: 130px;
+        box-shadow: 5px 7px 0 ${COLOR_BG_ACCENT};
+    }
 `;
 
 export const Header1Wrapper = styled.div`
@@ -73,8 +87,8 @@ export const Header1 = styled.h1`
     text-shadow: 2px 4px 0 ${COLOR_BG_ACCENT};
     margin: 0;
 
-    @media (max-width: 900px) {
-        font-size: 37px;
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
+        font-size: 25px;
     }
 `;
 
@@ -100,10 +114,10 @@ export const Header2 = styled.h2`
     font-weight: 300;
     margin: 5px 0 15px 0;
 
-    @media (max-width: 900px) {
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
         line-height: 1.2;
         margin: 0;
-        font-size: 20px;
+        font-size: 16px;
     }
 `;
 
@@ -138,6 +152,12 @@ export const About = styled.div`
     font-family: ${FONT_FAMILY_SERIF};
     line-height: 1.4;
     font-style: normal;
+
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
+        font-size: 15px;
+        max-width: 280px;
+        margin: 0 auto;
+    }
 `;
 
 export const Technologies = styled.div`

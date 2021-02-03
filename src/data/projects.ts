@@ -1,9 +1,9 @@
 import { Project, ProjectId } from 'models/project';
 import { Tech } from 'models/tech';
-import bpdImg from 'images/bpd-screen.png';
-import sbsImg from 'images/sbs-screen.png';
-import tbwImg from 'images/tbw-screen.png';
-import musicabularyImg from 'images/musicabulary-screen.png';
+import bpdImg from 'images/project-screens/bpd.png';
+import sbsImg from 'images/project-screens/sbs.png';
+import tbwImg from 'images/project-screens/tbw.png';
+import musicabularyImg from 'images/project-screens/musicabulary.png';
 
 export const BPD: Project = {
     id: ProjectId.BPD,

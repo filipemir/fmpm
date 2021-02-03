@@ -2,7 +2,13 @@ import React from 'react';
 import parse from 'react-html-parser';
 
 import { Title, SlashDiv, Technologies } from '../common/styles';
-import { Root, Preview, Description, DescriptionBoxWrapper, GithubLogo } from './styles';
+import {
+    Root,
+    Preview,
+    Description,
+    DescriptionBoxWrapper,
+    GithubLogo
+} from './styles';
 import TechTag from 'components/TechTag';
 import GithubSvg from 'images/github.svg';
 import Underline from 'images/underline.svg';
@@ -14,7 +20,11 @@ export default function ProjectRowMobile({ project }: ProjectRowProps) {
 
     return (
         <Root>
-            <Title href={url || githubUrl} target={'_blank'} rel='noopener noreferrer'>
+            <Title
+                href={url || githubUrl}
+                target={'_blank'}
+                rel='noopener noreferrer'
+            >
                 <span>{name}</span>
                 <SlashDiv>
                     <Underline />
@@ -33,7 +43,11 @@ export default function ProjectRowMobile({ project }: ProjectRowProps) {
             </Technologies>
 
             {githubUrl && (
-                <GithubLogo href={githubUrl} target={'_blank'} rel='noopener noreferrer'>
+                <GithubLogo
+                    href={githubUrl}
+                    target={'_blank'}
+                    rel='noopener noreferrer'
+                >
                     <GithubSvg />
                 </GithubLogo>
             )}

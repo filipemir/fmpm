@@ -18,11 +18,17 @@ import Underline from 'images/underline.svg';
 import { ProjectRowProps } from 'components/ProjectRow/common/props';
 import ConnectedFakeBrowser from 'components/FakeBrowser/connected';
 
-export default function ProjectRowDesktop({ project, leftAlignedContent = false }: ProjectRowProps) {
+export default function ProjectRowDesktop({
+    project,
+    leftAlignedContent = false
+}: ProjectRowProps) {
     const { name, description, technologies, url, githubUrl } = project,
         [hovered, setHovered] = useState(false);
     return (
-        <Root onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+        <Root
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+        >
             <Preview
                 alignLeft={!leftAlignedContent}
                 href={url || githubUrl}
@@ -33,7 +39,11 @@ export default function ProjectRowDesktop({ project, leftAlignedContent = false 
             </Preview>
             <Content alignLeft={leftAlignedContent}>
                 <TitleWrapper alignLeft={leftAlignedContent}>
-                    <Title href={url || githubUrl} target={'_blank'} rel='noopener noreferrer'>
+                    <Title
+                        href={url || githubUrl}
+                        target={'_blank'}
+                        rel='noopener noreferrer'
+                    >
                         <span>{name}</span>
                         <SlashDiv>
                             <Underline />

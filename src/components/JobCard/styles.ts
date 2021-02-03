@@ -12,4 +12,9 @@ export const TeamSpan = styled.span`
     white-space: nowrap;
 `;
 
-export { TopRowDiv, TechDiv, DatesDiv, DescriptionDiv } from 'styles/experience-cards';
+export {
+    TopRowDiv,
+    TechDiv,
+    DatesDiv,
+    DescriptionDiv
+} from 'styles/experience-cards';
