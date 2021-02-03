@@ -364,8 +364,8 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-01-24'),
         favorite: false,
         covers: {
-            thumbnail: require('images/books/fall-of-hyperion.jpg?{"width":200}'),
-            full: require('images/books/fall-of-hyperion.jpg?{"width":600}')
+            thumbnail: require('images/books/fall-of-hyperion.jpeg?{"width":200}'),
+            full: require('images/books/fall-of-hyperion.jpeg?{"width":600}')
         }
     },
     {

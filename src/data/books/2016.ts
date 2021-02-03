@@ -10,8 +10,8 @@ export const BOOKS_2016: BookEntry[] = [
         endDate: parseISO('2016-12-28'),
         favorite: false,
         covers: {
-            thumbnail: require('images/books/hitchhikers-guide.jpg?{"width":200}'),
-            full: require('images/books/hitchhikers-guide.jpg?{"width":600}')
+            thumbnail: require('images/books/hitchhikers-guide.jpeg?{"width":200}'),
+            full: require('images/books/hitchhikers-guide.jpeg?{"width":600}')
         }
     },
     {
@@ -22,8 +22,8 @@ export const BOOKS_2016: BookEntry[] = [
         endDate: parseISO('2016-11-26'),
         favorite: true,
         covers: {
-            thumbnail: require('images/books/crucible.jpg?{"width":200}'),
-            full: require('images/books/crucible.jpg?{"width":600}')
+            thumbnail: require('images/books/crucible.jpeg?{"width":200}'),
+            full: require('images/books/crucible.jpeg?{"width":600}')
         }
     },
     {

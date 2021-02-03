@@ -44,8 +44,8 @@ export const BOOKS_2012: BookEntry[] = [
         endDate: parseISO('2012-11-06'),
         favorite: false,
         covers: {
-            thumbnail: require('images/books/a-hologram-for-the-king.jpg?{"width":200}'),
-            full: require('images/books/a-hologram-for-the-king.jpg?{"width":600}')
+            thumbnail: require('images/books/a-hologram-for-the-king.png?{"width":200}'),
+            full: require('images/books/a-hologram-for-the-king.png?{"width":600}')
         }
     },
     {
