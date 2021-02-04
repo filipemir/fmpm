@@ -9,7 +9,7 @@ import {
     FONT_FAMILY_SERIF
 } from 'styles/global';
 
-const MOBILE_MAX_WIDTH = '600px';
+const MOBILE_MAX_WIDTH = '800px';
 
 export const Root = styled.div`
     position: relative;
