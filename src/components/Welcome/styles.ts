@@ -20,6 +20,7 @@ export const Part1 = styled.div`
     position: relative;
     display: block;
     height: 100vh;
+    min-height: 500px;
 `;
 
 export const Part1Inner = styled.div`

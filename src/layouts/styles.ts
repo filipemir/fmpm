@@ -14,6 +14,7 @@ export const NavBarWrapper = styled.div`
 
 export const Column = styled.div`
     margin: 0 auto;
+    min-height: 500px;
 `;
 
 export const PersonalLinksWrapper = styled.div`
