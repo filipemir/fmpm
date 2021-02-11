@@ -12,6 +12,7 @@ export const BOOKS_2018: BookEntry[] = [
         endDate: parseISO('2018-12-24'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/coddling-of-the-american-mind.jpg?{"width":32}'),
             thumbnail: require('images/books/coddling-of-the-american-mind.jpg?{"width":200}'),
             full: require('images/books/coddling-of-the-american-mind.jpg?{"width":600}')
         }
@@ -25,6 +26,7 @@ export const BOOKS_2018: BookEntry[] = [
         endDate: parseISO('2018-12-24'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/lost-connections.jpg?{"width":32}'),
             thumbnail: require('images/books/lost-connections.jpg?{"width":200}'),
             full: require('images/books/lost-connections.jpg?{"width":600}')
         }
@@ -37,6 +39,7 @@ export const BOOKS_2018: BookEntry[] = [
         endDate: parseISO('2018-11-12'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/acceptance.jpg?{"width":32}'),
             thumbnail: require('images/books/acceptance.jpg?{"width":200}'),
             full: require('images/books/acceptance.jpg?{"width":600}')
         }
@@ -49,6 +52,7 @@ export const BOOKS_2018: BookEntry[] = [
         endDate: parseISO('2018-10-05'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/going-clear.jpg?{"width":32}'),
             thumbnail: require('images/books/going-clear.jpg?{"width":200}'),
             full: require('images/books/going-clear.jpg?{"width":600}')
         }
@@ -61,6 +65,7 @@ export const BOOKS_2018: BookEntry[] = [
         endDate: parseISO('2018-08-26'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/authority.jpg?{"width":32}'),
             thumbnail: require('images/books/authority.jpg?{"width":200}'),
             full: require('images/books/authority.jpg?{"width":600}')
         }
@@ -73,6 +78,7 @@ export const BOOKS_2018: BookEntry[] = [
         endDate: parseISO('2018-08-13'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/a-canticle-for-leibowitz.jpg?{"width":32}'),
             thumbnail: require('images/books/a-canticle-for-leibowitz.jpg?{"width":200}'),
             full: require('images/books/a-canticle-for-leibowitz.jpg?{"width":600}')
         }
@@ -85,6 +91,7 @@ export const BOOKS_2018: BookEntry[] = [
         endDate: parseISO('2018-07-18'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/annihilation.jpg?{"width":32}'),
             thumbnail: require('images/books/annihilation.jpg?{"width":200}'),
             full: require('images/books/annihilation.jpg?{"width":600}')
         }
@@ -97,6 +104,7 @@ export const BOOKS_2018: BookEntry[] = [
         endDate: parseISO('2018-07-29'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/less.jpg?{"width":32}'),
             thumbnail: require('images/books/less.jpg?{"width":200}'),
             full: require('images/books/less.jpg?{"width":600}')
         }
@@ -110,6 +118,7 @@ export const BOOKS_2018: BookEntry[] = [
         endDate: parseISO('2018-06-20'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/enlightenment-now.jpg?{"width":32}'),
             thumbnail: require('images/books/enlightenment-now.jpg?{"width":200}'),
             full: require('images/books/enlightenment-now.jpg?{"width":600}')
         }
@@ -122,6 +131,7 @@ export const BOOKS_2018: BookEntry[] = [
         endDate: parseISO('2018-05-27'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/universal-harvester.jpg?{"width":32}'),
             thumbnail: require('images/books/universal-harvester.jpg?{"width":200}'),
             full: require('images/books/universal-harvester.jpg?{"width":600}')
         }
@@ -136,6 +146,7 @@ export const BOOKS_2018: BookEntry[] = [
         endDate: parseISO('2018-04-23'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/this-gulf-of-fire.jpg?{"width":32}'),
             thumbnail: require('images/books/this-gulf-of-fire.jpg?{"width":200}'),
             full: require('images/books/this-gulf-of-fire.jpg?{"width":600}')
         }
@@ -149,6 +160,7 @@ export const BOOKS_2018: BookEntry[] = [
         endDate: parseISO('2018-03-30'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/meet-the-frugalwoods.jpg?{"width":32}'),
             thumbnail: require('images/books/meet-the-frugalwoods.jpg?{"width":200}'),
             full: require('images/books/meet-the-frugalwoods.jpg?{"width":600}')
         }
@@ -162,6 +174,7 @@ export const BOOKS_2018: BookEntry[] = [
         endDate: parseISO('2018-03-28'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/utopia-for-realists.jpg?{"width":32}'),
             thumbnail: require('images/books/utopia-for-realists.jpg?{"width":200}'),
             full: require('images/books/utopia-for-realists.jpg?{"width":600}')
         }
@@ -175,6 +188,7 @@ export const BOOKS_2018: BookEntry[] = [
         endDate: parseISO('2018-03-27'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/blood-meridian.jpg?{"width":32}'),
             thumbnail: require('images/books/blood-meridian.jpg?{"width":200}'),
             full: require('images/books/blood-meridian.jpg?{"width":600}')
         }
@@ -188,6 +202,7 @@ export const BOOKS_2018: BookEntry[] = [
         endDate: parseISO('2018-02-28'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/state-of-affairs.jpg?{"width":32}'),
             thumbnail: require('images/books/state-of-affairs.jpg?{"width":200}'),
             full: require('images/books/state-of-affairs.jpg?{"width":600}')
         }
@@ -201,6 +216,7 @@ export const BOOKS_2018: BookEntry[] = [
         endDate: parseISO('2018-02-11'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/tp-final-dossier.jpg?{"width":32}'),
             thumbnail: require('images/books/tp-final-dossier.jpg?{"width":200}'),
             full: require('images/books/tp-final-dossier.jpg?{"width":600}')
         }
@@ -214,6 +230,7 @@ export const BOOKS_2018: BookEntry[] = [
         endDate: parseISO('2018-01-31'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/language-instinct.jpg?{"width":32}'),
             thumbnail: require('images/books/language-instinct.jpg?{"width":200}'),
             full: require('images/books/language-instinct.jpg?{"width":600}')
         }
@@ -227,6 +244,7 @@ export const BOOKS_2018: BookEntry[] = [
         endDate: parseISO('2018-01-06'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/once-and-future-liberal.jpg?{"width":32}'),
             thumbnail: require('images/books/once-and-future-liberal.jpg?{"width":200}'),
             full: require('images/books/once-and-future-liberal.jpg?{"width":600}')
         }

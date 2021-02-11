@@ -11,6 +11,7 @@ export const BOOKS_2019: BookEntry[] = [
         endDate: parseISO('2019-12-09'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/libra.jpg?{"width":32}'),
             thumbnail: require('images/books/libra.jpg?{"width":200}'),
             full: require('images/books/libra.jpg?{"width":600}')
         }
@@ -23,6 +24,7 @@ export const BOOKS_2019: BookEntry[] = [
         endDate: parseISO('2019-11-20'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/hyperion.jpg?{"width":32}'),
             thumbnail: require('images/books/hyperion.jpg?{"width":200}'),
             full: require('images/books/hyperion.jpg?{"width":600}')
         }
@@ -35,6 +37,7 @@ export const BOOKS_2019: BookEntry[] = [
         endDate: parseISO('2019-10-14'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/testaments.jpg?{"width":32}'),
             thumbnail: require('images/books/testaments.jpg?{"width":200}'),
             full: require('images/books/testaments.jpg?{"width":600}')
         }
@@ -48,6 +51,7 @@ export const BOOKS_2019: BookEntry[] = [
         endDate: parseISO('2019-10-11'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/team-of-rivals.jpg?{"width":32}'),
             thumbnail: require('images/books/team-of-rivals.jpg?{"width":200}'),
             full: require('images/books/team-of-rivals.jpg?{"width":600}')
         }
@@ -61,6 +65,7 @@ export const BOOKS_2019: BookEntry[] = [
         endDate: parseISO('2019-09-11'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/empire-of-illusion.jpg?{"width":32}'),
             thumbnail: require('images/books/empire-of-illusion.jpg?{"width":200}'),
             full: require('images/books/empire-of-illusion.jpg?{"width":600}')
         }
@@ -73,6 +78,7 @@ export const BOOKS_2019: BookEntry[] = [
         endDate: parseISO('2019-09-09'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/jesus-son.jpg?{"width":32}'),
             thumbnail: require('images/books/jesus-son.jpg?{"width":200}'),
             full: require('images/books/jesus-son.jpg?{"width":600}')
         }
@@ -86,6 +92,7 @@ export const BOOKS_2019: BookEntry[] = [
         endDate: parseISO('2019-09-04'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/digital-minimalism.jpg?{"width":32}'),
             thumbnail: require('images/books/digital-minimalism.jpg?{"width":200}'),
             full: require('images/books/digital-minimalism.jpg?{"width":600}')
         }
@@ -103,6 +110,7 @@ export const BOOKS_2019: BookEntry[] = [
         endDate: parseISO('2019-08-25'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/death-is-hard-work.jpg?{"width":32}'),
             thumbnail: require('images/books/death-is-hard-work.jpg?{"width":200}'),
             full: require('images/books/death-is-hard-work.jpg?{"width":600}')
         }
@@ -115,6 +123,7 @@ export const BOOKS_2019: BookEntry[] = [
         endDate: parseISO('2019-05-15'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/pale-fire.jpg?{"width":32}'),
             thumbnail: require('images/books/pale-fire.jpg?{"width":200}'),
             full: require('images/books/pale-fire.jpg?{"width":600}')
         }
@@ -128,6 +137,7 @@ export const BOOKS_2019: BookEntry[] = [
         endDate: parseISO('2019-03-18'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/espresso-lessons.jpg?{"width":32}'),
             thumbnail: require('images/books/espresso-lessons.jpg?{"width":200}'),
             full: require('images/books/espresso-lessons.jpg?{"width":600}')
         }
@@ -140,6 +150,7 @@ export const BOOKS_2019: BookEntry[] = [
         endDate: parseISO('2019-03-18'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/stoner.jpg?{"width":32}'),
             thumbnail: require('images/books/stoner.jpg?{"width":200}'),
             full: require('images/books/stoner.jpg?{"width":600}')
         }
@@ -152,6 +163,7 @@ export const BOOKS_2019: BookEntry[] = [
         endDate: parseISO('2019-03-14'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/labyrinths.jpg?{"width":32}'),
             thumbnail: require('images/books/labyrinths.jpg?{"width":200}'),
             full: require('images/books/labyrinths.jpg?{"width":600}')
         }
@@ -166,6 +178,7 @@ export const BOOKS_2019: BookEntry[] = [
         endDate: parseISO('2019-03-02'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/free-range-kids.jpg?{"width":32}'),
             thumbnail: require('images/books/free-range-kids.jpg?{"width":200}'),
             full: require('images/books/free-range-kids.jpg?{"width":600}')
         }
@@ -179,6 +192,7 @@ export const BOOKS_2019: BookEntry[] = [
         endDate: parseISO('2019-03-02'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/the-bullet-journal-method.jpg?{"width":32}'),
             thumbnail: require('images/books/the-bullet-journal-method.jpg?{"width":200}'),
             full: require('images/books/the-bullet-journal-method.jpg?{"width":600}')
         }
@@ -191,6 +205,7 @@ export const BOOKS_2019: BookEntry[] = [
         endDate: parseISO('2019-03-02'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/suttree.jpg?{"width":32}'),
             thumbnail: require('images/books/suttree.jpg?{"width":200}'),
             full: require('images/books/suttree.jpg?{"width":600}')
         }
@@ -203,6 +218,7 @@ export const BOOKS_2019: BookEntry[] = [
         endDate: parseISO('2019-03-02'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/reservoir-13.jpg?{"width":32}'),
             thumbnail: require('images/books/reservoir-13.jpg?{"width":200}'),
             full: require('images/books/reservoir-13.jpg?{"width":600}')
         }

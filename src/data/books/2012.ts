@@ -9,6 +9,7 @@ export const BOOKS_2012: BookEntry[] = [
         endDate: parseISO('2012-12-01'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/both-flesh-and-not.jpg?{"width":32}'),
             thumbnail: require('images/books/both-flesh-and-not.jpg?{"width":200}'),
             full: require('images/books/both-flesh-and-not.jpg?{"width":600}')
         }
@@ -21,6 +22,7 @@ export const BOOKS_2012: BookEntry[] = [
         endDate: parseISO('2012-11-30'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/dfw-last-interview.jpg?{"width":32}'),
             thumbnail: require('images/books/dfw-last-interview.jpg?{"width":200}'),
             full: require('images/books/dfw-last-interview.jpg?{"width":600}')
         }
@@ -33,6 +35,7 @@ export const BOOKS_2012: BookEntry[] = [
         endDate: parseISO('2012-11-15'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/under-the-banner-of-heaven.jpg?{"width":32}'),
             thumbnail: require('images/books/under-the-banner-of-heaven.jpg?{"width":200}'),
             full: require('images/books/under-the-banner-of-heaven.jpg?{"width":600}')
         }
@@ -44,6 +47,7 @@ export const BOOKS_2012: BookEntry[] = [
         endDate: parseISO('2012-11-06'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/a-hologram-for-the-king.png?{"width":32}'),
             thumbnail: require('images/books/a-hologram-for-the-king.png?{"width":200}'),
             full: require('images/books/a-hologram-for-the-king.png?{"width":600}')
         }
@@ -55,6 +59,7 @@ export const BOOKS_2012: BookEntry[] = [
         endDate: parseISO('2012-11-03'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/thunderstruck.jpg?{"width":32}'),
             thumbnail: require('images/books/thunderstruck.jpg?{"width":200}'),
             full: require('images/books/thunderstruck.jpg?{"width":600}')
         }
@@ -67,6 +72,7 @@ export const BOOKS_2012: BookEntry[] = [
         endDate: parseISO('2012-10-31'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/moby-dick.jpg?{"width":32}'),
             thumbnail: require('images/books/moby-dick.jpg?{"width":200}'),
             full: require('images/books/moby-dick.jpg?{"width":600}')
         }
@@ -78,6 +84,7 @@ export const BOOKS_2012: BookEntry[] = [
         endDate: parseISO('2012-09-20'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/dog-stars.jpg?{"width":32}'),
             thumbnail: require('images/books/dog-stars.jpg?{"width":200}'),
             full: require('images/books/dog-stars.jpg?{"width":600}')
         }
@@ -89,6 +96,7 @@ export const BOOKS_2012: BookEntry[] = [
         endDate: parseISO('2012-09-18'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/the-terror.jpg?{"width":32}'),
             thumbnail: require('images/books/the-terror.jpg?{"width":200}'),
             full: require('images/books/the-terror.jpg?{"width":600}')
         }
@@ -101,6 +109,7 @@ export const BOOKS_2012: BookEntry[] = [
         endDate: parseISO('2012-08-13'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/boomerang.jpg?{"width":32}'),
             thumbnail: require('images/books/boomerang.jpg?{"width":200}'),
             full: require('images/books/boomerang.jpg?{"width":600}')
         }
@@ -112,6 +121,7 @@ export const BOOKS_2012: BookEntry[] = [
         endDate: parseISO('2012-07-15'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/liars-poker.jpg?{"width":32}'),
             thumbnail: require('images/books/liars-poker.jpg?{"width":200}'),
             full: require('images/books/liars-poker.jpg?{"width":600}')
         }
@@ -123,6 +133,7 @@ export const BOOKS_2012: BookEntry[] = [
         endDate: parseISO('2012-07-02'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/lathe-of-heaven.jpg?{"width":32}'),
             thumbnail: require('images/books/lathe-of-heaven.jpg?{"width":200}'),
             full: require('images/books/lathe-of-heaven.jpg?{"width":600}')
         }
@@ -135,6 +146,7 @@ export const BOOKS_2012: BookEntry[] = [
         endDate: parseISO('2012-01-06'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/storm-of-war.jpg?{"width":32}'),
             thumbnail: require('images/books/storm-of-war.jpg?{"width":200}'),
             full: require('images/books/storm-of-war.jpg?{"width":600}')
         }

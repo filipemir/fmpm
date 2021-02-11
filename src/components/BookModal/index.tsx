@@ -15,6 +15,7 @@ import {
     StyledSubtitle
 } from './styles';
 import useCancelKeydown from 'hooks/useCancelKeydown';
+import useProgressiveImg from 'hooks/useProgressiveImg';
 
 const getDateRangeString = (book: BookEntry) => {
     const { startDate, endDate } = book,
@@ -37,7 +38,12 @@ const BookModal = ({
     book: BookEntry;
     onClose?: () => void;
 }) => {
-    const { title, subtitle, covers, author, url } = book;
+    const { title, subtitle, covers, author, url } = book,
+        { thumbnail, full } = covers,
+        { src, isLoaded } = useProgressiveImg({
+            initialImg: thumbnail,
+            finalImg: full
+        });
 
     useCancelKeydown(onClose);
 
@@ -45,7 +51,7 @@ const BookModal = ({
         <StyledRoot>
             <StyledModalShadowBox onClick={() => onClose && onClose()} />
             <StyledContent onClick={() => window.open(url, '_blank')}>
-                <StyledCover src={covers.full} />
+                <StyledCover src={src} blur={!isLoaded} />
                 <StyledInfo>
                     <DogearedTile maxWidth={'350px'}>
                         <StyledTitle href={url} target={'_blank'}>

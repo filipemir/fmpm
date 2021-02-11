@@ -3,7 +3,8 @@ import {
     COLOR_SECONDARY,
     COLOR_TERNARY,
     FONT_FAMILY_SANS_SERIF,
-    FONT_FAMILY_SERIF
+    FONT_FAMILY_SERIF,
+    StyledBlurrableImage
 } from 'styles/global';
 
 const MOBILE_THRESHOLD = '900px';
@@ -37,7 +38,7 @@ export const StyledContent = styled.div`
     }
 `;
 
-export const StyledCover = styled.img`
+export const StyledCover = styled(StyledBlurrableImage)`
     height: 100%;
     box-shadow: rgba(2, 12, 27, 0.5) 10px 20px 30px 0;
 

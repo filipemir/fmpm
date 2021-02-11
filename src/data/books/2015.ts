@@ -10,6 +10,7 @@ export const BOOKS_2015: BookEntry[] = [
         endDate: parseISO('2015-12-13'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/weekend-wodehouse.jpg?{"width":32}'),
             thumbnail: require('images/books/weekend-wodehouse.jpg?{"width":200}'),
             full: require('images/books/weekend-wodehouse.jpg?{"width":600}')
         }
@@ -22,6 +23,7 @@ export const BOOKS_2015: BookEntry[] = [
         endDate: parseISO('2015-09-23'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/americanah.jpg?{"width":32}'),
             thumbnail: require('images/books/americanah.jpg?{"width":200}'),
             full: require('images/books/americanah.jpg?{"width":600}')
         }
@@ -34,6 +36,7 @@ export const BOOKS_2015: BookEntry[] = [
         endDate: parseISO('2015-08-07'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/bring-up-the-bodies.jpg?{"width":32}'),
             thumbnail: require('images/books/bring-up-the-bodies.jpg?{"width":200}'),
             full: require('images/books/bring-up-the-bodies.jpg?{"width":600}')
         }
@@ -46,6 +49,7 @@ export const BOOKS_2015: BookEntry[] = [
         endDate: parseISO('2015-07-31'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/wolf-hall.jpg?{"width":32}'),
             thumbnail: require('images/books/wolf-hall.jpg?{"width":200}'),
             full: require('images/books/wolf-hall.jpg?{"width":600}')
         }
@@ -58,6 +62,7 @@ export const BOOKS_2015: BookEntry[] = [
         endDate: parseISO('2015-03-10'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/redeployment.jpg?{"width":32}'),
             thumbnail: require('images/books/redeployment.jpg?{"width":200}'),
             full: require('images/books/redeployment.jpg?{"width":600}')
         }
@@ -70,6 +75,7 @@ export const BOOKS_2015: BookEntry[] = [
         endDate: parseISO('2015-02-28'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/one-flew-over-the-cuckoos-nest.jpg?{"width":32}'),
             thumbnail: require('images/books/one-flew-over-the-cuckoos-nest.jpg?{"width":200}'),
             full: require('images/books/one-flew-over-the-cuckoos-nest.jpg?{"width":600}')
         }
@@ -82,6 +88,7 @@ export const BOOKS_2015: BookEntry[] = [
         endDate: parseISO('2015-01-21'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/station-11.jpg?{"width":32}'),
             thumbnail: require('images/books/station-11.jpg?{"width":200}'),
             full: require('images/books/station-11.jpg?{"width":600}')
         }
@@ -94,6 +101,7 @@ export const BOOKS_2015: BookEntry[] = [
         endDate: parseISO('2015-01-05'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/the-painter.jpg?{"width":32}'),
             thumbnail: require('images/books/the-painter.jpg?{"width":200}'),
             full: require('images/books/the-painter.jpg?{"width":600}')
         }

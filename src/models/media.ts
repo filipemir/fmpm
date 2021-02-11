@@ -1,4 +1,5 @@
 type BookCovers = {
+    placeholder: string;
     thumbnail: string;
     full: string;
 };

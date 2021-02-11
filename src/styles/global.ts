@@ -1,4 +1,5 @@
 import { css } from '@emotion/core';
+import styled from '@emotion/styled';
 
 export const FONT_FAMILY_MONO = 'Roboto Mono, Courier New, monospace';
 export const FONT_FAMILY_SANS_SERIF = 'Roboto, Helvetica, sans-serif';
@@ -22,6 +23,10 @@ export const COLOR_QUATERNARY = '#E4E3E3';
 
 export const HEADER_HEIGHT = 65;
 export const PADDING_TOP_PAGE = HEADER_HEIGHT + 10;
+
+export const StyledBlurrableImage = styled.img`
+    filter: ${(props: { blur?: boolean }) => (props.blur ? 'blur(5px)' : null)};
+`;
 
 const globalCss = css`
     html,

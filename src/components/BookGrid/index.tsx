@@ -1,87 +1,12 @@
 import React, { useState } from 'react';
 import { BookEntry } from '../../models/media';
-import styled from '@emotion/styled';
 import BookModal from 'components/BookModal';
 import { useTransition, animated } from 'react-spring';
-import {
-    COLOR_ACCENT,
-    COLOR_BG_ACCENT,
-    COLOR_QUATERNARY,
-    FONT_FAMILY_SANS_SERIF
-} from 'styles/global';
 import getYear from 'date-fns/getYear';
+import useProgressiveImg from 'hooks/useProgressiveImg';
+import { Root, StyledBook, StyledBookCover, StyledYear } from './styles';
 
-const Root = styled.div`
-    position: relative;
-    margin: 0 auto;
-    max-width: 1100px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(30px, 120px));
-    gap: 15px;
-    justify-content: center;
-    align-items: center;
-`;
-
-const Book = styled.div`
-    position: relative;
-    cursor: pointer;
-    transition: transform 150ms ease-in-out, box-shadow 150ms ease-in-out;
-    grid-auto-flow: row dense;
-
-    &:before {
-        content: '';
-        display: block;
-        height: 0;
-        width: 0;
-        padding-bottom: calc(1.5 * 100%);
-    }
-
-    &:hover {
-        box-shadow: rgba(2, 12, 27, 0.5) 10px 20px 30px 0;
-        transform: scale(1.3);
-        z-index: 1;
-    }
-`;
-
-const StyledYear = styled.div`
-    color: ${COLOR_ACCENT};
-    font-size: 70px;
-    font-weight: 700;
-    font-family: ${FONT_FAMILY_SANS_SERIF};
-    background-color: ${COLOR_BG_ACCENT};
-    height: 100%;
-    width: 100%;
-    border-radius: 5px;
-    line-height: 0.9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 10px 10px 0 ${COLOR_QUATERNARY};
-    border: 1px solid ${COLOR_ACCENT};
-    transition: transform 150ms ease-in-out, box-shadow 150ms ease-in-out;
-
-    &:hover {
-        transform: scale(1.1);
-        z-index: 1;
-        box-shadow: unset;
-    }
-`;
-
-const BookCover = styled.img`
-    position: absolute;
-    object-fit: cover;
-    object-position: center center;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    transition: 150ms ease-in-out;
-
-    &:hover {
-        object-fit: fill;
-    }
-`;
-
-const YearCard = ({ date }: { date: Date }) => {
+const YearTile = ({ date }: { date: Date }) => {
     const yearStr = `${getYear(date)}`;
 
     return (
@@ -90,6 +15,36 @@ const YearCard = ({ date }: { date: Date }) => {
             <br />
             {yearStr.slice(2, 4)}
         </StyledYear>
+    );
+};
+
+const BookTile = ({
+    book,
+    onClick
+}: {
+    book: BookEntry;
+    onClick: (book: BookEntry) => void;
+}) => {
+    const { title, author, covers, endDate } = book,
+        { placeholder, thumbnail } = covers,
+        description = `"${title}" by ${author}`,
+        { src, isLoaded } = useProgressiveImg({
+            initialImg: placeholder,
+            finalImg: thumbnail
+        });
+
+    return (
+        <React.Fragment key={title + endDate}>
+            <StyledBook onClick={() => onClick(book)}>
+                <StyledBookCover
+                    src={src}
+                    alt={description}
+                    title={description}
+                    loading='lazy'
+                    blur={!isLoaded}
+                />
+            </StyledBook>
+        </React.Fragment>
     );
 };
 
@@ -105,24 +60,20 @@ const BookGrid = ({ books }: { books: BookEntry[] }) => {
     return (
         <Root>
             {books.map((book, index) => {
-                const { title, author, covers, endDate } = book,
-                    description = `"${title}" by ${author}`,
+                const { title, endDate } = book,
                     prevBook = index === 0 ? null : books[index - 1],
                     prevBookYear = prevBook ? getYear(prevBook.endDate) : -9999,
                     isFirstOfYear = getYear(endDate) != prevBookYear;
 
                 return (
-                    <React.Fragment key={title + endDate}>
-                        {isFirstOfYear && <YearCard date={endDate} />}
-                        <Book onClick={() => setActiveBook(book)}>
-                            <BookCover
-                                src={covers.thumbnail}
-                                alt={description}
-                                title={description}
-                                loading='lazy'
-                            />
-                        </Book>
-                    </React.Fragment>
+                    <>
+                        {isFirstOfYear && <YearTile date={endDate} />}
+                        <BookTile
+                            book={book}
+                            onClick={() => setActiveBook(book)}
+                            key={title + endDate}
+                        />
+                    </>
                 );
             })}
             {modalTransitions.map(

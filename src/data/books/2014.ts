@@ -10,6 +10,7 @@ export const BOOKS_2014: BookEntry[] = [
         endDate: parseISO('2014-12-12'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/the-martian.jpg?{"width":32}'),
             thumbnail: require('images/books/the-martian.jpg?{"width":200}'),
             full: require('images/books/the-martian.jpg?{"width":600}')
         }
@@ -22,6 +23,7 @@ export const BOOKS_2014: BookEntry[] = [
         endDate: parseISO('2014-12-09'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/the-fire-next-time.jpg?{"width":32}'),
             thumbnail: require('images/books/the-fire-next-time.jpg?{"width":200}'),
             full: require('images/books/the-fire-next-time.jpg?{"width":600}')
         }
@@ -34,6 +36,7 @@ export const BOOKS_2014: BookEntry[] = [
         endDate: parseISO('2014-11-30'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/a-heartbreaking-work-of-staggering-genius.jpg?{"width":32}'),
             thumbnail: require('images/books/a-heartbreaking-work-of-staggering-genius.jpg?{"width":200}'),
             full: require('images/books/a-heartbreaking-work-of-staggering-genius.jpg?{"width":600}')
         }
@@ -47,6 +50,7 @@ export const BOOKS_2014: BookEntry[] = [
         endDate: parseISO('2014-11-28'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/chuck-klosterman-iv.jpg?{"width":32}'),
             thumbnail: require('images/books/chuck-klosterman-iv.jpg?{"width":200}'),
             full: require('images/books/chuck-klosterman-iv.jpg?{"width":600}')
         }
@@ -59,6 +63,7 @@ export const BOOKS_2014: BookEntry[] = [
         endDate: parseISO('2014-09-21'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/the-abominable.jpg?{"width":32}'),
             thumbnail: require('images/books/the-abominable.jpg?{"width":200}'),
             full: require('images/books/the-abominable.jpg?{"width":600}')
         }
@@ -71,6 +76,7 @@ export const BOOKS_2014: BookEntry[] = [
         endDate: parseISO('2014-07-15'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/the-crossing.jpg?{"width":32}'),
             thumbnail: require('images/books/the-crossing.jpg?{"width":200}'),
             full: require('images/books/the-crossing.jpg?{"width":600}')
         }
@@ -83,6 +89,7 @@ export const BOOKS_2014: BookEntry[] = [
         endDate: parseISO('2014-06-07'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/all-the-pretty-horses.jpg?{"width":32}'),
             thumbnail: require('images/books/all-the-pretty-horses.jpg?{"width":200}'),
             full: require('images/books/all-the-pretty-horses.jpg?{"width":600}')
         }
@@ -95,6 +102,7 @@ export const BOOKS_2014: BookEntry[] = [
         endDate: parseISO('2014-'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/yiddish-policemens-union.jpg?{"width":32}'),
             thumbnail: require('images/books/yiddish-policemens-union.jpg?{"width":200}'),
             full: require('images/books/yiddish-policemens-union.jpg?{"width":600}')
         }
@@ -107,6 +115,7 @@ export const BOOKS_2014: BookEntry[] = [
         endDate: parseISO('2014-02-01'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/slouching-towards-bethlehem.jpg?{"width":32}'),
             thumbnail: require('images/books/slouching-towards-bethlehem.jpg?{"width":200}'),
             full: require('images/books/slouching-towards-bethlehem.jpg?{"width":600}')
         }
@@ -119,6 +128,7 @@ export const BOOKS_2014: BookEntry[] = [
         endDate: parseISO('2014-01-15'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/the-giver.jpg?{"width":32}'),
             thumbnail: require('images/books/the-giver.jpg?{"width":200}'),
             full: require('images/books/the-giver.jpg?{"width":600}')
         }
@@ -132,6 +142,7 @@ export const BOOKS_2014: BookEntry[] = [
         endDate: parseISO('2014-01-13'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/hell-or-high-water.jpg?{"width":32}'),
             thumbnail: require('images/books/hell-or-high-water.jpg?{"width":200}'),
             full: require('images/books/hell-or-high-water.jpg?{"width":600}')
         }
@@ -145,6 +156,7 @@ export const BOOKS_2014: BookEntry[] = [
         endDate: parseISO('2014-01-11'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/the-sginal-and-the-noise.jpg?{"width":32}'),
             thumbnail: require('images/books/the-sginal-and-the-noise.jpg?{"width":200}'),
             full: require('images/books/the-sginal-and-the-noise.jpg?{"width":600}')
         }

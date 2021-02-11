@@ -10,6 +10,7 @@ export const BOOKS_2011: BookEntry[] = [
         endDate: parseISO('2011-12-01'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/to-end-all-wars.jpg?{"width":32}'),
             thumbnail: require('images/books/to-end-all-wars.jpg?{"width":200}'),
             full: require('images/books/to-end-all-wars.jpg?{"width":600}')
         }
@@ -22,6 +23,7 @@ export const BOOKS_2011: BookEntry[] = [
         endDate: parseISO('2011-11-13'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/black-swan.jpg?{"width":32}'),
             thumbnail: require('images/books/black-swan.jpg?{"width":200}'),
             full: require('images/books/black-swan.jpg?{"width":600}')
         }
@@ -34,6 +36,7 @@ export const BOOKS_2011: BookEntry[] = [
         endDate: parseISO('2011-10-02'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/surely-youre-joking-mr-feynman.jpg?{"width":32}'),
             thumbnail: require('images/books/surely-youre-joking-mr-feynman.jpg?{"width":200}'),
             full: require('images/books/surely-youre-joking-mr-feynman.jpg?{"width":600}')
         }
@@ -46,6 +49,7 @@ export const BOOKS_2011: BookEntry[] = [
         endDate: parseISO('2011-08-29'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/a-supposedly-fun-thing.jpg?{"width":32}'),
             thumbnail: require('images/books/a-supposedly-fun-thing.jpg?{"width":200}'),
             full: require('images/books/a-supposedly-fun-thing.jpg?{"width":600}')
         }
@@ -59,6 +63,7 @@ export const BOOKS_2011: BookEntry[] = [
         endDate: parseISO('2011-08-18'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/this-is-water.jpg?{"width":32}'),
             thumbnail: require('images/books/this-is-water.jpg?{"width":200}'),
             full: require('images/books/this-is-water.jpg?{"width":600}')
         }
@@ -71,6 +76,7 @@ export const BOOKS_2011: BookEntry[] = [
         endDate: parseISO('2011-08-15'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/consider-the-lobster.jpg?{"width":32}'),
             thumbnail: require('images/books/consider-the-lobster.jpg?{"width":200}'),
             full: require('images/books/consider-the-lobster.jpg?{"width":600}')
         }
@@ -83,6 +89,7 @@ export const BOOKS_2011: BookEntry[] = [
         endDate: parseISO('2011-08-03'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/zeitoun.jpg?{"width":32}'),
             thumbnail: require('images/books/zeitoun.jpg?{"width":200}'),
             full: require('images/books/zeitoun.jpg?{"width":600}')
         }
@@ -94,6 +101,7 @@ export const BOOKS_2011: BookEntry[] = [
         endDate: parseISO('2011-07-13'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/the-big-short.jpg?{"width":32}'),
             thumbnail: require('images/books/the-big-short.jpg?{"width":200}'),
             full: require('images/books/the-big-short.jpg?{"width":600}')
         }
@@ -105,6 +113,7 @@ export const BOOKS_2011: BookEntry[] = [
         endDate: parseISO('2011-05-07'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/tigers-wife.jpg?{"width":32}'),
             thumbnail: require('images/books/tigers-wife.jpg?{"width":200}'),
             full: require('images/books/tigers-wife.jpg?{"width":600}')
         }
@@ -116,6 +125,7 @@ export const BOOKS_2011: BookEntry[] = [
         endDate: parseISO('2011-05-30'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/the-road.jpg?{"width":32}'),
             thumbnail: require('images/books/the-road.jpg?{"width":200}'),
             full: require('images/books/the-road.jpg?{"width":600}')
         }

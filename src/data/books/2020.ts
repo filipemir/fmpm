@@ -14,6 +14,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-12-28'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/stubborn-attachments.jpg?{"width":32}'),
             thumbnail: require('images/books/stubborn-attachments.jpg?{"width":200}'),
             full: require('images/books/stubborn-attachments.jpg?{"width":600}')
         }
@@ -28,6 +29,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-12-27'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/measure-what-matters.jpg?{"width":32}'),
             thumbnail: require('images/books/measure-what-matters.jpg?{"width":200}'),
             full: require('images/books/measure-what-matters.jpg?{"width":600}')
         }
@@ -41,6 +43,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-12-26'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/painting-resilience.jpg?{"width":32}'),
             thumbnail: require('images/books/painting-resilience.jpg?{"width":200}'),
             full: require('images/books/painting-resilience.jpg?{"width":600}')
         }
@@ -60,6 +63,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-12-24'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/birth-partner.jpg?{"width":32}'),
             thumbnail: require('images/books/birth-partner.jpg?{"width":200}'),
             full: require('images/books/birth-partner.jpg?{"width":600}')
         }
@@ -73,6 +77,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-12-19'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/code.jpg?{"width":32}'),
             thumbnail: require('images/books/code.jpg?{"width":200}'),
             full: require('images/books/code.jpg?{"width":600}')
         }
@@ -86,6 +91,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-11-24'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/the-revenant.jpg?{"width":32}'),
             thumbnail: require('images/books/the-revenant.jpg?{"width":200}'),
             full: require('images/books/the-revenant.jpg?{"width":600}')
         }
@@ -98,6 +104,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-10-23'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/children-of-men.jpg?{"width":32}'),
             thumbnail: require('images/books/children-of-men.jpg?{"width":200}'),
             full: require('images/books/children-of-men.jpg?{"width":600}')
         }
@@ -111,6 +118,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-10-16'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/pragmatic-programmer.jpg?{"width":32}'),
             thumbnail: require('images/books/pragmatic-programmer.jpg?{"width":200}'),
             full: require('images/books/pragmatic-programmer.jpg?{"width":600}')
         }
@@ -124,6 +132,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-10-13'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/stalin.jpg?{"width":32}'),
             thumbnail: require('images/books/stalin.jpg?{"width":200}'),
             full: require('images/books/stalin.jpg?{"width":600}')
         }
@@ -138,6 +147,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-10-08'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/cribsheet.jpg?{"width":32}'),
             thumbnail: require('images/books/cribsheet.jpg?{"width":200}'),
             full: require('images/books/cribsheet.jpg?{"width":600}')
         }
@@ -151,6 +161,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-09-26'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/ethics-in-the-real-world.jpg?{"width":32}'),
             thumbnail: require('images/books/ethics-in-the-real-world.jpg?{"width":200}'),
             full: require('images/books/ethics-in-the-real-world.jpg?{"width":600}')
         }
@@ -164,6 +175,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-09-05'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/open-borders.jpg?{"width":32}'),
             thumbnail: require('images/books/open-borders.jpg?{"width":200}'),
             full: require('images/books/open-borders.jpg?{"width":600}')
         }
@@ -177,6 +189,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-08-31'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/lenin.jpg?{"width":32}'),
             thumbnail: require('images/books/lenin.jpg?{"width":200}'),
             full: require('images/books/lenin.jpg?{"width":600}')
         }
@@ -190,6 +203,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-08-02'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/blueprint.jpg?{"width":32}'),
             thumbnail: require('images/books/blueprint.jpg?{"width":200}'),
             full: require('images/books/blueprint.jpg?{"width":600}')
         }
@@ -202,6 +216,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-07-31'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/overstory.jpg?{"width":32}'),
             thumbnail: require('images/books/overstory.jpg?{"width":200}'),
             full: require('images/books/overstory.jpg?{"width":600}')
         }
@@ -214,6 +229,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-07-25'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/the-bluest-eye.jpg?{"width":32}'),
             thumbnail: require('images/books/the-bluest-eye.jpg?{"width":200}'),
             full: require('images/books/the-bluest-eye.jpg?{"width":600}')
         }
@@ -226,6 +242,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-07-18'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/rework.png?{"width":32}'),
             thumbnail: require('images/books/rework.png?{"width":200}'),
             full: require('images/books/rework.png?{"width":600}')
         }
@@ -240,6 +257,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-07-10'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/selfish-reasons.jpg?{"width":32}'),
             thumbnail: require('images/books/selfish-reasons.jpg?{"width":200}'),
             full: require('images/books/selfish-reasons.jpg?{"width":600}')
         }
@@ -252,6 +270,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-06-05'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/golden-compass.jpg?{"width":32}'),
             thumbnail: require('images/books/golden-compass.jpg?{"width":200}'),
             full: require('images/books/golden-compass.jpg?{"width":600}')
         }
@@ -264,6 +283,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-05-17'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/never-let-me-go.jpg?{"width":32}'),
             thumbnail: require('images/books/never-let-me-go.jpg?{"width":200}'),
             full: require('images/books/never-let-me-go.jpg?{"width":600}')
         }
@@ -277,6 +297,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-05-15'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/underland.jpg?{"width":32}'),
             thumbnail: require('images/books/underland.jpg?{"width":200}'),
             full: require('images/books/underland.jpg?{"width":600}')
         }
@@ -290,6 +311,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-04-30'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/strange-bird.jpg?{"width":32}'),
             thumbnail: require('images/books/strange-bird.jpg?{"width":200}'),
             full: require('images/books/strange-bird.jpg?{"width":600}')
         }
@@ -302,6 +324,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-03-21'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/big-sur.jpg?{"width":32}'),
             thumbnail: require('images/books/big-sur.jpg?{"width":200}'),
             full: require('images/books/big-sur.jpg?{"width":600}')
         }
@@ -314,6 +337,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-02-28'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/borne.jpg?{"width":32}'),
             thumbnail: require('images/books/borne.jpg?{"width":200}'),
             full: require('images/books/borne.jpg?{"width":600}')
         }
@@ -327,6 +351,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-02-21'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/the-problem-with-everything.jpg?{"width":32}'),
             thumbnail: require('images/books/the-problem-with-everything.jpg?{"width":200}'),
             full: require('images/books/the-problem-with-everything.jpg?{"width":600}')
         }
@@ -339,6 +364,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-02-12'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/a-wrinkle-in-time.jpg?{"width":32}'),
             thumbnail: require('images/books/a-wrinkle-in-time.jpg?{"width":200}'),
             full: require('images/books/a-wrinkle-in-time.jpg?{"width":600}')
         }
@@ -352,6 +378,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-02-02'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/exhalation.jpg?{"width":32}'),
             thumbnail: require('images/books/exhalation.jpg?{"width":200}'),
             full: require('images/books/exhalation.jpg?{"width":600}')
         }
@@ -364,6 +391,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-01-24'),
         favorite: false,
         covers: {
+            placeholder: require('images/books/fall-of-hyperion.jpeg?{"width":32}'),
             thumbnail: require('images/books/fall-of-hyperion.jpeg?{"width":200}'),
             full: require('images/books/fall-of-hyperion.jpeg?{"width":600}')
         }
@@ -376,6 +404,7 @@ export const BOOKS_2020: BookEntry[] = [
         endDate: parseISO('2020-01-07'),
         favorite: true,
         covers: {
+            placeholder: require('images/books/stories-of-your-life.jpg?{"width":32}'),
             thumbnail: require('images/books/stories-of-your-life.jpg?{"width":200}'),
             full: require('images/books/stories-of-your-life.jpg?{"width":600}')
         }
