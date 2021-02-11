@@ -57,10 +57,12 @@ export const StyledYear = styled.div`
     border: 1px solid ${COLOR_ACCENT};
     transition: transform 150ms ease-in-out, box-shadow 150ms ease-in-out;
 
-    &:hover {
-        transform: scale(1.1);
-        z-index: 1;
-        box-shadow: unset;
+    @media (min-width: 800px) {
+        &:hover {
+            transform: scale(1.1);
+            z-index: 1;
+            box-shadow: unset;
+        }
     }
 `;
 
@@ -73,7 +75,9 @@ export const StyledBookCover = styled(StyledBlurrableImage)`
     top: 0;
     transition: 150ms ease-in-out;
 
-    &:hover {
-        object-fit: fill;
+    @media (min-width: 800px) {
+        &:hover {
+            object-fit: fill;
+        }
     }
 `;
