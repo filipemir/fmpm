@@ -91,6 +91,29 @@ module.exports = {
                     }
                 }
             }
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `posts`,
+                path: path.join(__dirname, `src`, `posts`)
+            }
+        },
+        {
+            resolve: 'gatsby-plugin-page-creator',
+            options: {
+                path: `${__dirname}/src/posts`
+            }
+        },
+        {
+            resolve: `gatsby-plugin-mdx`,
+            options: {
+                defaultLayouts: {
+                    default: require.resolve(
+                        `${__dirname}/src/layouts/post.tsx`
+                    )
+                }
+            }
         }
     ]
 };
