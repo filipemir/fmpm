@@ -18,7 +18,7 @@ const useProgressiveImg = ({
         };
     }, [initialImg, finalImg]);
 
-    return { src, isLoaded: src === finalImg };
+    return { src, isLoading: src !== finalImg };
 };
 
 export default useProgressiveImg;

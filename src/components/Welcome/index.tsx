@@ -23,11 +23,19 @@ import TechTag from 'components/TechTag';
 import useMedia from 'use-media';
 import { PERSONAL_EMAIL } from 'data/personal';
 import { Link } from 'gatsby';
+import MY_PIC from './mtns.jpg';
+import useProgressiveImg from 'hooks/useProgressiveImg';
 
 export default function Welcome() {
     const tech = [Tech.REACT, Tech.TS, Tech.JAVA, Tech.PYTHON],
         spring = useSpring({ opacity: 1, from: { opacity: 0 } }),
-        isMobile = useMedia({ maxWidth: '900px' });
+        isMobile = useMedia({ maxWidth: '900px' }),
+        { placeholder, images } = MY_PIC,
+        { src, isLoading } = useProgressiveImg({
+            initialImg: placeholder,
+            finalImg: images[1].path
+        });
+
     return (
         <Root>
             <animated.div
@@ -36,7 +44,7 @@ export default function Welcome() {
                 <Part1>
                     <Part1Inner>
                         <AvatarWrapper>
-                            <Avatar />
+                            <Avatar src={src} blur={isLoading} />
                         </AvatarWrapper>
                         <Content>
                             <Header1Wrapper>

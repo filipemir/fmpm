@@ -1,8 +1,4 @@
-type BookCovers = {
-    placeholder: string;
-    thumbnail: string;
-    full: string;
-};
+import { ResponsiveLoaderResult } from '*.jpg';
 
 export interface BookEntry {
     title: string;
@@ -12,5 +8,5 @@ export interface BookEntry {
     startDate?: Date;
     endDate: Date;
     url?: string;
-    covers: BookCovers;
+    cover: ResponsiveLoaderResult;
 }

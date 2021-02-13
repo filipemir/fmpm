@@ -25,12 +25,13 @@ const BookTile = ({
     book: BookEntry;
     onClick: (book: BookEntry) => void;
 }) => {
-    const { title, author, covers, endDate } = book,
-        { placeholder, thumbnail } = covers,
+    const { title, author, cover, endDate } = book,
+        { placeholder, images } = cover,
+        thumbnail = images[0],
         description = `"${title}" by ${author}`,
-        { src, isLoaded } = useProgressiveImg({
+        { src, isLoading } = useProgressiveImg({
             initialImg: placeholder,
-            finalImg: thumbnail
+            finalImg: thumbnail.path
         });
 
     return (
@@ -41,7 +42,7 @@ const BookTile = ({
                     alt={description}
                     title={description}
                     loading='lazy'
-                    blur={!isLoaded}
+                    blur={isLoading}
                 />
             </StyledBook>
         </React.Fragment>

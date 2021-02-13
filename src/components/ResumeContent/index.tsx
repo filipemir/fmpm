@@ -101,7 +101,7 @@ function ExperienceSection({
                                             {company}
                                             {logo && (
                                                 <Logo
-                                                    src={logo}
+                                                    src={logo.src}
                                                     alt={company}
                                                 />
                                             )}
