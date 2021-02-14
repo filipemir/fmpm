@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import {
     COLOR_ACCENT,
     COLOR_BG_ACCENT,
+    COLOR_SECONDARY,
     FONT_FAMILY_SERIF,
     PADDING_TOP_PAGE
 } from 'styles/global';
@@ -72,11 +73,12 @@ const Grid = styled.div`
 `;
 
 const StyledP = styled.p`
-    font-weight: 400;
+    font-weight: 300;
     font-family: ${FONT_FAMILY_SERIF};
     font-size: 20px;
     line-height: 1.2;
     text-align: start;
+    letter-spacing: -0.2px;
 
     @media (max-width: ${MOBILE_THRESHOLD}) {
         text-align: center;
