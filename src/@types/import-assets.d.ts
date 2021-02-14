@@ -46,20 +46,18 @@ declare module '*.png' {
     export default value;
 }
 
-declare module '*.gif' {
-    import { ResponsiveLoaderResult } from '*.jpg';
-    const value: ResponsiveLoaderResult;
-    export default value;
-}
-
 declare module '*.webp' {
     import { ResponsiveLoaderResult } from '*.jpg';
     const value: ResponsiveLoaderResult;
     export default value;
 }
 
+declare module '*.gif' {
+    const value: string;
+    export default value;
+}
+
 declare module '*.ico' {
-    import { ResponsiveLoaderResult } from '*.jpg';
-    const value: ResponsiveLoaderResult;
+    const value: string;
     export default value;
 }

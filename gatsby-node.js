@@ -22,7 +22,7 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
             rules: [
                 ...rulesWithoutImgUrlLoader,
                 {
-                    test: /\.(ico|jpg|jpeg|png|gif|webp)(\?.*)?$/i,
+                    test: /\.(jpe?g|png|webp)(\?.*)?$/i,
                     use: [
                         {
                             loader: 'responsive-loader',
@@ -33,6 +33,14 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
                                 placeholder: true,
                                 format: 'webp'
                             }
+                        }
+                    ]
+                },
+                {
+                    test: /\.(ico|gif)(\?.*)?$/i,
+                    use: [
+                        {
+                            loader: 'file-loader'
                         }
                     ]
                 }
