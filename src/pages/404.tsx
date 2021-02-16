@@ -11,7 +11,6 @@ import SHAME from 'images/shame.gif';
 import Emoji from 'a11y-react-emoji';
 import Underline from 'images/underline.svg';
 import { Link } from 'gatsby';
-import Page from 'models/page';
 import sample from 'lodash/sample';
 
 const MOBILE_THRESHOLD = '800px';

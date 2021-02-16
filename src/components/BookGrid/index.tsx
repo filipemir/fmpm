@@ -35,17 +35,15 @@ const BookTile = ({
         });
 
     return (
-        <React.Fragment key={title + endDate}>
-            <StyledBook onClick={() => onClick(book)}>
-                <StyledBookCover
-                    src={src}
-                    alt={description}
-                    title={description}
-                    loading='lazy'
-                    blur={isLoading}
-                />
-            </StyledBook>
-        </React.Fragment>
+        <StyledBook onClick={() => onClick(book)}>
+            <StyledBookCover
+                src={src}
+                alt={description}
+                title={description}
+                loading='lazy'
+                blur={isLoading}
+            />
+        </StyledBook>
     );
 };
 
@@ -67,14 +65,14 @@ const BookGrid = ({ books }: { books: BookEntry[] }) => {
                     isFirstOfYear = getYear(endDate) != prevBookYear;
 
                 return (
-                    <>
+                    <React.Fragment key={title + endDate}>
                         {isFirstOfYear && <YearTile date={endDate} />}
                         <BookTile
                             book={book}
                             onClick={() => setActiveBook(book)}
                             key={title + endDate}
                         />
-                    </>
+                    </React.Fragment>
                 );
             })}
             {modalTransitions.map(
