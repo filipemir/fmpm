@@ -38,11 +38,12 @@ const BookModal = ({
     book: BookEntry;
     onClose?: () => void;
 }) => {
-    const { title, subtitle, covers, author, url } = book,
-        { thumbnail, full } = covers,
-        { src, isLoaded } = useProgressiveImg({
-            initialImg: thumbnail,
-            finalImg: full
+    const { title, subtitle, cover, author, url } = book,
+        { placeholder, images } = cover,
+        [thumbnail, small, medium] = images,
+        { src, isLoading } = useProgressiveImg({
+            initialImg: placeholder,
+            finalImg: (medium || small || thumbnail).path
         });
 
     useCancelKeydown(onClose);
@@ -51,7 +52,7 @@ const BookModal = ({
         <StyledRoot>
             <StyledModalShadowBox onClick={() => onClose && onClose()} />
             <StyledContent onClick={() => window.open(url, '_blank')}>
-                <StyledCover src={src} blur={!isLoaded} />
+                <StyledCover src={src} blur={isLoading} />
                 <StyledInfo>
                     <DogearedTile maxWidth={'350px'}>
                         <StyledTitle href={url} target={'_blank'}>

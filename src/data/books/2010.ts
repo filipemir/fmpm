@@ -9,11 +9,7 @@ export const BOOKS_2010: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780684853949',
         endDate: parseISO('2010-11-07'),
         favorite: false,
-        covers: {
-            placeholder: require('images/books/the-man-who-mistook-his-wife-for-a-hat.jpg?{"width":32}'),
-            thumbnail: require('images/books/the-man-who-mistook-his-wife-for-a-hat.jpg?{"width":200}'),
-            full: require('images/books/the-man-who-mistook-his-wife-for-a-hat.jpg?{"width":600}')
-        }
+        cover: require('images/books/the-man-who-mistook-his-wife-for-a-hat.jpg')
     },
     {
         title: 'At Home',
@@ -22,11 +18,7 @@ export const BOOKS_2010: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780767919388/bill-bryson/home',
         endDate: parseISO('2010-11-01'),
         favorite: false,
-        covers: {
-            placeholder: require('images/books/at-home.jpg?{"width":32}'),
-            thumbnail: require('images/books/at-home.jpg?{"width":200}'),
-            full: require('images/books/at-home.jpg?{"width":600}')
-        }
+        cover: require('images/books/at-home.jpg')
     },
     {
         title: 'The Looming Tower',
@@ -35,11 +27,7 @@ export const BOOKS_2010: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9781400030842',
         endDate: parseISO('2010-08-22'),
         favorite: true,
-        covers: {
-            placeholder: require('images/books/looming-tower.jpg?{"width":32}'),
-            thumbnail: require('images/books/looming-tower.jpg?{"width":200}'),
-            full: require('images/books/looming-tower.jpg?{"width":600}')
-        }
+        cover: require('images/books/looming-tower.jpg')
     },
     {
         title: 'Me Talk Pretty One Day',
@@ -47,11 +35,7 @@ export const BOOKS_2010: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780316777728',
         endDate: parseISO('2010-07-30'),
         favorite: false,
-        covers: {
-            placeholder: require('images/books/me-talk-pretty-one-day.jpg?{"width":32}'),
-            thumbnail: require('images/books/me-talk-pretty-one-day.jpg?{"width":200}'),
-            full: require('images/books/me-talk-pretty-one-day.jpg?{"width":600}')
-        }
+        cover: require('images/books/me-talk-pretty-one-day.jpg')
     },
     {
         title: 'Whole Earth Discipline',
@@ -60,11 +44,7 @@ export const BOOKS_2010: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780670021215',
         endDate: parseISO('2010-07-24'),
         favorite: true,
-        covers: {
-            placeholder: require('images/books/whole-earth-discipline.jpg?{"width":32}'),
-            thumbnail: require('images/books/whole-earth-discipline.jpg?{"width":200}'),
-            full: require('images/books/whole-earth-discipline.jpg?{"width":600}')
-        }
+        cover: require('images/books/whole-earth-discipline.jpg')
     },
     {
         title: 'Cosmos',
@@ -72,11 +52,7 @@ export const BOOKS_2010: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780394715964',
         endDate: parseISO('2010-06-01'),
         favorite: true,
-        covers: {
-            placeholder: require('images/books/cosmos.jpg?{"width":32}'),
-            thumbnail: require('images/books/cosmos.jpg?{"width":200}'),
-            full: require('images/books/cosmos.jpg?{"width":600}')
-        }
+        cover: require('images/books/cosmos.jpg')
     },
     {
         title: 'Ill Fares The Land',
@@ -85,11 +61,7 @@ export const BOOKS_2010: BookEntry[] = [
         startDate: parseISO('2010-05-12'),
         endDate: parseISO('2010-06-01'),
         favorite: true,
-        covers: {
-            placeholder: require('images/books/ill-fares-the-land.jpg?{"width":32}'),
-            thumbnail: require('images/books/ill-fares-the-land.jpg?{"width":200}'),
-            full: require('images/books/ill-fares-the-land.jpg?{"width":600}')
-        }
+        cover: require('images/books/ill-fares-the-land.jpg')
     },
     {
         title: 'Sum',
@@ -99,11 +71,7 @@ export const BOOKS_2010: BookEntry[] = [
         startDate: parseISO('2010-05-12'),
         endDate: parseISO('2010-05-19'),
         favorite: true,
-        covers: {
-            placeholder: require('images/books/sum.jpg?{"width":32}'),
-            thumbnail: require('images/books/sum.jpg?{"width":200}'),
-            full: require('images/books/sum.jpg?{"width":600}')
-        }
+        cover: require('images/books/sum.jpg')
     },
     {
         title: 'The Greatest Show On Earth',
@@ -114,11 +82,7 @@ export const BOOKS_2010: BookEntry[] = [
         startDate: parseISO('2010-02-27'),
         endDate: parseISO('2010-03-26'),
         favorite: true,
-        covers: {
-            placeholder: require('images/books/the-greatest-show-on-earth.jpg?{"width":32}'),
-            thumbnail: require('images/books/the-greatest-show-on-earth.jpg?{"width":200}'),
-            full: require('images/books/the-greatest-show-on-earth.jpg?{"width":600}')
-        }
+        cover: require('images/books/the-greatest-show-on-earth.jpg')
     },
     {
         title: 'The Kite Runner',
@@ -127,11 +91,7 @@ export const BOOKS_2010: BookEntry[] = [
         startDate: parseISO('2010-02-27'),
         endDate: parseISO('2010-03-05'),
         favorite: false,
-        covers: {
-            placeholder: require('images/books/kite-runner.jpg?{"width":32}'),
-            thumbnail: require('images/books/kite-runner.jpg?{"width":200}'),
-            full: require('images/books/kite-runner.jpg?{"width":600}')
-        }
+        cover: require('images/books/kite-runner.jpg')
     },
     {
         title: 'A Short History of Nearly Everything',
@@ -139,11 +99,7 @@ export const BOOKS_2010: BookEntry[] = [
         url: '',
         endDate: parseISO('2010-02-02'),
         favorite: false,
-        covers: {
-            placeholder: require('images/books/a-short-history-of-nearly-everything.jpg?{"width":32}'),
-            thumbnail: require('images/books/a-short-history-of-nearly-everything.jpg?{"width":200}'),
-            full: require('images/books/a-short-history-of-nearly-everything.jpg?{"width":600}')
-        }
+        cover: require('images/books/a-short-history-of-nearly-everything.jpg')
     },
     {
         title: 'Into Thin Air',
@@ -152,10 +108,6 @@ export const BOOKS_2010: BookEntry[] = [
         url: 'https://www.indiebound.org/book/9780385494786',
         endDate: parseISO('2010-02-01'),
         favorite: true,
-        covers: {
-            placeholder: require('images/books/into-thin-air.jpg?{"width":32}'),
-            thumbnail: require('images/books/into-thin-air.jpg?{"width":200}'),
-            full: require('images/books/into-thin-air.jpg?{"width":600}')
-        }
+        cover: require('images/books/into-thin-air.jpg')
     }
 ];

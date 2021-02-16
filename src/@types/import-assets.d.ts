@@ -12,18 +12,52 @@ declare module '*.svg' {
 }
 
 // https://stackoverflow.com/questions/43638454/webpack-typescript-image-import?rq=1
-declare module '*.png' {
-    const value: any;
-    export default value;
-}
-
-// https://stackoverflow.com/questions/43638454/webpack-typescript-image-import?rq=1
 declare module '*.jpg' {
-    const value: any;
+    type ResponsiveImage = {
+        path: string;
+        height: number;
+        width: number;
+    };
+
+    export interface ResponsiveLoaderResult {
+        src: string;
+        height: number;
+        width: number;
+        srcSet: string;
+        images: ResponsiveImage[];
+        placeholder: string;
+        toString: () => string;
+    }
+
+    const value: ResponsiveLoaderResult;
+
     export default value;
 }
 
 declare module '*.jpeg' {
-    const value: any;
+    import { ResponsiveLoaderResult } from '*.jpg';
+    const value: ResponsiveLoaderResult;
+    export default value;
+}
+
+declare module '*.png' {
+    import { ResponsiveLoaderResult } from '*.jpg';
+    const value: ResponsiveLoaderResult;
+    export default value;
+}
+
+declare module '*.webp' {
+    import { ResponsiveLoaderResult } from '*.jpg';
+    const value: ResponsiveLoaderResult;
+    export default value;
+}
+
+declare module '*.gif' {
+    const value: string;
+    export default value;
+}
+
+declare module '*.ico' {
+    const value: string;
     export default value;
 }

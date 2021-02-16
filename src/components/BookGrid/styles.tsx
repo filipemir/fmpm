@@ -76,6 +76,7 @@ export const StyledBookCover = styled(StyledBlurrableImage)`
     height: 100%;
     top: 0;
     transition: 150ms ease-in-out;
+    background-color: ${COLOR_QUATERNARY};
 
     @media (min-width: 800px) {
         &:hover {

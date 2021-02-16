@@ -1,4 +1,5 @@
 import { Tech } from 'models/tech';
+import { ResponsiveLoaderResult } from '*.jpg';
 
 export enum Org {
     BUOY = 'Buoy Health',
@@ -37,7 +38,7 @@ export interface Tenure {
     jobs: Job[];
     url: string;
     description?: string;
-    logo?: string;
+    logo?: ResponsiveLoaderResult;
 }
 
 export type ResumeItem = Job | Degree;

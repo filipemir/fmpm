@@ -25,26 +25,25 @@ const BookTile = ({
     book: BookEntry;
     onClick: (book: BookEntry) => void;
 }) => {
-    const { title, author, covers, endDate } = book,
-        { placeholder, thumbnail } = covers,
+    const { title, author, cover } = book,
+        { placeholder, images } = cover,
+        thumbnail = images[0],
         description = `"${title}" by ${author}`,
-        { src, isLoaded } = useProgressiveImg({
+        { src, isLoading } = useProgressiveImg({
             initialImg: placeholder,
-            finalImg: thumbnail
+            finalImg: thumbnail.path
         });
 
     return (
-        <React.Fragment key={title + endDate}>
-            <StyledBook onClick={() => onClick(book)}>
-                <StyledBookCover
-                    src={src}
-                    alt={description}
-                    title={description}
-                    loading='lazy'
-                    blur={!isLoaded}
-                />
-            </StyledBook>
-        </React.Fragment>
+        <StyledBook onClick={() => onClick(book)}>
+            <StyledBookCover
+                src={src}
+                alt={description}
+                title={description}
+                loading='lazy'
+                blur={isLoading}
+            />
+        </StyledBook>
     );
 };
 
@@ -66,14 +65,14 @@ const BookGrid = ({ books }: { books: BookEntry[] }) => {
                     isFirstOfYear = getYear(endDate) != prevBookYear;
 
                 return (
-                    <>
+                    <React.Fragment key={title + endDate}>
                         {isFirstOfYear && <YearTile date={endDate} />}
                         <BookTile
                             book={book}
                             onClick={() => setActiveBook(book)}
                             key={title + endDate}
                         />
-                    </>
+                    </React.Fragment>
                 );
             })}
             {modalTransitions.map(

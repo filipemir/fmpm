@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
-import img from './mtns.jpg';
 
 import {
     COLOR_ACCENT,
     COLOR_BG_ACCENT,
     COLOR_PRIMARY,
     COLOR_SECONDARY,
-    FONT_FAMILY_SERIF
+    FONT_FAMILY_SERIF,
+    StyledBlurrableImage
 } from 'styles/global';
 
 const MOBILE_MAX_WIDTH = '800px';
@@ -57,13 +57,10 @@ export const Content = styled.div`
     }
 `;
 
-export const Avatar = styled.div`
+export const Avatar = styled(StyledBlurrableImage)`
     height: 190px;
     width: 190px;
     border-radius: 50%;
-    background-image: url(${img});
-    background-size: contain;
-    background-position: center center;
     border: 3px solid ${COLOR_BG_ACCENT};
     box-shadow: 10px 22px 0 ${COLOR_BG_ACCENT};
 

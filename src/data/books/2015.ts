@@ -9,11 +9,7 @@ export const BOOKS_2015: BookEntry[] = [
         startDate: parseISO('2015-11-19'),
         endDate: parseISO('2015-12-13'),
         favorite: true,
-        covers: {
-            placeholder: require('images/books/weekend-wodehouse.jpg?{"width":32}'),
-            thumbnail: require('images/books/weekend-wodehouse.jpg?{"width":200}'),
-            full: require('images/books/weekend-wodehouse.jpg?{"width":600}')
-        }
+        cover: require('images/books/weekend-wodehouse.jpg')
     },
     {
         title: 'Americanah',
@@ -22,11 +18,7 @@ export const BOOKS_2015: BookEntry[] = [
         startDate: parseISO('2015-08-08'),
         endDate: parseISO('2015-09-23'),
         favorite: false,
-        covers: {
-            placeholder: require('images/books/americanah.jpg?{"width":32}'),
-            thumbnail: require('images/books/americanah.jpg?{"width":200}'),
-            full: require('images/books/americanah.jpg?{"width":600}')
-        }
+        cover: require('images/books/americanah.jpg')
     },
     {
         title: 'Bring Up The Bodies',
@@ -35,11 +27,7 @@ export const BOOKS_2015: BookEntry[] = [
         startDate: parseISO('2015-07-01'),
         endDate: parseISO('2015-08-07'),
         favorite: true,
-        covers: {
-            placeholder: require('images/books/bring-up-the-bodies.jpg?{"width":32}'),
-            thumbnail: require('images/books/bring-up-the-bodies.jpg?{"width":200}'),
-            full: require('images/books/bring-up-the-bodies.jpg?{"width":600}')
-        }
+        cover: require('images/books/bring-up-the-bodies.jpg')
     },
     {
         title: 'Wolf Hall',
@@ -48,11 +36,7 @@ export const BOOKS_2015: BookEntry[] = [
         startDate: parseISO('2015-06-08'),
         endDate: parseISO('2015-07-31'),
         favorite: true,
-        covers: {
-            placeholder: require('images/books/wolf-hall.jpg?{"width":32}'),
-            thumbnail: require('images/books/wolf-hall.jpg?{"width":200}'),
-            full: require('images/books/wolf-hall.jpg?{"width":600}')
-        }
+        cover: require('images/books/wolf-hall.jpg')
     },
     {
         title: 'Redeployment',
@@ -61,11 +45,7 @@ export const BOOKS_2015: BookEntry[] = [
         startDate: parseISO('2015-02-20'),
         endDate: parseISO('2015-03-10'),
         favorite: true,
-        covers: {
-            placeholder: require('images/books/redeployment.jpg?{"width":32}'),
-            thumbnail: require('images/books/redeployment.jpg?{"width":200}'),
-            full: require('images/books/redeployment.jpg?{"width":600}')
-        }
+        cover: require('images/books/redeployment.jpg')
     },
     {
         title: "One Flew Over the Cuckoo's Next",
@@ -74,11 +54,7 @@ export const BOOKS_2015: BookEntry[] = [
         startDate: parseISO('2015-02-20'),
         endDate: parseISO('2015-02-28'),
         favorite: false,
-        covers: {
-            placeholder: require('images/books/one-flew-over-the-cuckoos-nest.jpg?{"width":32}'),
-            thumbnail: require('images/books/one-flew-over-the-cuckoos-nest.jpg?{"width":200}'),
-            full: require('images/books/one-flew-over-the-cuckoos-nest.jpg?{"width":600}')
-        }
+        cover: require('images/books/one-flew-over-the-cuckoos-nest.jpg')
     },
     {
         title: 'Station Eleven',
@@ -87,11 +63,7 @@ export const BOOKS_2015: BookEntry[] = [
         startDate: parseISO('2015-01-06'),
         endDate: parseISO('2015-01-21'),
         favorite: true,
-        covers: {
-            placeholder: require('images/books/station-11.jpg?{"width":32}'),
-            thumbnail: require('images/books/station-11.jpg?{"width":200}'),
-            full: require('images/books/station-11.jpg?{"width":600}')
-        }
+        cover: require('images/books/station-11.jpg')
     },
     {
         title: 'The Painter',
@@ -100,10 +72,6 @@ export const BOOKS_2015: BookEntry[] = [
         startDate: parseISO('2014-12-06'),
         endDate: parseISO('2015-01-05'),
         favorite: false,
-        covers: {
-            placeholder: require('images/books/the-painter.jpg?{"width":32}'),
-            thumbnail: require('images/books/the-painter.jpg?{"width":200}'),
-            full: require('images/books/the-painter.jpg?{"width":600}')
-        }
+        cover: require('images/books/the-painter.jpg')
     }
 ];

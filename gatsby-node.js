@@ -22,17 +22,26 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
             rules: [
                 ...rulesWithoutImgUrlLoader,
                 {
-                    test: /\.(ico|jpg|jpeg|png|gif|webp)(\?.*)?$/i,
+                    test: /\.(jpe?g|png|webp)(\?.*)?$/i,
                     use: [
                         {
-                            loader: 'img-optimize-loader',
+                            loader: 'responsive-loader',
                             options: {
-                                compress: {
-                                    webp: true
-                                }
+                                name: '[name]-[width].[hash].[ext]',
+                                adapter: require('responsive-loader/sharp'),
+                                sizes: [160, 320, 640, 960, 1920], // [thumb, small, medium, large, full]
+                                placeholder: true,
+                                format: 'webp'
                             }
-                        },
-                        'webpack-image-resize-loader'
+                        }
+                    ]
+                },
+                {
+                    test: /\.(ico|gif)(\?.*)?$/i,
+                    use: [
+                        {
+                            loader: 'file-loader'
+                        }
                     ]
                 }
             ]

@@ -94,17 +94,16 @@
         "gatsby-plugin-sitemap": "2.3.5",
         "gatsby-plugin-typescript": "2.3.1",
         "gatsby-source-filesystem": "2.2.2",
-        "img-optimize-loader": "1.0.7",
         "node-sass": "4.13.1",
         "prettier": "2.2.1",
         "prettier-loader": "3.3.0",
         "resolve-url-loader": "3.1.1",
+        "responsive-loader": "2.3.0",
         "sass-loader": "8.0.2",
         "sharp": "0.27.1",
         "svg-react-loader": "0.4.6",
         "typescript": "3.8.3",
         "url-loader": "4.0.0",
-        "webpack": "4.42.1",
-        "webpack-image-resize-loader": "4.0.0"
+        "webpack": "4.42.1"
     }
 }

@@ -6,9 +6,9 @@ import { getPath } from 'utils/location';
 import Page from 'models/page';
 
 interface HelmetProps {
-    page: Page;
+    page?: Page;
     pageTitle?: string;
-    description: string;
+    description?: string;
 }
 
 export default function Helmet({ page, pageTitle, description }: HelmetProps) {
@@ -25,15 +25,17 @@ export default function Helmet({ page, pageTitle, description }: HelmetProps) {
         `),
         { baseTitle, siteUrl, shareImageUrl } = data.site.siteMetadata,
         title = pageTitle ? pageTitle + ' | ' + baseTitle : baseTitle,
-        canonicalUrl = siteUrl + getPath(page);
+        canonicalUrl = page && siteUrl + getPath(page);
 
     return (
         <ReactHelmet>
             <title>{title}</title>
-            <meta property='description' content={description} />
+            {description && (
+                <meta property='description' content={description} />
+            )}
             <meta property='og:title' content={title} />
             <meta property='og:type' content='website' />
-            <meta property='og:url' content={canonicalUrl} />
+            {canonicalUrl && <meta property='og:url' content={canonicalUrl} />}
             <meta property='og:image' content={shareImageUrl} />
             <meta property='og:description' content={description} />
             <meta name='description' content={description} />
