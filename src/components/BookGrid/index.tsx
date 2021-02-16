@@ -25,7 +25,7 @@ const BookTile = ({
     book: BookEntry;
     onClick: (book: BookEntry) => void;
 }) => {
-    const { title, author, cover, endDate } = book,
+    const { title, author, cover } = book,
         { placeholder, images } = cover,
         thumbnail = images[0],
         description = `"${title}" by ${author}`,

@@ -1,5 +1,7 @@
 import parseISO from 'date-fns/parseISO';
 import { BookEntry } from 'models/media';
+import A_PROMISED_LAND_COVER from 'images/books/a-promised-land.jpg';
+import WHY_I_WRITE_COVER from 'images/books/why-i-write.jpg';
 
 export const BOOKS_2021: BookEntry[] = [
     {
@@ -9,7 +11,7 @@ export const BOOKS_2021: BookEntry[] = [
         startDate: parseISO('2021-01-06'),
         endDate: parseISO('2021-01-26'),
         favorite: false,
-        cover: require('images/books/a-promised-land.jpg')
+        cover: A_PROMISED_LAND_COVER
     },
     {
         title: 'Why I Write',
@@ -18,6 +20,6 @@ export const BOOKS_2021: BookEntry[] = [
         startDate: parseISO('2020-12-29'),
         endDate: parseISO('2021-01-06'),
         favorite: false,
-        cover: require('images/books/why-i-write.jpg')
+        cover: WHY_I_WRITE_COVER
     }
 ];
