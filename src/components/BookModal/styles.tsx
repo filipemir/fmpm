@@ -45,6 +45,7 @@ export const StyledCover = styled(StyledBlurrableImage)`
     @media (max-width: ${MOBILE_THRESHOLD}) {
         height: auto;
         max-height: 50vh;
+        max-width: 95vw;
         object-fit: cover;
         object-position: center center;
     }
