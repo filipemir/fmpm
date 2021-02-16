@@ -23,7 +23,7 @@ import TechTag from 'components/TechTag';
 import useMedia from 'use-media';
 import { PERSONAL_EMAIL } from 'data/personal';
 import { Link } from 'gatsby';
-import MY_PIC from './mtns.jpg';
+import MY_PIC from './matcha.jpeg';
 import useProgressiveImg from 'hooks/useProgressiveImg';
 
 export default function Welcome() {
