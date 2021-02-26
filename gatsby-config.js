@@ -108,6 +108,11 @@ module.exports = {
         {
             resolve: `gatsby-plugin-mdx`,
             options: {
+                gatsbyRemarkPlugins: [
+                    {
+                        resolve: `gatsby-remark-prismjs`
+                    }
+                ],
                 defaultLayouts: {
                     default: require.resolve(
                         `${__dirname}/src/layouts/post.tsx`

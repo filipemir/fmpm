@@ -13,7 +13,7 @@ export const Root = styled.div`
     padding-top: ${PADDING_TOP_PAGE}px;
     padding-bottom: ${PADDING_TOP_PAGE}px;
     min-height: 100vh;
-    max-width: 75ch;
+    max-width: 80ch;
 
     h1 {
         font-family: ${FONT_FAMILY_SERIF};
@@ -34,8 +34,8 @@ export const Root = styled.div`
     li,
     ol {
         font-family: ${FONT_FAMILY_SERIF};
-        font-size: 20px;
-        line-height: 1.4;
+        font-size: 21.25px;
+        line-height: 1.6;
         font-weight: 300;
         color: ${COLOR_PRIMARY};
 
