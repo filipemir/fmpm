@@ -10,10 +10,9 @@ import {
 
 export const Root = styled.div`
     margin: 0 auto;
-    padding-top: ${PADDING_TOP_PAGE}px;
-    padding-bottom: ${PADDING_TOP_PAGE}px;
+    padding: ${PADDING_TOP_PAGE}px 10px;
     min-height: 100vh;
-    max-width: 80ch;
+    max-width: 90ch;
 
     h1 {
         font-family: ${FONT_FAMILY_SERIF};
@@ -34,12 +33,24 @@ export const Root = styled.div`
     li,
     ol {
         font-family: ${FONT_FAMILY_SERIF};
-        font-size: 21.25px;
-        line-height: 1.6;
+        font-size: 19px;
+        line-height: 1.5;
         font-weight: 300;
         color: ${COLOR_PRIMARY};
-
         letter-spacing: -0.03em;
+    }
+
+    > div {
+        margin: 1em auto;
+    }
+
+    p,
+    li,
+    ol,
+    h1 {
+        max-width: 60ch;
+        margin-right: auto;
+        margin-left: auto;
     }
 
     strong {
