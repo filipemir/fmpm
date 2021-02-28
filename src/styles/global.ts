@@ -39,7 +39,7 @@ const globalCss = css`
         margin: 0;
 
         *::selection {
-            background-color: rgba(188, 65, 36, 0.2);
+            background-color: #e5ccc6;
         }
     }
 

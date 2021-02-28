@@ -4,6 +4,7 @@ import {
     COLOR_ACCENT,
     COLOR_BG_ACCENT,
     COLOR_PRIMARY,
+    COLOR_QUATERNARY,
     FONT_FAMILY_SERIF,
     PADDING_TOP_PAGE
 } from 'styles/global';
@@ -13,6 +14,11 @@ export const Root = styled.div`
     padding: ${PADDING_TOP_PAGE}px 10px;
     min-height: 100vh;
     max-width: 90ch;
+
+    .gatsby-highlight {
+        box-shadow: -10px 10px ${COLOR_QUATERNARY};
+        border-radius: 6px;
+    }
 
     h1 {
         font-family: ${FONT_FAMILY_SERIF};
