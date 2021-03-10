@@ -49,7 +49,7 @@ const compose = (...fns) => (res) =>
 const unfold = (f, seed) => {
     const go = (f, seed, acc) => {
         const res = f(seed); // highlight-line
-        return res ? go(f, res[1], acc.concat([res[0]])) : acc;
+        return res ? go(f, res[1], acc.concat([res[0]])) : acc; // highlight-line
     };
     return go(f, seed, []);
 };

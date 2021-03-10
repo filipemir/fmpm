@@ -9,7 +9,7 @@ import {
     PADDING_TOP_PAGE
 } from 'styles/global';
 
-export const Root = styled.div`
+export const Root = styled.main`
     margin: 0 auto;
     padding: ${PADDING_TOP_PAGE}px 10px;
     min-height: 100vh;
