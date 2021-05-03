@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+const loadedImages = new Set();
+
 const useProgressiveImg = ({
     initialImg,
     finalImg
@@ -7,14 +9,17 @@ const useProgressiveImg = ({
     initialImg: string;
     finalImg: string;
 }) => {
-    const [src, setSrc] = useState<string>(initialImg);
+    const cached = loadedImages.has(finalImg);
+    const [src, setSrc] = useState<string>(cached ? finalImg : initialImg);
 
     useEffect(() => {
-        setSrc(initialImg);
+        if (src === finalImg) return;
+
         const img = new Image();
         img.src = finalImg;
         img.onload = () => {
             setSrc(finalImg);
+            loadedImages.add(finalImg);
         };
     }, [initialImg, finalImg]);
 
