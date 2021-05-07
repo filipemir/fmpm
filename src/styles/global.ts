@@ -46,9 +46,28 @@ const globalCss = css`
     a {
         color: ${COLOR_ACCENT};
         text-decoration: none;
+        position: relative;
 
         &:hover {
-            text-decoration: underline;
+            &:after {
+                width: 100%;
+                content: ' ';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                border-bottom: 1px dashed ${COLOR_ACCENT};
+                animation: grow 200ms forwards ease-in-out;
+            }
+        }
+
+        @keyframes grow {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100%;
+            }
         }
     }
 

@@ -18,7 +18,7 @@ export const Title = styled.a`
     display: inline-block;
 
     &:hover {
-        text-decoration: none;
+        border-bottom: none;
     }
 `;
 

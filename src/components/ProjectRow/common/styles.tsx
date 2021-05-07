@@ -26,7 +26,7 @@ export const Title = styled.a`
     font-family: ${FONT_FAMILY_MONO};
 
     &:hover {
-        text-decoration: none;
+        border-bottom: none;
     }
 `;
 

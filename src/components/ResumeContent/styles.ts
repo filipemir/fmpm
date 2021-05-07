@@ -52,7 +52,7 @@ export const ResumeSectionNameDiv = styled.div`
     white-space: nowrap;
 
     &:hover {
-        text-decoration: none;
+        border-bottom: none;
     }
 `;
 

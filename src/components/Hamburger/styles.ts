@@ -83,7 +83,7 @@ export const PageDivWrapper = styled.div`
     font-size: 18px;
 
     a:hover {
-        text-decoration: none;
+        border-bottom: none;
     }
 `;
 

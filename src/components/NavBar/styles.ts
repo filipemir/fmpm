@@ -24,7 +24,7 @@ export const LeftDiv = styled.div`
     justify-self: left;
 
     a:hover {
-        text-decoration: none;
+        border-bottom: none;
     }
 `;
 

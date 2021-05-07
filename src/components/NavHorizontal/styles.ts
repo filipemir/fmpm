@@ -27,6 +27,10 @@ const dynamic = ({ active }: { active: boolean }) => css`
 
 export const PageDivWrapper = styled.div`
     display: inline-block;
+
+    a:hover:after {
+        border-bottom: none;
+    }
 `;
 
 export const PageDiv = styled.div`
