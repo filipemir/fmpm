@@ -22,11 +22,6 @@ export default function HomePage() {
                     <Header text={'experience'} emoji={'🎩'} />
                 </SectionHeaderWrapper>
                 <SectionIntro>
-                    I&apos;ve been lucky to wear a lot of different hats on my
-                    way to software engineering: teacher, researcher, reporter,
-                    analyst, consultant. Not all those roles connect directly to
-                    the work I do today, but each taught me something that has
-                    made me a better engineer. The full list is below.
                     <Note>
                         For a much abbreviated print version, see my{' '}
                         <ResumeButton

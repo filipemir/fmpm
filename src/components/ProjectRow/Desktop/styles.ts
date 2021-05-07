@@ -62,10 +62,9 @@ export const DescriptionBox = styled.div`
 `;
 
 export const Description = styled.div`
-    font-size: 14px;
     color: ${COLOR_SECONDARY};
     letter-spacing: -0.26px;
-    line-height: 20px;
+    line-height: 1.5;
 `;
 
 const logoSize = '18px';

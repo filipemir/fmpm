@@ -25,7 +25,7 @@ export const Title = styled.a`
 export const Description = styled.div`
     font-family: ${FONT_FAMILY_SANS_SERIF};
     line-height: 1.4;
-    font-size: 14px;
+    font-size: 160px;
     color: ${COLOR_SECONDARY};
 `;
 

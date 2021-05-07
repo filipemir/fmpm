@@ -3,6 +3,7 @@ import {
     COLOR_ACCENT,
     COLOR_BG_ACCENT,
     COLOR_QUATERNARY,
+    COLOR_SECONDARY,
     COLOR_TERNARY,
     FONT_FAMILY_MONO,
     FONT_FAMILY_SANS_SERIF
@@ -68,14 +69,12 @@ export const DurationSpan = styled.span`
 
 export const TenureDescription = styled.div`
     font-family: ${FONT_FAMILY_SANS_SERIF};
-    color: ${COLOR_TERNARY};
-    line-height: 1.3;
+    color: ${COLOR_SECONDARY};
+    line-height: 1.7;
     font-size: 14px;
-    font-weight: 300;
     margin-bottom: 1.5em;
     border-left: 3px solid ${COLOR_BG_ACCENT};
     padding-left: 15px;
-    font-style: italic;
 `;
 
 export const ResumeItemDiv = styled.div`

@@ -3,7 +3,6 @@ import {
     COLOR_BG_ACCENT,
     COLOR_PRIMARY,
     COLOR_SECONDARY,
-    COLOR_TERNARY,
     FONT_FAMILY_MONO,
     FONT_FAMILY_SANS_SERIF,
     FONT_FAMILY_SERIF
@@ -24,14 +23,15 @@ export const TopRowDiv = styled.div`
 export const TitleSpan = styled.span`
     color: ${COLOR_PRIMARY};
     font-weight: 500;
+    font-size: 20px;
     text-shadow: 2px 2px 0 ${COLOR_BG_ACCENT};
 `;
 
 export const DatesDiv = styled.div`
     font-family: ${FONT_FAMILY_MONO};
     font-style: italic;
-    font-size: 12px;
-    color: ${COLOR_TERNARY};
+    font-size: 14px;
+    color: ${COLOR_SECONDARY};
     margin: 5px 0;
 `;
 
@@ -51,9 +51,8 @@ export const TechDiv = styled.div`
 
 export const DescriptionDiv = styled.div`
     font-family: ${FONT_FAMILY_SANS_SERIF};
-    color: ${COLOR_SECONDARY};
-    line-height: 20px;
-    font-size: 14px;
-    font-weight: 300;
+    color: ${COLOR_PRIMARY};
+    line-height: 1.7;
+    font-size: 15px;
     font-style: normal;
 `;

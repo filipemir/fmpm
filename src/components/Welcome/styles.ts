@@ -4,7 +4,6 @@ import {
     COLOR_ACCENT,
     COLOR_BG_ACCENT,
     COLOR_PRIMARY,
-    COLOR_SECONDARY,
     FONT_FAMILY_SERIF,
     StyledBlurrableImage
 } from 'styles/global';
@@ -139,7 +138,7 @@ export const JobTitle = styled.span`
 export const About = styled.div`
     font-size: 18px;
     max-width: 540px;
-    color: ${COLOR_SECONDARY};
+    color: ${COLOR_PRIMARY};
     font-weight: 300;
     text-align: left;
 
@@ -148,7 +147,6 @@ export const About = styled.div`
     }
 
     font-family: ${FONT_FAMILY_SERIF};
-    line-height: 1.4;
     font-style: normal;
 
     @media (max-width: ${MOBILE_MAX_WIDTH}) {
