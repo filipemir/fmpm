@@ -26,6 +26,10 @@ export const ResumeSectionDiv = styled.div`
     margin-bottom: 2em;
     padding-top: 30px;
 
+    a:hover:after {
+        border-bottom: none;
+    }
+
     &:after {
         content: ' ';
         border-top: 1px solid ${COLOR_QUATERNARY};

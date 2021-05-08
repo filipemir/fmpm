@@ -57,7 +57,7 @@ export const DescriptionBox = styled.div`
     padding: 30px 30px 30px 15px;
     position: relative;
     transition: transform 100ms ease-in-out;
-    width: calc(100% + 60px);
+    width: calc(100% + 80px);
     ${dynamicDescriptionBox};
 `;
 

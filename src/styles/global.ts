@@ -56,7 +56,7 @@ const globalCss = css`
                 bottom: 0;
                 left: 0;
                 border-bottom: 1px dashed ${COLOR_ACCENT};
-                animation: grow 200ms forwards ease-in-out;
+                animation: grow 400ms forwards ease-in-out;
             }
         }
 
