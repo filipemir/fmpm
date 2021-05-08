@@ -9,7 +9,7 @@ import {
 
 export const Root = styled.div`
     position: relative;
-    margin: 0 auto;
+    margin: 40px auto 0 auto;
     max-width: 1100px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(30px, 120px));

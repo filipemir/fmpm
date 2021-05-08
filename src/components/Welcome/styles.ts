@@ -5,10 +5,9 @@ import {
     COLOR_BG_ACCENT,
     COLOR_PRIMARY,
     FONT_FAMILY_SERIF,
+    MOBILE_MAX_WIDTH,
     StyledBlurrableImage
 } from 'styles/global';
-
-const MOBILE_MAX_WIDTH = '800px';
 
 export const Root = styled.div`
     position: relative;
