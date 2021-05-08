@@ -12,6 +12,7 @@ import {
 export const Root = styled.div`
     position: relative;
     z-index: 0;
+    min-height: fit-content;
 `;
 
 export const Part1 = styled.div`
