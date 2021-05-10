@@ -35,6 +35,10 @@ export const TitleWrapper = styled.div`
     display: flex;
     justify-content: ${(p: { alignLeft: boolean }) =>
         p.alignLeft ? 'flex-start' : 'flex-end'};
+
+    a:hover:after {
+        border-bottom: none;
+    }
 `;
 
 export const DescriptionBoxWrapper = styled.div`
@@ -57,15 +61,14 @@ export const DescriptionBox = styled.div`
     padding: 30px 30px 30px 15px;
     position: relative;
     transition: transform 100ms ease-in-out;
-    width: calc(100% + 60px);
+    width: calc(100% + 80px);
     ${dynamicDescriptionBox};
 `;
 
 export const Description = styled.div`
-    font-size: 14px;
     color: ${COLOR_SECONDARY};
     letter-spacing: -0.26px;
-    line-height: 20px;
+    line-height: 1.5;
 `;
 
 const logoSize = '18px';

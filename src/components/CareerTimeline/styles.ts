@@ -4,14 +4,14 @@ import { css } from '@emotion/core';
 import {
     COLOR_ACCENT,
     COLOR_BG_ACCENT,
-    COLOR_TERNARY,
+    COLOR_SECONDARY,
     FONT_FAMILY_MONO
 } from 'styles/global';
 
 export const RootDiv = styled.div`
     font-family: ${FONT_FAMILY_MONO};
     font-size: 13px;
-    color: ${COLOR_TERNARY};
+    color: ${COLOR_SECONDARY};
     border-left: 1px solid ${COLOR_BG_ACCENT};
     position: relative;
     z-index: 0;
@@ -31,7 +31,7 @@ const TimelineItem = css`
 `;
 
 export const DynamicColor = ({ active }: { active: boolean }) =>
-    `color: ${active ? COLOR_ACCENT : COLOR_TERNARY};`;
+    `color: ${active ? COLOR_ACCENT : COLOR_SECONDARY};`;
 
 export const SectionHeader = styled.div`
     ${TimelineItem};

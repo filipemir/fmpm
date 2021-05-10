@@ -1,14 +1,14 @@
 import styled from '@emotion/styled';
 
 import { ExperienceRootDiv, TitleSpan } from 'styles/experience-cards';
-import { COLOR_TERNARY } from 'styles/global';
+import { COLOR_SECONDARY } from 'styles/global';
 
 export const RootDiv = ExperienceRootDiv;
 
 export const JobTitleSpan = TitleSpan;
 
 export const TeamSpan = styled.span`
-    color: ${COLOR_TERNARY};
+    color: ${COLOR_SECONDARY};
     white-space: nowrap;
 `;
 

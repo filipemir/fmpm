@@ -3,6 +3,7 @@ import {
     COLOR_ACCENT,
     COLOR_BG_ACCENT,
     COLOR_QUATERNARY,
+    COLOR_SECONDARY,
     COLOR_TERNARY,
     FONT_FAMILY_MONO,
     FONT_FAMILY_SANS_SERIF
@@ -24,6 +25,10 @@ export const ResumeSectionDiv = styled.div`
     font-family: ${FONT_FAMILY_MONO};
     margin-bottom: 2em;
     padding-top: 30px;
+
+    a:hover:after {
+        border-bottom: none;
+    }
 
     &:after {
         content: ' ';
@@ -51,7 +56,7 @@ export const ResumeSectionNameDiv = styled.div`
     white-space: nowrap;
 
     &:hover {
-        text-decoration: none;
+        border-bottom: none;
     }
 `;
 
@@ -68,14 +73,12 @@ export const DurationSpan = styled.span`
 
 export const TenureDescription = styled.div`
     font-family: ${FONT_FAMILY_SANS_SERIF};
-    color: ${COLOR_TERNARY};
-    line-height: 1.3;
+    color: ${COLOR_SECONDARY};
+    line-height: 1.7;
     font-size: 14px;
-    font-weight: 300;
     margin-bottom: 1.5em;
     border-left: 3px solid ${COLOR_BG_ACCENT};
     padding-left: 15px;
-    font-style: italic;
 `;
 
 export const ResumeItemDiv = styled.div`

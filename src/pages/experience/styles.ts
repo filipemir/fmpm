@@ -38,7 +38,7 @@ export const ResumeButton = styled.a`
     text-align: center;
 
     &:hover {
-        text-decoration: none;
+        border-bottom: none;
     }
 
     @media (max-width: 900px) {

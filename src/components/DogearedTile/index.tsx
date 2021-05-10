@@ -5,7 +5,6 @@ import { COLOR_BG_ACCENT, COLOR_QUATERNARY } from 'styles/global';
 const RootWithDropShadow = styled.div`
     filter: drop-shadow(5px 5px 0 ${COLOR_QUATERNARY});
     display: inline-block;
-    cursor: pointer;
 `;
 
 const Wrapper = styled.div`
