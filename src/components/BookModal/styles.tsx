@@ -53,8 +53,10 @@ export const StyledCover = styled(StyledBlurrableImage)`
 
 export const StyledInfo = styled.div`
     position: relative;
+    width: fit-content;
     top: -40%;
-    transform: translate(50%, -50%);
+    left: 100%;
+    transform: translate(-60%, 0);
 
     @media (max-width: ${MOBILE_THRESHOLD}) {
         max-width: 100%;
