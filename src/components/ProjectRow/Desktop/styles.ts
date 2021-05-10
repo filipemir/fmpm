@@ -35,6 +35,10 @@ export const TitleWrapper = styled.div`
     display: flex;
     justify-content: ${(p: { alignLeft: boolean }) =>
         p.alignLeft ? 'flex-start' : 'flex-end'};
+
+    a:hover:after {
+        border-bottom: none;
+    }
 `;
 
 export const DescriptionBoxWrapper = styled.div`

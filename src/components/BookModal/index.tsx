@@ -16,6 +16,8 @@ import {
 } from './styles';
 import useCancelKeydown from 'hooks/useCancelKeydown';
 import useProgressiveImg from 'hooks/useProgressiveImg';
+import useMedia from 'use-media';
+import { MOBILE_MAX_WIDTH } from 'styles/global';
 
 const getDateRangeString = (book: BookEntry) => {
     const { startDate, endDate } = book,
@@ -38,10 +40,11 @@ const BookModal = ({
     book: BookEntry;
     onClose?: () => void;
 }) => {
-    const { title, subtitle, cover, author, url } = book,
+    const { title, subtitle, cover, author } = book,
         { placeholder, images } = cover,
         [thumbnail, small, medium] = images,
         fullSize = medium || small || thumbnail,
+        isMobile = useMedia({ maxWidth: MOBILE_MAX_WIDTH }),
         { src, isLoading } = useProgressiveImg({
             initialImg: placeholder,
             finalImg: fullSize.path
@@ -52,11 +55,15 @@ const BookModal = ({
     return (
         <StyledRoot>
             <StyledModalShadowBox onClick={() => onClose && onClose()} />
-            <StyledContent onClick={() => window.open(url, '_blank')}>
-                <StyledCover src={src} blur={isLoading} />
+            <StyledContent>
+                <StyledCover
+                    src={src}
+                    blur={isLoading}
+                    style={{ maxHeight: isMobile ? '50vh' : fullSize.height }}
+                />
                 <StyledInfo>
                     <DogearedTile maxWidth={'350px'}>
-                        <StyledTitle href={url} target={'_blank'}>
+                        <StyledTitle>
                             {title}
                         </StyledTitle>
                         {subtitle && (

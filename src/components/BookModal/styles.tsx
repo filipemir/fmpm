@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import {
+    COLOR_ACCENT,
     COLOR_SECONDARY,
     COLOR_TERNARY,
     FONT_FAMILY_SANS_SERIF,
@@ -31,7 +32,6 @@ export const StyledContent = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    cursor: pointer;
 
     @media (max-width: ${MOBILE_THRESHOLD}) {
         height: auto;
@@ -41,6 +41,9 @@ export const StyledContent = styled.div`
 export const StyledCover = styled(StyledBlurrableImage)`
     height: 100%;
     box-shadow: rgba(2, 12, 27, 0.5) 10px 20px 30px 0;
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
 
     @media (max-width: ${MOBILE_THRESHOLD}) {
         height: auto;
@@ -48,17 +51,21 @@ export const StyledCover = styled(StyledBlurrableImage)`
         max-width: 95vw;
         object-fit: cover;
         object-position: center center;
+        transform: unset;
+        top: unset;
+        position: unset;
     }
 `;
 
 export const StyledInfo = styled.div`
-    position: relative;
+    position: absolute;
     width: fit-content;
-    top: -40%;
+    top: 50%;
     left: 100%;
-    transform: translate(-60%, 0);
+    transform: translate(-60%, -50%);
 
     @media (max-width: ${MOBILE_THRESHOLD}) {
+        position: relative;
         max-width: 100%;
         left: 30px;
         top: -40px;
@@ -66,7 +73,8 @@ export const StyledInfo = styled.div`
     }
 `;
 
-export const StyledTitle = styled.a`
+export const StyledTitle = styled.div`
+    color: ${COLOR_ACCENT};
     font-style: italic;
     font-family: ${FONT_FAMILY_SANS_SERIF};
     font-size: 18px;
