@@ -27,7 +27,7 @@ export const StyledModalShadowBox = styled.div`
 
 export const StyledContent = styled.div`
     position: absolute;
-    height: 600px;
+    height: 80vh;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

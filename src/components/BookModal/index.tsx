@@ -53,11 +53,7 @@ const BookModal = ({
         <StyledRoot>
             <StyledModalShadowBox onClick={() => onClose && onClose()} />
             <StyledContent onClick={() => window.open(url, '_blank')}>
-                <StyledCover
-                    src={src}
-                    blur={isLoading}
-                    style={{ height: fullSize.height }}
-                />
+                <StyledCover src={src} blur={isLoading} />
                 <StyledInfo>
                     <DogearedTile maxWidth={'350px'}>
                         <StyledTitle href={url} target={'_blank'}>
