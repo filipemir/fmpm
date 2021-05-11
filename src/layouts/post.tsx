@@ -8,6 +8,7 @@ import {
     COLOR_PRIMARY,
     COLOR_QUATERNARY,
     FONT_FAMILY_SERIF,
+    MOBILE_MAX_WIDTH,
     PADDING_TOP_PAGE
 } from 'styles/global';
 
@@ -86,6 +87,40 @@ const code = styled.code`
     font-weight: 400;
 `;
 
+export const blockquote = styled.blockquote`
+    ${baseTextStyles};
+    font-style: italic;
+    position: relative;
+    font-size: 1.1em;
+    padding: 15px 30px;
+    box-sizing: border-box;
+    line-height: 1.4;
+    max-width: 650px;
+    z-index: 0;
+    background-color: ${COLOR_QUATERNARY};
+    border-radius: 6px;
+
+    * {
+        max-width: unset;
+        margin: 0;
+    }
+
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
+        padding: 10px;
+    }
+
+    &:before {
+        z-index: -10;
+        top: -40px;
+        left: -10px;
+        position: absolute;
+        content: '“';
+        color: #bc412480;
+        font-size: 80px;
+        text-shadow: 2px 4px 0 ${COLOR_BG_ACCENT};
+    }
+`;
+
 export const Root = styled.main`
     font-family: ${FONT_FAMILY_SERIF};
     color: ${COLOR_PRIMARY};
@@ -106,6 +141,14 @@ export const Root = styled.main`
 
     > div {
         margin: 1em auto;
+    }
+
+    figcaption {
+        ${baseTextStyles};
+        text-align: center;
+        font-size: 0.9em;
+        font-style: italic;
+        margin-top: -15px;
     }
 `;
 
@@ -128,7 +171,8 @@ export default function Layout({ children }: LayoutProps) {
                     ol,
                     ul,
                     strong,
-                    code
+                    code,
+                    blockquote
                 }}
             >
                 {children}
