@@ -77,9 +77,12 @@ const strong = styled.strong`
     font-weight: 500;
 `;
 
-const pre = styled.pre``;
-
 const code = styled.code`
+    background-color: ${COLOR_QUATERNARY};
+    color: ${COLOR_ACCENT};
+    border-radius: 6px;
+    padding-left: 0.3ch;
+    padding-right: 0.3ch;
     font-weight: 400;
 `;
 
@@ -125,7 +128,6 @@ export default function Layout({ children }: LayoutProps) {
                     ol,
                     ul,
                     strong,
-                    pre,
                     code
                 }}
             >
