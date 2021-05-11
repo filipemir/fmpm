@@ -87,6 +87,17 @@ const code = styled.code`
     font-weight: 400;
 `;
 
+const hr = styled.hr`
+    border-top: 1px solid ${COLOR_QUATERNARY};
+    max-width: 500px;
+    margin: 20px auto;
+`;
+
+const del = styled.del`
+    text-decoration-color: #bc412480;
+    text-decoration-thickness: 3px;
+`;
+
 export const blockquote = styled.blockquote`
     ${baseTextStyles};
     font-style: italic;
@@ -172,7 +183,9 @@ export default function Layout({ children }: LayoutProps) {
                     ul,
                     strong,
                     code,
-                    blockquote
+                    blockquote,
+                    hr,
+                    del: del
                 }}
             >
                 {children}
