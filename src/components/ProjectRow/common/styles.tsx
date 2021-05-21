@@ -25,8 +25,8 @@ export const Title = styled.a`
     font-weight: 400;
     font-family: ${FONT_FAMILY_MONO};
 
-    &:hover {
-        border-bottom: none;
+    &:hover:after {
+        display: none;
     }
 `;
 

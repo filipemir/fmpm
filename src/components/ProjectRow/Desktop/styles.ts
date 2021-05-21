@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { COLOR_ACCENT, COLOR_BG_ACCENT, COLOR_SECONDARY } from 'styles/global';
+import {
+    COLOR_ACCENT,
+    COLOR_BG_ACCENT,
+    COLOR_SECONDARY
+} from 'styles/global';
 
 export const Root = styled.div`
     position: relative;
@@ -36,8 +40,8 @@ export const TitleWrapper = styled.div`
     justify-content: ${(p: { alignLeft: boolean }) =>
         p.alignLeft ? 'flex-start' : 'flex-end'};
 
-    a:hover:after {
-        border-bottom: none;
+    > a:hover:after {
+        display: none;
     }
 `;
 

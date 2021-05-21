@@ -8,6 +8,7 @@ export const FONT_FAMILY_SERIF = 'FF Tisa, Georgia, serif';
 export const COLOR_BG = '#F0EFEF';
 export const COLOR_BG_ACCENT = '#FFFFFF';
 export const COLOR_ACCENT = '#BC4124';
+export const COLOR_ACCENT_LIGHT = '#e5ccc6';
 export const COLOR_PRIMARY = 'rgba(74,74,74,0.91)';
 export const COLOR_SECONDARY = '#848282';
 export const COLOR_TERNARY = '#B4B4B4';
@@ -41,7 +42,7 @@ const globalCss = css`
         margin: 0;
 
         *::selection {
-            background-color: #e5ccc6;
+            background-color: ${COLOR_ACCENT_LIGHT};
         }
     }
 
@@ -49,16 +50,19 @@ const globalCss = css`
         color: ${COLOR_ACCENT};
         text-decoration: none;
         position: relative;
+        z-index: 0;
 
         &:hover {
             &:after {
+                z-index: -10;
                 width: 100%;
                 content: ' ';
                 position: absolute;
-                bottom: 0;
+                bottom: 0.1em;
                 left: 0;
-                border-bottom: 1px dashed ${COLOR_ACCENT};
-                animation: grow 400ms forwards ease-in-out;
+                height: 10px;
+                background-color: ${COLOR_BG_ACCENT};
+                animation: grow 250ms forwards ease-in-out;
             }
         }
 
