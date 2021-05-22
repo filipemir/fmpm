@@ -11,6 +11,7 @@ import {
     MOBILE_MAX_WIDTH,
     PADDING_TOP_PAGE
 } from 'styles/global';
+import format from 'date-fns/format';
 
 const baseTextStyles = css`
     max-width: 600px;
@@ -28,7 +29,7 @@ const baseHeaderStyles = css`
     line-height: 1;
 `;
 
-const h1 = styled.h1`
+const Title = styled.h1`
     ${baseHeaderStyles};
     color: ${COLOR_ACCENT};
     max-width: 700px;
@@ -148,6 +149,7 @@ export const Root = styled.main`
         box-shadow: -10px 10px ${COLOR_QUATERNARY};
         border-radius: 6px;
         max-width: 70ch;
+        margin-bottom: 30px;
     }
 
     > div {
@@ -163,16 +165,29 @@ export const Root = styled.main`
     }
 `;
 
+interface Frontmatter {
+    title: string;
+    date: string;
+    subtitle?: string;
+}
+
 interface LayoutProps {
+    pageContext: {
+        frontmatter: Frontmatter;
+    };
     children: ReactNode;
 }
 
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ pageContext, children }: LayoutProps) {
+    const { title, subtitle, date } = pageContext.frontmatter,
+        formattedDate = format(new Date(date), 'MMMM d, yyy');
     return (
         <Root>
+            <Title>{title}</Title>
+            <div>{subtitle}</div>
+            <div>{formattedDate}</div>
             <MDXProvider
                 components={{
-                    h1,
                     h2,
                     h3,
                     h4,
