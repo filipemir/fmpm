@@ -41,6 +41,7 @@
         "gatsby-plugin-prettier-eslint": "1.0.4",
         "gatsby-plugin-react-helmet": "3.2.2",
         "gatsby-plugin-sharp": "2.5.3",
+        "gatsby-remark-images": "5.2.1",
         "gatsby-remark-prismjs": "3.13.0",
         "gatsby-transformer-sharp": "2.4.3",
         "hamburgers": "1.1.3",

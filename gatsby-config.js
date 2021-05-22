@@ -111,6 +111,12 @@ module.exports = {
                 gatsbyRemarkPlugins: [
                     {
                         resolve: `gatsby-remark-prismjs`
+                    },
+                    {
+                        resolve: `gatsby-remark-images`,
+                        options: {
+                            maxWidth: 590
+                        }
                     }
                 ],
                 defaultLayouts: {
