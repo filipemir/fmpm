@@ -8,7 +8,7 @@
     "scripts": {
         "build": "yarn type-check && gatsby build",
         "start": "gatsby develop",
-        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,mdx}\"",
         "serve": "gatsby serve",
         "clean": "gatsby clean",
         "test": "yarn type-check",
