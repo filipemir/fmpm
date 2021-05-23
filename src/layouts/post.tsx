@@ -7,11 +7,15 @@ import {
     COLOR_BG_ACCENT,
     COLOR_PRIMARY,
     COLOR_QUATERNARY,
+    COLOR_SECONDARY,
+    FONT_FAMILY_MONO,
     FONT_FAMILY_SERIF,
     MOBILE_MAX_WIDTH,
     PADDING_TOP_PAGE
 } from 'styles/global';
 import format from 'date-fns/format';
+import { SlashDiv } from '../components/ProjectRow/common/styles';
+import Underline from '../images/underline.svg';
 
 const baseTextStyles = css`
     max-width: 600px;
@@ -25,17 +29,34 @@ const baseHeaderStyles = css`
     font-weight: 400;
     z-index: 2;
     text-shadow: 1px 2px 0 ${COLOR_BG_ACCENT};
-    font-style: italic;
     line-height: 1;
 `;
 
 const Title = styled.h1`
     ${baseHeaderStyles};
-    color: ${COLOR_ACCENT};
+    display: inline-block;
+    position: relative;
+    color: ${COLOR_PRIMARY};
     max-width: 700px;
     text-shadow: 2px 4px 0 ${COLOR_BG_ACCENT};
     font-size: 45px;
-    margin: 50px auto 40px auto;
+    margin: 0 auto;
+`;
+
+const SubTitle = styled.div`
+    margin-top: 20px;
+    font-size: 22px;
+    color: ${COLOR_SECONDARY};
+    text-align: center;
+`;
+
+const PostDate = styled.div`
+    font-size: 14px;
+    color: ${COLOR_ACCENT};
+    font-family: ${FONT_FAMILY_MONO};
+    margin-top: 20px;
+    text-align: center;
+    //font-weight: 400;
 `;
 
 const h2 = styled.h2`
@@ -86,17 +107,14 @@ const code = styled.code`
     padding-left: 0.3ch;
     padding-right: 0.3ch;
     font-weight: 400;
+    font-style: normal;
+    text-shadow: none;
 `;
 
 const hr = styled.hr`
     border-top: 1px solid ${COLOR_QUATERNARY};
     max-width: 500px;
     margin: 20px auto;
-`;
-
-const del = styled.del`
-    text-decoration-color: #bc412480;
-    text-decoration-thickness: 3px;
 `;
 
 export const blockquote = styled.blockquote`
@@ -178,14 +196,29 @@ interface LayoutProps {
     children: ReactNode;
 }
 
+const PostHeader = styled.div`
+    padding: 30px 0 5px 0;
+    position: relative;
+    transition: transform 100ms ease-in-out;
+    max-width: 700px;
+    text-align: center;
+`;
+
 export default function Layout({ pageContext, children }: LayoutProps) {
     const { title, subtitle, date } = pageContext.frontmatter,
         formattedDate = format(new Date(date), 'MMMM d, yyy');
     return (
         <Root>
-            <Title>{title}</Title>
-            <div>{subtitle}</div>
-            <div>{formattedDate}</div>
+            <PostHeader>
+                <Title>
+                    {title}
+                    <SlashDiv>
+                        <Underline />
+                    </SlashDiv>
+                </Title>
+                {/*{subtitle && <SubTitle>{subtitle}</SubTitle>}*/}
+                <PostDate>{formattedDate}</PostDate>
+            </PostHeader>
             <MDXProvider
                 components={{
                     h2,
@@ -199,8 +232,7 @@ export default function Layout({ pageContext, children }: LayoutProps) {
                     strong,
                     code,
                     blockquote,
-                    hr,
-                    del: del
+                    hr
                 }}
             >
                 {children}
