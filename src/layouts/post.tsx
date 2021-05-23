@@ -181,6 +181,16 @@ export const Root = styled.main`
         font-style: italic;
         margin-top: -15px;
     }
+
+    a.anchor {
+        svg {
+            fill: ${COLOR_ACCENT};
+        }
+
+        :after {
+            display: none;
+        }
+    }
 `;
 
 interface Frontmatter {

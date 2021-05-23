@@ -110,7 +110,8 @@ module.exports = {
             options: {
                 plugins: [
                     'gatsby-remark-images',
-                    `gatsby-remark-images-medium-zoom`
+                    'gatsby-remark-images-medium-zoom',
+                    'gatsby-remark-autolink-headers'
                 ],
                 gatsbyRemarkPlugins: [
                     {
@@ -127,9 +128,11 @@ module.exports = {
                     },
                     {
                         resolve: `gatsby-remark-images-medium-zoom`, // Important!
-                        options: {
-                            background: 'black'
-                        }
+                        options: {}
+                    },
+                    {
+                        resolve: `gatsby-remark-autolink-headers`,
+                        options: {}
                     }
                 ],
                 defaultLayouts: {
