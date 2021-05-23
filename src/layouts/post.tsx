@@ -7,14 +7,11 @@ import {
     COLOR_BG_ACCENT,
     COLOR_PRIMARY,
     COLOR_QUATERNARY,
-    FONT_FAMILY_MONO,
     FONT_FAMILY_SERIF,
     MOBILE_MAX_WIDTH,
     PADDING_TOP_PAGE
 } from 'styles/global';
-import format from 'date-fns/format';
-import { SlashDiv } from '../components/ProjectRow/common/styles';
-import Underline from '../images/underline.svg';
+import BlogPostHeader from '../components/BlogPostHeader';
 
 const baseTextStyles = css`
     max-width: 600px;
@@ -31,36 +28,13 @@ const baseHeaderStyles = css`
     line-height: 1;
 `;
 
-const Title = styled.h1`
-    ${baseHeaderStyles};
-    display: inline-block;
-    position: relative;
-    color: ${COLOR_PRIMARY};
-    max-width: 700px;
-    text-shadow: 2px 4px 0 ${COLOR_BG_ACCENT};
-    font-size: 45px;
-    margin: 0 auto;
-
-    @media (max-width: ${MOBILE_MAX_WIDTH}) {
-        font-size: 32px;
-    }
-`;
-
-const PostDate = styled.div`
-    font-size: 14px;
-    color: ${COLOR_ACCENT};
-    font-family: ${FONT_FAMILY_MONO};
-    margin-top: 20px;
-    text-align: center;
-
-    @media (max-width: ${MOBILE_MAX_WIDTH}) {
-        margin-top: 10px;
-    }
-`;
-
 const h2 = styled.h2`
     ${baseHeaderStyles};
     font-size: 30px;
+
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
+        font-size: 26px;
+    }
 `;
 
 const h3 = styled.h3`
@@ -190,6 +164,11 @@ export const Root = styled.main`
             display: none;
         }
     }
+
+    .footnotes {
+        padding: 0;
+        font-size: 0.9em;
+    }
 `;
 
 interface Frontmatter {
@@ -205,32 +184,11 @@ interface LayoutProps {
     children: ReactNode;
 }
 
-const PostHeader = styled.div`
-    padding: 30px 0 5px 0;
-    position: relative;
-    transition: transform 100ms ease-in-out;
-    max-width: 700px;
-    text-align: center;
-
-    @media (max-width: ${MOBILE_MAX_WIDTH}) {
-        padding-top: 0;
-    }
-`;
-
 export default function Layout({ pageContext, children }: LayoutProps) {
-    const { title, date } = pageContext.frontmatter,
-        formattedDate = format(new Date(date), 'MMMM d, yyy');
+    const { title, date } = pageContext.frontmatter;
     return (
         <Root>
-            <PostHeader>
-                <Title>
-                    {title}
-                    <SlashDiv>
-                        <Underline />
-                    </SlashDiv>
-                </Title>
-                <PostDate>{formattedDate}</PostDate>
-            </PostHeader>
+            <BlogPostHeader title={title} date={date} />
             <MDXProvider
                 components={{
                     h2,
