@@ -1,5 +1,10 @@
 import styled from '@emotion/styled';
-import { COLOR_ACCENT, COLOR_BG_ACCENT, FONT_FAMILY_MONO } from 'styles/global';
+import {
+    COLOR_ACCENT,
+    COLOR_BG_ACCENT,
+    FONT_FAMILY_MONO,
+    MOBILE_MAX_WIDTH
+} from 'styles/global';
 
 export const SlashDiv = styled.div`
     position: absolute;
@@ -12,6 +17,10 @@ export const SlashDiv = styled.div`
     transform: translate(-50%, -50%);
 
     div {
+        height: 100%;
+    }
+
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
         height: 100%;
     }
 `;

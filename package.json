@@ -42,6 +42,7 @@
         "gatsby-plugin-react-helmet": "3.2.2",
         "gatsby-plugin-sharp": "2.5.3",
         "gatsby-remark-autolink-headers": "4.2.0",
+        "gatsby-remark-footnotes": "0.0.8",
         "gatsby-remark-images": "5.2.1",
         "gatsby-remark-images-medium-zoom": "1.7.0",
         "gatsby-remark-prismjs": "3.13.0",

@@ -127,12 +127,19 @@ module.exports = {
                         }
                     },
                     {
-                        resolve: `gatsby-remark-images-medium-zoom`, // Important!
-                        options: {}
+                        resolve: `gatsby-remark-images-medium-zoom` // Important!
                     },
                     {
-                        resolve: `gatsby-remark-autolink-headers`,
-                        options: {}
+                        resolve: `gatsby-remark-autolink-headers`
+                    },
+                    {
+                        resolve: `gatsby-remark-footnotes`,
+                        options: {
+                            footnoteBackRefPreviousElementDisplay: 'inline',
+                            footnoteBackRefDisplay: 'inline',
+                            footnoteBackRefInnerText: '^',
+                            footnoteBackRefAnchorStyle: `text-decoration: none;`
+                        }
                     }
                 ],
                 defaultLayouts: {

@@ -7,7 +7,6 @@ import {
     COLOR_BG_ACCENT,
     COLOR_PRIMARY,
     COLOR_QUATERNARY,
-    COLOR_SECONDARY,
     FONT_FAMILY_MONO,
     FONT_FAMILY_SERIF,
     MOBILE_MAX_WIDTH,
@@ -41,13 +40,10 @@ const Title = styled.h1`
     text-shadow: 2px 4px 0 ${COLOR_BG_ACCENT};
     font-size: 45px;
     margin: 0 auto;
-`;
 
-const SubTitle = styled.div`
-    margin-top: 20px;
-    font-size: 22px;
-    color: ${COLOR_SECONDARY};
-    text-align: center;
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
+        font-size: 32px;
+    }
 `;
 
 const PostDate = styled.div`
@@ -56,7 +52,10 @@ const PostDate = styled.div`
     font-family: ${FONT_FAMILY_MONO};
     margin-top: 20px;
     text-align: center;
-    //font-weight: 400;
+
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
+        margin-top: 10px;
+    }
 `;
 
 const h2 = styled.h2`
@@ -212,10 +211,14 @@ const PostHeader = styled.div`
     transition: transform 100ms ease-in-out;
     max-width: 700px;
     text-align: center;
+
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
+        padding-top: 0;
+    }
 `;
 
 export default function Layout({ pageContext, children }: LayoutProps) {
-    const { title, subtitle, date } = pageContext.frontmatter,
+    const { title, date } = pageContext.frontmatter,
         formattedDate = format(new Date(date), 'MMMM d, yyy');
     return (
         <Root>
@@ -226,7 +229,6 @@ export default function Layout({ pageContext, children }: LayoutProps) {
                         <Underline />
                     </SlashDiv>
                 </Title>
-                {/*{subtitle && <SubTitle>{subtitle}</SubTitle>}*/}
                 <PostDate>{formattedDate}</PostDate>
             </PostHeader>
             <MDXProvider
