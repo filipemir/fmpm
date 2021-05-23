@@ -87,6 +87,10 @@ const globalCss = css`
     #gatsby-focus-wrapper {
         height: 100%;
     }
+
+    .medium-zoom-overlay {
+        background-color: rgba(0, 0, 0, 0.6) !important;
+    }
 `;
 
 export default globalCss;

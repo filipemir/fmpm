@@ -108,6 +108,10 @@ module.exports = {
         {
             resolve: `gatsby-plugin-mdx`,
             options: {
+                plugins: [
+                    'gatsby-remark-images',
+                    `gatsby-remark-images-medium-zoom`
+                ],
                 gatsbyRemarkPlugins: [
                     {
                         resolve: `gatsby-remark-prismjs`
@@ -115,7 +119,16 @@ module.exports = {
                     {
                         resolve: `gatsby-remark-images`,
                         options: {
-                            maxWidth: 590
+                            maxWidth: 850,
+                            linkImagesToOriginal: false,
+                            quality: 85,
+                            withWebp: true
+                        }
+                    },
+                    {
+                        resolve: `gatsby-remark-images-medium-zoom`, // Important!
+                        options: {
+                            background: 'black'
                         }
                     }
                 ],
