@@ -38,7 +38,12 @@ module.exports = {
         `gatsby-plugin-react-svg`,
         `gatsby-plugin-layout`,
         `gatsby-plugin-react-helmet`,
-        `gatsby-plugin-sitemap`,
+        {
+            resolve: `gatsby-plugin-sitemap`,
+            options: {
+                exclude: ['/hello-world']
+            }
+        },
         {
             resolve: 'gatsby-plugin-page-creator',
             options: {
@@ -89,6 +94,63 @@ module.exports = {
                         fix: true,
                         cache: true
                     }
+                }
+            }
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `posts`,
+                path: path.join(__dirname, `src`, `posts`)
+            }
+        },
+        {
+            resolve: 'gatsby-plugin-page-creator',
+            options: {
+                path: `${__dirname}/src/posts`
+            }
+        },
+        {
+            resolve: `gatsby-plugin-mdx`,
+            options: {
+                plugins: [
+                    'gatsby-remark-images',
+                    'gatsby-remark-images-medium-zoom',
+                    'gatsby-remark-autolink-headers'
+                ],
+                gatsbyRemarkPlugins: [
+                    {
+                        resolve: `gatsby-remark-prismjs`
+                    },
+                    {
+                        resolve: `gatsby-remark-images`,
+                        options: {
+                            maxWidth: 850,
+                            linkImagesToOriginal: false,
+                            quality: 85,
+                            withWebp: true
+                        }
+                    },
+                    {
+                        resolve: `gatsby-remark-images-medium-zoom` // Important!
+                    },
+                    {
+                        resolve: `gatsby-remark-autolink-headers`
+                    },
+                    {
+                        resolve: `gatsby-remark-footnotes`,
+                        options: {
+                            footnoteBackRefPreviousElementDisplay: 'inline',
+                            footnoteBackRefDisplay: 'inline',
+                            footnoteBackRefInnerText: '^',
+                            footnoteBackRefAnchorStyle: `text-decoration: none;`
+                        }
+                    }
+                ],
+                defaultLayouts: {
+                    default: require.resolve(
+                        `${__dirname}/src/layouts/post.tsx`
+                    )
                 }
             }
         }

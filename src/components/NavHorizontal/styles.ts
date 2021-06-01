@@ -29,7 +29,7 @@ export const PageDivWrapper = styled.div`
     display: inline-block;
 
     a:hover:after {
-        border-bottom: none;
+        display: none;
     }
 `;
 

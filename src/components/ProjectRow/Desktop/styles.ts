@@ -36,8 +36,8 @@ export const TitleWrapper = styled.div`
     justify-content: ${(p: { alignLeft: boolean }) =>
         p.alignLeft ? 'flex-start' : 'flex-end'};
 
-    a:hover:after {
-        border-bottom: none;
+    > a:hover:after {
+        display: none;
     }
 `;
 

@@ -1,5 +1,10 @@
 import styled from '@emotion/styled';
-import { COLOR_ACCENT, COLOR_BG_ACCENT, FONT_FAMILY_MONO } from 'styles/global';
+import {
+    COLOR_ACCENT,
+    COLOR_BG_ACCENT,
+    FONT_FAMILY_MONO,
+    MOBILE_MAX_WIDTH
+} from 'styles/global';
 
 export const SlashDiv = styled.div`
     position: absolute;
@@ -14,6 +19,10 @@ export const SlashDiv = styled.div`
     div {
         height: 100%;
     }
+
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
+        height: 100%;
+    }
 `;
 
 export const Title = styled.a`
@@ -25,8 +34,8 @@ export const Title = styled.a`
     font-weight: 400;
     font-family: ${FONT_FAMILY_MONO};
 
-    &:hover {
-        border-bottom: none;
+    &:hover:after {
+        display: none;
     }
 `;
 

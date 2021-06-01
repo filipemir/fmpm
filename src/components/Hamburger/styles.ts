@@ -82,8 +82,8 @@ export const PageDivWrapper = styled.div`
     text-align: center;
     font-size: 18px;
 
-    a:hover {
-        border-bottom: none;
+    a:hover:after {
+        display: none;
     }
 `;
 

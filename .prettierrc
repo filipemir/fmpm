@@ -6,6 +6,7 @@
   "tabWidth": 4,
   "trailingComma": "none",
   "printWidth": 80,
+  "proseWrap": "always",
   "overrides": [
     {
       "files": "*.ts?(x)",

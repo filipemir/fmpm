@@ -25,6 +25,10 @@ export const FooterLinks = styled.div`
     width: 100%;
     text-align: center;
     margin-bottom: 20px;
+
+    a:hover:after {
+        display: none;
+    }
 `;
 
 export const ExternalLinkSvg = styled.a`

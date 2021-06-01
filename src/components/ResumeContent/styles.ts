@@ -26,8 +26,8 @@ export const ResumeSectionDiv = styled.div`
     margin-bottom: 2em;
     padding-top: 30px;
 
-    a:hover:after {
-        border-bottom: none;
+    > a:hover:after {
+        display: none;
     }
 
     &:after {
@@ -54,10 +54,6 @@ export const ResumeSectionNameDiv = styled.div`
     position: relative;
     display: inline-block;
     white-space: nowrap;
-
-    &:hover {
-        border-bottom: none;
-    }
 `;
 
 export const DurationSpan = styled.span`

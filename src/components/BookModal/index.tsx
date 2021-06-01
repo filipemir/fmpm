@@ -63,9 +63,7 @@ const BookModal = ({
                 />
                 <StyledInfo>
                     <DogearedTile maxWidth={'350px'}>
-                        <StyledTitle>
-                            {title}
-                        </StyledTitle>
+                        <StyledTitle>{title}</StyledTitle>
                         {subtitle && (
                             <StyledSubtitle>{subtitle}</StyledSubtitle>
                         )}
