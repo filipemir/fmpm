@@ -19,7 +19,7 @@ export default function HomePage() {
             />
             <Section>
                 <SectionHeaderWrapper>
-                    <Header text={'experience'} emoji={'🎩'} />
+                    <Header text={'experience'} emoji={'👨‍💻'} />
                 </SectionHeaderWrapper>
                 <SectionIntro>
                     <Note>

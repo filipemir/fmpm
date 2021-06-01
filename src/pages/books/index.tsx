@@ -15,7 +15,7 @@ const DESCRIPTION = "Books I've read over the years";
 export default function BooksPage() {
     const isMobile = useMedia({ maxWidth: '900px' }),
         { books, getMoreBooks } = usePaginatedBooks({
-            pageSize: isMobile ? 20 : 40
+            pageSize: isMobile ? 30 : 80
         }),
         lastBook = books && books[books.length - 1];
     return (
@@ -30,13 +30,9 @@ export default function BooksPage() {
                     <Header text={'books'} emoji={'📚'} />
                 </SectionHeaderWrapper>
                 <SectionIntro>
-                    I can&apos;t for the life of me remember the books I read
-                    more than a few weeks ago. For years, I used Goodreads to
-                    keep track of them, but I really didn&apos;t get anything
-                    out of its social features. So here is a running list of the
-                    books I&apos;ve finished over the years, for my own personal
-                    recollection and as a window into what I&apos;ve been
-                    curious about.
+                    A running list of the books I&apos;ve finished over the
+                    years, for my own personal recollection and as a window into
+                    some of what I&apos;ve been curious about.
                     <div>
                         Know of a book you think I&apos;d like?{' '}
                         <a
