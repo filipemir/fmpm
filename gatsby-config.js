@@ -38,7 +38,12 @@ module.exports = {
         `gatsby-plugin-react-svg`,
         `gatsby-plugin-layout`,
         `gatsby-plugin-react-helmet`,
-        `gatsby-plugin-sitemap`,
+        {
+            resolve: `gatsby-plugin-sitemap`,
+            options: {
+                exclude: ['/hello-world']
+            }
+        },
         {
             resolve: 'gatsby-plugin-page-creator',
             options: {
