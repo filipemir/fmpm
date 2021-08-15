@@ -3,9 +3,9 @@ import parseISO from 'date-fns/parseISO';
 import { Job, Org } from 'models/experience';
 import { Tech } from 'models/tech';
 
-export const buoySoftwareEngineer: Job = {
+export const buoyLeadEngineer: Job = {
     company: Org.ST,
-    title: 'Senior Software Engineer',
+    title: 'Lead Software Engineer',
     team: 'Care Marketplace Team',
     technologies: [
         Tech.PYTHON,
@@ -15,10 +15,23 @@ export const buoySoftwareEngineer: Job = {
         Tech.STORYBOOK,
         Tech.K8S
     ],
+    startDate: parseISO('2021-07'),
+    description: `I’m a lead engineer on the team that directs people to the 
+        most appropriate health care providers, working across the stack to 
+        develop and release new user-facing features and products. 
+        A large part of my role has also been that of an advocate for better 
+        quality-assurance as our engineering organization grows. 
+        In practice, that has involved work like identifying and removing 
+        roadblocks to wider adoption of automated testing and static analysis, 
+        as well as educating teams on how to get the most out of these tools.`
+};
+
+export const buoySoftwareEngineer: Job = {
+    company: Org.ST,
+    title: 'Senior Software Engineer',
+    team: 'Care Marketplace Team',
     startDate: parseISO('2020-06'),
-    description: `At Buoy, I'm a member of the small team responsible for directing our users
-        to whatever healthcare providers best fit their needs. It's a full-stack role revolving
-        around a number of React frontends and Django microservices.`
+    endDate: parseISO('2021-07')
 };
 
 export const stSoftwareEngineer: Job = {

@@ -8,6 +8,7 @@ import {
 import {
     adventTeacher,
     americorps,
+    buoyLeadEngineer,
     buoySoftwareEngineer,
     crbAnalyst,
     crbResearchAssociate,
@@ -35,10 +36,11 @@ import buoyLogo from 'images/logos/buoy.jpeg';
 
 const Buoy: Tenure = {
     company: Org.BUOY,
-    jobs: [buoySoftwareEngineer],
+    jobs: [buoyLeadEngineer, buoySoftwareEngineer],
     logo: buoyLogo,
     url: 'https://www.buoyhealth.com/',
-    description: `Buoy is an AI-powered health assistant that helps people make the best decisions about their health.`
+    description: `Buoy is a digital health tool that aims to help people make 
+        the best possible decisions about their health.`
 };
 
 const ST: Tenure = {
@@ -46,9 +48,10 @@ const ST: Tenure = {
     jobs: [stSoftwareEngineer, stIntegrationEngineer],
     logo: stLogo,
     url: 'https://www.wearesmartertravel.com/',
-    description: `SmarterTravel is a subsidiary of TripAdvisor that owns a network of travel-content
-        sites. When I first joined the team we also ran an ad syndication platform. I've been fortunate to work 
-        across the stack on both sides of the business.`
+    description: `SmarterTravel was a subsidiary of TripAdvisor that owned and 
+        operated a large network of travel-content sites as well as the leading
+        travel ad network. I was fortunate to work across the stack on both
+        sides of the business during my four years there.`
 };
 
 const Launch: Tenure = {
