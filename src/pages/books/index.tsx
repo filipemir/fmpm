@@ -2,7 +2,7 @@ import React from 'react';
 import { Waypoint } from 'react-waypoint';
 import { StyledRoot } from './styles';
 import Header from 'components/Header';
-import Helmet from 'components/Helmet';
+import SEO from 'components/SEO';
 import Page from 'models/page';
 import { SectionHeaderWrapper, SectionIntro, Section } from 'styles/sections';
 import BookGrid from 'components/BookGrid';
@@ -20,8 +20,8 @@ export default function BooksPage() {
         lastBook = books && books[books.length - 1];
     return (
         <StyledRoot>
-            <Helmet
-                page={Page.PROJECTS}
+            <SEO
+                page={Page.BOOKS}
                 pageTitle='Books'
                 description={DESCRIPTION}
             />

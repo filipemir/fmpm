@@ -13,7 +13,7 @@ import TechTag from 'components/TechTag';
 import GithubSvg from 'images/github.svg';
 import Underline from 'images/underline.svg';
 import { ProjectRowProps } from 'components/ProjectRow/common/props';
-import ConnectedFakeBrowser from 'components/FakeBrowser/connected';
+import FakeBrowser from 'components/FakeBrowser';
 
 export default function ProjectRowMobile({ project }: ProjectRowProps) {
     const { name, description, url, githubUrl, technologies } = project;
@@ -31,7 +31,7 @@ export default function ProjectRowMobile({ project }: ProjectRowProps) {
                 </SlashDiv>
             </Title>
             <Preview>
-                <ConnectedFakeBrowser project={project} />
+                <FakeBrowser project={project} />
                 <DescriptionBoxWrapper>
                     <Description>{parse(description)}</Description>
                 </DescriptionBoxWrapper>

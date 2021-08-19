@@ -44,9 +44,8 @@ node_modules/
 # dotenv environment variable files
 .env*
 
-# gatsby files
-.cache/
-public
+# next files
+.next
 
 # Mac files
 .DS_Store
@@ -61,3 +60,5 @@ yarn-error.log
 #IDEs
 .idea
 fmpm.iml
+
+*.tsbuildinfo

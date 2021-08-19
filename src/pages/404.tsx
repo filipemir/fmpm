@@ -1,5 +1,6 @@
 import React from 'react';
-import Helmet from 'components/Helmet';
+import Image from 'next/image'
+import SEO from 'components/SEO';
 import styled from '@emotion/styled';
 import {
     COLOR_ACCENT,
@@ -10,7 +11,7 @@ import {
 import SHAME from 'images/shame.gif';
 import Emoji from 'a11y-react-emoji';
 import Underline from 'images/underline.svg';
-import { Link } from 'gatsby';
+import Link from 'next/link';
 import sample from 'lodash/sample';
 
 const MOBILE_THRESHOLD = '800px';
@@ -85,7 +86,7 @@ const StyledP = styled.p`
         font-size: 18px;
 `;
 
-const StyledShameImg = styled.img`
+const StyledShameImg = styled(Image)`
     margin: 0 auto;
     width: 100%;
 `;
@@ -96,7 +97,7 @@ export default function FourOhFourPage() {
 
     return (
         <StyledRoot>
-            <Helmet />
+            <SEO />
             <h1>
                 <StyledHeaderContent>
                     <Emoji symbol={'☠️'} />
@@ -118,8 +119,8 @@ export default function FourOhFourPage() {
                         or not here.
                     </StyledP>
                     <StyledP>
-                        <Link to={'/'}>Head back</Link> or click{' '}
-                        <Link to={randomDestination}>here</Link> to go to a
+                        <Link href={'/'}><a>Head back</a></Link> or click{' '}
+                        <Link href={randomDestination}><a>here</a></Link> to go to a
                         random page.
                     </StyledP>
                 </div>

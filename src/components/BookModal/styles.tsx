@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import Image from "next/image"
 import {
     COLOR_ACCENT,
     COLOR_SECONDARY,
@@ -38,7 +39,7 @@ export const StyledContent = styled.div`
     }
 `;
 
-export const StyledCover = styled(StyledBlurrableImage)`
+export const StyledCover = styled(Image)`
     height: 100%;
     box-shadow: rgba(2, 12, 27, 0.5) 10px 20px 30px 0;
     position: relative;

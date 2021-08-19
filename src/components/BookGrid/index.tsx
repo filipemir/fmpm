@@ -3,7 +3,6 @@ import { BookEntry } from '../../models/media';
 import BookModal from 'components/BookModal';
 import { useTransition, animated } from 'react-spring';
 import getYear from 'date-fns/getYear';
-import useProgressiveImg from 'hooks/useProgressiveImg';
 import { Root, StyledBook, StyledBookCover, StyledYear } from './styles';
 
 const YearTile = ({ date }: { date: Date }) => {
@@ -26,22 +25,14 @@ const BookTile = ({
     onClick: (book: BookEntry) => void;
 }) => {
     const { title, author, cover } = book,
-        { placeholder, images } = cover,
-        thumbnail = images[0],
-        description = `"${title}" by ${author}`,
-        { src, isLoading } = useProgressiveImg({
-            initialImg: placeholder,
-            finalImg: thumbnail.path
-        });
+        description = `"${title}" by ${author}`
 
     return (
         <StyledBook onClick={() => onClick(book)}>
             <StyledBookCover
-                src={src}
+                src={cover}
                 alt={description}
                 title={description}
-                loading='lazy'
-                blur={isLoading}
             />
         </StyledBook>
     );

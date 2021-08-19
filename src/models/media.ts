@@ -1,5 +1,3 @@
-import { ResponsiveLoaderResult } from '*.jpg';
-
 export interface BookEntry {
     title: string;
     subtitle?: string;
@@ -8,5 +6,5 @@ export interface BookEntry {
     startDate?: Date;
     endDate: Date;
     url?: string;
-    cover: ResponsiveLoaderResult;
+    cover: StaticImageData;
 }

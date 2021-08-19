@@ -15,14 +15,6 @@ export const COLOR_SECONDARY = '#848282';
 export const COLOR_TERNARY = '#B4B4B4';
 export const COLOR_QUATERNARY = '#E4E3E3';
 
-// export const COLOR_BG = '#0A192F';
-// export const COLOR_BG_ACCENT = '#01527A';
-// export const COLOR_ACCENT = '#F4A345';
-// export const COLOR_PRIMARY = '#FFFFFF';
-// export const COLOR_SECONDARY = '#A3BACF';
-// export const COLOR_TERNARY = '#A3BACF';
-// export const COLOR_QUATERNARY = '#063C5C';
-
 export const HEADER_HEIGHT = 65;
 export const PADDING_TOP_PAGE = HEADER_HEIGHT + 10;
 
@@ -81,11 +73,6 @@ const globalCss = css`
     del {
         text-decoration-color: ${COLOR_ACCENT_LIGHT_1};
         text-decoration-thickness: 3px;
-    }
-
-    #___gatsby,
-    #gatsby-focus-wrapper {
-        height: 100%;
     }
 
     .medium-zoom-overlay {

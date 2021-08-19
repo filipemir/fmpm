@@ -1,9 +1,8 @@
 import React, { useState, ReactNode } from 'react';
-import 'hamburgers/_sass/hamburgers/hamburgers.scss';
 import { Root, PageDiv, PageDivWrapper, ContactMe } from './styles';
 import { slide as Menu } from 'react-burger-menu';
 import Page from 'models/page';
-import { Link } from 'gatsby';
+import Link from 'next/link';
 import { PERSONAL_EMAIL } from 'data/personal';
 
 export default function Hamburger({
@@ -41,13 +40,12 @@ export default function Hamburger({
 
                             return (
                                 <Link
-                                    to={path}
-                                    onClick={() => {
+                                    href={path}
+                                >
+                                    <a onClick={() => {
                                         setOpen(false);
                                         onPageClick(page);
-                                    }}
-                                >
-                                    {children}
+                                    }}>{children}</a>
                                 </Link>
                             );
                         };

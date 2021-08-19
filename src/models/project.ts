@@ -1,5 +1,4 @@
 import { Tech } from 'models/tech';
-import { ResponsiveLoaderResult } from '*.jpg';
 
 export enum ProjectId {
     SBS,
@@ -15,5 +14,5 @@ export interface Project {
     githubUrl?: string;
     description: string;
     technologies: Tech[];
-    img: ResponsiveLoaderResult;
+    img: StaticImageData;
 }

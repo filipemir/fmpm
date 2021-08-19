@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import Image from "next/image"
 import {
     COLOR_ACCENT,
     COLOR_BG_ACCENT,
@@ -68,7 +69,7 @@ export const StyledYear = styled.div`
     }
 `;
 
-export const StyledBookCover = styled(StyledBlurrableImage)`
+export const StyledBookCover = styled(Image)`
     position: absolute;
     object-fit: cover;
     object-position: center center;

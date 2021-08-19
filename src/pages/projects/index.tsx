@@ -4,7 +4,7 @@ import { ProjectsWrapper, RootDiv, Project } from './styles';
 import Header from 'components/Header';
 import { PROJECTS } from 'data/projects';
 import ProjectRow from 'components/ProjectRow';
-import Helmet from 'components/Helmet';
+import SEO from 'components/SEO';
 import Page from 'models/page';
 import { SectionHeaderWrapper, SectionIntro, Section } from 'styles/sections';
 
@@ -13,7 +13,7 @@ const DESCRIPTION = "A few of the side-projects I've built over the years.";
 export default function HomePage() {
     return (
         <RootDiv>
-            <Helmet
+            <SEO
                 page={Page.PROJECTS}
                 pageTitle='Projects'
                 description={DESCRIPTION}

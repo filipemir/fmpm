@@ -22,15 +22,15 @@ const timeout = 200,
 
 export default function Transition({
     children,
-    location
+    pathname
 }: {
     children: ReactNode;
-    location: Location;
+    pathname: string;
 }) {
     return (
         <TransitionGroup>
             <ReactTransition
-                key={location.pathname}
+                key={pathname}
                 timeout={{
                     enter: timeout,
                     exit: timeout

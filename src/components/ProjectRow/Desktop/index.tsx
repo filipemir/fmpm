@@ -16,7 +16,7 @@ import TechTag from 'components/TechTag';
 import GithubSvg from 'images/github.svg';
 import Underline from 'images/underline.svg';
 import { ProjectRowProps } from 'components/ProjectRow/common/props';
-import ConnectedFakeBrowser from 'components/FakeBrowser/connected';
+import FakeBrowser from 'components/FakeBrowser';
 
 export default function ProjectRowDesktop({
     project,
@@ -35,7 +35,7 @@ export default function ProjectRowDesktop({
                 target={'_blank'}
                 rel='noopener noreferrer'
             >
-                <ConnectedFakeBrowser project={project} active={hovered} />
+                <FakeBrowser project={project} active={hovered} />
             </Preview>
             <Content alignLeft={leftAlignedContent}>
                 <TitleWrapper alignLeft={leftAlignedContent}>

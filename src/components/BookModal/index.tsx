@@ -40,15 +40,8 @@ const BookModal = ({
     book: BookEntry;
     onClose?: () => void;
 }) => {
-    const { title, subtitle, cover, author } = book,
-        { placeholder, images } = cover,
-        [thumbnail, small, medium] = images,
-        fullSize = medium || small || thumbnail,
-        isMobile = useMedia({ maxWidth: MOBILE_MAX_WIDTH }),
-        { src, isLoading } = useProgressiveImg({
-            initialImg: placeholder,
-            finalImg: fullSize.path
-        });
+    const { title, subtitle, cover, author } = book;
+        // isMobile = useMedia({ maxWidth: MOBILE_MAX_WIDTH });
 
     useCancelKeydown(onClose);
 
@@ -57,9 +50,8 @@ const BookModal = ({
             <StyledModalShadowBox onClick={() => onClose && onClose()} />
             <StyledContent>
                 <StyledCover
-                    src={src}
-                    blur={isLoading}
-                    style={{ maxHeight: isMobile ? '50vh' : fullSize.height }}
+                    src={cover}
+                    // style={{ maxHeight: isMobile ? '50vh' : fullSize.height }}
                 />
                 <StyledInfo>
                     <DogearedTile maxWidth={'350px'}>

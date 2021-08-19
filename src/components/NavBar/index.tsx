@@ -4,7 +4,7 @@ import { LeftDiv, RightDiv, RootDiv } from './styles';
 import NavHorizontal from 'components/NavHorizontal';
 import FmpmLogo from 'components/FmpmLogo';
 import Page from 'models/page';
-import { Link } from 'gatsby';
+import Link from 'next/link';
 import useMedia from 'use-media';
 import Hamburger from 'components/Hamburger';
 
@@ -20,8 +20,8 @@ export default function NavBar({
         <>
             <RootDiv>
                 <LeftDiv>
-                    <Link to={'/'} onClick={() => onPageClick(Page.ABOUT)}>
-                        <FmpmLogo />
+                    <Link href={'/'} >
+                        <a onClick={() => onPageClick(Page.ABOUT)}><FmpmLogo /></a>
                     </Link>
                 </LeftDiv>
                 <RightDiv>

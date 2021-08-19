@@ -2,7 +2,7 @@ import React from 'react';
 
 import { RootDiv, WelcomeSection } from './styles';
 import Welcome from 'components/Welcome';
-import Helmet from 'components/Helmet';
+import SEO from 'components/SEO';
 import Page from 'models/page';
 
 const DESCRIPTION =
@@ -11,7 +11,7 @@ const DESCRIPTION =
 export default function HomePage() {
     return (
         <RootDiv>
-            <Helmet page={Page.ABOUT} description={DESCRIPTION} />
+            <SEO page={Page.ABOUT} description={DESCRIPTION} />
             <WelcomeSection>
                 <Welcome />
             </WelcomeSection>

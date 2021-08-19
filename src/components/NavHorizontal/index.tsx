@@ -2,7 +2,7 @@ import React, { useState, useRef, MutableRefObject, ReactNode } from 'react';
 import useMeasure, { RectReadOnly } from 'react-use-measure';
 import { ResizeObserver } from '@juggle/resize-observer';
 import { useSpring, animated, useTrail } from 'react-spring';
-import { Link } from 'gatsby';
+import Link from 'next/link';
 
 import {
     RootDiv,
@@ -113,7 +113,7 @@ export default function NavHorizontal({
                             );
                         }
 
-                        return <Link to={path}>{children}</Link>;
+                        return <Link href={path}><a>{children}</a></Link>;
                     };
 
                 return (

@@ -38,7 +38,7 @@ export interface Tenure {
     jobs: Job[];
     url: string;
     description?: string;
-    logo?: ResponsiveLoaderResult;
+    logo?: StaticImageData;
 }
 
 export type ResumeItem = Job | Degree;

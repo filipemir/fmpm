@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSpring, animated } from 'react-spring';
 
 import {
@@ -22,19 +21,20 @@ import { Tech } from 'models/tech';
 import TechTag from 'components/TechTag';
 import useMedia from 'use-media';
 import { PERSONAL_EMAIL } from 'data/personal';
-import { Link } from 'gatsby';
+import Link from 'next/link';
+import Image from 'next/image'
 import MY_PIC from './matcha.jpeg';
 import useProgressiveImg from 'hooks/useProgressiveImg';
 
 export default function Welcome() {
     const tech = [Tech.REACT, Tech.TS, Tech.JAVA, Tech.PYTHON],
         spring = useSpring({ opacity: 1, from: { opacity: 0 } }),
-        isMobile = useMedia({ maxWidth: '900px' }),
-        { placeholder, images } = MY_PIC,
-        { src, isLoading } = useProgressiveImg({
-            initialImg: placeholder,
-            finalImg: images[1].path
-        });
+        isMobile = useMedia({ maxWidth: '900px' });
+        // { placeholder, images } = MY_PIC,
+        // { src, isLoading } = useProgressiveImg({
+        //     initialImg: placeholder,
+        //     finalImg: images[1].path
+        // });
 
     return (
         <Root>
@@ -44,7 +44,7 @@ export default function Welcome() {
                 <Part1>
                     <Part1Inner>
                         <AvatarWrapper>
-                            <Avatar src={src} blur={isLoading} />
+                            <Avatar className="filipe" src={MY_PIC} height={190} width={190}/>
                         </AvatarWrapper>
                         <Content>
                             <Header1Wrapper>
@@ -82,7 +82,7 @@ export default function Welcome() {
                                 </div>
                                 <div>
                                     I&apos;m also a lover of music,{' '}
-                                    <Link to={'/books'}>books</Link>, movies,
+                                    <Link href={'/books'}><a>books</a></Link>, movies,
                                     and rock climbing and may occasionally muse
                                     about any or all of those here.
                                 </div>

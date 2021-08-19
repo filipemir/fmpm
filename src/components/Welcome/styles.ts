@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import Image from 'next/image'
 
 import {
     COLOR_ACCENT,
@@ -56,12 +57,14 @@ export const Content = styled.div`
     }
 `;
 
-export const Avatar = styled(StyledBlurrableImage)`
-    height: 190px;
-    width: 190px;
+export const Avatar = styled(Image)`
     border-radius: 50%;
-    border: 3px solid ${COLOR_BG_ACCENT};
-    box-shadow: 10px 22px 0 ${COLOR_BG_ACCENT};
+  
+    .filipe {
+        border: 3px solid ${COLOR_BG_ACCENT};
+        box-shadow: 10px 22px 0 ${COLOR_BG_ACCENT};
+      
+    }
 
     @media (max-width: ${MOBILE_MAX_WIDTH}) {
         height: 130px;

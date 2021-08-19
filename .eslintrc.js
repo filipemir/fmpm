@@ -1,4 +1,4 @@
-const env = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV,
+const env = process.env.NODE_ENV,
     isDev = env === 'development';
 
 module.exports = {

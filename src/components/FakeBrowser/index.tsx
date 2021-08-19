@@ -1,4 +1,5 @@
-import React, { ReactChild } from 'react';
+import React from 'react';
+import Image from "next/image"
 
 import {
     Root,
@@ -9,13 +10,14 @@ import {
     MaxDot,
     ImgWrapper
 } from './styles';
+import {Project} from "models/project";
 
 interface FakeBrowserProps {
     active?: boolean;
-    image: ReactChild;
+    project: Project;
 }
 
-export default function FakeBrowser({ active, image }: FakeBrowserProps) {
+export default function FakeBrowser({ active, project }: FakeBrowserProps) {
     return (
         <Root active={!!active}>
             <Bar>
@@ -25,7 +27,7 @@ export default function FakeBrowser({ active, image }: FakeBrowserProps) {
                     <MaxDot />
                 </Dots>
             </Bar>
-            <ImgWrapper>{image}</ImgWrapper>
+            <ImgWrapper><Image src={project.img} /></ImgWrapper>
         </Root>
     );
 }

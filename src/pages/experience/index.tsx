@@ -4,7 +4,7 @@ import Resume from 'components/Resume';
 import { ResumeWrapper, RootDiv, ResumeButton, Note } from './styles';
 import { SectionHeaderWrapper, SectionIntro, Section } from 'styles/sections';
 import Header from 'components/Header';
-import Helmet from 'components/Helmet';
+import SEO from 'components/SEO';
 import Page from 'models/page';
 const DESCRIPTION =
     "My online resume. I've been lucky to do a lot of interesting things over the years. This is where I keep a running tally.";
@@ -12,7 +12,7 @@ const DESCRIPTION =
 export default function HomePage() {
     return (
         <RootDiv>
-            <Helmet
+            <SEO
                 page={Page.EXPERIENCE}
                 pageTitle='Experience'
                 description={DESCRIPTION}
