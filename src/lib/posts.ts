@@ -1,33 +1,46 @@
 import fs from 'fs'
-import { join } from 'path'
-import format from "date-fns/format"
-import isValid from "date-fns/isValid"
-import matter from 'gray-matter'
+import {join} from 'path'
+import matter from 'gray-matter';
+import {serialize} from "next-mdx-remote/serialize"
 
 const postsDirectory = join(process.cwd(), 'src', 'posts')
 
 export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory).filter(slug => /\.mdx$/.test(slug))
+    return fs.readdirSync(postsDirectory)
+        .filter(slug => /\.mdx$/.test(slug))
+        .map(slug => slug.replace(/\.mdx$/, ''))
 }
 
-export const getPostBySlug = (slug: string) => {
-  const realSlug = slug.replace(/\.mdx$/, '')
-  const fullPath = join(postsDirectory, `${realSlug}.mdx`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
-  const { data, content } = matter(fileContents)
+export const getPostBySlug = async (slug: string) => {
+    const fullPath = join(postsDirectory, `${slug}.mdx`)
+    const fileContents = fs.readFileSync(fullPath, 'UTF-8')
+    const { content, data: { date, title }} = matter(fileContents)
+    const { compiledSource } = await serialize(
+        content,
+        {
+            mdxOptions: {
+                // remarkPlugins: [],
+                // rehypePlugins: [],
+                // hastPlugins: [],
+                // compilers: [],
+                // filepath: '/some/file/path',
+            }
+        }
+    )
 
-  if (isValid(data.date)) {
-    data.date = format(data.date, 'yyyyyyyy')
-  }
-
-  return { slug: realSlug, data, content }
+    return {
+        slug,
+        compiledSource,
+        date: date as Date,
+        title: title as string
+    }
 }
 
-export const getAllPosts = ()  => {
-  const slugs = getPostSlugs()
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug))
-    // sort posts by date in descending order
-    // .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
-  return posts
+export const getAllPosts = async () => {
+    const slugs = getPostSlugs()
+    const posts = (await Promise.all(
+        slugs.map(async (slug) => await getPostBySlug(slug))
+    )).sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+
+    return posts
 }

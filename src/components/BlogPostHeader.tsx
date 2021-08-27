@@ -54,7 +54,6 @@ const StyledRoot = styled.div`
 `;
 
 const BlogPostHeader = ({ title, date }: { title: string; date: string }) => {
-    const formattedDate = format(new Date(date), 'MMMM d, yyy');
     return (
         <StyledRoot>
             <StyledTitle>
@@ -63,7 +62,7 @@ const BlogPostHeader = ({ title, date }: { title: string; date: string }) => {
                     <Underline />
                 </SlashDiv>
             </StyledTitle>
-            <StyledDate>{formattedDate}</StyledDate>
+            <StyledDate>{date}</StyledDate>
         </StyledRoot>
     );
 };
