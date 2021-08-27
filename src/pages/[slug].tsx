@@ -14,6 +14,7 @@ import {
 } from 'styles/global';
 import BlogPostHeader from '../components/BlogPostHeader';
 import format from "date-fns/format";
+import CodeBlock from "../components/CodeBlock";
 
 const baseTextStyles = css`
   max-width: 600px;
@@ -74,7 +75,7 @@ const strong = styled.strong`
   font-weight: 500;
 `;
 
-const code = styled.code`
+const inlineCode = styled.code`
   background-color: ${COLOR_QUATERNARY};
   color: ${COLOR_ACCENT};
   border-radius: 6px;
@@ -137,13 +138,6 @@ export const Root = styled.main`
   min-height: 100vh;
   max-width: 90ch;
 
-  .gatsby-highlight {
-    box-shadow: -10px 10px ${COLOR_QUATERNARY};
-    border-radius: 6px;
-    max-width: 70ch;
-    margin-bottom: 30px;
-  }
-
   > div {
     margin: 1em auto;
   }
@@ -193,9 +187,10 @@ export default function Doc({ title, date, compiledSource }: Props) {
             ol,
             ul,
             strong,
-            code,
+            inlineCode,
             blockquote,
-            hr
+            hr,
+            pre: CodeBlock
         }}/>
     </Root>
 }

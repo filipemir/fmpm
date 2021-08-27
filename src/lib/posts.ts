@@ -2,6 +2,7 @@ import fs from 'fs'
 import {join} from 'path'
 import matter from 'gray-matter';
 import {serialize} from "next-mdx-remote/serialize"
+const rehypePrism = require('@mapbox/rehype-prism')
 
 const postsDirectory = join(process.cwd(), 'src', 'posts')
 
@@ -19,11 +20,7 @@ export const getPostBySlug = async (slug: string) => {
         content,
         {
             mdxOptions: {
-                // remarkPlugins: [],
-                // rehypePlugins: [],
-                // hastPlugins: [],
-                // compilers: [],
-                // filepath: '/some/file/path',
+                rehypePlugins: [rehypePrism],
             }
         }
     )

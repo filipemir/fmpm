@@ -1,18 +1,13 @@
-
-import { Global } from '@emotion/core';
-import globalCss from 'styles/global';
-import 'styles/global.scss';
-
-
 import React, { useState,} from 'react';
+import { Global } from '@emotion/core';
+import styled from '@emotion/styled';
 import type { AppProps } from 'next/app'
+import globalCss from 'styles/global';
 import NavBar from 'components/NavBar';
 import Transition from 'components/Transition';
 import { getPage } from 'utils/location';
 import Page from 'models/page';
 import Footer from 'components/Footer';
-
-import styled from '@emotion/styled';
 
 export const LayoutRoot = styled.div`
     position: relative;
@@ -25,8 +20,6 @@ export const NavBarWrapper = styled.div`
     width: 100%;
     z-index: 2;
 `;
-
-
 
 export default function App({ Component, pageProps, router }: AppProps) {
     const pathname = router.pathname,
