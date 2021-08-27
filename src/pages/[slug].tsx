@@ -202,7 +202,6 @@ export default function Doc({ title, date, compiledSource }: Props) {
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
     const slug = params?.slug || "hello-world"
-    console.log("static props")
     const { date, ...rest } = await getPostBySlug(Array.isArray(slug) ? slug[0] : slug)
 
     return {
@@ -214,7 +213,6 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    console.log("static paths")
     const posts = await getAllPosts(),
         paths = posts.map(p => ({params: {slug: p.slug}}))
 

@@ -1,11 +1,4 @@
-const withMDX = require('@next/mdx')({
-  options: {
-    remarkPlugins: [],
-    rehypePlugins: [],
-  },
-})
-
-module.exports = withMDX({
+module.exports = {
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
@@ -14,4 +7,4 @@ module.exports = withMDX({
 
     return config;
   }
-});
+}
