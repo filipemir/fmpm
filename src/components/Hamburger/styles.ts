@@ -7,7 +7,7 @@ import {
     COLOR_TERNARY,
     FONT_FAMILY_MONO
 } from 'styles/global';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 export const Root = styled.div`
     .bm-burger-button {

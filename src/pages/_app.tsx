@@ -1,5 +1,5 @@
 import React, { useState,} from 'react';
-import { Global } from '@emotion/core';
+import { Global } from '@emotion/react';
 import styled from '@emotion/styled';
 import type { AppProps } from 'next/app'
 import globalCss from 'styles/global';

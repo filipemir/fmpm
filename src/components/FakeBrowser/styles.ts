@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 const BAR_COLOR = '#E4E3E3',
     CLOSE_COLOR = '#FF5A52',

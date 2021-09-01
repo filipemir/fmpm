@@ -91,7 +91,7 @@ export default function NavHorizontal({
     return (
         <RootDiv ref={rootRef}>
             <animated.div style={dotPosition} css={dotCss} />
-            <animated.div style={underlinePosition} css={underlineDivCss}>
+            <animated.div css={underlineDivCss} style={underlinePosition}>
                 <Underline />
             </animated.div>
             {trail.map(({ opacity }, i) => {

@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const FONT_FAMILY_MONO = 'Roboto Mono, Courier New, monospace';

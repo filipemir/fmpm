@@ -23,7 +23,8 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "jsxImportSource": "@emotion/react"
   },
   "exclude": [
     "node_modules",
