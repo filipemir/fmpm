@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { BookEntry } from '../../models/media';
+import Image from "next/image"
+import { BookEntry } from 'models/media';
 import BookModal from 'components/BookModal';
 import { useTransition, animated } from 'react-spring';
 import getYear from 'date-fns/getYear';
-import { Root, StyledBook, StyledBookCover, StyledYear } from './styles';
+import { Root, StyledBook, StyledYear } from './styles';
 
 const YearTile = ({ date }: { date: Date }) => {
     const yearStr = `${getYear(date)}`;
@@ -29,11 +30,7 @@ const BookTile = ({
 
     return (
         <StyledBook onClick={() => onClick(book)}>
-            <StyledBookCover
-                src={cover}
-                alt={description}
-                title={description}
-            />
+            <Image src={cover} alt={description} title={description} height={180} placeholder="blur" layout="fill" objectFit="cover" objectPosition="center center"/>
         </StyledBook>
     );
 };
