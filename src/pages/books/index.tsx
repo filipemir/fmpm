@@ -1,4 +1,5 @@
 import React from 'react';
+import { GetServerSidePropsContext } from 'next';
 import { Waypoint } from 'react-waypoint';
 import { StyledRoot } from './styles';
 import Header from 'components/Header';
@@ -47,10 +48,16 @@ export default function BooksPage() {
                 <BookGrid books={books} />
                 <Waypoint
                     key={lastBook && `${lastBook.title}`}
-                    bottomOffset={'-50%'}
+                    bottomOffset={'-100%'}
                     onEnter={getMoreBooks}
                 />
             </Section>
         </StyledRoot>
     );
+}
+
+export async function getServerSideProps(props: GetServerSidePropsContext) {
+    return {
+        props: { booksCoverPlaceholders: [] }
+    };
 }

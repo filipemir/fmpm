@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Image from "next/image"
+import Image from 'next/image';
 import { BookEntry } from 'models/media';
 import BookModal from 'components/BookModal';
 import { useTransition, animated } from 'react-spring';
@@ -26,11 +26,23 @@ const BookTile = ({
     onClick: (book: BookEntry) => void;
 }) => {
     const { title, author, cover } = book,
-        description = `"${title}" by ${author}`
+        description = `"${title}" by ${author}`;
 
     return (
         <StyledBook onClick={() => onClick(book)}>
-            <Image src={cover} alt={description} title={description} height={180} placeholder="blur" layout="fill" objectFit="cover" objectPosition="center center"/>
+            <Image
+                src={cover}
+                alt={description}
+                title={description}
+                width={122}
+                height={182}
+                quality={50}
+                placeholder='blur'
+                layout='fixed'
+                objectFit='cover'
+                objectPosition='center center'
+                loading={'eager'}
+            />
         </StyledBook>
     );
 };
