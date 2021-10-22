@@ -1,12 +1,10 @@
 import styled from '@emotion/styled';
-import Image from "next/image"
 import {
     COLOR_ACCENT,
     COLOR_SECONDARY,
     COLOR_TERNARY,
     FONT_FAMILY_SANS_SERIF,
     FONT_FAMILY_SERIF,
-    StyledBlurrableImage
 } from 'styles/global';
 
 const MOBILE_THRESHOLD = '900px';
@@ -39,12 +37,12 @@ export const StyledContent = styled.div`
     }
 `;
 
-export const StyledCover = styled(Image)`
-    height: 100%;
-    box-shadow: rgba(2, 12, 27, 0.5) 10px 20px 30px 0;
+export const StyledCover = styled.div`
+    display: block;
     position: relative;
     top: 50%;
     transform: translate(0, -50%);
+    max-width: 600px;
 
     @media (max-width: ${MOBILE_THRESHOLD}) {
         height: auto;

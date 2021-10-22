@@ -15,9 +15,7 @@ import {
     StyledSubtitle
 } from './styles';
 import useCancelKeydown from 'hooks/useCancelKeydown';
-import useProgressiveImg from 'hooks/useProgressiveImg';
-import useMedia from 'use-media';
-import { MOBILE_MAX_WIDTH } from 'styles/global';
+import Image from 'next/image';
 
 const getDateRangeString = (book: BookEntry) => {
     const { startDate, endDate } = book,
@@ -40,8 +38,8 @@ const BookModal = ({
     book: BookEntry;
     onClose?: () => void;
 }) => {
-    const { title, subtitle, cover, author } = book;
-        // isMobile = useMedia({ maxWidth: MOBILE_MAX_WIDTH });
+    const { title, subtitle, cover, author } = book,
+        description = `"${title}" by ${author}`;
 
     useCancelKeydown(onClose);
 
@@ -49,10 +47,14 @@ const BookModal = ({
         <StyledRoot>
             <StyledModalShadowBox onClick={() => onClose && onClose()} />
             <StyledContent>
-                <StyledCover
-                    src={cover}
-                    // style={{ maxHeight: isMobile ? '50vh' : fullSize.height }}
-                />
+                <StyledCover>
+                    <Image
+                        src={cover}
+                        alt={description}
+                        title={description}
+                        placeholder='blur'
+                    />
+                </StyledCover>
                 <StyledInfo>
                     <DogearedTile maxWidth={'350px'}>
                         <StyledTitle>{title}</StyledTitle>
