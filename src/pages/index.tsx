@@ -29,7 +29,6 @@ export const WelcomeSection = styled.div`
     }
 `;
 
-
 const DESCRIPTION =
     "Hi! I'm Filipe, a Boston-based Software Engineer working with TypesScript, Java, React and whatever other tool seems right for the job.";
 

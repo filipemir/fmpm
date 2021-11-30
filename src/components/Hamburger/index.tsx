@@ -39,13 +39,15 @@ export default function Hamburger({
                             }
 
                             return (
-                                <Link
-                                    href={path}
-                                >
-                                    <a onClick={() => {
-                                        setOpen(false);
-                                        onPageClick(page);
-                                    }}>{children}</a>
+                                <Link href={path}>
+                                    <a
+                                        onClick={() => {
+                                            setOpen(false);
+                                            onPageClick(page);
+                                        }}
+                                    >
+                                        {children}
+                                    </a>
                                 </Link>
                             );
                         };

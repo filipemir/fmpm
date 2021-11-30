@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image'
+import Image from 'next/image';
 import SEO from 'components/SEO';
 import styled from '@emotion/styled';
 import {
@@ -119,9 +119,14 @@ export default function FourOhFourPage() {
                         or not here.
                     </StyledP>
                     <StyledP>
-                        <Link href={'/'}><a>Head back</a></Link> or click{' '}
-                        <Link href={randomDestination}><a>here</a></Link> to go to a
-                        random page.
+                        <Link href={'/'}>
+                            <a>Head back</a>
+                        </Link>{' '}
+                        or click{' '}
+                        <Link href={randomDestination}>
+                            <a>here</a>
+                        </Link>{' '}
+                        to go to a random page.
                     </StyledP>
                 </div>
             </Grid>

@@ -6,6 +6,7 @@ My personal site, built with [Next.js](https://nextjs.org/) and
 ![demo](public/share.png)
 
 ## Development
+
 ```bash
 yarn
 yarn dev

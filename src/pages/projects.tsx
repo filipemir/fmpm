@@ -38,7 +38,6 @@ export const Project = styled.div`
     }
 `;
 
-
 const DESCRIPTION = "A few of the side-projects I've built over the years.";
 
 export default function HomePage() {

@@ -1,7 +1,7 @@
-import React, { useState,} from 'react';
+import React, { useState } from 'react';
 import { Global } from '@emotion/react';
 import styled from '@emotion/styled';
-import type { AppProps } from 'next/app'
+import type { AppProps } from 'next/app';
 import globalCss from 'styles/global';
 import NavBar from 'components/NavBar';
 import Transition from 'components/Transition';

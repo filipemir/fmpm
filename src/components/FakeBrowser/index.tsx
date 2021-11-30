@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from "next/image"
+import Image from 'next/image';
 
 import {
     Root,
@@ -10,7 +10,7 @@ import {
     MaxDot,
     ImgWrapper
 } from './styles';
-import {Project} from "models/project";
+import { Project } from 'models/project';
 
 interface FakeBrowserProps {
     active?: boolean;
@@ -27,7 +27,9 @@ export default function FakeBrowser({ active, project }: FakeBrowserProps) {
                     <MaxDot />
                 </Dots>
             </Bar>
-            <ImgWrapper><Image src={project.img} /></ImgWrapper>
+            <ImgWrapper>
+                <Image src={project.img} />
+            </ImgWrapper>
         </Root>
     );
 }

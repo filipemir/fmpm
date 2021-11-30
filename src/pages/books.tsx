@@ -24,7 +24,6 @@ const StyledYear = styled.h2`
     text-align: center;
 `;
 
-
 const DESCRIPTION = "Books I've read over the years";
 
 export default function BooksPage() {

@@ -113,7 +113,11 @@ export default function NavHorizontal({
                             );
                         }
 
-                        return <Link href={path}><a>{children}</a></Link>;
+                        return (
+                            <Link href={path}>
+                                <a>{children}</a>
+                            </Link>
+                        );
                     };
 
                 return (

@@ -20,8 +20,10 @@ export default function NavBar({
         <>
             <RootDiv>
                 <LeftDiv>
-                    <Link href={'/'} >
-                        <a onClick={() => onPageClick(Page.ABOUT)}><FmpmLogo /></a>
+                    <Link href={'/'}>
+                        <a onClick={() => onPageClick(Page.ABOUT)}>
+                            <FmpmLogo />
+                        </a>
                     </Link>
                 </LeftDiv>
                 <RightDiv>

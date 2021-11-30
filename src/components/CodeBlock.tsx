@@ -1,299 +1,300 @@
-import styled from "@emotion/styled";
-import {ReactNode} from "react";
+import styled from '@emotion/styled';
+import { ReactNode } from 'react';
 
 const StyledPreWrapper = styled.div`
-  background-color: #263238;
-  margin: 0.5em 0 30px 0;
-  padding: 0;
-  overflow: auto;
-  box-shadow: -10px 10px #E4E3E3;
-  border-radius: 6px;
-  max-width: 70ch;
-
-  .highlight-line {
-    background-color: #2f4549;
-    display: block;
-    margin-right: -1em;
-    margin-left: -1em;
-    padding-right: 1em;
-    padding-left: 0.5em;
-    border-left: 0.5em solid #ffcb6b;
-  }
-
-  code[class*='language-'],
-  pre[class*='language-'] {
-    text-align: left;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    word-wrap: normal;
-    color: #d8dee9;
-    background: #253238;
-    font-family: Roboto Mono, monospace;
-    font-size: 15px;
-    letter-spacing: -0.05em;
-
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
-    tab-size: 4;
-
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
-    hyphens: none;
-  }
-
-  code[class*='language-'] *::selection,
-  pre[class*='language-'] *::selection {
-    background-color: #2f4549 !important;
-  }
-
-  code[class*='language-']::-moz-selection,
-  pre[class*='language-']::-moz-selection,
-  code[class*='language-'] ::-moz-selection,
-  pre[class*='language-'] ::-moz-selection {
-    background: #363636;
-  }
-
-  code[class*='language-']::selection,
-  pre[class*='language-']::selection,
-  code[class*='language-'] ::selection,
-  pre[class*='language-'] ::selection {
-    background: #363636;
-  }
-
-  pre[class*='language-'] {
-    overflow: auto;
-    position: relative;
-    margin: 0.5em 0;
-    padding: 1em;
-  }
-
-  /* Adjust the position of the line numbers */
-
-  pre[class*='language-'].line-numbers {
-    padding-left: 2.8em;
-  }
-
-  pre[class*='language-'].line-numbers {
+    background-color: #263238;
+    margin: 0.5em 0 30px 0;
     padding: 0;
-    padding-left: 2.8em;
-    overflow: initial;
-  }
+    overflow: auto;
+    box-shadow: -10px 10px #e4e3e3;
+    border-radius: 6px;
+    max-width: 70ch;
 
-  .line-numbers-rows > span:before {
-    color: #42525a !important;
-  }
+    .highlight-line {
+        background-color: #2f4549;
+        display: block;
+        margin-right: -1em;
+        margin-left: -1em;
+        padding-right: 1em;
+        padding-left: 0.5em;
+        border-left: 0.5em solid #ffcb6b;
+    }
 
-  .line-numbers .line-numbers-rows {
-    border-right-color: #3a4950 !important;
-  }
+    code[class*='language-'],
+    pre[class*='language-'] {
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        color: #d8dee9;
+        background: #253238;
+        font-family: Roboto Mono, monospace;
+        font-size: 15px;
+        letter-spacing: -0.05em;
 
-  .command-line-prompt > span:before {
-    color: #999;
-    content: ' ';
-    display: block;
-    padding-right: 0.8em;
-  }
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
 
-  /* Prompt for all users */
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+    }
 
-  .command-line-prompt > span[data-user]:before {
-    content: '[' attr(data-user) '@' attr(data-host) '] $';
-  }
+    code[class*='language-'] *::selection,
+    pre[class*='language-'] *::selection {
+        background-color: #2f4549 !important;
+    }
 
-  /* Prompt for root */
+    code[class*='language-']::-moz-selection,
+    pre[class*='language-']::-moz-selection,
+    code[class*='language-'] ::-moz-selection,
+    pre[class*='language-'] ::-moz-selection {
+        background: #363636;
+    }
 
-  .command-line-prompt > span[data-user='root']:before {
-    content: '[' attr(data-user) '@' attr(data-host) '] #';
-  }
+    code[class*='language-']::selection,
+    pre[class*='language-']::selection,
+    code[class*='language-'] ::selection,
+    pre[class*='language-'] ::selection {
+        background: #363636;
+    }
 
-  .command-line-prompt > span[data-prompt]:before {
-    content: attr(data-prompt);
-  }
+    pre[class*='language-'] {
+        overflow: auto;
+        position: relative;
+        margin: 0.5em 0;
+        padding: 1em;
+    }
 
-  .language-css > code,
-  .language-sass > code,
-  .language-scss > code {
-    color: #fd9170;
-  }
+    /* Adjust the position of the line numbers */
 
-  [class*='language-'] .namespace {
-    opacity: 0.7;
-  }
+    pre[class*='language-'].line-numbers {
+        padding-left: 2.8em;
+    }
 
-  .token.atrule {
-    color: #c792ea;
-  }
+    pre[class*='language-'].line-numbers {
+        padding: 0;
+        padding-left: 2.8em;
+        overflow: initial;
+    }
 
-  .token.attr-name {
-    color: #ffcb6b;
-  }
+    .line-numbers-rows > span:before {
+        color: #42525a !important;
+    }
 
-  .token.attr-value {
-    color: #c3e88d;
-  }
+    .line-numbers .line-numbers-rows {
+        border-right-color: #3a4950 !important;
+    }
 
-  .token.attribute {
-    color: #c3e88d;
-  }
+    .command-line-prompt > span:before {
+        color: #999;
+        content: ' ';
+        display: block;
+        padding-right: 0.8em;
+    }
 
-  .token.boolean {
-    color: #c792ea;
-  }
+    /* Prompt for all users */
 
-  .token.builtin {
-    color: #ffcb6b;
-  }
+    .command-line-prompt > span[data-user]:before {
+        content: '[' attr(data-user) '@' attr(data-host) '] $';
+    }
 
-  .token.cdata {
-    color: #80cbc4;
-  }
+    /* Prompt for root */
 
-  .token.char {
-    color: #80cbc4;
-  }
+    .command-line-prompt > span[data-user='root']:before {
+        content: '[' attr(data-user) '@' attr(data-host) '] #';
+    }
 
-  .token.class {
-    color: #ffcb6b;
-  }
+    .command-line-prompt > span[data-prompt]:before {
+        content: attr(data-prompt);
+    }
 
-  .token.class-name {
-    color: #c0eb85;
-  }
+    .language-css > code,
+    .language-sass > code,
+    .language-scss > code {
+        color: #fd9170;
+    }
 
-  .token.color {
-    color: #f2ff00;
-  }
+    [class*='language-'] .namespace {
+        opacity: 0.7;
+    }
 
-  .token.comment {
-    color: #546e7a;
-  }
+    .token.atrule {
+        color: #c792ea;
+    }
 
-  .token.constant {
-    /*color: #c792ea;*/
-  }
+    .token.attr-name {
+        color: #ffcb6b;
+    }
 
-  .token.deleted {
-    color: #f07178;
-  }
+    .token.attr-value {
+        color: #c3e88d;
+    }
 
-  .token.doctype {
-    color: #546e7a;
-  }
+    .token.attribute {
+        color: #c3e88d;
+    }
 
-  .token.entity {
-    color: #f07178;
-  }
+    .token.boolean {
+        color: #c792ea;
+    }
 
-  .token.function {
-    color: #759bf3;
-  }
+    .token.builtin {
+        color: #ffcb6b;
+    }
 
-  .token.hexcode {
-    color: #f2ff00;
-  }
+    .token.cdata {
+        color: #80cbc4;
+    }
 
-  .token.id {
-    color: #c792ea;
-    font-weight: bold;
-  }
+    .token.char {
+        color: #80cbc4;
+    }
 
-  .token.important {
-    color: #c792ea;
-    font-weight: bold;
-  }
+    .token.class {
+        color: #ffcb6b;
+    }
 
-  .token.inserted {
-    color: #80cbc4;
-  }
+    .token.class-name {
+        color: #c0eb85;
+    }
 
-  .token.keyword {
-    color: #c289e5;
-    font-style: italic;
-  }
+    .token.color {
+        color: #f2ff00;
+    }
 
-  .token.number {
-    color: #fd9170;
-  }
+    .token.comment {
+        color: #546e7a;
+    }
 
-  .token.operator {
-    color: #89ddff;
-  }
+    .token.constant {
+        /*color: #c792ea;*/
+    }
 
-  .token.parameter {
-    color: #f98c65;
-  }
+    .token.deleted {
+        color: #f07178;
+    }
 
-  .token.prolog {
-    color: #546e7a;
-  }
+    .token.doctype {
+        color: #546e7a;
+    }
 
-  .token.property {
-    color: #80cbc4;
-  }
+    .token.entity {
+        color: #f07178;
+    }
 
-  .token.pseudo-class {
-    color: #c3e88d;
-  }
+    .token.function {
+        color: #759bf3;
+    }
 
-  .token.pseudo-element {
-    color: #c3e88d;
-  }
+    .token.hexcode {
+        color: #f2ff00;
+    }
 
-  .token.punctuation {
-    color: #89ddff;
-  }
+    .token.id {
+        color: #c792ea;
+        font-weight: bold;
+    }
 
-  .token.regex {
-    color: #f2ff00;
-  }
+    .token.important {
+        color: #c792ea;
+        font-weight: bold;
+    }
 
-  .token.selector {
-    color: #f07178;
-  }
+    .token.inserted {
+        color: #80cbc4;
+    }
 
-  .token.string {
-    color: #c3e88d;
-  }
+    .token.keyword {
+        color: #c289e5;
+        font-style: italic;
+    }
 
-  .token.symbol {
-    color: #c792ea;
-  }
+    .token.number {
+        color: #fd9170;
+    }
 
-  .token.tag {
-    color: #f07178;
-  }
+    .token.operator {
+        color: #89ddff;
+    }
 
-  .token.unit {
-    color: #f07178;
-  }
+    .token.parameter {
+        color: #f98c65;
+    }
 
-  .token.url {
-    color: #fd9170;
-  }
+    .token.prolog {
+        color: #546e7a;
+    }
 
-  .token.variable {
-    color: #f07178;
-  }
-`
+    .token.property {
+        color: #80cbc4;
+    }
+
+    .token.pseudo-class {
+        color: #c3e88d;
+    }
+
+    .token.pseudo-element {
+        color: #c3e88d;
+    }
+
+    .token.punctuation {
+        color: #89ddff;
+    }
+
+    .token.regex {
+        color: #f2ff00;
+    }
+
+    .token.selector {
+        color: #f07178;
+    }
+
+    .token.string {
+        color: #c3e88d;
+    }
+
+    .token.symbol {
+        color: #c792ea;
+    }
+
+    .token.tag {
+        color: #f07178;
+    }
+
+    .token.unit {
+        color: #f07178;
+    }
+
+    .token.url {
+        color: #fd9170;
+    }
+
+    .token.variable {
+        color: #f07178;
+    }
+`;
 
 const StyledPre = styled.pre`
-  font-weight: 400;
-  font-style: normal;
-`
+    font-weight: 400;
+    font-style: normal;
+`;
 
 const CodeBlock = ({
-   children,
-   className
+    children,
+    className
 }: {
     children: ReactNode;
-    className: string
-
+    className: string;
 }) => {
-    return <StyledPreWrapper>
-        <StyledPre className={className}>{children}</StyledPre>
-    </StyledPreWrapper>
-}
+    return (
+        <StyledPreWrapper>
+            <StyledPre className={className}>{children}</StyledPre>
+        </StyledPreWrapper>
+    );
+};
 
-export default CodeBlock
+export default CodeBlock;
