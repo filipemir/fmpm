@@ -2,6 +2,8 @@ import fs from 'fs'
 import {join} from 'path'
 import matter from 'gray-matter';
 import {serialize} from "next-mdx-remote/serialize"
+import imageSize from "rehype-probe-image-size";
+
 const rehypePrism = require('@mapbox/rehype-prism')
 
 const postsDirectory = join(process.cwd(), 'src', 'posts')
@@ -20,7 +22,7 @@ export const getPostBySlug = async (slug: string) => {
         content,
         {
             mdxOptions: {
-                rehypePlugins: [rehypePrism],
+                rehypePlugins: [rehypePrism, [imageSize, { staticDir: "public"}]],
             }
         }
     )

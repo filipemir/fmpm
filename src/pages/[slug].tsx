@@ -15,6 +15,7 @@ import {
 import BlogPostHeader from '../components/BlogPostHeader';
 import format from "date-fns/format";
 import CodeBlock from "../components/CodeBlock";
+import Image, { ImageProps } from "next/image"
 
 const baseTextStyles = css`
   max-width: 600px;
@@ -54,7 +55,7 @@ const h5 = styled.h3`
   font-size: 20px;
 `;
 
-const p = styled.p`
+const p = styled.div`
   ${baseTextStyles};
 `;
 
@@ -92,7 +93,7 @@ const hr = styled.hr`
   margin: 20px auto;
 `;
 
-export const blockquote = styled.blockquote`
+const blockquote = styled.blockquote`
   ${baseTextStyles};
   font-style: italic;
   position: relative;
@@ -126,7 +127,7 @@ export const blockquote = styled.blockquote`
   }
 `;
 
-export const Root = styled.main`
+const Root = styled.main`
   font-family: ${FONT_FAMILY_SERIF};
   color: ${COLOR_PRIMARY};
   letter-spacing: -0.02em;
@@ -173,6 +174,8 @@ interface Props {
     compiledSource: string
 }
 
+const img = (props: ImageProps) => <Image {...props}  />
+
 
 export default function Doc({ title, date, compiledSource }: Props) {
     return <Root>
@@ -190,6 +193,7 @@ export default function Doc({ title, date, compiledSource }: Props) {
             inlineCode,
             blockquote,
             hr,
+            img,
             pre: CodeBlock
         }}/>
     </Root>

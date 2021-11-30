@@ -45,13 +45,14 @@
         "react-use-measure": "2.0.0",
         "react-waypoint": "9.0.3",
         "regenerator-runtime": "0.13.5",
+        "rehype-probe-image-size": "1.0.0",
         "sass": "1.32.13",
         "typescript": "4.3.5",
         "use-media": "1.4.0"
     },
     "devDependencies": {
-        "@emotion/babel-plugin": "11.3.0",
         "@babel/core": "7.9.0",
+        "@emotion/babel-plugin": "11.3.0",
         "@types/date-and-time": "0.6.0",
         "@types/lodash": "4.14.172",
         "@types/node": "13.9.5",
