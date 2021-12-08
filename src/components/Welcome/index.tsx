@@ -28,9 +28,10 @@ export default function Welcome() {
         spring = useSpring({ opacity: 1, from: { opacity: 0 } }),
 
 
-
-
         
+
+
+
         isMobile = useMedia({ maxWidth: '900px' });
 
     return (
