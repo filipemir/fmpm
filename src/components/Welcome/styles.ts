@@ -36,7 +36,7 @@ export const Part1Inner = styled.div`
     }
 `;
 
-export const AvatarWrapper = styled.div`
+export       const AvatarWrapper = styled.div`
     margin-right: 50px;
     display: flex;
     align-items: center;
@@ -44,7 +44,7 @@ export const AvatarWrapper = styled.div`
     > div {
 
 
-        
+
         overflow: visible !important;
     }
 
