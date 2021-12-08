@@ -43,6 +43,8 @@ export const AvatarWrapper = styled.div`
 
     > div {
 
+
+        
         overflow: visible !important;
     }
 
