@@ -26,14 +26,6 @@ import MY_PIC from './matcha.jpeg';
 export default function Welcome() {
     const tech = [Tech.REACT, Tech.TS, Tech.JAVA, Tech.PYTHON],
         spring = useSpring({ opacity: 1, from: { opacity: 0 } }),
-
-
-        
-        
-
-
-
-
         isMobile = useMedia({ maxWidth: '900px' });
 
     return (
