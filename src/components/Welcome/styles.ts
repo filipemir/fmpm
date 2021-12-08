@@ -41,6 +41,11 @@ export const AvatarWrapper = styled.div`
     display: flex;
     align-items: center;
 
+    > div {
+
+        overflow: visible !important;
+    }
+
     @media (max-width: ${MOBILE_MAX_WIDTH}) {
         display: inline-block;
         margin: 0;
@@ -60,10 +65,8 @@ export const Content = styled.div`
 export const Avatar = styled(Image)`
     border-radius: 50%;
 
-    .filipe {
-        border: 3px solid ${COLOR_BG_ACCENT};
+        border: 3px solid ${COLOR_BG_ACCENT} !important;
         box-shadow: 10px 22px 0 ${COLOR_BG_ACCENT};
-    }
 
     @media (max-width: ${MOBILE_MAX_WIDTH}) {
         height: 130px;
