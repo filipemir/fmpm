@@ -9,7 +9,6 @@
         "dev": "next dev & yarn ts:watch",
         "build": "next build",
         "start": "next start",
-        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,mdx}\"",
         "ts": "tsc --noEmit --incremental",
         "ts:watch": "yarn ts --watch",
         "prepare": "husky install"

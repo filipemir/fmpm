@@ -36,15 +36,12 @@ export const Part1Inner = styled.div`
     }
 `;
 
-export       const AvatarWrapper = styled.div`
+export const AvatarWrapper = styled.div`
     margin-right: 50px;
     display: flex;
     align-items: center;
 
     > div {
-
-
-
         overflow: visible !important;
     }
 
@@ -67,8 +64,8 @@ export const Content = styled.div`
 export const Avatar = styled(Image)`
     border-radius: 50%;
 
-        border: 3px solid ${COLOR_BG_ACCENT} !important;
-        box-shadow: 10px 22px 0 ${COLOR_BG_ACCENT};
+    border: 3px solid ${COLOR_BG_ACCENT} !important;
+    box-shadow: 10px 22px 0 ${COLOR_BG_ACCENT};
 
     @media (max-width: ${MOBILE_MAX_WIDTH}) {
         height: 130px;
