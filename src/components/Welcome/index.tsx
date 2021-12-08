@@ -32,6 +32,7 @@ export default function Welcome() {
 
 
 
+
         isMobile = useMedia({ maxWidth: '900px' });
 
     return (
