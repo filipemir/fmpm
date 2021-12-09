@@ -6,6 +6,4 @@ enum Page {
     CONTACT = 'contact ✉️'
 }
 
-const t = 1;
-
 export default Page;
