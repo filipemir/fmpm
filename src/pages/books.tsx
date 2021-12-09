@@ -11,8 +11,6 @@ import { PERSONAL_EMAIL } from '../data/personal';
 import styled from '@emotion/styled';
 import { PADDING_TOP_PAGE } from 'styles/global';
 
-const t = 1
-
 const StyledRoot = styled.div`
     margin: 0 auto;
     padding-top: ${PADDING_TOP_PAGE}px;
