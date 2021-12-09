@@ -28,9 +28,14 @@ export const StyledBook = styled.div`
 
     @media (min-width: 800px) {
         &:hover {
-            box-shadow: rgba(2, 12, 27, 0.5) 10px 20px 30px 0;
             transform: scale(1.3);
             z-index: 1;
+            img {
+                box-shadow: rgba(2, 12, 27, 0.5) 10px 20px 30px 0;
+            }
+        }
+        > * {
+            overflow: visible !important;
         }
     }
 
