@@ -33,7 +33,12 @@ export default function FakeBrowser({
                 </Dots>
             </Bar>
             <ImgWrapper>
-                <Image src={project.img} alt={alt} />
+                <Image
+                    src={project.img}
+                    alt={alt}
+                    layout='fill'
+                    objectFit='cover'
+                />
             </ImgWrapper>
         </Root>
     );
