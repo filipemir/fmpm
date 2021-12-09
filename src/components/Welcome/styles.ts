@@ -6,8 +6,7 @@ import {
     COLOR_BG_ACCENT,
     COLOR_PRIMARY,
     FONT_FAMILY_SERIF,
-    MOBILE_MAX_WIDTH,
-    StyledBlurrableImage
+    MOBILE_MAX_WIDTH
 } from 'styles/global';
 
 export const Root = styled.div`

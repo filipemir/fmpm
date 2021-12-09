@@ -1,5 +1,4 @@
 import React from 'react';
-import { GetServerSidePropsContext } from 'next';
 import { Waypoint } from 'react-waypoint';
 import Header from 'components/Header';
 import SEO from 'components/SEO';
@@ -10,18 +9,13 @@ import usePaginatedBooks from 'hooks/usePaginatedBooks';
 import useMedia from 'use-media';
 import { PERSONAL_EMAIL } from '../data/personal';
 import styled from '@emotion/styled';
-import { FONT_FAMILY_SANS_SERIF, PADDING_TOP_PAGE } from 'styles/global';
+import { PADDING_TOP_PAGE } from 'styles/global';
 
 const StyledRoot = styled.div`
     margin: 0 auto;
     padding-top: ${PADDING_TOP_PAGE}px;
     padding-bottom: ${PADDING_TOP_PAGE}px;
     min-height: 100vh;
-`;
-
-const StyledYear = styled.h2`
-    font-family: ${FONT_FAMILY_SANS_SERIF};
-    text-align: center;
 `;
 
 const DESCRIPTION = "Books I've read over the years";
@@ -67,10 +61,4 @@ export default function BooksPage() {
             </Section>
         </StyledRoot>
     );
-}
-
-export async function getServerSideProps(props: GetServerSidePropsContext) {
-    return {
-        props: { booksCoverPlaceholders: [] }
-    };
 }

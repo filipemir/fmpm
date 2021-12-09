@@ -15,9 +15,14 @@ import { Project } from 'models/project';
 interface FakeBrowserProps {
     active?: boolean;
     project: Project;
+    alt: string;
 }
 
-export default function FakeBrowser({ active, project }: FakeBrowserProps) {
+export default function FakeBrowser({
+    active,
+    project,
+    alt
+}: FakeBrowserProps) {
     return (
         <Root active={!!active}>
             <Bar>
@@ -28,7 +33,7 @@ export default function FakeBrowser({ active, project }: FakeBrowserProps) {
                 </Dots>
             </Bar>
             <ImgWrapper>
-                <Image src={project.img} />
+                <Image src={project.img} alt={alt} />
             </ImgWrapper>
         </Root>
     );

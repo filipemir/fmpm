@@ -75,6 +75,7 @@ function ExperienceSection({
                                     description,
                                     url
                                 } = tenure,
+                                // eslint-disable-next-line react-hooks/rules-of-hooks
                                 innerTrail = useTrail(jobs.length, {
                                     opacity: 1,
                                     x: 0,
@@ -216,7 +217,7 @@ export default function ResumeContent(props: ResumeContentProps) {
 
         const el = activeItemRef.current;
         el && el.scrollIntoView({ behavior: 'smooth' });
-    }, [activeItem, activeItemRef]);
+    }, [scrollIntoView, activeItem, activeItemRef]);
 
     return (
         <RootDiv ref={rootRef}>

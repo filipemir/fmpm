@@ -5,6 +5,7 @@ class MyDocument extends Document {
         return (
             <Html>
                 <Head>
+                    {/* eslint-disable-next-line @next/next/no-css-tags */}
                     <link href='/fonts.css' rel='stylesheet' />
                 </Head>
                 <body>

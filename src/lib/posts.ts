@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import imageSize from 'rehype-probe-image-size';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const rehypePrism = require('@mapbox/rehype-prism');
 
 const postsDirectory = join(process.cwd(), 'src', 'posts');

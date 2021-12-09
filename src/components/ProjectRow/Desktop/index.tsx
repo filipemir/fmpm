@@ -35,7 +35,7 @@ export default function ProjectRowDesktop({
                 target={'_blank'}
                 rel='noopener noreferrer'
             >
-                <FakeBrowser project={project} active={hovered} />
+                <FakeBrowser project={project} active={hovered} alt={name} />
             </Preview>
             <Content alignLeft={leftAlignedContent}>
                 <TitleWrapper alignLeft={leftAlignedContent}>

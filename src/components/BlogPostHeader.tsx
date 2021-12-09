@@ -9,7 +9,6 @@ import {
 } from '../styles/global';
 import { SlashDiv } from './ProjectRow/common/styles';
 import Underline from '../images/underline.svg';
-import format from 'date-fns/format';
 
 const StyledTitle = styled.h1`
     font-weight: 400;

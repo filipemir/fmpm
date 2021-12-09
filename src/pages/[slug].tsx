@@ -173,7 +173,7 @@ interface Props {
     compiledSource: string;
 }
 
-const img = (props: ImageProps) => <Image {...props} />;
+const img = (props: ImageProps) => <Image {...props} alt={props.alt || ''} />;
 
 export default function Doc({ title, date, compiledSource }: Props) {
     return (

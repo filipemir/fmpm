@@ -31,7 +31,7 @@ export default function ProjectRowMobile({ project }: ProjectRowProps) {
                 </SlashDiv>
             </Title>
             <Preview>
-                <FakeBrowser project={project} />
+                <FakeBrowser project={project} alt={name} />
                 <DescriptionBoxWrapper>
                     <Description>{parse(description)}</Description>
                 </DescriptionBoxWrapper>
