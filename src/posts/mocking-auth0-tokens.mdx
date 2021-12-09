@@ -1,0 +1,385 @@
+---
+title: Mocking Auth0 tokens in Python and Beyond
+path: /mocking-auth0-tokens
+date: 2021-02-11
+---
+
+Deploying a change that accidentally borks the permissions on your API — by,
+say, publicly exposing data that should only be viewable to a subset of users —
+is probably gonna ruin your week. For just that reason, we should all be
+terrified of working on code bases that don’t have a robust test coverage of
+authentication and permissions. And yet figuring out how to properly mock
+different authentication paths in your tests is hardly trivial, requiring a fair
+amount of knowledge about how access tokens and authentication providers work.
+As a result, many test suites rely on a complicated set of user accounts created
+in Auth0 just for the purpose of testing, which is a confusing, flaky, and
+brittle setup. Worse yet are the many test suites that just bypass testing
+different authentication scenarios altogether.
+
+Sound like an app you know? Then this post is for you. In it, I’m hoping to
+clarify how authentication providers (specifically Auth0) issue and sign access
+tokens so that you can understand how to mock them in your tests. The examples
+I’ll provide come from a Django app, but you should be able to reuse the same
+concepts in any test suite.
+
+## A quick primer on access tokens
+
+Access tokens are a mechanism used by authentication providers to let your API
+know that a request is coming from an authenticated user and what level of
+access that user should be granted. These tokens are typically JWTs, which means
+they follow the widely-used
+[JSON Web Tokens standard](https://jwt.io/introduction) for transmitting
+information between two parties in a concise and verifiable way. Although these
+JWTs can be encrypted, they often aren’t. Instead their usefulness comes from
+the fact that they are encoded with a verifiable signature of the issuer. They
+are self-contained in the sense that you don’t have to shoot off a request to
+the issuer to have them verify the token. You just feed the token through the
+correct algorithm to find out whether it's properly signed. If so, you can trust
+that no one besides the issuer tampered with the contents of the token.
+
+To do all of this in the most concise form possible, JWTs follow a very specific
+structure comprised of three constituent parts separated by dots like this:
+
+```bash
+{header}.{payload}.{signature}
+```
+
+The header and the payload are JSON objects which are then Base64URL encoded
+before being added to that structure.[^1] The header section includes
+information on what algorithm was used to sign the token and, if applicable, the
+id of the public key needed to validate it. The payload is where the substance
+of the token goes. For access tokens, this will be information about the user
+and what they should be allowed to do. The payload can include really any valid
+JSON, though there are a few standard fields (or “claims” in the JWT parlance)
+that are frequently used for most tokens like issuer, expiration time, and
+audience, among others. Finally, there’s the signature, the JWT’s linchpin. It’s
+created by taking the first two parts and feeding them through the algorithm
+indicated in the header.
+
+By default,
+[Auth0 tokens are signed using the RS256 algorithm](https://auth0.com/docs/tokens/signing-algorithms),
+which relies on a pair of related public and private keys. When a user of your
+app logs in with Auth0, she is issued a token that Auth0 signs using a private
+key. Neither your nor your app will ever see that private key. If you did you
+would be able to issue JWTs on behalf of Auth0 which would be a very bad day for
+their security and PR teams indeed. Instead, Auth0 exposes a related public key.
+This key has just enough information to enable anyone to verify whether a JWT
+was encoded using its private counterpart, but not enough information to enable
+them to issue new JWTs. This structure is why RS256 is called an asymmetrical
+signing algorithm: the parties exchanging the token have different amounts of
+information, but each has all the information they need to do their business.
+
+There are many different ways of sharing public keys.
+[Auth0 does it via an endpoint that exposes them in a standardized JSON format called JSON Web Keys](https://auth0.com/docs/tokens/json-web-tokens/json-web-key-sets)
+(JWKs). Below is an example of what that looks like for a random app but your
+app should have an equivalent endpoint at
+`https://{your-auth0-domain}/.well-known/jwks.json` [^2]
+
+```json
+{
+  "keys": [
+    {
+      "alg": "RS256",
+      "kty": "RSA",
+      "use": "sig",
+      "n": "mff4bkiJV-ve8IY_...",
+      "e": "AQAB",
+      "kid": "NzI4MjFDODk5NDBDQ0U4QTAyQTExREFDMEIyRkYzNzBCQjc3QkM3RQ",
+      "x5t": "NzI4MjFDODk5NDBDQ0U4QTAyQTExREFDMEIyRkYzNzBCQjc3QkM3RQ",
+      "x5c": [
+        "MIIDCTCCA..."
+      ]
+    },
+    ...
+  ]
+}
+```
+
+Each object contained in the `keys` parameter above is a representation of a
+public key. There's a lot of information in each but the most important
+properties for our purposes are the `n` and `e` parameters, two values derived
+from the underlying private key. With those two values we can verify that a JWT
+was signed with the corresponding private key. Also important is the `kid`
+property, a string that uniquely identifies the key. As I mentioned above, a
+token's header can include a unique identifier of the public key needed to
+validate its signature. We can then use that id to pick the correct key from
+this set of keys
+
+## How access tokens are used
+
+Now that we know a little about how access tokens are structured and signed, we
+can begin to understand how they are used by our APIs. The typical flow for a
+user hitting an endpoint that requires authentication would go something like
+this:
+
+1. A user logs-in with Auth0 and is issued an access token which she can pass to
+   the API with each request.[^3]
+2. The app decodes the token to get its payload and also the id for the public
+   key it should use to verify the token’s signature (the `kid` property we
+   discussed above).
+3. The app then requests the issuer’s set of public keys (using an endpoint like
+   the one above), finds the key with the correct `kid`, and uses that public
+   key to validate that the token's signature is valid. If it is, it knows that
+   it must in fact have been issued by Auth0.
+4. Knowing that the token is valid, the app can check a few other things that
+   are typically included within the token's payload: are the issuer and
+   audience values (contained within the `iss` and `aud` claims) expected? Has
+   the token expired (a timestamp encoding its expiration date can be contained
+   with the `exp` claim)?
+5. If everything still looks good, then the app knows it can trust this token
+   and can finally look to see if the user has permission to do whatever they're
+   trying to do. Typically this is done by checking that expected values are
+   included within the `scope` or `permissions` claims.
+
+## Mocking access tokens
+
+So how can we cut Auth0 out of the permissions process during our tests? Really,
+the only places where we need to intervene are the exact same ones where Auth0
+intervenes: by issuing the tokens (step 1) and exposing the public key needed to
+verify them (step 3). If we do those two things, the app will trust us as the
+issuer of the tokens and will handle the rest.
+
+Specifically, here’s what we’ll need to do:
+
+1. Generate a public/private key pair
+2. Encode user claims in a token with the private key
+3. Create a JWK representation of the public key
+4. Patch the tests to use our mocked token and JWK
+
+To get there we’ll need the help of a couple of Python packages:
+
+-   [Cryptography](https://cryptography.io/en/latest/): The most widely-used
+    Python package for cryptographic and encryption algorithms. We'll use this
+    to generate our key pair.
+-   [PyJWT](https://pyjwt.readthedocs.io/en/stable/): The go-to Python package
+    for encoding and decoding JWTs. We’ll use it to do just that. It will also
+    come in handy to properly encode the public key into its JWK representation.
+
+So install those packages in your environments and let’s take each of the steps
+above in turn.
+
+### Generating a public/private key pair
+
+Generating a key is fairly straight-forward with the `cryptography` package.
+Here’s what that looks like:
+
+```python
+from cryptography.hazmat.primitives.asymmetric import rsa
+
+
+def generate_public_private_key_pair():
+    private_key = rsa.generate_private_key(public_exponent=65537, key_size=2048)
+    public_key = private_key.public_key()
+    return (public_key, private_key)
+
+
+(public_key, private_key) = generate_public_private_key_pair()
+```
+
+If you want to figure out what the `exponent` and `key_size` parameters are
+doing you'll have to
+[delve a bit deeper into RSA keys](https://cryptobook.nakov.com/asymmetric-key-ciphers/the-rsa-cryptosystem-concepts#rsa-key-generation).
+For our purposes, suffice it to say that those values are reasonable and
+commonly-used defaults.
+
+### Encoding user claims in a token
+
+Now that we have a key pair, we can encode our user information — including
+their level of access — in a JWT. For this example, I’m imagining a very simple
+CRUD app where authenticated users can either have `read` access, `write`
+access, or both and this level of access is communicated through the
+`permissions` claim.[^4]
+
+```python
+import jwt
+
+
+ALGORITHM = "RS256"
+PUBLIC_KEY_ID = "sample-key-id"
+
+def encode_token(payload):
+    return jwt.encode(
+        payload=payload,
+        key=private_key,  # The private key created in the previous step
+        algorithm=ALGORITHM,
+        headers={
+            "kid": PUBLIC_KEY_ID,
+        },
+    )
+
+
+def get_mock_user_claims(permissions):
+    return {
+        "sub": "123|auth0",
+        "iss": "some-issuer",  # Should match the issuer your app expects
+        "aud": "audience",  # Should match the audience your app expects
+        "iat": 0,  # Issued a long time ago: 1/1/1970
+        "exp": 9999999999,  # One long-lasting token, expiring 11/20/2286
+        "permissions": permissions,
+    }
+
+
+def get_mock_token(permissions):
+    return encode_token(
+		get_mock_user_claims(permissions)
+	)
+
+
+def get_mock_read_only_token():
+    return get_mock_token(permissions=["read"])
+
+
+def get_mock_read_write_token():
+    return get_mock_token(permissions=["read", "write"])
+```
+
+I placed the `PUBLIC_KEY_ID` and `ALGORITHM` values in constants so that we can
+reuse them later. The specific value for the public key id is arbitrary but the
+`kid` value passed to the JWT header will have to match the `kid` value of the
+JWK we will generate in the next step.
+
+Note also that the issuer and audience values (specified in the `iss` and `aud`
+claims) typically need to match those your app expects. You are likely passing
+these values as configs to to the library your app uses to interact with Auth0,
+although you may also have implemented this check in your own code.
+
+### Creating a JWK representation of your public key
+
+The final piece of data we need is the JWK representation of our public key.
+Using the `cryptography` and `jwt` packages in tandem, we can take care of this
+fairly handily:
+
+```python
+import jwt
+from jwt.utils import to_base64url_uint
+
+
+def get_jwk(public_key):
+    public_numbers = public_key.public_numbers()
+
+    return {
+        "kid": PUBLIC_KEY_ID,  # Public key id constant from previous step
+        "alg": ALGORITHM,  # Algorithm constant from previous step
+        "kty": "RSA",
+        "use": "sig",
+        "n": to_base64url_uint(public_numbers.n).decode("ascii"),
+        "e": to_base64url_uint(public_numbers.e).decode("ascii"),
+    }
+
+
+jwk = get_jwk(public_key)
+```
+
+### Patching our tests
+
+The final step is to patch our tests to use the tokens and keys we generated.
+Here my guidance will necessarily become less broadly applicable because the
+implementation details will depend on how your app is setup and what frameworks
+you use. But I will walk you through how I implemented this using `pytest` in a
+Django app recently.
+
+During its normal operation, my Django app retrieves Auth0’s JWK set using a
+function called `get_auth0_jwks` . My goal then was to patch that method, so I
+created a `pytest` fixture to intercept calls made to it and return my JWK
+instead.
+
+```python
+# conftest.py
+
+@pytest.fixture(autouse=True)
+def mock_auth0_jwks(mocker):
+    jwk = get_jwk(public_key)
+    mocker.patch(
+        "myapp.authentication.get_auth0_jwks", return_value={"keys": [jwk]}
+    )
+```
+
+As you can see, I defined that fixture in the `conftest.py` file at the root of
+my project so that `pytest` will make it available to every one of my tests. I
+also asked `pytest` to automatically use that fixture so that I don't have to
+explicitly call it in each test. This way we won't have mysterious test failures
+because someone forgot to load and use this fixture before adding a new test.
+
+Finally, I needed to make the various tokens easily usable from my tests. Again,
+I used the `conftest.py` file to define a couple of global fixtures, each of
+which exposed an API client preloaded with the appropriate permissions:
+
+```python
+# conftest.py
+from rest_framework.test import APIClient
+
+
+@pytest.fixture()
+def api_client():
+    return APIClient()
+
+
+@pytest.fixture()
+def api_client_read_only(api_client):
+    api_client.credentials(HTTP_AUTHORIZATION=f"Bearer {get_mock_read_only_token()}")
+    return api_client
+
+
+@pytest.fixture()
+def api_client_read_write(api_client):
+    api_client.credentials(HTTP_AUTHORIZATION=f"Bearer {get_mock_read_write_token()}")
+    return api_client
+```
+
+Finally, all my pieces were in place and I could get down to writing tests:
+
+```python
+from rest_framework import status
+
+
+def test_unauthenticated_user_cant_get_resource(api_client):
+    response = api_client.get("/resource", format="json")
+    assert response.status_code == status.HTTP_401_UNAUTHORIZED
+
+
+def test_read_only_user_can_get_resource(api_client_read_only):
+    response = api_client_read_only.get("/resource", format="json")
+    assert response.status_code == status.HTTP_200_OK
+
+
+def test_read_only_user_cant_post_resource(api_client_read_only):
+    response = api_client_read_only.post("/resource", format="json")
+    assert response.status_code == status.HTTP_403_FORBIDDEN
+
+
+def test_read_write_user_can_post_resource(api_client_read_write):
+    response = api_client_read_write.post("/resource", format="json")
+    assert response.status_code == status.HTTP_200_OK
+```
+
+## Additional resources
+
+Still itching to learn more? Just as confused/stuck as you were? Here are some
+resources I found helpful in writing this post:
+
+-   [An earlier post by Carter Bancroft](https://carterbancroft.com/mocking-json-web-tokens-and-auth0/)
+    covering similar background for an Express app
+-   Auth0's excellent documentation on
+    [signing algorithms](https://auth0.com/docs/tokens/signing-algorithms),
+    [JSON Web Tokens](https://auth0.com/docs/tokens/json-web-tokens), and
+    [JSON Web Key Sets](https://auth0.com/docs/tokens/json-web-tokens/json-web-key-sets)
+
+[^1]:
+    One important thing to re-iterate here is that there’s nothing necessarily
+    secret about the contents of the JWT. The payload and header are just
+    `Base64URL` encoded, something which is easily reversed by anyone. So these
+    tokens are not a way to encrypt data, but rather a way to pass data around
+    with a guarantee that the data hasn’t been modified by some shady people on
+    the internet.
+
+[^2]:
+    Here’s a random example I found for a “sample” app:
+    https://sample.auth0.com/.well-known/jwks.json
+
+[^3]:
+    Users will typically include the token along with a request by setting the
+    value `Authorization` request header to `Bearer {token_value}`
+
+[^4]:
+    Note that some apps use the `scope` claim instead to community scope of
+    access. You'll want to figure out what claim your app relies on.
