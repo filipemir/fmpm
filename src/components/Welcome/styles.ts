@@ -40,7 +40,7 @@ export const AvatarWrapper = styled.div`
     display: flex;
     align-items: center;
 
-    > div {
+    > * {
         overflow: visible !important;
     }
 
