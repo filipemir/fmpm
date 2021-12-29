@@ -80,11 +80,11 @@ const inlineCode = styled.code`
     background-color: ${COLOR_QUATERNARY};
     color: ${COLOR_ACCENT};
     border-radius: 6px;
-    padding-left: 0.3ch;
-    padding-right: 0.3ch;
+    padding: 3px 0.5ch;
     font-weight: 400;
     font-style: normal;
     text-shadow: none;
+    font-size: 90%;
 `;
 
 const hr = styled.hr`
