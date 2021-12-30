@@ -16,6 +16,7 @@ import BlogPostHeader from '../components/BlogPostHeader';
 import format from 'date-fns/format';
 import CodeBlock from '../components/CodeBlock';
 import Image, { ImageProps } from 'next/image';
+import SEO from 'components/SEO';
 
 const baseTextStyles = css`
     max-width: 650px;
@@ -229,6 +230,7 @@ const img = (props: ImageProps) => (
 export default function Doc({ title, date, compiledSource }: Props) {
     return (
         <Root>
+            <SEO pageTitle={title} />
             <BlogPostHeader title={title} date={date} />
             <MDXRemote
                 compiledSource={compiledSource}
