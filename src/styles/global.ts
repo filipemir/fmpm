@@ -45,28 +45,18 @@ const globalCss = css`
         position: relative;
         z-index: 0;
 
-        &:hover {
-            &:after {
-                z-index: -10;
-                width: 100%;
-                content: ' ';
-                position: absolute;
-                bottom: 0.1em;
-                left: 0;
-                height: 10px;
-                background-color: ${COLOR_BG_ACCENT};
-                animation: grow 250ms forwards ease-in-out;
-            }
-        }
+        background-image: linear-gradient(
+            ${COLOR_BG_ACCENT},
+            ${COLOR_BG_ACCENT}
+        );
+        background-position: 0% 90%;
+        background-repeat: no-repeat;
+        background-size: 0 0px;
+        transition: background-size 0.5s;
 
-        @keyframes grow {
-            0% {
-                width: 0;
-            }
-
-            100% {
-                width: 100%;
-            }
+        &:hover,
+        &:focus {
+            background-size: 100% 10px;
         }
     }
 
