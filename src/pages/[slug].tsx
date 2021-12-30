@@ -18,14 +18,13 @@ import CodeBlock from '../components/CodeBlock';
 import Image, { ImageProps } from 'next/image';
 
 const baseTextStyles = css`
-    max-width: 600px;
+    max-width: 650px;
     margin-right: auto;
     margin-left: auto;
 `;
 
 const baseHeaderStyles = css`
     ${baseTextStyles};
-    max-width: 620px;
     font-weight: 400;
     z-index: 2;
     text-shadow: 1px 2px 0 ${COLOR_BG_ACCENT};
@@ -161,9 +160,31 @@ const Root = styled.main`
         }
     }
 
+    .footnote-ref {
+        margin-right: 0.2ch;
+    }
+
     .footnotes {
-        padding: 0;
         font-size: 0.9em;
+
+        hr {
+            margin: 40px auto;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .footnote-backref {
+            visibility: hidden;
+
+            :after {
+                content: ' ^';
+                visibility: visible;
+                position: absolute;
+                left: 3px;
+            }
+        }
     }
 `;
 

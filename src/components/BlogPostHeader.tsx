@@ -31,7 +31,7 @@ const StyledDate = styled.div`
     font-size: 14px;
     color: ${COLOR_ACCENT};
     font-family: ${FONT_FAMILY_MONO};
-    margin-top: 10px;
+    margin-top: 20px;
     text-align: left;
 
     @media (max-width: ${MOBILE_MAX_WIDTH}) {
@@ -43,8 +43,9 @@ const StyledDate = styled.div`
 const StyledRoot = styled.div`
     position: relative;
     transition: transform 100ms ease-in-out;
-    max-width: 600px;
+    max-width: 650px;
     text-align: left;
+    margin: 50px auto 25px auto !important;
 
     @media (max-width: ${MOBILE_MAX_WIDTH}) {
         padding-top: 0;
