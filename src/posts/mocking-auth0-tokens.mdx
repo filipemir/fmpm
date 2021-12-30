@@ -4,23 +4,21 @@ path: /mocking-auth0-tokens
 date: 2021-02-11
 ---
 
-Deploying a change that accidentally borks the permissions on your API — by,
-say, publicly exposing data that should only be viewable to a subset of users —
-is probably gonna ruin your week. For just that reason, we should all be
-terrified of working on code bases that don’t have a robust test coverage of
-authentication and permissions. And yet figuring out how to properly mock
-different authentication paths in your tests is hardly trivial, requiring a fair
-amount of knowledge about how access tokens and authentication providers work.
-As a result, many test suites rely on a complicated set of user accounts created
-in Auth0 just for the purpose of testing, which is a confusing, flaky, and
-brittle setup. Worse yet are the many test suites that just bypass testing
-different authentication scenarios altogether.
+Deploying a change that accidentally borks the permissions on your API — by say
+publicly exposing data that should only be viewable to a subset of users — is
+going to ruin your week. But figuring out how to properly mock different
+authentication paths in your tests is hardly trivial, requiring a fair amount of
+knowledge about how access tokens and authentication providers work. As a
+result, many test suites rely on a complicated set of user accounts created in
+Auth0 just for the purpose of testing, a confusing, flaky, and brittle setup.
+Worse yet are the many test suites that just bypass testing different
+authentication scenarios altogether.
 
 Sound like an app you know? Then this post is for you. In it, I’m hoping to
 clarify how authentication providers (specifically Auth0) issue and sign access
-tokens so that you can understand how to mock them in your tests. The examples
-I’ll provide come from a Django app, but you should be able to reuse the same
-concepts in any test suite.
+tokens so that you can mock them in your tests. The examples I’ll provide come
+from a Django app, but you should be able to reuse the same concepts in any test
+suite.
 
 ## A quick primer on access tokens
 
@@ -44,7 +42,7 @@ structure comprised of three constituent parts separated by dots like this:
 {header}.{payload}.{signature}
 ```
 
-The header and the payload are JSON objects which are then Base64URL encoded
+The header and the payload are JSON objects which are then `Base64URL` encoded
 before being added to that structure.[^1] The header section includes
 information on what algorithm was used to sign the token and, if applicable, the
 id of the public key needed to validate it. The payload is where the substance
@@ -71,9 +69,9 @@ information, but each has all the information they need to do their business.
 
 There are many different ways of sharing public keys.
 [Auth0 does it via an endpoint that exposes them in a standardized JSON format called JSON Web Keys](https://auth0.com/docs/tokens/json-web-tokens/json-web-key-sets)
-(JWKs). Below is an example of what that looks like for a random app but your
-app should have an equivalent endpoint at
-`https://{your-auth0-domain}/.well-known/jwks.json` [^2]
+(JWKs). Here is an example of what that looks like for a random app but your app
+should have an equivalent endpoint at
+`https://{your-auth0-domain}/.well-known/jwks.json`: [^2]
 
 ```json
 {
@@ -133,11 +131,12 @@ this:
 
 ## Mocking access tokens
 
-So how can we cut Auth0 out of the permissions process during our tests? Really,
-the only places where we need to intervene are the exact same ones where Auth0
-intervenes: by issuing the tokens (step 1) and exposing the public key needed to
-verify them (step 3). If we do those two things, the app will trust us as the
-issuer of the tokens and will handle the rest.
+So how can we cut Auth0 out of the permissions process during our tests?
+
+Really, the only places where we need to intervene are the exact same ones where
+Auth0 intervenes: by issuing the tokens (step 1 above) and exposing the public
+key needed to verify them (step 3 above). If we do those two things, the app
+will trust us as the issuer of the tokens and will handle the rest.
 
 Specifically, here’s what we’ll need to do:
 
@@ -354,8 +353,7 @@ def test_read_write_user_can_post_resource(api_client_read_write):
 
 ## Additional resources
 
-Still itching to learn more? Just as confused/stuck as you were? Here are some
-resources I found helpful in writing this post:
+Here are some resources I found helpful in writing this post:
 
 -   [An earlier post by Carter Bancroft](https://carterbancroft.com/mocking-json-web-tokens-and-auth0/)
     covering similar background for an Express app
