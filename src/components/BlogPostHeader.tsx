@@ -48,6 +48,7 @@ const StyledRoot = styled.div`
     margin: 50px auto 25px auto !important;
 
     @media (max-width: ${MOBILE_MAX_WIDTH}) {
+        margin: 1em auto !important;
         padding-top: 0;
     }
 `;

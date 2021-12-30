@@ -29,6 +29,7 @@ const baseHeaderStyles = css`
     z-index: 2;
     text-shadow: 1px 2px 0 ${COLOR_BG_ACCENT};
     line-height: 1;
+    font-style: italic;
 `;
 
 const h2 = styled.h2`
@@ -60,14 +61,40 @@ const p = styled.div`
 
 const li = styled.li`
     ${baseTextStyles};
+    margin-bottom: 5px;
+
+    &::marker {
+        font-style: italic;
+        color: ${COLOR_ACCENT};
+    }
+
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
+        margin-left: 0;
+    }
 `;
 
 const ol = styled.ol`
     ${baseTextStyles};
+
+    li::marker {
+        font-size: 14px;
+    }
+
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
+        padding-inline-start: 20px;
+    }
 `;
 
 const ul = styled.ul`
     ${baseTextStyles};
+
+    li::marker {
+        font-size: 10px;
+    }
+
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
+        padding-inline-start: 20px;
+    }
 `;
 
 const strong = styled.strong`
@@ -161,6 +188,7 @@ const Root = styled.main`
     }
 
     .footnote-ref {
+        font-size: 14px;
         margin-right: 0.2ch;
     }
 
