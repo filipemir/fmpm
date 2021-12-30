@@ -3,12 +3,13 @@ import { ReactNode } from 'react';
 
 const StyledPreWrapper = styled.div`
     background-color: #263238;
-    margin: 0.5em 0 30px 0;
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;
     padding: 0;
     overflow: auto;
     box-shadow: -10px 10px #e4e3e3;
     border-radius: 6px;
-    max-width: 70ch;
+    max-width: 65ch;
 
     .highlight-line {
         background-color: #2f4549;

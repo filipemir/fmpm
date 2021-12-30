@@ -16,20 +16,21 @@ import BlogPostHeader from '../components/BlogPostHeader';
 import format from 'date-fns/format';
 import CodeBlock from '../components/CodeBlock';
 import Image, { ImageProps } from 'next/image';
+import SEO from 'components/SEO';
 
 const baseTextStyles = css`
-    max-width: 600px;
+    max-width: 650px;
     margin-right: auto;
     margin-left: auto;
 `;
 
 const baseHeaderStyles = css`
     ${baseTextStyles};
-    max-width: 620px;
     font-weight: 400;
     z-index: 2;
     text-shadow: 1px 2px 0 ${COLOR_BG_ACCENT};
     line-height: 1;
+    font-style: italic;
 `;
 
 const h2 = styled.h2`
@@ -61,14 +62,40 @@ const p = styled.div`
 
 const li = styled.li`
     ${baseTextStyles};
+    margin-bottom: 5px;
+
+    &::marker {
+        font-style: italic;
+        color: ${COLOR_ACCENT};
+    }
+
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
+        margin-left: 0;
+    }
 `;
 
 const ol = styled.ol`
     ${baseTextStyles};
+
+    li::marker {
+        font-size: 14px;
+    }
+
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
+        padding-inline-start: 20px;
+    }
 `;
 
 const ul = styled.ul`
     ${baseTextStyles};
+
+    li::marker {
+        font-size: 10px;
+    }
+
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
+        padding-inline-start: 20px;
+    }
 `;
 
 const strong = styled.strong`
@@ -80,11 +107,11 @@ const inlineCode = styled.code`
     background-color: ${COLOR_QUATERNARY};
     color: ${COLOR_ACCENT};
     border-radius: 6px;
-    padding-left: 0.3ch;
-    padding-right: 0.3ch;
+    padding: 3px 0.5ch;
     font-weight: 400;
     font-style: normal;
     text-shadow: none;
+    font-size: 90%;
 `;
 
 const hr = styled.hr`
@@ -161,9 +188,32 @@ const Root = styled.main`
         }
     }
 
+    .footnote-ref {
+        font-size: 14px;
+        margin-right: 0.2ch;
+    }
+
     .footnotes {
-        padding: 0;
         font-size: 0.9em;
+
+        hr {
+            margin: 40px auto;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .footnote-backref {
+            visibility: hidden;
+
+            :after {
+                content: ' ^';
+                visibility: visible;
+                position: absolute;
+                left: 3px;
+            }
+        }
     }
 `;
 
@@ -180,6 +230,7 @@ const img = (props: ImageProps) => (
 export default function Doc({ title, date, compiledSource }: Props) {
     return (
         <Root>
+            <SEO pageTitle={title} />
             <BlogPostHeader title={title} date={date} />
             <MDXRemote
                 compiledSource={compiledSource}
