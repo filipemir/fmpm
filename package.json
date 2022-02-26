@@ -37,7 +37,7 @@
         "next-mdx-remote": "3.0.4",
         "object-hash": "2.0.3",
         "pretty-quick": "^3.1.2",
-        "prismjs": "1.24.0",
+        "prismjs": "1.27.0",
         "react": "17.0.2",
         "react-burger-menu": "2.6.13",
         "react-dom": "17.0.2",
