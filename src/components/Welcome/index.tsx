@@ -24,7 +24,7 @@ import Link from 'next/link';
 import MY_PIC from './matcha.jpeg';
 
 export default function Welcome() {
-    const tech = [Tech.REACT, Tech.TS, Tech.JAVA, Tech.PYTHON],
+    const tech = [Tech.REACT, Tech.TS, Tech.REMIX, Tech.PYTHON],
         spring = useSpring({ opacity: 1, from: { opacity: 0 } }),
         isMobile = useMedia({ maxWidth: '900px' });
 
@@ -54,8 +54,14 @@ export default function Welcome() {
                             </Header1Wrapper>
                             <Header2>
                                 I&apos;m a{' '}
-                                <JobTitle>software engineer</JobTitle> living in
-                                Boston.
+                                <JobTitle>software engineer</JobTitle> at{' '}
+                                <a
+                                    href='https://charliehealth.com'
+                                    target='_blank'
+                                    rel='noreferrer'
+                                >
+                                    Charlie Health.
+                                </a>
                             </Header2>
                             <Technologies>
                                 {tech.map((t) => (
@@ -64,27 +70,28 @@ export default function Welcome() {
                             </Technologies>
                             <About>
                                 <div>
-                                    I like building beautiful products and
-                                    finding problems that can be meaningfully
-                                    addressed with technology. If you have one,
-                                    I&apos;d love to{' '}
+                                    We're working to deliver life-saving mental
+                                    health treatment to kids in crisis. If that
+                                    sounds like a worthwhile way to spend your
+                                    time,{' '}
                                     <a
-                                        href={`mailto:${PERSONAL_EMAIL}`}
+                                        href={`https://www.charliehealth.com/careers/current-openings`}
                                         target={'_blank'}
                                         rel='noopener noreferrer'
                                     >
-                                        hear about it
+                                        come join us
                                     </a>
                                     .
                                 </div>
                                 <div>
-                                    I&apos;m also a lover of music,{' '}
+                                    Outside of work, I&apos;m a fan of rock
+                                    climbing, unreasonably angry music, and
+                                    whatever{' '}
                                     <Link href={'/books'}>
                                         <a>books</a>
-                                    </Link>
-                                    , movies, and rock climbing and may
-                                    occasionally muse about any or all of those
-                                    here.
+                                    </Link>{' '}
+                                    I get to read after my kids go to bed and
+                                    the dishes are done.
                                 </div>
                             </About>
                         </Content>

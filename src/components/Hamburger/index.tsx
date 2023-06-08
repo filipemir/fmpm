@@ -13,7 +13,7 @@ export default function Hamburger({
     onPageClick: (page: Page) => void;
 }) {
     const [open, setOpen] = useState(false),
-        pages = [Page.ABOUT, Page.PROJECTS, Page.EXPERIENCE, Page.CONTACT];
+        pages = [Page.ABOUT, Page.EXPERIENCE, Page.CONTACT];
     return (
         <Root>
             <Menu
