@@ -6,41 +6,40 @@ import {
     Tenure
 } from 'models/experience';
 import {
-    adventTeacher,
-    americorps,
     buoyLeadEngineer,
     buoySoftwareEngineer,
+    chSeniorSe,
     crbAnalyst,
     crbResearchAssociate,
     crbSeniorAnalyst,
-    irdTeacher,
     launchAcademy,
-    nprIntern,
-    scuRA,
     stIntegrationEngineer,
-    stSoftwareEngineer,
-    tuftsRA,
-    tuftsTA
+    stSoftwareEngineer
 } from 'data/jobs';
 import { scuDegree, tuftsDegree } from 'data/degrees';
-import adventLogo from 'images/logos/advent.png';
-import irdLogo from 'images/logos/ird.png';
-import nprLogo from 'images/logos/npr.png';
-import rtLogo from 'images/logos/rt.png';
-import scuLogo from 'images/logos/scu.png';
-import tuftsLogo from 'images/logos/tufts.png';
 import stLogo from 'images/logos/st.png';
 import launchLogo from 'images/logos/launch.png';
 import crLogo from 'images/logos/cr.png';
 import buoyLogo from 'images/logos/buoy.jpeg';
+import chLogo from 'images/logos/ch.jpeg';
+
+const CH: Tenure = {
+    company: Org.CH,
+    jobs: [chSeniorSe],
+    url: 'https://www.charliehealth.com',
+    logo: chLogo,
+    description: `Charlie Health provides mental health treatment for teens, young 
+        adults & families in crisis.`
+};
 
 const Buoy: Tenure = {
     company: Org.BUOY,
     jobs: [buoyLeadEngineer, buoySoftwareEngineer],
     logo: buoyLogo,
     url: 'https://www.buoyhealth.com/',
-    description: `Buoy is a digital health tool that aims to help people make 
-        the best possible decisions about their health.`
+    description: `Buoy is a self-diagnosis tool and health care marketplace 
+        that helps people understand might be wrong and where they 
+        can go for care.`
 };
 
 const ST: Tenure = {
@@ -49,9 +48,9 @@ const ST: Tenure = {
     logo: stLogo,
     url: 'https://www.wearesmartertravel.com/',
     description: `SmarterTravel was a subsidiary of TripAdvisor that owned and 
-        operated a large network of travel-content sites as well as the leading
-        travel ad network. I was fortunate to work across the stack on both
-        sides of the business during my four years there.`
+        operated a large network of travel-content sites as well as a leading
+        travel ad network. I worked across the stack on both sides of the business
+        during my four years there.`
 };
 
 const Launch: Tenure = {
@@ -71,56 +70,10 @@ const CR: Tenure = {
         there: team manager, researcher, analyst, even recruiter.`
 };
 
-const Tufts: Tenure = {
-    company: Org.TUFTS,
-    jobs: [tuftsRA, tuftsTA],
-    logo: tuftsLogo,
-    url: 'https://www.tufts.edu/'
-};
-
-const NPR: Tenure = {
-    company: Org.NPR,
-    jobs: [nprIntern],
-    logo: nprLogo,
-    url: 'https://www.npr.org/sections/money/'
-};
-
-const Advent: Tenure = {
-    company: Org.ADVENT,
-    jobs: [adventTeacher],
-    logo: adventLogo,
-    url: 'https://adventschool.org/'
-};
-
-const RT: Tenure = {
-    company: Org.RT,
-    jobs: [americorps],
-    logo: rtLogo,
-    url: 'https://rebuildingtogether.org/'
-};
-
-const IRD: Tenure = {
-    company: Org.IRD,
-    jobs: [irdTeacher],
-    logo: irdLogo,
-    url: 'https://readingprograms.org/'
-};
-
-const SCU: Tenure = {
-    company: Org.SCU,
-    jobs: [scuRA],
-    logo: scuLogo,
-    url: 'https://www.scu.edu/'
-};
-
 export const RESUME: Resume = {
     [ResumeSection.EXPERIENCE]: [
-        { name: CareerPhaseName.ENGINEERING, tenures: [Buoy, ST, Launch] },
-        { name: CareerPhaseName.CONSULTING, tenures: [CR] },
-        {
-            name: CareerPhaseName.OTHER,
-            tenures: [Tufts, NPR, Advent, RT, IRD, SCU]
-        }
+        { name: CareerPhaseName.ENGINEERING, tenures: [CH, Buoy, ST, Launch] },
+        { name: CareerPhaseName.OTHER, tenures: [CR] }
     ],
     [ResumeSection.EDUCATION]: [tuftsDegree, scuDegree]
 };

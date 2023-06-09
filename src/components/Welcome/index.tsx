@@ -19,7 +19,6 @@ import Underline from 'images/underline.svg';
 import { Tech } from 'models/tech';
 import TechTag from 'components/TechTag';
 import useMedia from 'use-media';
-import { PERSONAL_EMAIL } from 'data/personal';
 import Link from 'next/link';
 import MY_PIC from './matcha.jpeg';
 
@@ -70,10 +69,10 @@ export default function Welcome() {
                             </Technologies>
                             <About>
                                 <div>
-                                    We're working to deliver life-saving mental
-                                    health treatment to kids in crisis. If that
-                                    sounds like a worthwhile way to spend your
-                                    time,{' '}
+                                    We&apos;re working to deliver life-saving
+                                    mental health treatment to kids in crisis.
+                                    If that sounds like a worthwhile way to
+                                    spend your time,{' '}
                                     <a
                                         href={`https://www.charliehealth.com/careers/current-openings`}
                                         target={'_blank'}

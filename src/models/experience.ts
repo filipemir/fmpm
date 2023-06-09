@@ -1,6 +1,7 @@
 import { Tech } from 'models/tech';
 
 export enum Org {
+    CH = 'Charlie Health',
     BUOY = 'Buoy Health',
     ST = 'SmarterTravel',
     CR = 'Cornerstone Research',
@@ -44,7 +45,6 @@ export type ResumeItem = Job | Degree;
 
 export enum CareerPhaseName {
     ENGINEERING = 'Engineering',
-    CONSULTING = 'Consulting',
     OTHER = 'Other'
 }
 

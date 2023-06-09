@@ -1,8 +1,11 @@
 export enum Tech {
     PYTHON = 'Python',
     DJANGO = 'Django',
+    POSTGRES = 'Postgres',
+    FASTAPI = 'FastAPI',
     TS = 'TypeScript',
     REACT = 'React',
+    REMIX = 'Remix',
     ES6 = 'ES6+',
     JAVA = 'Java',
     SPRING_BOOT = 'Spring Boot',

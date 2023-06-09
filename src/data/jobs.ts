@@ -3,6 +3,17 @@ import parseISO from 'date-fns/parseISO';
 import { Job, Org } from 'models/experience';
 import { Tech } from 'models/tech';
 
+export const chSeniorSe: Job = {
+    company: Org.CH,
+    title: 'Senior Software Engineer',
+    technologies: [Tech.FASTAPI, Tech.POSTGRES, Tech.REMIX, Tech.AWS, Tech.TS],
+    startDate: parseISO('2022-02'),
+    description: `I was the first engineer to join Charlie Health, so I've played an instrumental 
+        role in establishing our technical and cultural foundations. We're building the 
+        digital tools to power our life-saving mental health programs, and watching those grow from
+        nothing to the multitude of tools we have today as been one of the most rewarding chapters of my career.`
+};
+
 export const buoyLeadEngineer: Job = {
     company: Org.ST,
     title: 'Lead Software Engineer',
@@ -16,12 +27,13 @@ export const buoyLeadEngineer: Job = {
         Tech.K8S
     ],
     startDate: parseISO('2021-07'),
-    description: `I’m a lead engineer on the team that directs people to the 
+    endDate: parseISO('2022-02'),
+    description: `I was a lead engineer on the team that directs people to the 
         most appropriate health care providers, working across the stack to 
         develop and release new user-facing features and products. 
-        A large part of my role has also been that of an advocate for better 
-        quality-assurance as our engineering organization grows. 
-        In practice, that has involved work like identifying and removing 
+        A large part of my role was that of an advocate for better 
+        quality-assurance as the engineering organization grew. 
+        In practice, that involved work like identifying and removing 
         roadblocks to wider adoption of automated testing and static analysis, 
         as well as educating teams on how to get the most out of these tools.`
 };
@@ -48,13 +60,11 @@ export const stSoftwareEngineer: Job = {
     ],
     startDate: parseISO('2017-12'),
     endDate: parseISO('2020-05'),
-    description: `As a Full Stack Software Engineer at SmarterTravel, I work on the small team that 
-            develops and maintains a large network of travel content sites. There I most recently led the 
-            effort to incrementally modernize 
-            <a href="https://www.airfarewatchdog.com" target="_blank" rel="noopener">Airfarewatchdog</a>’s 
-            frontend using React, Typescript, and Storybook. I work closely with product to scope and
-            implement features across the stack, from our many Java Spring Boot services to our data ETLs
-            and pipelines. I have also worked on our CI pipelines and assisted in the move towards Amazon AWS.`
+    description: `As a Full Stack Software Engineer at SmarterTravel, I worked
+     on the small team that developed and maintained a large network of travel 
+     content sites. There I worked on a number of new user-facing features and 
+     led the migration of our main frontend application to React, a huge 
+     productivity improvement from our ancient FlightJS  implementation.`
 };
 
 export const stIntegrationEngineer: Job = {
@@ -72,7 +82,7 @@ export const stIntegrationEngineer: Job = {
     endDate: parseISO('2017-12'),
     description: `I initially joined SmarterTravel as an Integration Engineer on our ad syndication team. I
             started by writing custom JavaScript for new partners that would make it trivial to 
-            integrate their sites’ with our platform. I quickly moved on to contribute new features and 
+            integrate their sites with our platform. I quickly moved on to contribute new features and 
             products across the stack, developing on our frontend SDK, our React admin tools, and our 
             backend Spring Boot syndication service.`
 };
@@ -128,77 +138,6 @@ export const crbAnalyst: Job = {
         of mortgage-backed securities, estimating the impact of the 2008 financial crisis on the performance of a 
         major family of mutual funds, and measuring the effect of a firm’s allegedly fraudulent marketing on the 
         sales of its primary competitor.`
-};
-
-export const tuftsRA: Job = {
-    company: Org.TUFTS,
-    title: 'Research Assistant',
-    startDate: parseISO('2011-09'),
-    endDate: parseISO('2011-12'),
-    description: `I helped Professor Kelsey Jack analyze field experiment data to understand the impact of local 
-        leaders’ actions upon the contribution of public goods by community members. I did so by coding the econometric 
-        analysis and preparing summaries of results. The results have since been published in the Journal of 
-        Public Economics under the title “Leadership and the voluntary provision of public goods: Field 
-        evidence from Bolivia.”`
-};
-
-export const tuftsTA: Job = {
-    company: Org.TUFTS,
-    title: 'Teaching Assistant',
-    startDate: parseISO('2010-09'),
-    endDate: parseISO('2011-12'),
-    description: `In this role, I taught weekly sessions of Principles of Economics and tutored undergraduates on
-        fundamental concepts of micro and macroeconomics. I also served as the department tutor for all graduate 
-        and undergraduate courses.`
-};
-
-export const nprIntern: Job = {
-    company: Org.NPR,
-    title: 'Intern',
-    team: 'Planet Money',
-    startDate: parseISO('2011-06'),
-    endDate: parseISO('2011-09'),
-    description: `I spent a summer on NPR’s Planet Money team conducting research for stories, editing interviews for 
-        radio, and contributing to their blog.`
-};
-
-export const adventTeacher: Job = {
-    company: Org.ADVENT,
-    title: 'Teacher',
-    startDate: parseISO('2009-09'),
-    endDate: parseISO('2010-08'),
-    description: `I was an after-school teacher for the Advent School. In that role, I wrote and taught a year-long 
-        curriculum for the arts and crafts class for students from Early Childhood to Second Grade.`
-};
-
-export const americorps: Job = {
-    company: Org.RT,
-    title: 'Americorps Outreach Coordinator',
-    startDate: parseISO('2009-01'),
-    endDate: parseISO('2009-09'),
-    description: `I was an Americorps member at Rebuilding Together Boston. In that role, I developed and began the
-        implementation of a multi-year plan to inform the community of our services. I worked with dozens of community
-        partners and conducted presentations for non-profits, elected officials, city agencies, and neighborhood
-        associations.`
-};
-
-export const irdTeacher: Job = {
-    company: Org.IRD,
-    title: 'Teacher',
-    startDate: parseISO('2008-06'),
-    endDate: parseISO('2008-09'),
-    description: `I spent a summer teaching reading courses to students ranging from preschoolers to working adults.
-        This work involved traveling weekly to teaching sites in California, Oregon, and Washington.`
-};
-
-export const scuRA: Job = {
-    company: Org.SCU,
-    title: 'Research Assistant',
-    startDate: parseISO('2006-06'),
-    endDate: parseISO('2006-08'),
-    description: `I spent a summer working with Professor Glenn Appleby to implement in Matlab an algorithm he 
-        developed to calculate specific invariants in matrices.
-`
 };
 
 export const samaritans: Job = {
