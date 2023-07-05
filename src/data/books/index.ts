@@ -1,5 +1,6 @@
 import getTime from 'date-fns/getTime';
 
+import { BOOKS_2023 } from './2023';
 import { BOOKS_2022 } from './2022';
 import { BOOKS_2021 } from './2021';
 import { BOOKS_2020 } from './2020';
@@ -15,6 +16,7 @@ import { BOOKS_2011 } from './2011';
 import { BOOKS_2010 } from './2010';
 
 export const BOOKS_SORTED = [
+    ...BOOKS_2023,
     ...BOOKS_2022,
     ...BOOKS_2021,
     ...BOOKS_2020,
