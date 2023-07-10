@@ -7,8 +7,19 @@ import VOICES from 'images/books/voices.jpg';
 import CEM_ANOS from 'images/books/cem-anos.jpeg';
 import OUTLIVE from 'images/books/outlive.jpg';
 import ENDURANCE from 'images/books/endurance.jpg';
+import HALF_THE_WAY from 'images/books/half-the-way-home.jpg';
 
 export const BOOKS_2023: BookEntry[] = [
+    {
+        title: 'Half the Way Home',
+        author: 'Adam Hochschild',
+        url:
+            'https://bookshop.org/p/books/half-the-way-home-a-memoir-of-father-and-son-adam-hochschild/11850331',
+        startDate: parseISO('2023-07-01'),
+        endDate: parseISO('2023-07-08'),
+        favorite: false,
+        cover: HALF_THE_WAY
+    },
     {
         title: 'Highway 61 Revisited',
         author: 'Mark Polizzotti',
