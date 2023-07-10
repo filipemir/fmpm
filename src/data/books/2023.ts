@@ -4,7 +4,7 @@ import EARTHSEA from 'images/books/earthsea1.jpg';
 import HIGHWAY61 from 'images/books/highway61.jpg';
 import POWERS from 'images/books/powers.jpg';
 import VOICES from 'images/books/voices.jpg';
-import CEM_ANOS from 'images/books/cem-anos.jpeg';
+import CEM_ANOS from 'images/books/cem-anos.jpg';
 import OUTLIVE from 'images/books/outlive.jpg';
 import ENDURANCE from 'images/books/endurance.jpg';
 import HALF_THE_WAY from 'images/books/half-the-way-home.jpg';

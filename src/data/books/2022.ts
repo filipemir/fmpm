@@ -18,7 +18,7 @@ import GIFTS from 'images/books/gifts.jpg';
 
 export const BOOKS_2022: BookEntry[] = [
     {
-        title: 'A Swim in a Pond in the Raine',
+        title: 'A Swim in a Pond in the Rain',
         subtitle:
             'In Which Four Russians Give a Master Class on Writing, Reading, and Life',
         author: 'George Saunders',
