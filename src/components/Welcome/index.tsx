@@ -11,16 +11,13 @@ import {
     Header2,
     About,
     Slash,
-    Technologies,
     JobTitle
 } from './styles';
 import Emoji from 'a11y-react-emoji';
 import Underline from 'images/underline.svg';
 import { Tech } from 'models/tech';
-import TechTag from 'components/TechTag';
 import useMedia from 'use-media';
-import Link from 'next/link';
-import MY_PIC from './matcha.jpeg';
+import MY_PIC from './me.png';
 
 export default function Welcome() {
     const tech = [Tech.REACT, Tech.TS, Tech.REMIX, Tech.PYTHON],
@@ -62,11 +59,6 @@ export default function Welcome() {
                                     Charlie Health.
                                 </a>
                             </Header2>
-                            <Technologies>
-                                {tech.map((t) => (
-                                    <TechTag technology={t} key={t} />
-                                ))}
-                            </Technologies>
                             <About>
                                 <div>
                                     We&apos;re working to deliver life-saving
@@ -81,16 +73,6 @@ export default function Welcome() {
                                         come join us
                                     </a>
                                     .
-                                </div>
-                                <div>
-                                    Outside of work, I&apos;m a fan of rock
-                                    climbing, unreasonably angry music, and
-                                    whatever{' '}
-                                    <Link href={'/books'}>
-                                        <a>books</a>
-                                    </Link>{' '}
-                                    I get to read after my kids go to bed and
-                                    the dishes are done.
                                 </div>
                             </About>
                         </Content>
