@@ -15,13 +15,11 @@ import {
 } from './styles';
 import Emoji from 'a11y-react-emoji';
 import Underline from 'images/underline.svg';
-import { Tech } from 'models/tech';
 import useMedia from 'use-media';
 import MY_PIC from './me.png';
 
 export default function Welcome() {
-    const tech = [Tech.REACT, Tech.TS, Tech.REMIX, Tech.PYTHON],
-        spring = useSpring({ opacity: 1, from: { opacity: 0 } }),
+    const spring = useSpring({ opacity: 1, from: { opacity: 0 } }),
         isMobile = useMedia({ maxWidth: '900px' });
 
     return (
