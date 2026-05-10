@@ -36,7 +36,7 @@ export const DatesDiv = styled.div`
 `;
 
 export const TechDiv = styled.div`
-    overflow-y: scroll;
+    overflow-x: auto;
     margin: 10px 0 10px 0;
     white-space: nowrap;
 
