@@ -3,15 +3,38 @@ import parseISO from 'date-fns/parseISO';
 import { Job, Org } from 'models/experience';
 import { Tech } from 'models/tech';
 
+export const chStaffPlatform: Job = {
+    company: Org.CH,
+    title: 'Staff Platform Engineer',
+    technologies: [Tech.FASTAPI, Tech.POSTGRES, Tech.REMIX, Tech.AWS, Tech.TS],
+    startDate: parseISO('2026-03'),
+    description: `I moved from product engineering to the platform team to work on improvements 
+        to our codebase to enable engineers to work better and faster. A lot of my work here has
+        centered around consolidating applications and data that should have never been split,
+        and establishing better domain boundaries and ownership models`
+};
+
+export const chLeadEngineer: Job = {
+    company: Org.CH,
+    title: 'Lead Software Engineer',
+    startDate: parseISO('2023-09'),
+    endDate: parseISO('2026-03'),
+    description: `During my time as lead engineer, I designed and led the rollout of an event-driven 
+        replacement to our ETL-based sync of core client data. This work removed a major single point
+        of failure and reduced data latency from 5+ minutes to seconds. I also designed a service
+        backed by an eagerly-populated cache to isolate our most critical workflow (clients joining
+        their group sessions) from core system outages, cutting peak load on the main DB by ~50%`
+};
+
 export const chSeniorSe: Job = {
     company: Org.CH,
     title: 'Senior Software Engineer',
-    technologies: [Tech.FASTAPI, Tech.POSTGRES, Tech.REMIX, Tech.AWS, Tech.TS],
     startDate: parseISO('2022-02'),
-    description: `I was the first engineer to join Charlie Health, so I've played an instrumental 
-        role in establishing our technical and cultural foundations. We're building the 
-        digital tools to power our life-saving mental health programs, and watching those grow from
-        nothing to the multitude of tools we have today as been one of the most rewarding chapters of my career.`
+    endDate: parseISO('2023-09'),
+    description: `I joined Charlie Health as the first engineer, designing and building 
+        much of the foundational scheduling stack &mdash; appointment booking,
+        group scheduling, and staffing &mdash; when these were missing pieces of the
+        product.`
 };
 
 export const buoyLeadEngineer: Job = {
@@ -64,7 +87,7 @@ export const stSoftwareEngineer: Job = {
      on the small team that developed and maintained a large network of travel 
      content sites. There I worked on a number of new user-facing features and 
      led the migration of our main frontend application to React, a huge 
-     productivity improvement from our ancient FlightJS  implementation.`
+     productivity improvement from our ancient FlightJS implementation.`
 };
 
 export const stIntegrationEngineer: Job = {
