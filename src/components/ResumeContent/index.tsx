@@ -202,32 +202,58 @@ function EducationSection({
 }
 
 export default function ResumeContent(props: ResumeContentProps) {
-    const { activeItem } = props,
-        [scrollIntoView, setScrollIntoView] = useState<boolean>(false),
+    const { activeItem, setActiveTenure, setActiveItem } = props,
+        hasMountedRef = useRef(false),
+        scrollDrivenChangeRef = useRef(false),
         rootRef = useRef() as MutableRefObject<HTMLDivElement | null>,
         activeItemRef = useRef() as MutableRefObject<HTMLDivElement | null>;
 
+    // Wrap the setters used by scroll-driven Waypoints so we can flag
+    // those state changes and avoid auto-scrolling in response (which
+    // would fight the user's own scrolling).
+    const wrappedSetActiveTenure = setActiveTenure
+        ? (tenure: Tenure) => {
+              scrollDrivenChangeRef.current = true;
+              setActiveTenure(tenure);
+          }
+        : undefined;
+    const wrappedSetActiveItem = setActiveItem
+        ? (item: ResumeItem) => {
+              scrollDrivenChangeRef.current = true;
+              setActiveItem(item);
+          }
+        : undefined;
+
     useEffect(() => {
-        // Prevent scrolling into view upon the first render so that page
-        // doesn't snap to the first active resume item
-        if (!scrollIntoView) {
-            activeItem && setScrollIntoView(true);
+        if (!hasMountedRef.current) {
+            hasMountedRef.current = true;
+            return;
+        }
+
+        if (scrollDrivenChangeRef.current) {
+            scrollDrivenChangeRef.current = false;
             return;
         }
 
         const el = activeItemRef.current;
         el && el.scrollIntoView({ behavior: 'smooth' });
-    }, [scrollIntoView, activeItem, activeItemRef]);
+    }, [activeItem]);
+
+    const childProps = {
+        ...props,
+        setActiveTenure: wrappedSetActiveTenure,
+        setActiveItem: wrappedSetActiveItem
+    };
 
     return (
         <RootDiv ref={rootRef}>
             <ExperienceSection
-                {...props}
+                {...childProps}
                 rootRef={rootRef}
                 activeItemRef={activeItemRef}
             />
             <EducationSection
-                {...props}
+                {...childProps}
                 rootRef={rootRef}
                 activeItemRef={activeItemRef}
             />
