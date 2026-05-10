@@ -8,7 +8,9 @@ import {
 import {
     buoyLeadEngineer,
     buoySoftwareEngineer,
+    chLeadEngineer,
     chSeniorSe,
+    chStaffPlatform,
     crbAnalyst,
     crbResearchAssociate,
     crbSeniorAnalyst,
@@ -25,11 +27,11 @@ import chLogo from 'images/logos/ch.jpeg';
 
 const CH: Tenure = {
     company: Org.CH,
-    jobs: [chSeniorSe],
+    jobs: [chStaffPlatform, chLeadEngineer, chSeniorSe],
     url: 'https://www.charliehealth.com',
     logo: chLogo,
-    description: `Charlie Health provides mental health treatment for teens, young 
-        adults & families in crisis.`
+    description: `Charlie Health is the nation's leading virtual provider of high-acuity
+        behavioral healthcare.`
 };
 
 const Buoy: Tenure = {

@@ -3,15 +3,43 @@ import parseISO from 'date-fns/parseISO';
 import { Job, Org } from 'models/experience';
 import { Tech } from 'models/tech';
 
+export const chStaffPlatform: Job = {
+    company: Org.CH,
+    title: 'Staff Platform Engineer',
+    technologies: [Tech.FASTAPI, Tech.POSTGRES, Tech.REMIX, Tech.AWS, Tech.TS],
+    startDate: parseISO('2026-03'),
+    description: `I joined Charlie Health as the first engineer and helped grow the team to 50+,
+        recently moving from product engineering to platform. Highlights from my tenure:
+        <ul>
+            <li>Designed and built the foundational scheduling stack &mdash; appointment booking,
+                group scheduling, and staffing &mdash; when these were missing pieces of the
+                product. Have led its evolution since, most recently through an overhaul of the
+                core appointment data model.</li>
+            <li>Diagnosed our ETL-based sync of core client data as the root cause of our most
+                costly outage, then designed and led the rollout of an event-driven replacement.
+                Executed a dual-write migration with no incident, removing a major single point
+                of failure and cutting data latency from 5+ minutes to seconds.</li>
+            <li>Designed a service backed by an eagerly-populated cache to isolate our most
+                critical workflow (clients joining their group sessions) from core system
+                outages, cutting peak load on the main DB by ~50%.</li>
+            <li>Set the technical strategy for consolidating our split monolith into a single
+                application; authored the migration plan and am leading the execution.</li>
+        </ul>
+        Top code reviewer and documentation contributor in the org throughout my tenure.`
+};
+
+export const chLeadEngineer: Job = {
+    company: Org.CH,
+    title: 'Lead Software Engineer',
+    startDate: parseISO('2023-09'),
+    endDate: parseISO('2026-03')
+};
+
 export const chSeniorSe: Job = {
     company: Org.CH,
     title: 'Senior Software Engineer',
-    technologies: [Tech.FASTAPI, Tech.POSTGRES, Tech.REMIX, Tech.AWS, Tech.TS],
     startDate: parseISO('2022-02'),
-    description: `I was the first engineer to join Charlie Health, so I've played an instrumental 
-        role in establishing our technical and cultural foundations. We're building the 
-        digital tools to power our life-saving mental health programs, and watching those grow from
-        nothing to the multitude of tools we have today as been one of the most rewarding chapters of my career.`
+    endDate: parseISO('2023-09')
 };
 
 export const buoyLeadEngineer: Job = {
