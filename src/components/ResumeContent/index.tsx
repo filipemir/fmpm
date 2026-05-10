@@ -203,21 +203,21 @@ function EducationSection({
 
 export default function ResumeContent(props: ResumeContentProps) {
     const { activeItem } = props,
-        [scrollIntoView, setScrollIntoView] = useState<boolean>(false),
+        hasMountedRef = useRef(false),
         rootRef = useRef() as MutableRefObject<HTMLDivElement | null>,
         activeItemRef = useRef() as MutableRefObject<HTMLDivElement | null>;
 
     useEffect(() => {
-        // Prevent scrolling into view upon the first render so that page
-        // doesn't snap to the first active resume item
-        if (!scrollIntoView) {
-            activeItem && setScrollIntoView(true);
+        // Skip the initial render so the page doesn't snap to the first
+        // active resume item on load.
+        if (!hasMountedRef.current) {
+            hasMountedRef.current = true;
             return;
         }
 
         const el = activeItemRef.current;
         el && el.scrollIntoView({ behavior: 'smooth' });
-    }, [scrollIntoView, activeItem, activeItemRef]);
+    }, [activeItem]);
 
     return (
         <RootDiv ref={rootRef}>
