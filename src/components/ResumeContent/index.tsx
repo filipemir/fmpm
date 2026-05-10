@@ -202,16 +202,36 @@ function EducationSection({
 }
 
 export default function ResumeContent(props: ResumeContentProps) {
-    const { activeItem } = props,
+    const { activeItem, setActiveTenure, setActiveItem } = props,
         hasMountedRef = useRef(false),
+        scrollDrivenChangeRef = useRef(false),
         rootRef = useRef() as MutableRefObject<HTMLDivElement | null>,
         activeItemRef = useRef() as MutableRefObject<HTMLDivElement | null>;
 
+    // Wrap the setters used by scroll-driven Waypoints so we can flag
+    // those state changes and avoid auto-scrolling in response (which
+    // would fight the user's own scrolling).
+    const wrappedSetActiveTenure = setActiveTenure
+        ? (tenure: Tenure) => {
+              scrollDrivenChangeRef.current = true;
+              setActiveTenure(tenure);
+          }
+        : undefined;
+    const wrappedSetActiveItem = setActiveItem
+        ? (item: ResumeItem) => {
+              scrollDrivenChangeRef.current = true;
+              setActiveItem(item);
+          }
+        : undefined;
+
     useEffect(() => {
-        // Skip the initial render so the page doesn't snap to the first
-        // active resume item on load.
         if (!hasMountedRef.current) {
             hasMountedRef.current = true;
+            return;
+        }
+
+        if (scrollDrivenChangeRef.current) {
+            scrollDrivenChangeRef.current = false;
             return;
         }
 
@@ -219,15 +239,21 @@ export default function ResumeContent(props: ResumeContentProps) {
         el && el.scrollIntoView({ behavior: 'smooth' });
     }, [activeItem]);
 
+    const childProps = {
+        ...props,
+        setActiveTenure: wrappedSetActiveTenure,
+        setActiveItem: wrappedSetActiveItem
+    };
+
     return (
         <RootDiv ref={rootRef}>
             <ExperienceSection
-                {...props}
+                {...childProps}
                 rootRef={rootRef}
                 activeItemRef={activeItemRef}
             />
             <EducationSection
-                {...props}
+                {...childProps}
                 rootRef={rootRef}
                 activeItemRef={activeItemRef}
             />
