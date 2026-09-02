@@ -1,33 +1,37 @@
 // Click-to-expand for post figures. No-op if a page has none.
+//
+// Post pages aren't persisted across transitions (only the header is), so
+// this needs to re-wire on every navigation — astro:page-load fires after
+// every swap (including the first load), unlike a plain top-level call
+// which would only ever run once thanks to ES module de-duplication.
 
 function initLightbox() {
   const triggers = document.querySelectorAll("[data-lightbox-trigger]");
-  if (!triggers.length) return;
-
   const overlay = document.querySelector("[data-lightbox-overlay]");
-  const overlayImg = overlay ? overlay.querySelector("img") : null;
-  if (!overlay || !overlayImg) return;
+  if (!triggers.length || !overlay) return;
 
-  const open = (src, alt) => {
-    overlayImg.src = src;
-    overlayImg.alt = alt || "";
-    overlay.hidden = false;
-  };
-  const close = () => {
-    overlay.hidden = true;
-  };
+  const overlayImg = overlay.querySelector("img");
+  if (!overlayImg) return;
 
   triggers.forEach((trigger) => {
     const img = trigger.querySelector("img");
     trigger.addEventListener("click", () => {
-      if (img) open(img.src, img.alt);
+      if (!img) return;
+      overlayImg.src = img.src;
+      overlayImg.alt = img.alt || "";
+      overlay.hidden = false;
     });
   });
 
-  overlay.addEventListener("click", close);
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !overlay.hidden) close();
+  overlay.addEventListener("click", () => {
+    overlay.hidden = true;
   });
 }
 
-initLightbox();
+document.addEventListener("astro:page-load", initLightbox);
+
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Escape") return;
+  const overlay = document.querySelector("[data-lightbox-overlay]");
+  if (overlay && !overlay.hidden) overlay.hidden = true;
+});

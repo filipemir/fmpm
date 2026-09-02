@@ -78,19 +78,20 @@ a:hover {
   font-family: "IBM Plex Mono", monospace;
 }
 
-/* Shiki (css-variables theme) tinted to the site's low-contrast token palette */
+/* Shiki (css-variables theme, emitted by Astro as --astro-code-*) tinted to
+   the site's low-contrast token palette */
 :root {
-  --shiki-color-text: var(--ink);
-  --shiki-color-background: transparent;
-  --shiki-token-constant: var(--syn-num);
-  --shiki-token-string: var(--syn-str);
-  --shiki-token-comment: var(--syn-com);
-  --shiki-token-keyword: var(--syn-kw);
-  --shiki-token-parameter: var(--ink);
-  --shiki-token-function: var(--syn-fn);
-  --shiki-token-string-expression: var(--syn-str);
-  --shiki-token-punctuation: var(--muted);
-  --shiki-token-link: var(--syn-str);
+  --astro-code-foreground: var(--ink);
+  --astro-code-background: transparent;
+  --astro-code-token-constant: var(--syn-num);
+  --astro-code-token-string: var(--syn-str);
+  --astro-code-token-comment: var(--syn-com);
+  --astro-code-token-keyword: var(--syn-kw);
+  --astro-code-token-parameter: var(--ink);
+  --astro-code-token-function: var(--syn-fn);
+  --astro-code-token-string-expression: var(--syn-str);
+  --astro-code-token-punctuation: var(--muted);
+  --astro-code-token-link: var(--syn-str);
 }
 
 pre.astro-code {

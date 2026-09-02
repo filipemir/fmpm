@@ -5,7 +5,7 @@ interface Props {
 const { active = null } = Astro.props;
 ---
 
-<header class="header">
+<header class="header" transition:persist transition:name="site-header">
   <a href="/" title="Home" class="home-link">
     <span class="mono wordmark">@fmpm</span>
     <span class="mono band" data-band aria-hidden="true"></span>

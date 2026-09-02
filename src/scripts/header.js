@@ -106,16 +106,34 @@ function initBand() {
   window.addEventListener("resize", onResize);
 }
 
+// The header persists across page transitions (see transition:persist on
+// <header> and <ClientRouter /> in Layout.astro) so the band never resets
+// and restarts on navigation. That means the active nav item can't be read
+// off the (stale, persisted) markup after a swap — derive it from the URL
+// instead, both on load and after every transition.
+function sectionIndexForPath(pathname) {
+  if (pathname.startsWith("/writing")) return 0;
+  if (pathname.startsWith("/reading")) return 1;
+  if (pathname.startsWith("/now")) return 2;
+  return null;
+}
+
 function initNavDot() {
   const nav = document.querySelector("[data-nav]");
   const dot = document.querySelector("[data-nav-dot]");
   if (!nav || !dot) return;
 
   const items = Array.prototype.slice.call(nav.querySelectorAll("[data-nav-item]"));
-  const activeIndex = items.findIndex((el) => el.getAttribute("aria-current") === "page");
-
+  let activeIndex = sectionIndexForPath(window.location.pathname);
   let centers = [];
   let hover = null;
+
+  const applyActiveAttr = () => {
+    items.forEach((el, i) => {
+      if (i === activeIndex) el.setAttribute("aria-current", "page");
+      else el.removeAttribute("aria-current");
+    });
+  };
 
   const measure = () => {
     const b = nav.getBoundingClientRect();
@@ -128,7 +146,7 @@ function initNavDot() {
 
   const place = () => {
     const idx = hover !== null ? hover : activeIndex;
-    if (idx === -1 || idx === null || centers[idx] === undefined) {
+    if (idx === null || centers[idx] === undefined) {
       dot.style.opacity = "0";
       return;
     }
@@ -147,6 +165,13 @@ function initNavDot() {
     place();
   });
 
+  document.addEventListener("astro:after-swap", () => {
+    activeIndex = sectionIndexForPath(window.location.pathname);
+    applyActiveAttr();
+    place();
+  });
+
+  applyActiveAttr();
   measure();
   window.addEventListener("resize", measure);
   setTimeout(measure, 400);
