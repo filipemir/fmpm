@@ -1,13 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Popover from "../components/Popover.astro";
-import { getSortedPosts } from "../lib/posts";
+import { getListedPosts } from "../lib/posts";
 import { formatMonthYear } from "../lib/format";
-import notes from "../data/notes.json";
+import rawNotes from "../data/notes.json";
 
-const posts = await getSortedPosts();
+type Note = { title: string; date: string; blurb: string; pinned?: boolean };
+const notes = rawNotes as Note[];
+
+const posts = await getListedPosts();
 const recentPosts = posts.slice(0, 5);
-const pinnedNotes = notes.slice(0, 3);
+const pinnedNotes = notes.filter((n) => n.pinned).slice(0, 3);
 ---
 
 <Layout title="Filipe Miranda">
@@ -40,39 +43,49 @@ const pinnedNotes = notes.slice(0, 3);
       </p>
     </section>
 
-    <section class="list-section">
-      <h2 class="mono label">Notes</h2>
-      <ul class="notes">
-        {
-          pinnedNotes.map((note) => (
-            <li>
-              <a href="/notes" class="note-title">
-                {note.title}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </section>
+    {
+      pinnedNotes.length > 0 && (
+        <section class="list-section">
+          <h2 class="mono label">Notes</h2>
+          <ul class="notes">
+            {pinnedNotes.map((note) => (
+              <li>
+                <a href="/notes" class="note-title">
+                  {note.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
 
     <section class="list-section">
       <h2 class="mono label">Posts</h2>
-      <ul class="posts">
-        {
-          recentPosts.map((post) => (
-            <li class="post-row">
-              <div class="post-head">
-                <a href={`/writing/${post.id}`} class="post-title">
-                  {post.data.title}
-                </a>
-                <span class="mono post-date">{formatMonthYear(post.data.date)}</span>
-              </div>
-              <span class="post-blurb">{post.data.blurb}</span>
-            </li>
-          ))
-        }
-      </ul>
-      <a href="/writing" class="mono all-posts">All posts →</a>
+      {
+        recentPosts.length > 0 ? (
+          <>
+            <ul class="posts">
+              {recentPosts.map((post) => (
+                <li class="post-row">
+                  <div class="post-head">
+                    <a href={`/writing/${post.id}`} class="post-title">
+                      {post.data.title}
+                    </a>
+                    <span class="mono post-date">{formatMonthYear(post.data.date)}</span>
+                  </div>
+                  <span class="post-blurb">{post.data.blurb}</span>
+                </li>
+              ))}
+            </ul>
+            <a href="/writing" class="mono all-posts">
+              All posts →
+            </a>
+          </>
+        ) : (
+          <p class="tk">TK — first post coming soon.</p>
+        )
+      }
     </section>
   </main>
 </Layout>
@@ -184,5 +197,11 @@ const pinnedNotes = notes.slice(0, 3);
     text-decoration: none;
     color: var(--accent);
     width: fit-content;
+  }
+
+  .tk {
+    margin: 0;
+    font-size: 16px;
+    color: var(--faint);
   }
 </style>
