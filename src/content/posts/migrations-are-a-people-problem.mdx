@@ -3,17 +3,13 @@ title: Migrations are a people problem
 date: 2026-07-01
 blurb: The hard part of moving a system is never the system. It's the eleven teams reading from it in ways nobody documented.
 minutes: 6
-footnotes:
-  - "Nine of them via a read replica nobody owned. We found the last two by turning the credentials off and waiting."
-  - "One consumer was a quarterly finance report run from someone's laptop. It would have failed silently in October."
 ---
 
-import Footnote from "../../components/Footnote.astro";
 import Figure from "../../components/Figure.astro";
 
 We spent four months moving billing off the monolith. The schema work took two weeks. Everything after that was conversations.
 
-The plan looked clean on the whiteboard: stand up the new service, dual-write, backfill, cut over, delete the old tables. What the whiteboard didn't show was the eleven other teams reading from those tables directly<Footnote n={1}>Nine of them via a read replica nobody owned. We found the last two by turning the credentials off and waiting.</Footnote>, none of whom had been in the room, most of whom found out from a deprecation notice in a channel they'd muted.
+The plan looked clean on the whiteboard: stand up the new service, dual-write, backfill, cut over, delete the old tables. What the whiteboard didn't show was the eleven other teams reading from those tables directly[^1], none of whom had been in the room, most of whom found out from a deprecation notice in a channel they'd muted.
 
 So the interesting artifact of the project wasn't the new service. It was the inventory we built along the way — every consumer, what it read, and who to call when it broke.
 
@@ -42,7 +38,7 @@ func consumers(rows []Sample) map[string]*Client {
 }
 ```
 
-Sorted by read count, that map is a call list. The top four accounted for most of the traffic; the long tail was where the surprises lived<Footnote n={2}>One consumer was a quarterly finance report run from someone's laptop. It would have failed silently in October.</Footnote>.
+Sorted by read count, that map is a call list. The top four accounted for most of the traffic; the long tail was where the surprises lived[^2].
 
 <Figure
   src="/images/migrations-graph-placeholder.svg"
@@ -55,3 +51,6 @@ Sorted by read count, that map is a call list. The top four accounted for most o
 Build the inventory first, before the design doc. It changes the plan, and it tells you how long the project really is — which is however long it takes eleven teams to find room in their sprints.
 
 The schema was never the hard part. It never is.
+
+[^1]: Nine of them via a read replica nobody owned. We found the last two by turning the credentials off and waiting.
+[^2]: One consumer was a quarterly finance report run from someone's laptop. It would have failed silently in October.

@@ -8,7 +8,6 @@ const posts = defineCollection({
     date: z.coerce.date(),
     blurb: z.string(),
     minutes: z.number().optional(),
-    footnotes: z.array(z.string()).optional(),
   }),
 });
 

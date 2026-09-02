@@ -225,3 +225,45 @@ pre.astro-code {
   color: var(--accent);
   margin-left: 4px;
 }
+
+/* Hover popover wrapper footnotes.js builds around each reference, cloning
+   its content from the .footnotes list above. Same visual language as
+   Popover.astro's (ink border, no shadow, invisible bridge over the gap so
+   :hover survives the pointer travelling from ref to panel). */
+.prose .fn-popover {
+  position: relative;
+  display: inline-block;
+}
+.prose .fn-bridge {
+  position: absolute;
+  left: -80px;
+  right: -80px;
+  bottom: 100%;
+  height: 12px;
+}
+.prose .fn-panel {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  z-index: 30;
+  width: 280px;
+  margin-left: -140px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border: 1px solid var(--ink);
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--muted);
+  text-align: left;
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;
+  transition:
+    opacity 160ms ease,
+    transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.prose .fn-popover:hover .fn-panel {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}

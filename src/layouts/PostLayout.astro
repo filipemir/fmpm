@@ -7,9 +7,8 @@ interface Props {
   title: string;
   date: Date;
   minutes?: number;
-  footnotes?: string[];
 }
-const { title, date, minutes, footnotes = [] } = Astro.props;
+const { title, date, minutes } = Astro.props;
 const meta = minutes ? `${formatMonthYear(date)} · ${minutes} min` : formatMonthYear(date);
 ---
 
@@ -25,20 +24,14 @@ const meta = minutes ? `${formatMonthYear(date)} · ${minutes} min` : formatMont
     </article>
 
     <div class="foot mono">
-      {
-        footnotes.map((text, i) => (
-          <div class="footnote-row" id={`fn${i + 1}`}>
-            <span class="footnote-n">{i + 1}</span>
-            <span>{text}</span>
-          </div>
-        ))
-      }
       <a href="/writing" class="back">← All writing</a>
     </div>
   </main>
 
   <LightboxOverlay />
 </Layout>
+
+<script src="../scripts/footnotes.js"></script>
 
 <style>
   .post {
@@ -84,12 +77,5 @@ const meta = minutes ? `${formatMonthYear(date)} · ${minutes} min` : formatMont
   .back:hover {
     color: var(--accent);
     border-bottom-color: var(--accent);
-  }
-  .footnote-row {
-    display: flex;
-    gap: 10px;
-  }
-  .footnote-n {
-    color: var(--accent);
   }
 </style>
