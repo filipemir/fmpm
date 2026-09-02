@@ -4,13 +4,19 @@
     "sections": [
       {
         "heading": "👨🏻‍💻 Workwise",
-        "body": "Ramping up at Atticus: familiarizing myself with the business and its technical architecture, finding out where the opportunities are hiding, and diving into golang and its ecosystem"
+        "bullets": [
+          "Ramping up at Atticus.",
+          "Exploring `golang` and its ecosystem",
+          "Restarting a monthly writing habit for this site"
+        ]
       },
       {
         "heading": "🏡 Lifewise",
         "linkText": "Sheet mulching",
         "linkHref": "https://en.wikipedia.org/wiki/Sheet_mulching",
-        "after": " a hill of goldenrod into a hill of clover (I massively underestimated how long covering a small hill with cardboard and leaves would take). Rehabing a mild but persistent back injury ahead of Fall climbing season."
+        "afterLink": " a hill of goldenrod into a hill of clover.",
+        "note": "I massively underestimated how long covering a small hill with cardboard and leaves would take.",
+        "after": " Trying to enjoy Sendtember/Rocktober while nursing a mild but persistent back injury."
       },
       {
         "heading": "📚 Reading",
@@ -56,142 +62,6 @@
             "href": "https://brokerecord.bandcamp.com/album/e-t-d-s-a-mixtape-by-idk"
           }
         ]
-      }
-    ]
-  },
-  {
-    "date": "April 2026",
-    "sections": [
-      {
-        "heading": "Work",
-        "body": "Halfway through splitting the billing service out of the monolith. The interesting part has been discovering how many teams quietly depended on reading its tables directly."
-      },
-      {
-        "heading": "Reading",
-        "body": "Seeing Like a State, which I picked up expecting history and got a lens for platform design instead."
-      },
-      {
-        "heading": "Away from the desk",
-        "body": "Back to running after a winter off. Slower than I'd like and enjoying it more than I expected."
-      }
-    ]
-  },
-  {
-    "date": "November 2025",
-    "sections": [
-      {
-        "heading": "Work",
-        "body": "New to the platform team and mostly reading code. Writing down every question I can't answer yet; the list is long enough to be a roadmap."
-      },
-      {
-        "heading": "Reading",
-        "body": "An Elegant Puzzle, a chapter at a time, usually on the train."
-      },
-      {
-        "heading": "Away from the desk",
-        "body": "Learning to make bread that doesn't need an apology. Three loaves in, one was genuinely good."
-      }
-    ]
-  },
-  {
-    "date": "June 2025",
-    "sections": [
-      {
-        "heading": "Work",
-        "body": "Deep in an incident-heavy quarter. Most of what I've learned this year came out of postmortems rather than plans."
-      },
-      {
-        "heading": "Reading",
-        "body": "Thinking in Systems, for the second time. It reads differently now that I have an on-call rotation."
-      },
-      {
-        "heading": "Away from the desk",
-        "body": "Walking a lot. Lisbon is built for it if you accept the hills."
-      }
-    ]
-  },
-  {
-    "date": "February 2025",
-    "sections": [
-      {
-        "heading": "Work",
-        "body": "Owning the deploy pipeline for the first time. It works, and nobody can quite explain why, which is the part I'd like to change."
-      },
-      {
-        "heading": "Reading",
-        "body": "How Buildings Learn, mostly for the photographs and staying for the argument."
-      },
-      {
-        "heading": "Away from the desk",
-        "body": "A month without alcohol that I'd meant to be two weeks."
-      }
-    ]
-  },
-  {
-    "date": "October 2024",
-    "sections": [
-      {
-        "heading": "Work",
-        "body": "Interviewing a lot. Writing better questions has taught me more about our own architecture than any design review."
-      },
-      {
-        "heading": "Reading",
-        "body": "Working in Public. It reframed maintenance as the actual job rather than the tax on the job."
-      },
-      {
-        "heading": "Away from the desk",
-        "body": "Trying to learn enough Portuguese to stop apologising in English first."
-      }
-    ]
-  },
-  {
-    "date": "June 2024",
-    "sections": [
-      {
-        "heading": "Work",
-        "body": "Six months into the company. Still writing down every acronym I hear and looking half of them up twice."
-      },
-      {
-        "heading": "Reading",
-        "body": "Designing Data-Intensive Applications, chapter four for the third time."
-      },
-      {
-        "heading": "Away from the desk",
-        "body": "Swimming in the sea most Sundays, which I did not expect to become a habit."
-      }
-    ]
-  },
-  {
-    "date": "January 2024",
-    "sections": [
-      {
-        "heading": "Work",
-        "body": "Just started at Atticus. Mostly listening, and resisting the urge to have opinions in week two."
-      },
-      {
-        "heading": "Reading",
-        "body": "The Design of Everyday Things, finally, after a decade of pretending I had."
-      },
-      {
-        "heading": "Away from the desk",
-        "body": "Unpacking. The books came out of the boxes first, which tells you something."
-      }
-    ]
-  },
-  {
-    "date": "August 2023",
-    "sections": [
-      {
-        "heading": "Work",
-        "body": "Between jobs by choice. Reading code from projects I admire and writing small tools nobody asked for."
-      },
-      {
-        "heading": "Reading",
-        "body": "The Pragmatic Programmer, revisited. Some of it has aged; the parts that haven't, haven't at all."
-      },
-      {
-        "heading": "Away from the desk",
-        "body": "A long summer with no plans, which turned out to be the plan."
       }
     ]
   }

@@ -1,4 +1,6 @@
 ---
+import Popover from "./Popover.astro";
+
 interface Item {
   title: string;
   by?: string;
@@ -7,8 +9,11 @@ interface Item {
 interface Section {
   heading: string;
   body?: string;
+  bullets?: string[];
   linkText?: string;
   linkHref?: string;
+  afterLink?: string;
+  note?: string;
   after?: string;
   items?: Item[];
 }
@@ -17,6 +22,13 @@ interface Props {
   compact?: boolean;
 }
 const { sections, compact = false } = Astro.props;
+
+// Minimal inline-code support (`word`) for bullet text — escape first so the
+// data itself can't inject markup, then swap in <code> for backticked spans.
+function mdInline(text: string): string {
+  const escaped = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  return escaped.replace(/`([^`]+)`/g, "<code>$1</code>");
+}
 ---
 
 <div class:list={["sections", { compact }]}>
@@ -25,11 +37,25 @@ const { sections, compact = false } = Astro.props;
       <section class="section">
         <h3 class="mono heading">{s.heading}</h3>
         {s.body && <p class="body">{s.body}</p>}
+        {s.bullets && (
+          <ul class="bullets">
+            {s.bullets.map((b) => (
+              <li class="body" set:html={mdInline(b)} />
+            ))}
+          </ul>
+        )}
         {s.linkText && (
           <p class="body">
             <a href={s.linkHref} target="_blank" rel="noopener" class="inline-link">
               {s.linkText}
             </a>
+            {s.afterLink}
+            {s.note && (
+              <Popover>
+                <span class="note-mark">*</span>
+                <Fragment slot="panel">{s.note}</Fragment>
+              </Popover>
+            )}
             {s.after}
           </p>
         )}
@@ -89,6 +115,26 @@ const { sections, compact = false } = Astro.props;
     font-size: 17px;
     line-height: 1.6;
   }
+  .body :global(code) {
+    background: var(--code-bg);
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    font-family: "IBM Plex Mono", monospace;
+  }
+  .bullets {
+    margin: 0;
+    padding-left: 1.3em;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .compact .bullets {
+    gap: 5px;
+  }
+  .bullets .body {
+    max-width: none;
+  }
   .inline-link {
     text-decoration: none;
     border-bottom: 1px solid var(--rule);
@@ -96,6 +142,10 @@ const { sections, compact = false } = Astro.props;
   .inline-link:hover {
     color: var(--accent);
     border-bottom-color: var(--accent);
+  }
+  .note-mark {
+    color: var(--accent);
+    cursor: help;
   }
   .by {
     color: var(--muted);
