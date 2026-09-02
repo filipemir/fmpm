@@ -294,7 +294,7 @@ function initBand() {
 function sectionIndexForPath(pathname) {
   if (pathname.startsWith("/writing")) return 0;
   if (pathname.startsWith("/reading")) return 1;
-  if (pathname.startsWith("/now")) return 2;
+  if (pathname.startsWith("/now") || pathname === "/then") return 2;
   return null;
 }
 
