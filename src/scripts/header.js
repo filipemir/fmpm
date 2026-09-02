@@ -4,7 +4,6 @@
 // hovered page. Runs on every page since the header is shared.
 
 const THEME_KEY = "fm-site-theme";
-const BAND_KEY = "fm-band";
 const WC = 80;
 const BAND_MS_DEFAULT = 100;
 // The curated pool offered in the picker (a subset of everything in
@@ -116,7 +115,6 @@ function initBand() {
   let bandId = null;
   let pool = [];
   let wave = null;
-  let pickerHover = false;
   let pickerOpen = false;
 
   const render = () => {
@@ -144,12 +142,6 @@ function initBand() {
     }
   };
 
-  const placeCorner = () => {
-    if (!corner) return;
-    const show = pickerHover || pickerOpen;
-    corner.style.opacity = show ? "1" : "0";
-  };
-
   const closeMenu = () => {
     pickerOpen = false;
     if (menu) {
@@ -162,7 +154,6 @@ function initBand() {
       pickerToggle.setAttribute("aria-expanded", "false");
       pickerToggle.style.color = "var(--faint)";
     }
-    placeCorner();
   };
 
   const renderMenu = () => {
@@ -206,18 +197,12 @@ function initBand() {
       pickerToggle.setAttribute("aria-expanded", "true");
       pickerToggle.style.color = "var(--accent)";
     }
-    placeCorner();
   };
 
-  function setBand(def, remember) {
+  function setBand(def, isUserPick) {
     bandId = def.id;
     band = def.make(WC, rows);
-    if (remember) {
-      try {
-        window.localStorage.setItem(BAND_KEY, def.id);
-      } catch (e) {
-        /* ignore */
-      }
+    if (isUserPick) {
       // Re-open the banner to full height so the newly-picked animation is
       // actually visible, then let it collapse again on the next scroll.
       hero = heroRows();
@@ -237,18 +222,13 @@ function initBand() {
     }, def.ms || BAND_MS_DEFAULT);
   }
 
+  // Always a fresh random pick on load — a picker choice only holds for the
+  // current visit (see setBand below), it's never remembered across a
+  // reload, so the site doesn't quietly lock in on one pattern forever.
   Promise.all([import("./bands.js"), import("./bands-variants.js")]).then(([base, variants]) => {
     const all = base.BANDS.concat(variants.VARIANTS);
     pool = all.filter((b) => BAND_POOL_IDS.indexOf(b.id) >= 0);
-
-    let saved = null;
-    try {
-      saved = window.localStorage.getItem(BAND_KEY);
-    } catch (e) {
-      /* ignore */
-    }
-    const savedPick = pool.filter((b) => b.id === saved)[0];
-    const pick = savedPick || pool[Math.floor(Math.random() * pool.length)] || all[0];
+    const pick = pool[Math.floor(Math.random() * pool.length)] || all[0];
     setBand(pick, false);
     onScroll();
   });
@@ -259,15 +239,6 @@ function initBand() {
   measureChrome();
   setTimeout(measureChrome, 400);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureChrome);
-
-  header.addEventListener("mouseenter", () => {
-    pickerHover = true;
-    placeCorner();
-  });
-  header.addEventListener("mouseleave", () => {
-    pickerHover = false;
-    placeCorner();
-  });
 
   if (pickerToggle) {
     pickerToggle.addEventListener("click", () => {

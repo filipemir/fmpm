@@ -178,3 +178,50 @@ pre.astro-code {
 .prose strong {
   font-weight: 600;
 }
+
+/* GFM footnotes ([^1] syntax), parsed by remark-gfm — real semantic markup
+   (a <sup><a> ref and a <section class="footnotes"> list), just needs
+   styling to match the site rather than browser defaults. */
+.prose sup [data-footnote-ref] {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  text-decoration: none;
+  color: var(--accent);
+  padding: 0 2px;
+}
+.prose .footnotes {
+  margin-top: 34px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.prose .footnotes .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.prose .footnotes ol {
+  margin: 0;
+  padding-left: 1.3em;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.prose .footnotes li p {
+  display: inline;
+  margin: 0;
+}
+.prose .footnotes [data-footnote-backref] {
+  text-decoration: none;
+  color: var(--accent);
+  margin-left: 4px;
+}
