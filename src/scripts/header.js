@@ -7,12 +7,14 @@ const THEME_KEY = "fm-site-theme";
 const WC = 80;
 const BAND_MS_DEFAULT = 100;
 
-function applyTheme(theme) {
+function applyTheme(theme, persist) {
   document.documentElement.setAttribute("data-theme", theme);
-  try {
-    window.localStorage.setItem(THEME_KEY, theme);
-  } catch (e) {
-    /* private mode / storage disabled */
+  if (persist) {
+    try {
+      window.localStorage.setItem(THEME_KEY, theme);
+    } catch (e) {
+      /* private mode / storage disabled */
+    }
   }
   const btn = document.querySelector("[data-theme-toggle]");
   if (btn) {
@@ -23,7 +25,7 @@ function applyTheme(theme) {
   }
 }
 
-function initTheme() {
+function resolveTheme() {
   let saved = null;
   try {
     saved = window.localStorage.getItem(THEME_KEY);
@@ -32,14 +34,40 @@ function initTheme() {
   }
   const prefersDark =
     window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const dark = saved === "dark" || (saved === null && prefersDark);
-  applyTheme(dark ? "dark" : "light");
+  return saved === "dark" || (saved === null && prefersDark) ? "dark" : "light";
+}
+
+function initTheme() {
+  // Not persisted: a page load with no saved choice should keep following
+  // the system preference, not silently lock in whatever it said today.
+  applyTheme(resolveTheme(), false);
 
   const btn = document.querySelector("[data-theme-toggle]");
   if (btn) {
     btn.addEventListener("click", () => {
       const isDark = document.documentElement.getAttribute("data-theme") === "dark";
-      applyTheme(isDark ? "light" : "dark");
+      applyTheme(isDark ? "light" : "dark", true);
+    });
+  }
+
+  // The header (and its data-theme-setting script) persists across
+  // client-side navigation, but <html>'s data-theme attribute doesn't —
+  // it's only ever set by this script, never present in a page's raw
+  // server-rendered markup, so a transition swap drops it. Reapply on
+  // every swap; harmless when it was never actually lost.
+  document.addEventListener("astro:after-swap", () => {
+    applyTheme(resolveTheme(), false);
+  });
+
+  if (window.matchMedia) {
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+      let saved = null;
+      try {
+        saved = window.localStorage.getItem(THEME_KEY);
+      } catch (e) {
+        /* ignore */
+      }
+      if (saved === null) applyTheme(resolveTheme(), false);
     });
   }
 }
