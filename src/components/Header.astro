@@ -5,7 +5,25 @@ interface Props {
 const { active = null } = Astro.props;
 ---
 
-<header class="header" transition:persist transition:name="site-header">
+<header class="header" data-header transition:persist transition:name="site-header">
+  <div class="corner" data-corner-controls>
+    <button type="button" data-theme-toggle class="corner-btn" aria-label="Toggle dark mode" title="Toggle dark mode"
+      >☾</button
+    >
+    <div class="band-picker">
+      <button
+        type="button"
+        data-band-picker-toggle
+        class="corner-btn"
+        aria-haspopup="listbox"
+        aria-expanded="false"
+        aria-label="Choose header animation"
+        title="Choose header animation">≈</button
+      >
+      <div class="band-menu mono" data-band-menu role="listbox" hidden></div>
+    </div>
+  </div>
+
   <a href="/" title="Home" class="home-link">
     <span class="mono wordmark">@fmpm</span>
     <span class="mono band" data-band aria-hidden="true"></span>
@@ -25,12 +43,6 @@ const { active = null } = Astro.props;
       href="/now"
       data-nav-item
       aria-current={active === "now" ? "page" : undefined}>NOW()</a
-    >
-    <button
-      type="button"
-      data-theme-toggle
-      aria-label="Toggle dark mode"
-      title="Toggle dark mode">☾</button
     >
     <span class="nav-dot" data-nav-dot aria-hidden="true">*</span>
   </nav>
@@ -101,20 +113,83 @@ const { active = null } = Astro.props;
     color: var(--accent);
   }
 
-  .nav button[data-theme-toggle] {
+  .corner {
+    position: fixed;
+    top: 22px;
+    right: 26px;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    opacity: 0;
+    transition: opacity 160ms ease;
+  }
+
+  .corner-btn {
     appearance: none;
     background: none;
     border: none;
-    padding: 0 0 0 4px;
     margin: 0;
+    padding: 4px;
     cursor: pointer;
-    color: var(--faint);
-    font-family: inherit;
-    font-size: 13px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 18px;
     line-height: 1;
+    color: var(--faint);
     transition: color 120ms ease;
   }
-  .nav button[data-theme-toggle]:hover {
+  .corner-btn:hover {
+    color: var(--accent);
+  }
+
+  .band-picker {
+    position: relative;
+    display: flex;
+  }
+
+  .band-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 40;
+    min-width: 178px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0;
+    background: var(--bg);
+    border: 1px solid var(--ink);
+    opacity: 0;
+    transform: translateY(-4px);
+    pointer-events: none;
+    transition:
+      opacity 160ms ease,
+      transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .band-menu[hidden] {
+    display: none;
+  }
+
+  .band-menu :global(.band-option) {
+    appearance: none;
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 6px 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    text-align: left;
+    white-space: nowrap;
+    transition: color 120ms ease;
+  }
+  .band-menu :global(.band-option:hover) {
+    color: var(--accent);
+  }
+  .band-menu :global(.band-option-mark) {
+    width: 5px;
     color: var(--accent);
   }
 

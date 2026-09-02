@@ -106,7 +106,7 @@ export function makeFireflies(C, R) {
 export function makeSnow(C, R) {
   const d = { C: C, R: R };
   const s = [];
-  for (let i = 0; i < Math.max(10, Math.round(C / 4)); i++) {
+  for (let i = 0; i < Math.max(26, Math.round(C / 1.5)); i++) {
     s.push({ x: Math.random(), y: Math.random(), v: 0.004 + Math.random() * 0.006, p: Math.random() * 6.28 });
   }
   return {

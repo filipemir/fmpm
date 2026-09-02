@@ -1,11 +1,16 @@
-// Drives the three genuinely-interactive pieces of the shared header:
-// the theme toggle, the ASCII band (hero-sized on load, collapses on
+// Drives the interactive pieces of the shared header: the theme toggle,
+// the band picker, the ASCII band itself (hero-sized on load, collapses on
 // scroll, never grows back), and the nav dot that tracks the active/
 // hovered page. Runs on every page since the header is shared.
 
 const THEME_KEY = "fm-site-theme";
+const BAND_KEY = "fm-band";
 const WC = 80;
 const BAND_MS_DEFAULT = 100;
+// The curated pool offered in the picker (a subset of everything in
+// bands.js + bands-variants.js) — order matches their concatenation, not
+// this list.
+const BAND_POOL_IDS = ["rain", "snow", "shooting", "leaves", "embers", "flock", "bubbles", "seeds"];
 
 function applyTheme(theme, persist) {
   document.documentElement.setAttribute("data-theme", theme);
@@ -74,13 +79,33 @@ function initTheme() {
 
 function initBand() {
   const el = document.querySelector("[data-band]");
-  if (!el) return;
+  const nav = document.querySelector("[data-nav]");
+  const header = document.querySelector("[data-header]");
+  const corner = document.querySelector("[data-corner-controls]");
+  const pickerToggle = document.querySelector("[data-band-picker-toggle]");
+  const menu = document.querySelector("[data-band-menu]");
+  if (!el || !nav || !header) return;
 
   const reduceMotion =
     window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // The header's non-band chrome (wordmark, gaps, nav) — measured, not
+  // hard-coded, so adding a header row can't push the nav off-screen.
+  // nav's bottom edge minus the band's own current height isolates it
+  // regardless of how tall the band itself happens to be right now.
+  let chrome = 175;
+  const measureChrome = () => {
+    const y = window.pageYOffset || document.documentElement.scrollTop || 0;
+    const c = Math.round(nav.getBoundingClientRect().bottom + y - el.getBoundingClientRect().height) + 8;
+    if (c > 40 && c !== chrome) {
+      chrome = c;
+      return true;
+    }
+    return false;
+  };
+
   const heroRows = () => {
-    const fit = Math.floor((window.innerHeight * 0.82) / 12.5);
+    const fit = Math.floor(((window.innerHeight - chrome) * 0.9) / 12.5);
     return Math.max(12, Math.min(56, fit));
   };
 
@@ -88,6 +113,11 @@ function initBand() {
   let rows = hero;
   let tick = 0;
   let band = null;
+  let bandId = null;
+  let pool = [];
+  let wave = null;
+  let pickerHover = false;
+  let pickerOpen = false;
 
   const render = () => {
     if (!band) return;
@@ -106,6 +136,7 @@ function initBand() {
   };
 
   const onResize = () => {
+    measureChrome();
     if (rows === hero) {
       hero = heroRows();
       rows = hero;
@@ -113,25 +144,146 @@ function initBand() {
     }
   };
 
-  import("./bands.js").then((m) => {
-    const pool = m.BANDS.filter((b) =>
-      ["rain", "reeds", "fireflies", "snow", "sonar", "pulse"].includes(b.id),
-    );
-    const pick = pool[Math.floor(Math.random() * pool.length)] || m.BANDS[0];
-    band = pick.make(WC, rows);
-    render();
-    onScroll();
+  const placeCorner = () => {
+    if (!corner) return;
+    const show = pickerHover || pickerOpen;
+    corner.style.opacity = show ? "1" : "0";
+  };
 
+  const closeMenu = () => {
+    pickerOpen = false;
+    if (menu) {
+      menu.hidden = true;
+      menu.style.opacity = "0";
+      menu.style.transform = "translateY(-4px)";
+      menu.style.pointerEvents = "none";
+    }
+    if (pickerToggle) {
+      pickerToggle.setAttribute("aria-expanded", "false");
+      pickerToggle.style.color = "var(--faint)";
+    }
+    placeCorner();
+  };
+
+  const renderMenu = () => {
+    if (!menu) return;
+    menu.innerHTML = "";
+    pool.forEach((def) => {
+      const active = def.id === bandId;
+      const opt = document.createElement("button");
+      opt.type = "button";
+      opt.setAttribute("role", "option");
+      opt.setAttribute("aria-selected", String(active));
+      opt.className = "band-option";
+      opt.style.color = active ? "var(--ink)" : "var(--muted)";
+      const mark = document.createElement("span");
+      mark.className = "band-option-mark";
+      mark.textContent = active ? "•" : "";
+      const label = document.createElement("span");
+      label.textContent = def.label;
+      opt.appendChild(mark);
+      opt.appendChild(label);
+      opt.addEventListener("click", () => {
+        closeMenu();
+        setBand(def, true);
+      });
+      menu.appendChild(opt);
+    });
+  };
+
+  const openMenu = () => {
+    pickerOpen = true;
+    renderMenu();
+    if (menu) {
+      menu.hidden = false;
+      requestAnimationFrame(() => {
+        menu.style.opacity = "1";
+        menu.style.transform = "translateY(0)";
+        menu.style.pointerEvents = "auto";
+      });
+    }
+    if (pickerToggle) {
+      pickerToggle.setAttribute("aria-expanded", "true");
+      pickerToggle.style.color = "var(--accent)";
+    }
+    placeCorner();
+  };
+
+  function setBand(def, remember) {
+    bandId = def.id;
+    band = def.make(WC, rows);
+    if (remember) {
+      try {
+        window.localStorage.setItem(BAND_KEY, def.id);
+      } catch (e) {
+        /* ignore */
+      }
+      // Re-open the banner to full height so the newly-picked animation is
+      // actually visible, then let it collapse again on the next scroll.
+      hero = heroRows();
+      rows = hero;
+      // Jump instantly: a smooth scroll keeps firing onScroll, whose
+      // one-way clamp would re-collapse the band before reaching the top.
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
+    render();
+    if (wave) window.clearInterval(wave);
     if (reduceMotion) return;
-    window.setInterval(() => {
+    wave = window.setInterval(() => {
       tick += 1;
       band.step(tick);
       render();
-    }, pick.ms || BAND_MS_DEFAULT);
+    }, def.ms || BAND_MS_DEFAULT);
+  }
+
+  Promise.all([import("./bands.js"), import("./bands-variants.js")]).then(([base, variants]) => {
+    const all = base.BANDS.concat(variants.VARIANTS);
+    pool = all.filter((b) => BAND_POOL_IDS.indexOf(b.id) >= 0);
+
+    let saved = null;
+    try {
+      saved = window.localStorage.getItem(BAND_KEY);
+    } catch (e) {
+      /* ignore */
+    }
+    const savedPick = pool.filter((b) => b.id === saved)[0];
+    const pick = savedPick || pool[Math.floor(Math.random() * pool.length)] || all[0];
+    setBand(pick, false);
+    onScroll();
   });
 
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onResize);
+
+  measureChrome();
+  setTimeout(measureChrome, 400);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureChrome);
+
+  header.addEventListener("mouseenter", () => {
+    pickerHover = true;
+    placeCorner();
+  });
+  header.addEventListener("mouseleave", () => {
+    pickerHover = false;
+    placeCorner();
+  });
+
+  if (pickerToggle) {
+    pickerToggle.addEventListener("click", () => {
+      if (pickerOpen) closeMenu();
+      else openMenu();
+    });
+  }
+
+  document.addEventListener("mousedown", (e) => {
+    if (!pickerOpen) return;
+    if (corner && corner.contains(e.target)) return;
+    closeMenu();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && pickerOpen) closeMenu();
+  });
 }
 
 // The header persists across page transitions (see transition:persist on

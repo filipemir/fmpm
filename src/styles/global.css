@@ -12,7 +12,6 @@
   --syn-fn: #7a5470;
   --syn-num: #6d6a52;
   --code-bg: rgba(38, 34, 29, 0.035);
-  --menu-shadow: rgba(38, 34, 29, 0.13);
   --scrim: rgba(38, 34, 29, 0.86);
 }
 
@@ -30,7 +29,6 @@ html[data-theme="dark"] {
   --syn-fn: #c49ac0;
   --syn-num: #bcb695;
   --code-bg: rgba(0, 0, 0, 0.22);
-  --menu-shadow: rgba(0, 0, 0, 0.45);
   --scrim: rgba(20, 18, 16, 0.92);
 }
 

@@ -1,30 +1,80 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import books from "../../data/books.json";
+
+type Book = { title: string; author: string; month: string; year: string; reread?: boolean; fav?: boolean };
+
+const byYear: { year: string; books: Book[] }[] = [];
+for (const b of books as Book[]) {
+  let g = byYear[byYear.length - 1];
+  if (!g || g.year !== b.year) {
+    g = { year: b.year, books: [] };
+    byYear.push(g);
+  }
+  g.books.push(b);
+}
+const favorites = (books as Book[]).filter((b) => b.fav);
 ---
 
 <Layout title="Books — Filipe Miranda" active="reading">
   <main class="reading">
-    <h1>Books</h1>
-    <ul class="books">
+    <div class="head">
+      <h1>Books</h1>
+      <button type="button" data-favs-toggle class="favs-btn" aria-pressed="false">
+        <span class="star">★</span>
+        <span class="favs-label" data-favs-label>Favourites only</span>
+      </button>
+    </div>
+
+    <div class="years" data-view="all">
       {
-        books.map((book) => (
+        byYear.map((yr) => (
+          <section class="year-group">
+            <div class="year-head">
+              <h2 class="mono">{yr.year}</h2>
+              <span class="rule" />
+            </div>
+            <ul class="book-list">
+              {yr.books.map((book) => (
+                <li class="book-row">
+                  <span class="book-title">
+                    {book.title}
+                    {book.fav && <span class="star-suffix"> ★</span>}
+                  </span>
+                  <span class="mono book-when">{book.month}</span>
+                  <span class="book-meta">
+                    {book.author}
+                    {book.reread && " · re-read"}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
+    </div>
+
+    <ul class="book-list favs-view" data-view="favs" hidden>
+      {
+        favorites.map((book) => (
           <li class="book-row">
-            <span class="book-title">
-              {book.title}
-              <span class="book-author"> · {book.author}</span>
+            <span class="book-title">{book.title}</span>
+            <span class="mono book-when">
+              {book.month} {book.year}
             </span>
-            {book.reread && (
-              <span class="mono reread" title="Re-read">
-                re-read
-              </span>
-            )}
-            <span class="mono book-date">{book.date}</span>
+            <span class="book-meta">
+              {book.author}
+              {book.reread && " · re-read"}
+            </span>
           </li>
         ))
       }
     </ul>
+
+    <p class="mono legend">★ favourite</p>
   </main>
+
+  <script src="../../scripts/books.js"></script>
 </Layout>
 
 <style>
@@ -33,43 +83,130 @@ import books from "../../data/books.json";
     flex-direction: column;
     gap: 30px;
   }
+  .head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px 20px;
+  }
   h1 {
     margin: 0;
     font-size: 32px;
     font-weight: 400;
     letter-spacing: -0.02em;
   }
-  .books {
+
+  .favs-btn {
+    appearance: none;
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--faint);
+    transition: color 120ms ease;
+  }
+  .favs-btn:hover {
+    color: var(--accent);
+  }
+  .favs-btn .star {
+    font-size: 11px;
+  }
+  .favs-btn .favs-label {
+    border-bottom: 1px solid var(--rule);
+  }
+  .favs-btn[aria-pressed="true"] {
+    color: var(--accent);
+  }
+  .favs-btn[aria-pressed="true"] .favs-label {
+    border-bottom-color: var(--accent);
+  }
+
+  .years {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .years[hidden],
+  .favs-view[hidden] {
+    display: none;
+  }
+
+  .year-group {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .year-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .year-head h2 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--faint);
+  }
+  .year-head .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .book-list {
     margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
     flex-direction: column;
+    gap: 20px;
   }
   .book-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: baseline;
-    gap: 14px;
-    padding: 11px 0;
-    border-bottom: 1px solid var(--line);
+    column-gap: 20px;
+    row-gap: 4px;
   }
   .book-title {
     font-size: 18px;
-    line-height: 1.4;
-    flex: 1;
+    line-height: 1.45;
+    text-wrap: pretty;
   }
-  .book-author {
-    color: var(--muted);
-  }
-  .reread {
+  .star-suffix {
     font-size: 11px;
-    letter-spacing: 0.06em;
-    color: var(--accent);
-    white-space: nowrap;
+    color: var(--faint);
+    vertical-align: 2px;
   }
-  .book-date {
+  .book-when {
     font-size: 12px;
     color: var(--faint);
     white-space: nowrap;
+  }
+  .book-meta {
+    grid-column: 1 / -1;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--muted);
+    text-wrap: pretty;
+  }
+
+  .favs-view {
+    gap: 20px;
+  }
+
+  .legend {
+    margin: 8px 0 0;
+    font-size: 11px;
+    line-height: 1.7;
+    color: var(--faint);
   }
 </style>
