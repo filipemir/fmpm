@@ -1,0 +1,158 @@
+// Drives the three genuinely-interactive pieces of the shared header:
+// the theme toggle, the ASCII band (hero-sized on load, collapses on
+// scroll, never grows back), and the nav dot that tracks the active/
+// hovered page. Runs on every page since the header is shared.
+
+const THEME_KEY = "fm-site-theme";
+const WC = 80;
+const BAND_MS_DEFAULT = 100;
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  try {
+    window.localStorage.setItem(THEME_KEY, theme);
+  } catch (e) {
+    /* private mode / storage disabled */
+  }
+  const btn = document.querySelector("[data-theme-toggle]");
+  if (btn) {
+    const dark = theme === "dark";
+    btn.textContent = dark ? "☀" : "☾";
+    btn.setAttribute("title", dark ? "Switch to light" : "Switch to dark");
+    btn.setAttribute("aria-label", "Toggle dark mode");
+  }
+}
+
+function initTheme() {
+  let saved = null;
+  try {
+    saved = window.localStorage.getItem(THEME_KEY);
+  } catch (e) {
+    /* ignore */
+  }
+  const prefersDark =
+    window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const dark = saved === "dark" || (saved === null && prefersDark);
+  applyTheme(dark ? "dark" : "light");
+
+  const btn = document.querySelector("[data-theme-toggle]");
+  if (btn) {
+    btn.addEventListener("click", () => {
+      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      applyTheme(isDark ? "light" : "dark");
+    });
+  }
+}
+
+function initBand() {
+  const el = document.querySelector("[data-band]");
+  if (!el) return;
+
+  const reduceMotion =
+    window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const heroRows = () => {
+    const fit = Math.floor((window.innerHeight * 0.82) / 12.5);
+    return Math.max(12, Math.min(56, fit));
+  };
+
+  let hero = heroRows();
+  let rows = hero;
+  let tick = 0;
+  let band = null;
+
+  const render = () => {
+    if (!band) return;
+    el.textContent = band.rows(tick, WC, rows).join("\n");
+  };
+
+  const onScroll = () => {
+    const y = window.pageYOffset || document.documentElement.scrollTop || 0;
+    const p = Math.min(1, Math.max(0, y / 340));
+    const target = Math.round(hero - (hero - 12) * p);
+    const next = Math.min(rows, target);
+    if (next !== rows) {
+      rows = next;
+      render();
+    }
+  };
+
+  const onResize = () => {
+    if (rows === hero) {
+      hero = heroRows();
+      rows = hero;
+      render();
+    }
+  };
+
+  import("./bands.js").then((m) => {
+    const pool = m.BANDS.filter((b) =>
+      ["rain", "reeds", "fireflies", "snow", "sonar", "pulse"].includes(b.id),
+    );
+    const pick = pool[Math.floor(Math.random() * pool.length)] || m.BANDS[0];
+    band = pick.make(WC, rows);
+    render();
+    onScroll();
+
+    if (reduceMotion) return;
+    window.setInterval(() => {
+      tick += 1;
+      band.step(tick);
+      render();
+    }, pick.ms || BAND_MS_DEFAULT);
+  });
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onResize);
+}
+
+function initNavDot() {
+  const nav = document.querySelector("[data-nav]");
+  const dot = document.querySelector("[data-nav-dot]");
+  if (!nav || !dot) return;
+
+  const items = Array.prototype.slice.call(nav.querySelectorAll("[data-nav-item]"));
+  const activeIndex = items.findIndex((el) => el.getAttribute("aria-current") === "page");
+
+  let centers = [];
+  let hover = null;
+
+  const measure = () => {
+    const b = nav.getBoundingClientRect();
+    centers = items.map((el) => {
+      const r = el.getBoundingClientRect();
+      return r.left - b.left + r.width / 2;
+    });
+    place();
+  };
+
+  const place = () => {
+    const idx = hover !== null ? hover : activeIndex;
+    if (idx === -1 || idx === null || centers[idx] === undefined) {
+      dot.style.opacity = "0";
+      return;
+    }
+    dot.style.opacity = "1";
+    dot.style.transform = `translateX(${centers[idx].toFixed(1)}px) translateX(-50%)`;
+  };
+
+  items.forEach((el, i) => {
+    el.addEventListener("mouseenter", () => {
+      hover = i;
+      place();
+    });
+  });
+  nav.addEventListener("mouseleave", () => {
+    hover = null;
+    place();
+  });
+
+  measure();
+  window.addEventListener("resize", measure);
+  setTimeout(measure, 400);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+}
+
+initTheme();
+initBand();
+initNavDot();

@@ -1,0 +1,122 @@
+---
+interface Item {
+  title: string;
+  by?: string;
+  href: string;
+}
+interface Section {
+  heading: string;
+  body?: string;
+  linkText?: string;
+  linkHref?: string;
+  after?: string;
+  items?: Item[];
+}
+interface Props {
+  sections: Section[];
+  compact?: boolean;
+}
+const { sections, compact = false } = Astro.props;
+---
+
+<div class:list={["sections", { compact }]}>
+  {
+    sections.map((s) => (
+      <section class="section">
+        <h3 class="mono heading">{s.heading}</h3>
+        {s.body && <p class="body">{s.body}</p>}
+        {s.linkText && (
+          <p class="body">
+            <a href={s.linkHref} target="_blank" rel="noopener" class="inline-link">
+              {s.linkText}
+            </a>
+            {s.after}
+          </p>
+        )}
+        {s.items && (
+          <ul class="items">
+            {s.items.map((it) => (
+              <li>
+                <a href={it.href} target="_blank" rel="noopener" class="inline-link">
+                  {it.title}
+                </a>
+                <span class="by">{it.by}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+    ))
+  }
+</div>
+
+<style>
+  .sections {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .sections.compact {
+    gap: 20px;
+  }
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .compact .section {
+    gap: 6px;
+  }
+  .heading {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .compact .heading {
+    font-size: 11px;
+    color: var(--faint);
+  }
+  .body {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.62;
+    max-width: 33em;
+  }
+  .compact .body {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  .inline-link {
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+  .inline-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .by {
+    color: var(--muted);
+  }
+  .items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .items li {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .compact .items {
+    gap: 6px;
+  }
+  .compact .items li {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+</style>

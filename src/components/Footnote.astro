@@ -1,0 +1,25 @@
+---
+import Popover from "./Popover.astro";
+
+interface Props {
+  n: number;
+}
+const { n } = Astro.props;
+---
+
+<Popover>
+  <a href={`#fn${n}`} class="mark mono">{n}</a>
+  <Fragment slot="panel">
+    <slot />
+  </Fragment>
+</Popover>
+
+<style>
+  .mark {
+    font-size: 12px;
+    text-decoration: none;
+    color: var(--accent);
+    vertical-align: super;
+    padding: 0 2px;
+  }
+</style>

@@ -1,0 +1,41 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import NowSections from "../../components/NowSections.astro";
+import now from "../../data/now.json";
+
+const current = now[0];
+---
+
+<Layout title="NOW() — Filipe Miranda" active="now">
+  <main class="now">
+    <NowSections sections={current.sections} />
+    <p class="mono updated">
+      Updated {current.date}. See archive <a href="/now/archive">here</a>.
+    </p>
+  </main>
+</Layout>
+
+<style>
+  .now {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+  .updated {
+    margin: 16px 0 0;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--faint);
+  }
+  .updated a {
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+  .updated a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+</style>

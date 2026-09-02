@@ -1,0 +1,95 @@
+---
+import Layout from "./Layout.astro";
+import LightboxOverlay from "../components/LightboxOverlay.astro";
+import { formatMonthYear } from "../lib/format";
+
+interface Props {
+  title: string;
+  date: Date;
+  minutes?: number;
+  footnotes?: string[];
+}
+const { title, date, minutes, footnotes = [] } = Astro.props;
+const meta = minutes ? `${formatMonthYear(date)} · ${minutes} min` : formatMonthYear(date);
+---
+
+<Layout title={`${title} — Filipe Miranda`} active="writing">
+  <main class="post">
+    <div class="head">
+      <h1>{title}</h1>
+      <span class="mono meta">{meta}</span>
+    </div>
+
+    <article class="prose">
+      <slot />
+    </article>
+
+    <div class="foot mono">
+      {
+        footnotes.map((text, i) => (
+          <div class="footnote-row" id={`fn${i + 1}`}>
+            <span class="footnote-n">{i + 1}</span>
+            <span>{text}</span>
+          </div>
+        ))
+      }
+      <a href="/writing" class="back">← All writing</a>
+    </div>
+  </main>
+
+  <LightboxOverlay />
+</Layout>
+
+<style>
+  .post {
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+  }
+  .head {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.22;
+    letter-spacing: -0.02em;
+    max-width: 26em;
+  }
+  .meta {
+    font-size: 12px;
+    color: var(--faint);
+  }
+  .foot {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+  .back {
+    margin-top: 8px;
+    text-decoration: none;
+    color: var(--muted);
+    border-bottom: 1px solid var(--rule);
+    width: fit-content;
+  }
+  .back:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .footnote-row {
+    display: flex;
+    gap: 10px;
+  }
+  .footnote-n {
+    color: var(--accent);
+  }
+</style>

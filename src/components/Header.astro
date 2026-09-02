@@ -1,0 +1,133 @@
+---
+interface Props {
+  active?: "writing" | "reading" | "now" | null;
+}
+const { active = null } = Astro.props;
+---
+
+<header class="header">
+  <a href="/" title="Home" class="home-link">
+    <span class="mono wordmark">@fmpm</span>
+    <span class="mono band" data-band aria-hidden="true"></span>
+  </a>
+  <nav class="nav mono" data-nav>
+    <a
+      href="/writing"
+      data-nav-item
+      aria-current={active === "writing" ? "page" : undefined}>Writing</a
+    >
+    <a
+      href="/reading"
+      data-nav-item
+      aria-current={active === "reading" ? "page" : undefined}>Reading</a
+    >
+    <a
+      href="/now"
+      data-nav-item
+      aria-current={active === "now" ? "page" : undefined}>NOW()</a
+    >
+    <button
+      type="button"
+      data-theme-toggle
+      aria-label="Toggle dark mode"
+      title="Toggle dark mode">☾</button
+    >
+    <span class="nav-dot" data-nav-dot aria-hidden="true">*</span>
+  </nav>
+</header>
+
+<script src="../scripts/header.js"></script>
+
+<style>
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .home-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    text-decoration: none;
+    color: var(--muted);
+  }
+  .home-link:hover {
+    color: var(--accent);
+  }
+
+  .wordmark {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: inherit;
+  }
+
+  .band {
+    width: 100%;
+    overflow: hidden;
+    font-size: 10px;
+    line-height: 1.25;
+    letter-spacing: 0.09em;
+    white-space: pre;
+    color: inherit;
+    display: block;
+  }
+
+  .nav {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: baseline;
+    justify-content: center;
+    margin-top: 12px;
+    padding-bottom: 14px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .nav a {
+    text-decoration: none;
+    color: var(--faint);
+  }
+  .nav a[aria-current="page"] {
+    color: var(--ink);
+  }
+  .nav a:hover {
+    color: var(--accent);
+  }
+
+  .nav button[data-theme-toggle] {
+    appearance: none;
+    background: none;
+    border: none;
+    padding: 0 0 0 4px;
+    margin: 0;
+    cursor: pointer;
+    color: var(--faint);
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1;
+    transition: color 120ms ease;
+  }
+  .nav button[data-theme-toggle]:hover {
+    color: var(--accent);
+  }
+
+  .nav-dot {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    font-size: 13px;
+    line-height: 1;
+    color: var(--accent);
+    opacity: 0;
+    transition:
+      transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 220ms ease;
+  }
+</style>

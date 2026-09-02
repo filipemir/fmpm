@@ -1,0 +1,188 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Popover from "../components/Popover.astro";
+import { getSortedPosts } from "../lib/posts";
+import { formatMonthYear } from "../lib/format";
+import notes from "../data/notes.json";
+
+const posts = await getSortedPosts();
+const recentPosts = posts.slice(0, 5);
+const pinnedNotes = notes.slice(0, 3);
+---
+
+<Layout title="Filipe Miranda">
+  <main class="home">
+    <section class="bio">
+      <p>
+        Hi 👋 I'm Filipe, a staff engineer at <Popover>
+          <a href="https://www.atticus.com/" target="_blank" rel="noopener" class="underline"
+            >Atticus</a
+          ><span class="star">*</span>
+          <Fragment slot="panel">
+            We help Americans in crisis get the help they need. If that sounds like a worthwhile
+            way to spend you time, come <a href="https://atticus.com/careers" target="_blank" rel="noopener"
+              >join us</a
+            >!
+          </Fragment>
+        </Popover> where I split my time between product work and the foundations of our data systems.
+        I grew up in Portugal and now live in Maine with my wife and two young kids. In my ample free
+        time I sometimes climb and read books that mostly have nothing to do with my job.
+      </p>
+      <p>
+        In September of 2026, I decided to spend a little time every month writing down my
+        thoughts on software development and how it's changing. This site is my humble venue for
+        that. Everything here is written by me, artisanally, like it's 2022.
+      </p>
+      <p class="muted">
+        Want to say hi, or flame me for one of my takes? Hit me up at <a
+          href="mailto:filipe@fmpm.dev">filipe@fmpm.dev</a
+        >.
+      </p>
+    </section>
+
+    <section class="list-section">
+      <h2 class="mono label">Notes</h2>
+      <ul class="notes">
+        {
+          pinnedNotes.map((note) => (
+            <li>
+              <a href="/notes" class="note-title">
+                {note.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="list-section">
+      <h2 class="mono label">Posts</h2>
+      <ul class="posts">
+        {
+          recentPosts.map((post) => (
+            <li class="post-row">
+              <div class="post-head">
+                <a href={`/writing/${post.id}`} class="post-title">
+                  {post.data.title}
+                </a>
+                <span class="mono post-date">{formatMonthYear(post.data.date)}</span>
+              </div>
+              <span class="post-blurb">{post.data.blurb}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <a href="/writing" class="mono all-posts">All posts →</a>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .home {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+  .bio {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    font-size: 19px;
+    line-height: 1.62;
+    max-width: 34em;
+  }
+  .bio p {
+    margin: 0;
+  }
+  .bio .muted {
+    color: var(--muted);
+  }
+  .bio .underline {
+    text-decoration: underline;
+  }
+  .bio .star {
+    color: var(--accent);
+    cursor: help;
+  }
+
+  .list-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .label {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .notes {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .note-title {
+    font-size: 18px;
+    text-decoration: none;
+    width: fit-content;
+    border-bottom: 1px solid var(--rule);
+  }
+  .note-title:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .posts {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+  .post-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .post-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+  .post-title {
+    font-size: 18px;
+    line-height: 1.4;
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+  .post-title:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .post-date {
+    font-size: 11px;
+    color: var(--faint);
+    white-space: nowrap;
+  }
+  .post-blurb {
+    font-size: 16px;
+    line-height: 1.58;
+    color: var(--muted);
+    max-width: 33em;
+  }
+
+  .all-posts {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    color: var(--accent);
+    width: fit-content;
+  }
+</style>

@@ -1,0 +1,75 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import books from "../../data/books.json";
+---
+
+<Layout title="Books — Filipe Miranda" active="reading">
+  <main class="reading">
+    <h1>Books</h1>
+    <ul class="books">
+      {
+        books.map((book) => (
+          <li class="book-row">
+            <span class="book-title">
+              {book.title}
+              <span class="book-author"> · {book.author}</span>
+            </span>
+            {book.reread && (
+              <span class="mono reread" title="Re-read">
+                re-read
+              </span>
+            )}
+            <span class="mono book-date">{book.date}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</Layout>
+
+<style>
+  .reading {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+  .books {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .book-row {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .book-title {
+    font-size: 18px;
+    line-height: 1.4;
+    flex: 1;
+  }
+  .book-author {
+    color: var(--muted);
+  }
+  .reread {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .book-date {
+    font-size: 12px;
+    color: var(--faint);
+    white-space: nowrap;
+  }
+</style>

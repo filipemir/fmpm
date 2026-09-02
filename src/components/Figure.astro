@@ -1,0 +1,40 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+const { src, alt, caption } = Astro.props;
+---
+
+<figure class="figure">
+  <div class="trigger" data-lightbox-trigger title="Click to expand">
+    <img src={src} alt={alt} loading="lazy" />
+  </div>
+  {caption && <figcaption class="mono">{caption}</figcaption>}
+</figure>
+
+<style>
+  .figure {
+    margin: 12px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .trigger {
+    cursor: zoom-in;
+    width: 100%;
+    position: relative;
+  }
+  .trigger img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+  }
+  figcaption {
+    font-size: 11px;
+    line-height: 1.6;
+    color: var(--faint);
+  }
+</style>
