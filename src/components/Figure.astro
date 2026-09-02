@@ -8,9 +8,7 @@ const { src, alt, caption } = Astro.props;
 ---
 
 <figure class="figure">
-  <div class="trigger" data-lightbox-trigger title="Click to expand">
-    <img src={src} alt={alt} loading="lazy" />
-  </div>
+  <img src={src} alt={alt} loading="lazy" />
   {caption && <figcaption class="mono">{caption}</figcaption>}
 </figure>
 
@@ -20,17 +18,6 @@ const { src, alt, caption } = Astro.props;
     display: flex;
     flex-direction: column;
     gap: 10px;
-  }
-  .trigger {
-    cursor: zoom-in;
-    width: 100%;
-    position: relative;
-  }
-  .trigger img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border: 1px solid var(--line);
   }
   figcaption {
     font-size: 11px;

@@ -63,6 +63,15 @@ a {
   transition: color 120ms ease;
 }
 
+/* Explicit, rather than left to the browser default (traditionally purple,
+   but themeable) — visited posts/notes/links should look identical to
+   unvisited ones, only :hover gets the accent color. Ordered before :hover
+   (the classic LVHA order) so hovering a visited link still goes accent. */
+a:visited {
+  color: var(--ink);
+  text-decoration-color: var(--rule);
+}
+
 a:hover {
   color: var(--accent);
   text-decoration-color: var(--accent);
@@ -164,6 +173,7 @@ pre.astro-code {
   width: 100%;
   height: auto;
   border: 1px solid var(--line);
+  cursor: zoom-in;
 }
 .prose figcaption {
   text-align: center;

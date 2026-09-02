@@ -1,4 +1,6 @@
-// Click-to-expand for post figures. No-op if a page has none.
+// Click-to-expand for post images. Any <img> inside .prose gets this
+// automatically — no per-post markup needed, plain markdown ![]() images
+// included. No-op if a page has none.
 //
 // Post pages aren't persisted across transitions (only the header is), so
 // this needs to re-wire on every navigation — astro:page-load fires after
@@ -6,18 +8,16 @@
 // which would only ever run once thanks to ES module de-duplication.
 
 function initLightbox() {
-  const triggers = document.querySelectorAll("[data-lightbox-trigger]");
+  const images = document.querySelectorAll(".prose img");
   const overlay = document.querySelector("[data-lightbox-overlay]");
-  if (!triggers.length || !overlay) return;
+  if (!images.length || !overlay) return;
 
   const overlayImg = overlay.querySelector("img");
   if (!overlayImg) return;
 
-  triggers.forEach((trigger) => {
-    const img = trigger.querySelector("img");
-    trigger.addEventListener("click", () => {
-      if (!img) return;
-      overlayImg.src = img.src;
+  images.forEach((img) => {
+    img.addEventListener("click", () => {
+      overlayImg.src = img.currentSrc || img.src;
       overlayImg.alt = img.alt || "";
       overlay.hidden = false;
     });
