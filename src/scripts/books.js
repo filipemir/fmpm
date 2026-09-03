@@ -4,27 +4,28 @@
 // astro:page-load rather than a top-level call (see lightbox.js).
 
 function initBooksToggle() {
-  const btn = document.querySelector("[data-favs-toggle]");
-  const label = document.querySelector("[data-favs-label]");
-  const allView = document.querySelector('[data-view="all"]');
-  const favsView = document.querySelector('[data-view="favs"]');
-  if (!btn || !allView || !favsView) return;
+    const btn = document.querySelector('[data-favs-toggle]');
+    const label = document.querySelector('[data-favs-label]');
+    const allView = document.querySelector('[data-view="all"]');
+    const favsView = document.querySelector('[data-view="favs"]');
+    if (!btn || !allView || !favsView) return;
 
-  let favsOnly = false;
+    let favsOnly = false;
 
-  const render = () => {
-    allView.hidden = favsOnly;
-    favsView.hidden = !favsOnly;
-    btn.setAttribute("aria-pressed", String(favsOnly));
-    if (label) label.textContent = favsOnly ? "All books" : "Favourites only";
-  };
+    const render = () => {
+        allView.hidden = favsOnly;
+        favsView.hidden = !favsOnly;
+        btn.setAttribute('aria-pressed', String(favsOnly));
+        if (label)
+            label.textContent = favsOnly ? 'All books' : 'Favourites only';
+    };
 
-  btn.addEventListener("click", () => {
-    favsOnly = !favsOnly;
+    btn.addEventListener('click', () => {
+        favsOnly = !favsOnly;
+        render();
+    });
+
     render();
-  });
-
-  render();
 }
 
-document.addEventListener("astro:page-load", initBooksToggle);
+document.addEventListener('astro:page-load', initBooksToggle);

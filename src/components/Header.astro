@@ -1,206 +1,216 @@
 ---
 interface Props {
-  active?: "writing" | "reading" | "now" | null;
+    active?: 'writing' | 'reading' | 'now' | null;
 }
 const { active = null } = Astro.props;
 ---
 
-<header class="header" data-header transition:persist transition:name="site-header">
-  <div class="corner" data-corner-controls>
-    <button type="button" data-theme-toggle class="corner-btn" aria-label="Toggle dark mode" title="Toggle dark mode"
-      >☾</button
-    >
-    <div class="band-picker">
-      <button
-        type="button"
-        data-band-picker-toggle
-        class="corner-btn"
-        aria-haspopup="listbox"
-        aria-expanded="false"
-        aria-label="Choose header animation"
-        title="Choose header animation">≈</button
-      >
-      <div class="band-menu mono" data-band-menu role="listbox" hidden></div>
+<header
+    class='header'
+    data-header
+    transition:persist
+    transition:name='site-header'
+>
+    <div class='corner' data-corner-controls>
+        <button
+            type='button'
+            data-theme-toggle
+            class='corner-btn'
+            aria-label='Toggle dark mode'
+            title='Toggle dark mode'>☾</button
+        >
+        <div class='band-picker'>
+            <button
+                type='button'
+                data-band-picker-toggle
+                class='corner-btn'
+                aria-haspopup='listbox'
+                aria-expanded='false'
+                aria-label='Choose header animation'
+                title='Choose header animation'>≈</button
+            >
+            <div class='band-menu mono' data-band-menu role='listbox' hidden>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <a href="/" title="Home" class="home-link">
-    <span class="mono wordmark">@fmpm</span>
-    <span class="mono band" data-band aria-hidden="true"></span>
-  </a>
-  <nav class="nav mono" data-nav>
-    <a
-      href="/writing"
-      data-nav-item
-      aria-current={active === "writing" ? "page" : undefined}>Writing</a
-    >
-    <a
-      href="/reading"
-      data-nav-item
-      aria-current={active === "reading" ? "page" : undefined}>Reading</a
-    >
-    <a
-      href="/now"
-      data-nav-item
-      aria-current={active === "now" ? "page" : undefined}>NOW()</a
-    >
-    <span class="nav-dot" data-nav-dot aria-hidden="true">*</span>
-  </nav>
+    <a href='/' title='Home' class='home-link'>
+        <span class='mono wordmark'>@fmpm</span>
+        <span class='mono band' data-band aria-hidden='true'></span>
+    </a>
+    <nav class='nav mono' data-nav>
+        <a
+            href='/writing'
+            data-nav-item
+            aria-current={active === 'writing' ? 'page' : undefined}>Writing</a
+        >
+        <a
+            href='/reading'
+            data-nav-item
+            aria-current={active === 'reading' ? 'page' : undefined}>Reading</a
+        >
+        <a
+            href='/now'
+            data-nav-item
+            aria-current={active === 'now' ? 'page' : undefined}>NOW()</a
+        >
+        <span class='nav-dot' data-nav-dot aria-hidden='true'>*</span>
+    </nav>
 </header>
 
-<script src="../scripts/header.js"></script>
+<script src='../scripts/header.js'></script>
 
 <style>
-  .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-  }
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+    }
 
-  .home-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-    width: 100%;
-    text-decoration: none;
-    color: var(--muted);
-  }
-  .home-link:hover {
-    color: var(--accent);
-  }
+    .home-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        width: 100%;
+        text-decoration: none;
+        color: var(--muted);
+    }
+    .home-link:hover {
+        color: var(--accent);
+    }
 
-  .wordmark {
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    color: inherit;
-  }
+    .wordmark {
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        color: inherit;
+    }
 
-  .band {
-    width: 100%;
-    overflow: hidden;
-    font-size: 10px;
-    line-height: 1.25;
-    letter-spacing: 0.09em;
-    white-space: pre;
-    color: inherit;
-    display: block;
-  }
+    .band {
+        width: 100%;
+        overflow: hidden;
+        font-size: 10px;
+        line-height: 1.25;
+        letter-spacing: 0.09em;
+        white-space: pre;
+        color: inherit;
+        display: block;
+    }
 
-  .nav {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: baseline;
-    justify-content: center;
-    margin-top: 12px;
-    padding-bottom: 14px;
-    font-size: 12px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
+    .nav {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: baseline;
+        justify-content: center;
+        margin-top: 12px;
+        padding-bottom: 14px;
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
 
-  .nav a {
-    text-decoration: none;
-    color: var(--faint);
-  }
-  .nav a[aria-current="page"] {
-    color: var(--ink);
-  }
-  .nav a:hover {
-    color: var(--accent);
-  }
+    .nav a {
+        text-decoration: none;
+        color: var(--faint);
+    }
+    .nav a[aria-current='page'] {
+        color: var(--ink);
+    }
+    .nav a:hover {
+        color: var(--accent);
+    }
 
-  .corner {
-    position: fixed;
-    top: 22px;
-    right: 26px;
-    z-index: 50;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
+    .corner {
+        position: fixed;
+        top: 22px;
+        right: 26px;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
 
-  .corner-btn {
-    appearance: none;
-    background: none;
-    border: none;
-    margin: 0;
-    padding: 4px;
-    cursor: pointer;
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 18px;
-    line-height: 1;
-    color: var(--faint);
-    transition: color 120ms ease;
-  }
-  .corner-btn:hover {
-    color: var(--accent);
-  }
+    .corner-btn {
+        appearance: none;
+        background: none;
+        border: none;
+        margin: 0;
+        padding: 4px;
+        cursor: pointer;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 18px;
+        line-height: 1;
+        color: var(--faint);
+        transition: color 120ms ease;
+    }
+    .corner-btn:hover {
+        color: var(--accent);
+    }
 
-  .band-picker {
-    position: relative;
-    display: flex;
-  }
+    .band-picker {
+        position: relative;
+        display: flex;
+    }
 
-  .band-menu {
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-    z-index: 40;
-    min-width: 178px;
-    display: flex;
-    flex-direction: column;
-    padding: 5px 0;
-    background: var(--bg);
-    border: 1px solid var(--ink);
-    opacity: 0;
-    transform: translateY(-4px);
-    pointer-events: none;
-    transition:
-      opacity 160ms ease,
-      transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .band-menu[hidden] {
-    display: none;
-  }
+    .band-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        z-index: 40;
+        min-width: 178px;
+        display: flex;
+        flex-direction: column;
+        padding: 5px 0;
+        background: var(--bg);
+        border: 1px solid var(--ink);
+        opacity: 0;
+        transform: translateY(-4px);
+        pointer-events: none;
+        transition:
+            opacity 160ms ease,
+            transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .band-menu[hidden] {
+        display: none;
+    }
 
-  .band-menu :global(.band-option) {
-    appearance: none;
-    background: none;
-    border: none;
-    margin: 0;
-    padding: 6px 14px;
-    cursor: pointer;
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 12px;
-    text-align: left;
-    white-space: nowrap;
-    transition: color 120ms ease;
-  }
-  .band-menu :global(.band-option:hover) {
-    color: var(--accent);
-  }
-  .band-menu :global(.band-option-mark) {
-    width: 5px;
-    color: var(--accent);
-  }
+    .band-menu :global(.band-option) {
+        appearance: none;
+        background: none;
+        border: none;
+        margin: 0;
+        padding: 6px 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 12px;
+        text-align: left;
+        white-space: nowrap;
+        transition: color 120ms ease;
+    }
+    .band-menu :global(.band-option:hover) {
+        color: var(--accent);
+    }
+    .band-menu :global(.band-option-mark) {
+        width: 5px;
+        color: var(--accent);
+    }
 
-  .nav-dot {
-    position: absolute;
-    left: 0;
-    bottom: -1px;
-    font-size: 13px;
-    line-height: 1;
-    color: var(--accent);
-    opacity: 0;
-    transition:
-      transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 220ms ease;
-  }
+    .nav-dot {
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        font-size: 13px;
+        line-height: 1;
+        color: var(--accent);
+        opacity: 0;
+        transition:
+            transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+            opacity 220ms ease;
+    }
 </style>

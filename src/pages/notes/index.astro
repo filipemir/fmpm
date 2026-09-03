@@ -1,95 +1,96 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import notes from "../../data/notes.json";
+import Layout from '../../layouts/Layout.astro';
+import notes from '../../data/notes.json';
 ---
 
-<Layout title="Pinned Notes — Filipe Miranda">
-  <main class="notes-page">
-    <div class="head">
-      <h1>📌 Pinned Notes</h1>
-      <p class="intro">
-        Pieces I've pinned because I still lean on them. These get edited as my thinking changes,
-        so treat the dates as last-touched rather than published.
-      </p>
-    </div>
-    <ul class="notes">
-      {
-        notes.map((note) => (
-          <li class="note-row">
-            <div class="note-head">
-              <a href="#" class="note-title">
-                {note.title}
-              </a>
-              <span class="mono note-date">{note.date}</span>
-            </div>
-            <span class="note-blurb">{note.blurb}</span>
-          </li>
-        ))
-      }
-    </ul>
-  </main>
+<Layout title='Pinned Notes — Filipe Miranda'>
+    <main class='notes-page'>
+        <div class='head'>
+            <h1>📌 Pinned Notes</h1>
+            <p class='intro'>
+                Pieces I've pinned because I still lean on them. These get
+                edited as my thinking changes, so treat the dates as
+                last-touched rather than published.
+            </p>
+        </div>
+        <ul class='notes'>
+            {
+                notes.map((note) => (
+                    <li class='note-row'>
+                        <div class='note-head'>
+                            <a href='#' class='note-title'>
+                                {note.title}
+                            </a>
+                            <span class='mono note-date'>{note.date}</span>
+                        </div>
+                        <span class='note-blurb'>{note.blurb}</span>
+                    </li>
+                ))
+            }
+        </ul>
+    </main>
 </Layout>
 
 <style>
-  .notes-page {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-  }
-  .head {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  h1 {
-    margin: 0;
-    font-size: 32px;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-  }
-  .intro {
-    margin: 0;
-    font-size: 18px;
-    line-height: 1.6;
-    color: var(--muted);
-    max-width: 33em;
-  }
-  .notes {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-  .note-row {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .note-head {
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-  }
-  .note-title {
-    font-size: 19px;
-    text-decoration: none;
-    border-bottom: 1px solid var(--rule);
-  }
-  .note-title:hover {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-  }
-  .note-date {
-    font-size: 11px;
-    color: var(--faint);
-    white-space: nowrap;
-  }
-  .note-blurb {
-    font-size: 16px;
-    line-height: 1.58;
-    color: var(--muted);
-    max-width: 33em;
-  }
+    .notes-page {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+    .head {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    h1 {
+        margin: 0;
+        font-size: 32px;
+        font-weight: 400;
+        letter-spacing: -0.02em;
+    }
+    .intro {
+        margin: 0;
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--muted);
+        max-width: 33em;
+    }
+    .notes {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .note-row {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+    .note-head {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+    }
+    .note-title {
+        font-size: 19px;
+        text-decoration: none;
+        border-bottom: 1px solid var(--rule);
+    }
+    .note-title:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+    }
+    .note-date {
+        font-size: 11px;
+        color: var(--faint);
+        white-space: nowrap;
+    }
+    .note-blurb {
+        font-size: 16px;
+        line-height: 1.58;
+        color: var(--muted);
+        max-width: 33em;
+    }
 </style>

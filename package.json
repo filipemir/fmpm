@@ -1,35 +1,64 @@
 {
-  "name": "fmpm",
-  "version": "0.0.0",
-  "description": "Personal Site",
-  "homepage": "https://fmpm.dev",
-  "author": "Filipe Miranda <filipe.m.mir@gmail.com>",
-  "license": "MIT",
-  "type": "module",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "format": "prettier --write ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/filipemir/fmpm.git"
-  },
-  "bugs": {
-    "url": "https://github.com/filipemir/fmpm/issues"
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.9.10",
-    "@astrojs/mdx": "^8.0.0",
-    "@astrojs/sitemap": "^3.7.4",
-    "@astrojs/vercel": "^11.0.9",
-    "astro": "^7.2.10",
-    "typescript": "^5.7.3"
-  },
-  "devDependencies": {
-    "prettier": "^3.4.2",
-    "prettier-plugin-astro": "^0.14.1"
-  }
+    "name": "fmpm",
+    "version": "0.0.0",
+    "description": "Personal Site",
+    "homepage": "https://fmpm.dev",
+    "author": "Filipe Miranda <filipe.m.mir@gmail.com>",
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "dev": "astro dev",
+        "build": "astro check && astro build",
+        "preview": "astro preview",
+        "astro": "astro",
+        "format": "prettier --write \"**/*.{astro,js,ts,jsx,tsx,md,json}\"",
+        "format:check": "prettier --check \"**/*.{astro,js,ts,jsx,tsx,md,json}\"",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "validate:books": "tsx scripts/validate-books.ts",
+        "check": "astro check && npm run lint && npm run format:check && npm run validate:books",
+        "prepare": "is-ci || husky"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/filipemir/fmpm.git"
+    },
+    "bugs": {
+        "url": "https://github.com/filipemir/fmpm/issues"
+    },
+    "lint-staged": {
+        "*.{astro,js,jsx,ts,tsx}": [
+            "eslint --fix",
+            "prettier --write"
+        ],
+        "*.{md,json}": [
+            "prettier --write"
+        ],
+        "src/data/books.json": [
+            "tsx scripts/validate-books.ts"
+        ]
+    },
+    "dependencies": {
+        "@astrojs/check": "^0.9.10",
+        "@astrojs/mdx": "^8.0.0",
+        "@astrojs/sitemap": "^3.7.4",
+        "@astrojs/vercel": "^11.0.9",
+        "astro": "^7.2.10",
+        "typescript": "^5.7.3"
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "eslint": "^10.9.1",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-astro": "^1.7.0",
+        "globals": "^17.12.0",
+        "husky": "^9.1.7",
+        "is-ci": "^4.1.0",
+        "lint-staged": "^17.4.1",
+        "prettier": "^3.4.2",
+        "prettier-plugin-astro": "^0.14.1",
+        "tsx": "^4.23.13",
+        "typescript-eslint": "^8.69.0",
+        "zod": "^4.5.4"
+    }
 }

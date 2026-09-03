@@ -1,27 +1,27 @@
 [
-  {
-    "title": "Ship the smallest thing that changes your mind",
-    "date": "Aug 2026",
-    "blurb": "Most of my estimates were wrong because I was estimating the wrong thing. The point of a first version is information, not coverage."
-  },
-  {
-    "title": "Legacy code is just code that outlived its explanation",
-    "date": "Jun 2026",
-    "blurb": "Nothing is legacy while the person who wrote it is still in the room. Documentation is mostly succession planning."
-  },
-  {
-    "title": "Ask what the deadline is protecting",
-    "date": "Mar 2026",
-    "blurb": "Dates are usually a proxy for something else — a commitment, a fear, a budget cycle. Naming that thing changes the conversation."
-  },
-  {
-    "title": "Prefer boring infrastructure and interesting products",
-    "date": "Nov 2025",
-    "blurb": "You get one novelty budget. I'd rather spend it where customers can see it."
-  },
-  {
-    "title": "Write the postmortem before the incident",
-    "date": "Jul 2025",
-    "blurb": "If you can already guess what the writeup will say, you have your backlog."
-  }
+    {
+        "title": "Ship the smallest thing that changes your mind",
+        "date": "Aug 2026",
+        "blurb": "Most of my estimates were wrong because I was estimating the wrong thing. The point of a first version is information, not coverage."
+    },
+    {
+        "title": "Legacy code is just code that outlived its explanation",
+        "date": "Jun 2026",
+        "blurb": "Nothing is legacy while the person who wrote it is still in the room. Documentation is mostly succession planning."
+    },
+    {
+        "title": "Ask what the deadline is protecting",
+        "date": "Mar 2026",
+        "blurb": "Dates are usually a proxy for something else — a commitment, a fear, a budget cycle. Naming that thing changes the conversation."
+    },
+    {
+        "title": "Prefer boring infrastructure and interesting products",
+        "date": "Nov 2025",
+        "blurb": "You get one novelty budget. I'd rather spend it where customers can see it."
+    },
+    {
+        "title": "Write the postmortem before the incident",
+        "date": "Jul 2025",
+        "blurb": "If you can already guess what the writeup will say, you have your backlog."
+    }
 ]

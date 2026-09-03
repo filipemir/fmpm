@@ -1,40 +1,40 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import { nowEntries } from "../../data/now-entries";
+import Layout from '../../layouts/Layout.astro';
+import { nowEntries } from '../../data/now-entries';
 
 const { date, Component } = nowEntries[0];
 ---
 
-<Layout title="NOW() — Filipe Miranda" active="now">
-  <main class="now">
-    <Component />
-    <p class="mono updated">
-      Updated {date}. See archive <a href="/then">here</a>.
-    </p>
-  </main>
+<Layout title='NOW() — Filipe Miranda' active='now'>
+    <main class='now'>
+        <Component />
+        <p class='mono updated'>
+            Updated {date}. See archive <a href='/then'>here</a>.
+        </p>
+    </main>
 </Layout>
 
 <style>
-  .now {
-    display: flex;
-    flex-direction: column;
-    gap: 36px;
-  }
-  .updated {
-    margin: 16px 0 0;
-    padding-top: 22px;
-    border-top: 1px solid var(--line);
-    font-size: 12px;
-    line-height: 1.7;
-    color: var(--faint);
-  }
-  .updated a {
-    color: var(--muted);
-    text-decoration: none;
-    border-bottom: 1px solid var(--rule);
-  }
-  .updated a:hover {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-  }
+    .now {
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+    }
+    .updated {
+        margin: 16px 0 0;
+        padding-top: 22px;
+        border-top: 1px solid var(--line);
+        font-size: 12px;
+        line-height: 1.7;
+        color: var(--faint);
+    }
+    .updated a {
+        color: var(--muted);
+        text-decoration: none;
+        border-bottom: 1px solid var(--rule);
+    }
+    .updated a:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+    }
 </style>

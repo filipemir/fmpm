@@ -8,30 +8,30 @@
 // which would only ever run once thanks to ES module de-duplication.
 
 function initLightbox() {
-  const images = document.querySelectorAll(".prose img");
-  const overlay = document.querySelector("[data-lightbox-overlay]");
-  if (!images.length || !overlay) return;
+    const images = document.querySelectorAll('.prose img');
+    const overlay = document.querySelector('[data-lightbox-overlay]');
+    if (!images.length || !overlay) return;
 
-  const overlayImg = overlay.querySelector("img");
-  if (!overlayImg) return;
+    const overlayImg = overlay.querySelector('img');
+    if (!overlayImg) return;
 
-  images.forEach((img) => {
-    img.addEventListener("click", () => {
-      overlayImg.src = img.currentSrc || img.src;
-      overlayImg.alt = img.alt || "";
-      overlay.hidden = false;
+    images.forEach((img) => {
+        img.addEventListener('click', () => {
+            overlayImg.src = img.currentSrc || img.src;
+            overlayImg.alt = img.alt || '';
+            overlay.hidden = false;
+        });
     });
-  });
 
-  overlay.addEventListener("click", () => {
-    overlay.hidden = true;
-  });
+    overlay.addEventListener('click', () => {
+        overlay.hidden = true;
+    });
 }
 
-document.addEventListener("astro:page-load", initLightbox);
+document.addEventListener('astro:page-load', initLightbox);
 
-document.addEventListener("keydown", (e) => {
-  if (e.key !== "Escape") return;
-  const overlay = document.querySelector("[data-lightbox-overlay]");
-  if (overlay && !overlay.hidden) overlay.hidden = true;
+document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const overlay = document.querySelector('[data-lightbox-overlay]');
+    if (overlay && !overlay.hidden) overlay.hidden = true;
 });
