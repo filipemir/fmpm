@@ -1,1243 +1,1359 @@
 [
-  {
-    "title": "Half the Way Home",
-    "author": "Adam Hochschild",
-    "month": "Jul",
-    "year": "2023"
-  },
-  {
-    "title": "Highway 61 Revisited",
-    "author": "Mark Polizzotti",
-    "month": "Jun",
-    "year": "2023"
-  },
-  {
-    "title": "A Wizard of Earthsea",
-    "author": "Ursula K. Le Guin",
-    "month": "Jun",
-    "year": "2023",
-    "fav": true
-  },
-  {
-    "title": "Powers",
-    "author": "Ursula K. Le Guin",
-    "month": "Jun",
-    "year": "2023",
-    "fav": true
-  },
-  {
-    "title": "Outlive",
-    "author": "Peter Attia",
-    "month": "May",
-    "year": "2023"
-  },
-  {
-    "title": "Cem Anos de Solidão",
-    "author": "Gabriel Garcia Marquez",
-    "month": "May",
-    "year": "2023"
-  },
-  {
-    "title": "Voices",
-    "author": "Ursula K. Le Guin",
-    "month": "Mar",
-    "year": "2023"
-  },
-  {
-    "title": "Endurance",
-    "author": "Alfred Lansing",
-    "month": "Feb",
-    "year": "2023",
-    "fav": true
-  },
-  {
-    "title": "A Swim in a Pond in the Rain",
-    "author": "George Saunders",
-    "month": "Dec",
-    "year": "2022",
-    "fav": true
-  },
-  {
-    "title": "Kafka on the Shore",
-    "author": "Haruki Murakami",
-    "month": "Dec",
-    "year": "2022"
-  },
-  {
-    "title": "The Shining",
-    "author": "Stephen King",
-    "month": "Oct",
-    "year": "2022"
-  },
-  {
-    "title": "On Writing",
-    "author": "Stephen King",
-    "month": "Sep",
-    "year": "2022"
-  },
-  {
-    "title": "Beastmaking",
-    "author": "Ned Feehally",
-    "month": "Aug",
-    "year": "2022"
-  },
-  {
-    "title": "When We Cease to Understand the World",
-    "author": "Benjamín Labatut",
-    "month": "Aug",
-    "year": "2022"
-  },
-  {
-    "title": "Drive Your Plow Over the Bones of the Dead",
-    "author": "Olga Tokarczuk",
-    "month": "Aug",
-    "year": "2022"
-  },
-  {
-    "title": "A Brief History of Earth",
-    "author": "Andrew H. Knoll",
-    "month": "Jul",
-    "year": "2022"
-  },
-  {
-    "title": "Gifts",
-    "author": "Ursula K. Le Guin",
-    "month": "Jun",
-    "year": "2022",
-    "fav": true
-  },
-  {
-    "title": "Sacred Cow",
-    "author": "Diana Rogers, Robb Wolf",
-    "month": "Jun",
-    "year": "2022"
-  },
-  {
-    "title": "The Nineties",
-    "author": "Chuck Klosterman",
-    "month": "May",
-    "year": "2022"
-  },
-  {
-    "title": "Sea of Tranquility",
-    "author": "Emily St John Mandel",
-    "month": "May",
-    "year": "2022"
-  },
-  {
-    "title": "Heart of Darkness",
-    "author": "Joseph Conrad",
-    "month": "May",
-    "year": "2022",
-    "fav": true
-  },
-  {
-    "title": "Three Body Problem",
-    "author": "Liu Cixin",
-    "month": "Apr",
-    "year": "2022"
-  },
-  {
-    "title": "Pessoa",
-    "author": "Richard Zenith",
-    "month": "Jan",
-    "year": "2022"
-  },
-  {
-    "title": "A Planet for Rent",
-    "author": "Yoss",
-    "month": "Dec",
-    "year": "2021"
-  },
-  {
-    "title": "Eating Animals",
-    "author": "Jonathan Safran Foer",
-    "month": "Sep",
-    "year": "2021",
-    "fav": true
-  },
-  {
-    "title": "The Anthropocene Reviewed",
-    "author": "John Green",
-    "month": "Aug",
-    "year": "2021",
-    "fav": true
-  },
-  {
-    "title": "The Gardener and the Carpenter",
-    "author": "Alison Gopnik",
-    "month": "Aug",
-    "year": "2021"
-  },
-  {
-    "title": "The Glass Hotel",
-    "author": "Emily St. John Mandel",
-    "month": "Aug",
-    "year": "2021"
-  },
-  {
-    "title": "Piranesi",
-    "author": "Susanna Clarke",
-    "month": "Jul",
-    "year": "2021",
-    "fav": true
-  },
-  {
-    "title": "Elevating Child Care",
-    "author": "Janet Lansbury",
-    "month": "Jun",
-    "year": "2021"
-  },
-  {
-    "title": "Parable of the Talents",
-    "author": "Octavia E. Butler",
-    "month": "Jun",
-    "year": "2021"
-  },
-  {
-    "title": "Parable of the Sower",
-    "author": "Octavia E. Butler",
-    "month": "May",
-    "year": "2021"
-  },
-  {
-    "title": "True Grit",
-    "author": "Charles Portis",
-    "month": "Apr",
-    "year": "2021"
-  },
-  {
-    "title": "A Promised Land",
-    "author": "Barack Obama",
-    "month": "Jan",
-    "year": "2021"
-  },
-  {
-    "title": "Why I Write",
-    "author": "George Orwell",
-    "month": "Jan",
-    "year": "2021"
-  },
-  {
-    "title": "Stubborn Attachments",
-    "author": "Tyler Cowen",
-    "month": "Dec",
-    "year": "2020"
-  },
-  {
-    "title": "Measure What Matters",
-    "author": "John Doerr",
-    "month": "Dec",
-    "year": "2020"
-  },
-  {
-    "title": "Painting Resilience",
-    "author": "Julia Mayer",
-    "month": "Dec",
-    "year": "2020"
-  },
-  {
-    "title": "Ice",
-    "author": "Anna Kavan",
-    "month": "Dec",
-    "year": "2020",
-    "reread": true,
-    "fav": true
-  },
-  {
-    "title": "The Birth Partner",
-    "author": "Penny Simkin",
-    "month": "Dec",
-    "year": "2020"
-  },
-  {
-    "title": "Code",
-    "author": "Charles Petzold",
-    "month": "Dec",
-    "year": "2020",
-    "fav": true
-  },
-  {
-    "title": "The Revenant",
-    "author": "Michael Punke",
-    "month": "Nov",
-    "year": "2020"
-  },
-  {
-    "title": "The Children of Men",
-    "author": "P.D. James",
-    "month": "Oct",
-    "year": "2020"
-  },
-  {
-    "title": "The Pragmatic Programmer",
-    "author": "David Thomas, Andrew Hunt",
-    "month": "Oct",
-    "year": "2020"
-  },
-  {
-    "title": "Stalin",
-    "author": "Oleg Khlevniuk",
-    "month": "Oct",
-    "year": "2020"
-  },
-  {
-    "title": "Cribsheet",
-    "author": "Emily Oster",
-    "month": "Oct",
-    "year": "2020"
-  },
-  {
-    "title": "Ethics In The Real World",
-    "author": "Peter Singer",
-    "month": "Sep",
-    "year": "2020"
-  },
-  {
-    "title": "Open Borders",
-    "author": "Bryan Caplan",
-    "month": "Sep",
-    "year": "2020"
-  },
-  {
-    "title": "Lenin",
-    "author": "Victor Sebestyen",
-    "month": "Aug",
-    "year": "2020"
-  },
-  {
-    "title": "Blueprint",
-    "author": "Robert Plomin",
-    "month": "Aug",
-    "year": "2020"
-  },
-  {
-    "title": "The Overstory",
-    "author": "Richard Powers",
-    "month": "Jul",
-    "year": "2020"
-  },
-  {
-    "title": "The Bluest Eye",
-    "author": "Toni Morrison",
-    "month": "Jul",
-    "year": "2020"
-  },
-  {
-    "title": "Rework",
-    "author": "Jason Fried, David Heinemeir Hansson",
-    "month": "Jul",
-    "year": "2020"
-  },
-  {
-    "title": "Selfish Reasons To Have More Kids",
-    "author": "Bryan Caplan",
-    "month": "Jul",
-    "year": "2020"
-  },
-  {
-    "title": "Golden Compass",
-    "author": "Bill Pullman",
-    "month": "Jun",
-    "year": "2020"
-  },
-  {
-    "title": "Never Let Me Go",
-    "author": "Kazuo Ishiguro",
-    "month": "May",
-    "year": "2020"
-  },
-  {
-    "title": "Underland",
-    "author": "Robert McFarlane",
-    "month": "May",
-    "year": "2020"
-  },
-  {
-    "title": "The Strange Bird",
-    "author": "Jeff VanderMeer",
-    "month": "Apr",
-    "year": "2020"
-  },
-  {
-    "title": "Big Sur",
-    "author": "Jack Kerouac",
-    "month": "Mar",
-    "year": "2020"
-  },
-  {
-    "title": "Borne",
-    "author": "Jeff VanderMeer",
-    "month": "Feb",
-    "year": "2020",
-    "fav": true
-  },
-  {
-    "title": "The Problem With Everything",
-    "author": "Meghan Daum",
-    "month": "Feb",
-    "year": "2020",
-    "fav": true
-  },
-  {
-    "title": "A Wrinkle In Time",
-    "author": "Madeleine L'Engle",
-    "month": "Feb",
-    "year": "2020"
-  },
-  {
-    "title": "Exhalation",
-    "author": "Ted Chiang",
-    "month": "Feb",
-    "year": "2020",
-    "fav": true
-  },
-  {
-    "title": "The Fall of Hyperion",
-    "author": "Dan Simmons",
-    "month": "Jan",
-    "year": "2020"
-  },
-  {
-    "title": "Stories of Your Life And Others",
-    "author": "Ted Chiang",
-    "month": "Jan",
-    "year": "2020",
-    "fav": true
-  },
-  {
-    "title": "Libra",
-    "author": "Don Delillo",
-    "month": "Dec",
-    "year": "2019"
-  },
-  {
-    "title": "Hyperion",
-    "author": "Dan Simmons",
-    "month": "Nov",
-    "year": "2019"
-  },
-  {
-    "title": "The Testaments",
-    "author": "Margaret Atwood",
-    "month": "Oct",
-    "year": "2019"
-  },
-  {
-    "title": "Team of Rivals",
-    "author": "Doris Kearns Goodwin",
-    "month": "Oct",
-    "year": "2019",
-    "fav": true
-  },
-  {
-    "title": "Empire of Illusion",
-    "author": "Chris Hedges",
-    "month": "Sep",
-    "year": "2019"
-  },
-  {
-    "title": "Jesus' Son",
-    "author": "Denis Johnson",
-    "month": "Sep",
-    "year": "2019"
-  },
-  {
-    "title": "Digital Minimalism",
-    "author": "Cal Newport",
-    "month": "Sep",
-    "year": "2019"
-  },
-  {
-    "title": "Ice",
-    "author": "Anna Kavan",
-    "month": "Sep",
-    "year": "2019",
-    "fav": true
-  },
-  {
-    "title": "Death is Hard Work",
-    "author": "Khaled Khalifa",
-    "month": "Aug",
-    "year": "2019"
-  },
-  {
-    "title": "Pale Fire",
-    "author": "Vladimir Nabokov",
-    "month": "May",
-    "year": "2019",
-    "fav": true
-  },
-  {
-    "title": "Espresso Lessons",
-    "author": "Arno Ilgner",
-    "month": "Mar",
-    "year": "2019"
-  },
-  {
-    "title": "Stoner",
-    "author": "John Williams",
-    "month": "Mar",
-    "year": "2019"
-  },
-  {
-    "title": "Labyrinths",
-    "author": "Jorge Luis Borges",
-    "month": "Mar",
-    "year": "2019",
-    "fav": true
-  },
-  {
-    "title": "Free Range Kids",
-    "author": "Lenore Skenazy",
-    "month": "Mar",
-    "year": "2019"
-  },
-  {
-    "title": "The Bullet Journal Method",
-    "author": "Ryder Carrol",
-    "month": "Mar",
-    "year": "2019"
-  },
-  {
-    "title": "Suttree",
-    "author": "Cormac McCarthy",
-    "month": "Mar",
-    "year": "2019"
-  },
-  {
-    "title": "Reservoir 13",
-    "author": "Jon McGregor",
-    "month": "Mar",
-    "year": "2019"
-  },
-  {
-    "title": "The Coddling of the American Mind",
-    "author": "Greg Lukianoff, Jonathan Haidt",
-    "month": "Dec",
-    "year": "2018"
-  },
-  {
-    "title": "Lost Connections",
-    "author": "Johan Hari",
-    "month": "Dec",
-    "year": "2018"
-  },
-  {
-    "title": "Acceptance",
-    "author": "Jeff VanderMeer",
-    "month": "Nov",
-    "year": "2018"
-  },
-  {
-    "title": "Going Clear",
-    "author": "Lawrence Wright",
-    "month": "Oct",
-    "year": "2018"
-  },
-  {
-    "title": "Authority",
-    "author": "Jeff VanderMeer",
-    "month": "Aug",
-    "year": "2018"
-  },
-  {
-    "title": "A Canticle for Leibowitz",
-    "author": "Walter Miller",
-    "month": "Aug",
-    "year": "2018",
-    "fav": true
-  },
-  {
-    "title": "Less",
-    "author": "Andrew Sean Greer",
-    "month": "Jul",
-    "year": "2018",
-    "fav": true
-  },
-  {
-    "title": "Annihilation",
-    "author": "Jeff Vandermeer",
-    "month": "Jul",
-    "year": "2018"
-  },
-  {
-    "title": "Enlightenment Now",
-    "author": "Steven Pinker",
-    "month": "Jun",
-    "year": "2018"
-  },
-  {
-    "title": "Universal Harvester",
-    "author": "John Darnielle",
-    "month": "May",
-    "year": "2018"
-  },
-  {
-    "title": "This Gulf of Fire",
-    "author": "Mark Molesky",
-    "month": "Apr",
-    "year": "2018"
-  },
-  {
-    "title": "Meet The Frugalwoods",
-    "author": "Elizabeth Willar Thames",
-    "month": "Mar",
-    "year": "2018"
-  },
-  {
-    "title": "Utopia for Realists",
-    "author": "Rutger Bregman",
-    "month": "Mar",
-    "year": "2018"
-  },
-  {
-    "title": "Blood Meridian",
-    "author": "Cormac McCarthy",
-    "month": "Mar",
-    "year": "2018",
-    "fav": true
-  },
-  {
-    "title": "The State of Affairs",
-    "author": "Esther Perel",
-    "month": "Feb",
-    "year": "2018"
-  },
-  {
-    "title": "Twin Peaks",
-    "author": "Mark Frost",
-    "month": "Feb",
-    "year": "2018"
-  },
-  {
-    "title": "The Language Instinct",
-    "author": "Steven Pinker",
-    "month": "Jan",
-    "year": "2018"
-  },
-  {
-    "title": "The Once and Future Liberal",
-    "author": "Mark Lilla",
-    "month": "Jan",
-    "year": "2018"
-  },
-  {
-    "title": "Wolf in White Van",
-    "author": "John Darnielle",
-    "month": "Dec",
-    "year": "2017",
-    "fav": true
-  },
-  {
-    "title": "Man's Search for Meaning",
-    "author": "Viktor Frankl",
-    "month": "Dec",
-    "year": "2017",
-    "fav": true
-  },
-  {
-    "title": "The Push",
-    "author": "Tommy Caldwell",
-    "month": "Dec",
-    "year": "2017"
-  },
-  {
-    "title": "Doing Good Better",
-    "author": "Will MacAskill",
-    "month": "Dec",
-    "year": "2017"
-  },
-  {
-    "title": "Lying",
-    "author": "Sam Harris",
-    "month": "Nov",
-    "year": "2017"
-  },
-  {
-    "title": "The Sympathizer",
-    "author": "Viet Thanh Nguyen",
-    "month": "Nov",
-    "year": "2017"
-  },
-  {
-    "title": "Why Buddhism is True",
-    "author": "Robert Wright",
-    "month": "Oct",
-    "year": "2017"
-  },
-  {
-    "title": "Lincoln in the Bardo",
-    "author": "George Saunders",
-    "month": "Oct",
-    "year": "2017",
-    "fav": true
-  },
-  {
-    "title": "Creative Schools",
-    "author": "Ken Robinson, Lou Aronica",
-    "month": "Oct",
-    "year": "2017"
-  },
-  {
-    "title": "A Man Called Ove",
-    "author": "Fredrick Backmnan",
-    "month": "Sep",
-    "year": "2017"
-  },
-  {
-    "title": "Deep Work",
-    "author": "Cal Newport",
-    "month": "Aug",
-    "year": "2017"
-  },
-  {
-    "title": "On Tyranny",
-    "author": "Timothy Snyder",
-    "month": "Aug",
-    "year": "2017"
-  },
-  {
-    "title": "Gratitude",
-    "author": "Oliver Sacks",
-    "month": "Aug",
-    "year": "2017"
-  },
-  {
-    "title": "Fahrenheit 451",
-    "author": "Ray Bradbury",
-    "month": "Jul",
-    "year": "2017",
-    "fav": true
-  },
-  {
-    "title": "The Wind-up Bird Chronicle",
-    "author": "Haruki Murakami",
-    "month": "Jul",
-    "year": "2017",
-    "fav": true
-  },
-  {
-    "title": "The Vegetarian",
-    "author": "Han Kang",
-    "month": "Jun",
-    "year": "2017"
-  },
-  {
-    "title": "Alone on the Wall",
-    "author": "Alex Honnold, David Roberts",
-    "month": "May",
-    "year": "2017"
-  },
-  {
-    "title": "My Struggle",
-    "author": "Karl Ove Knausgård",
-    "month": "May",
-    "year": "2017"
-  },
-  {
-    "title": "Felicity",
-    "author": "Mary Oliver",
-    "month": "May",
-    "year": "2017"
-  },
-  {
-    "title": "The Course of Love",
-    "author": "Alain de Botton",
-    "month": "Apr",
-    "year": "2017"
-  },
-  {
-    "title": "The Terror Years",
-    "author": "Lawrence Wright",
-    "month": "Apr",
-    "year": "2017"
-  },
-  {
-    "title": "Assholes",
-    "author": "Aaron James",
-    "month": "Mar",
-    "year": "2017"
-  },
-  {
-    "title": "Waking Up",
-    "author": "Sam Harris",
-    "month": "Feb",
-    "year": "2017"
-  },
-  {
-    "title": "The Hitchhiker's Guide to the Galaxy",
-    "author": "Douglas Adam",
-    "month": "Dec",
-    "year": "2016"
-  },
-  {
-    "title": "The Crucible",
-    "author": "Arthur Miller",
-    "month": "Nov",
-    "year": "2016",
-    "fav": true
-  },
-  {
-    "title": "Zen and The Art of Motorcycle Maintenance",
-    "author": "Robert Pirsig",
-    "month": "Oct",
-    "year": "2016",
-    "fav": true
-  },
-  {
-    "title": "Far From The Tree",
-    "author": "Andrew Solomon",
-    "month": "May",
-    "year": "2016",
-    "fav": true
-  },
-  {
-    "title": "The Jeeves Omnibus",
-    "author": "P.G. Wodehouse",
-    "month": "May",
-    "year": "2016"
-  },
-  {
-    "title": "The Brief Wondrous Life of Oscar Wao",
-    "author": "Junot Díaz",
-    "month": "Mar",
-    "year": "2016"
-  },
-  {
-    "title": "The Satanic Verses",
-    "author": "Salman Rushdie",
-    "month": "Feb",
-    "year": "2016"
-  },
-  {
-    "title": "Week-End Wodehouse",
-    "author": "P.G Wodehouse",
-    "month": "Dec",
-    "year": "2015",
-    "fav": true
-  },
-  {
-    "title": "Americanah",
-    "author": "Chimamanda Ngozi Adichie",
-    "month": "Sep",
-    "year": "2015"
-  },
-  {
-    "title": "Bring Up The Bodies",
-    "author": "Hilary Mantel",
-    "month": "Aug",
-    "year": "2015",
-    "fav": true
-  },
-  {
-    "title": "Wolf Hall",
-    "author": "Hilary Mantel",
-    "month": "Jul",
-    "year": "2015",
-    "fav": true
-  },
-  {
-    "title": "Redeployment",
-    "author": "Phil Klay",
-    "month": "Mar",
-    "year": "2015",
-    "fav": true
-  },
-  {
-    "title": "One Flew Over the Cuckoo's Next",
-    "author": "Ken Kesey",
-    "month": "Feb",
-    "year": "2015"
-  },
-  {
-    "title": "Station Eleven",
-    "author": "Emily St. John Mandel",
-    "month": "Jan",
-    "year": "2015",
-    "fav": true
-  },
-  {
-    "title": "The Painter",
-    "author": "Peter Heller",
-    "month": "Jan",
-    "year": "2015"
-  },
-  {
-    "title": "The Martian",
-    "author": "Andy Weir",
-    "month": "Dec",
-    "year": "2014"
-  },
-  {
-    "title": "The Fire Next Time",
-    "author": "James Baldwin",
-    "month": "Dec",
-    "year": "2014",
-    "fav": true
-  },
-  {
-    "title": "A Heartbreaking Work of Staggering Genius",
-    "author": "Dave Eggers",
-    "month": "Nov",
-    "year": "2014"
-  },
-  {
-    "title": "Chuck Klosterman IV",
-    "author": "Chuck Klosterman",
-    "month": "Nov",
-    "year": "2014"
-  },
-  {
-    "title": "The Abominable",
-    "author": "Dan Simmons",
-    "month": "Sep",
-    "year": "2014"
-  },
-  {
-    "title": "The Crossing",
-    "author": "Cormac McCarthy",
-    "month": "Jul",
-    "year": "2014"
-  },
-  {
-    "title": "All The Pretty Horses",
-    "author": "Cormac McCarthy",
-    "month": "Jun",
-    "year": "2014",
-    "fav": true
-  },
-  {
-    "title": "Slouching Towards Bethlehem",
-    "author": "Joan Didion",
-    "month": "Feb",
-    "year": "2014"
-  },
-  {
-    "title": "The Giver",
-    "author": "Lois Lowry",
-    "month": "Jan",
-    "year": "2014"
-  },
-  {
-    "title": "Hell or High Water",
-    "author": "Peter Heller",
-    "month": "Jan",
-    "year": "2014"
-  },
-  {
-    "title": "The Signal and The Noise",
-    "author": "Nate Silver",
-    "month": "Jan",
-    "year": "2014"
-  },
-  {
-    "title": "The Yiddish Policemen's Union",
-    "author": "Michael Chabon",
-    "year": "NaN"
-  },
-  {
-    "title": "Klondike Tales",
-    "author": "Jack London",
-    "month": "Dec",
-    "year": "2013",
-    "fav": true
-  },
-  {
-    "title": "Mockingjay",
-    "author": "Suzanne Collins",
-    "month": "Dec",
-    "year": "2013"
-  },
-  {
-    "title": "Catch-22",
-    "author": "Joseph Heller",
-    "month": "Oct",
-    "year": "2013",
-    "fav": true
-  },
-  {
-    "title": "The Emperor of All Maladies",
-    "author": "Siddhartha Mukherjee",
-    "month": "Aug",
-    "year": "2013",
-    "fav": true
-  },
-  {
-    "title": "Let the Great World Spin",
-    "author": "Colum McMann",
-    "month": "Jul",
-    "year": "2013"
-  },
-  {
-    "title": "A Confederacy of Dunces",
-    "author": "John Kennedy Toole",
-    "month": "Jul",
-    "year": "2013",
-    "fav": true
-  },
-  {
-    "title": "Eiger Dreams",
-    "author": "Jon Krakauer",
-    "month": "Jun",
-    "year": "2013"
-  },
-  {
-    "title": "Voyage of the Beagle",
-    "author": "Charles Darwin",
-    "month": "Jun",
-    "year": "2013"
-  },
-  {
-    "title": "The Amazing Adventures of Kavalier & Clay",
-    "author": "Michael Chabon",
-    "month": "May",
-    "year": "2013"
-  },
-  {
-    "title": "Let's Explore Diabetes with Owls",
-    "author": "David Sedaris",
-    "month": "May",
-    "year": "2013"
-  },
-  {
-    "title": "Galápagos",
-    "author": "Kurt Vonnegut",
-    "month": "May",
-    "year": "2013"
-  },
-  {
-    "title": "Cloud Atlas",
-    "author": "David Mitchell",
-    "month": "Apr",
-    "year": "2013"
-  },
-  {
-    "title": "Middlesex",
-    "author": "Jeffrey Eugenides",
-    "month": "Jan",
-    "year": "2013",
-    "fav": true
-  },
-  {
-    "title": "Both Flesh and Not",
-    "author": "David Foster Wallace",
-    "month": "Dec",
-    "year": "2012"
-  },
-  {
-    "title": "Consider the Lobster",
-    "author": "David Foster Wallace",
-    "month": "Nov",
-    "year": "2012",
-    "fave": true
-  },
-  {
-    "title": "Under The Banner of Heaven",
-    "author": "Jon Krakauer",
-    "month": "Nov",
-    "year": "2012",
-    "fav": true
-  },
-  {
-    "title": "A Hologram for the King",
-    "author": "Dave Eggers",
-    "month": "Nov",
-    "year": "2012"
-  },
-  {
-    "title": "Thunderstruck",
-    "author": "Erik Larson",
-    "month": "Nov",
-    "year": "2012"
-  },
-  {
-    "title": "Moby Dick",
-    "author": "Herman Melville",
-    "month": "Oct",
-    "year": "2012"
-  },
-  {
-    "title": "The Dog Stars",
-    "author": "Peter Heller",
-    "month": "Sep",
-    "year": "2012",
-    "fav": true
-  },
-  {
-    "title": "The Terror",
-    "author": "Dan Simmons",
-    "month": "Sep",
-    "year": "2012",
-    "fav": true
-  },
-  {
-    "title": "Boomerang",
-    "author": "Michael Lewis",
-    "month": "Aug",
-    "year": "2012"
-  },
-  {
-    "title": "Liar's Poker",
-    "author": "Michael Lewis",
-    "month": "Jul",
-    "year": "2012",
-    "fav": true
-  },
-  {
-    "title": "The Lathe of Heaven",
-    "author": "Ursula K. Le Guin",
-    "month": "Jul",
-    "year": "2012"
-  },
-  {
-    "title": "The Storm of War",
-    "author": "Andrew Roberts",
-    "month": "Jan",
-    "year": "2012"
-  },
-  {
-    "title": "To End All Wars",
-    "author": "Adam Hochschild",
-    "month": "Dec",
-    "year": "2011",
-    "fav": true
-  },
-  {
-    "title": "The Black Swan",
-    "author": "Nassim Nicholas Taleb",
-    "month": "Nov",
-    "year": "2011"
-  },
-  {
-    "title": "Adventures of a Curious Character",
-    "author": "Richard Feynman",
-    "month": "Oct",
-    "year": "2011"
-  },
-  {
-    "title": "A Supposedly Fun Thing I'll Never Do Again",
-    "author": "David Foster Wallace",
-    "month": "Aug",
-    "year": "2011",
-    "fav": true
-  },
-  {
-    "title": "This is Water",
-    "author": "David Foster Wallace",
-    "month": "Aug",
-    "year": "2011",
-    "fav": true
-  },
-  {
-    "title": "Consider the Lobster",
-    "author": "David Foster Wallace",
-    "month": "Aug",
-    "year": "2011",
-    "fav": true
-  },
-  {
-    "title": "Zeitoun",
-    "author": "Dave Eggers",
-    "month": "Aug",
-    "year": "2011",
-    "fav": true
-  },
-  {
-    "title": "The Big Short",
-    "author": "Michael Lewis",
-    "month": "Jul",
-    "year": "2011",
-    "fav": true
-  },
-  {
-    "title": "The Road",
-    "author": "Cormac McCarthy",
-    "month": "May",
-    "year": "2011",
-    "fav": true
-  },
-  {
-    "title": "The Tiger's Wife",
-    "author": "Téa Obreht",
-    "month": "May",
-    "year": "2011"
-  },
-  {
-    "title": "The Man Who Mistook His Wife for a Hat",
-    "author": "Oliver Sacks",
-    "month": "Nov",
-    "year": "2010"
-  },
-  {
-    "title": "At Home",
-    "author": "Bill Bryson",
-    "month": "Nov",
-    "year": "2010"
-  },
-  {
-    "title": "The Looming Tower",
-    "author": "Lawrence Wright",
-    "month": "Aug",
-    "year": "2010",
-    "fav": true
-  },
-  {
-    "title": "Me Talk Pretty One Day",
-    "author": "David Sedaris",
-    "month": "Jul",
-    "year": "2010"
-  },
-  {
-    "title": "Whole Earth Discipline",
-    "author": "Stewart Brand",
-    "month": "Jul",
-    "year": "2010",
-    "fav": true
-  },
-  {
-    "title": "Cosmos",
-    "author": "Carl Sagan",
-    "month": "Jun",
-    "year": "2010",
-    "fav": true
-  },
-  {
-    "title": "Ill Fares The Land",
-    "author": "Tony Judt",
-    "month": "Jun",
-    "year": "2010"
-  },
-  {
-    "title": "Sum",
-    "author": "David Eagleman",
-    "month": "May",
-    "year": "2010",
-    "fav": true
-  },
-  {
-    "title": "The Greatest Show On Earth",
-    "author": "Richard Dawkins",
-    "month": "Mar",
-    "year": "2010"
-  },
-  {
-    "title": "The Kite Runner",
-    "author": "Khaled Hosseini",
-    "month": "Mar",
-    "year": "2010"
-  },
-  {
-    "title": "A Short History of Nearly Everything",
-    "author": "Bill Bryson",
-    "month": "Feb",
-    "year": "2010"
-  },
-  {
-    "title": "Into Thin Air",
-    "author": "Jon Krakauer",
-    "month": "Feb",
-    "year": "2010",
-    "fav": true
-  }
+    {
+        "title": "Blood Meridian",
+        "author": "Cormac McCarthy",
+        "month": "Aug",
+        "year": "2026",
+        "reread": true
+    },
+    {
+        "title": "1491: New Revelations of the Americas Before Columbus",
+        "author": "Charles C. Mann",
+        "month": "Jul",
+        "year": "2026",
+        "fav": true
+    },
+    {
+        "title": "My Man Jeeves",
+        "author": "P.G. Wodehouse",
+        "month": "March",
+        "year": "2026"
+    },
+    {
+        "title": "Heart of Darkness",
+        "author": "Joseph Conrad",
+        "month": "March",
+        "year": "2026",
+        "reread": true
+    },
+    {
+        "title": "Lonesome Dove",
+        "author": "Larry McMurtry",
+        "month": "May",
+        "year": "2026",
+        "fav": true
+    },
+    {
+        "title": "Clean Architecture",
+        "author": "Bob Martin",
+        "month": "January",
+        "year": "2026"
+    },
+    {
+        "title": "The Weirdness of the World",
+        "author": "Eric Schwitzgebel",
+        "month": "Nov",
+        "year": "2025"
+    },
+    {
+        "title": "John & Paul: A Love Story in Songs",
+        "author": "Ian Leslie",
+        "month": "Oct",
+        "year": "2025",
+        "fav": true
+    },
+    {
+        "title": "Everyone Who Is Gone Is Here",
+        "author": "Jonathan Blitzer",
+        "month": "Sep",
+        "year": "2025"
+    },
+    {
+        "title": "Say Nothing",
+        "author": "Patrick Radden Keefe",
+        "month": "Jan",
+        "year": "2025"
+    },
+    {
+        "title": "Homecoming",
+        "author": "Marilynne Robinson",
+        "month": "September",
+        "year": "2024"
+    },
+    {
+        "title": "A Psalm for the Wild-Built",
+        "author": "Becky Chambers",
+        "month": "March",
+        "year": "2024"
+    },
+    {
+        "title": "Gilead",
+        "author": "Marilynne Robinson",
+        "month": "March",
+        "year": "2024"
+    },
+    {
+        "title": "The Other Wind",
+        "author": "Ursula K. Le Guin",
+        "month": "Jan",
+        "year": "2024"
+    },
+    {
+        "title": "Tales from Earthsea",
+        "author": "Ursula K. Le Guin",
+        "month": "Dec",
+        "year": "2023",
+        "fav": true
+    },
+    {
+        "title": "Tehanu",
+        "author": "Ursula K. Le Guin",
+        "month": "Nov",
+        "year": "2023"
+    },
+    {
+        "title": "The Farthest Shore",
+        "author": "Ursula K. Le Guin",
+        "month": "Oct",
+        "year": "2023",
+        "fav": true
+    },
+    {
+        "title": "The Tombs of Atuan",
+        "author": "Ursula K. Le Guin",
+        "month": "Sep",
+        "year": "2023",
+        "fav": true
+    },
+    {
+        "title": "Half the Way Home",
+        "author": "Adam Hochschild",
+        "month": "Jul",
+        "year": "2023"
+    },
+    {
+        "title": "Highway 61 Revisited",
+        "author": "Mark Polizzotti",
+        "month": "Jun",
+        "year": "2023"
+    },
+    {
+        "title": "A Wizard of Earthsea",
+        "author": "Ursula K. Le Guin",
+        "month": "Jun",
+        "year": "2023",
+        "fav": true
+    },
+    {
+        "title": "Powers",
+        "author": "Ursula K. Le Guin",
+        "month": "Jun",
+        "year": "2023",
+        "fav": true
+    },
+    {
+        "title": "Outlive",
+        "author": "Peter Attia",
+        "month": "May",
+        "year": "2023"
+    },
+    {
+        "title": "Cem Anos de Solidão",
+        "author": "Gabriel Garcia Marquez",
+        "month": "May",
+        "year": "2023"
+    },
+    {
+        "title": "Voices",
+        "author": "Ursula K. Le Guin",
+        "month": "Mar",
+        "year": "2023"
+    },
+    {
+        "title": "Endurance",
+        "author": "Alfred Lansing",
+        "month": "Feb",
+        "year": "2023",
+        "fav": true
+    },
+    {
+        "title": "A Swim in a Pond in the Rain",
+        "author": "George Saunders",
+        "month": "Dec",
+        "year": "2022",
+        "fav": true
+    },
+    {
+        "title": "Kafka on the Shore",
+        "author": "Haruki Murakami",
+        "month": "Dec",
+        "year": "2022"
+    },
+    {
+        "title": "The Shining",
+        "author": "Stephen King",
+        "month": "Oct",
+        "year": "2022"
+    },
+    {
+        "title": "On Writing",
+        "author": "Stephen King",
+        "month": "Sep",
+        "year": "2022"
+    },
+    {
+        "title": "Beastmaking",
+        "author": "Ned Feehally",
+        "month": "Aug",
+        "year": "2022"
+    },
+    {
+        "title": "When We Cease to Understand the World",
+        "author": "Benjamín Labatut",
+        "month": "Aug",
+        "year": "2022"
+    },
+    {
+        "title": "Drive Your Plow Over the Bones of the Dead",
+        "author": "Olga Tokarczuk",
+        "month": "Aug",
+        "year": "2022"
+    },
+    {
+        "title": "A Brief History of Earth",
+        "author": "Andrew H. Knoll",
+        "month": "Jul",
+        "year": "2022"
+    },
+    {
+        "title": "Gifts",
+        "author": "Ursula K. Le Guin",
+        "month": "Jun",
+        "year": "2022",
+        "fav": true
+    },
+    {
+        "title": "Sacred Cow",
+        "author": "Diana Rogers, Robb Wolf",
+        "month": "Jun",
+        "year": "2022"
+    },
+    {
+        "title": "The Nineties",
+        "author": "Chuck Klosterman",
+        "month": "May",
+        "year": "2022"
+    },
+    {
+        "title": "Sea of Tranquility",
+        "author": "Emily St John Mandel",
+        "month": "May",
+        "year": "2022"
+    },
+    {
+        "title": "Heart of Darkness",
+        "author": "Joseph Conrad",
+        "month": "May",
+        "year": "2022",
+        "fav": true
+    },
+    {
+        "title": "Three Body Problem",
+        "author": "Liu Cixin",
+        "month": "Apr",
+        "year": "2022"
+    },
+    {
+        "title": "Pessoa",
+        "author": "Richard Zenith",
+        "month": "Jan",
+        "year": "2022"
+    },
+    {
+        "title": "A Planet for Rent",
+        "author": "Yoss",
+        "month": "Dec",
+        "year": "2021"
+    },
+    {
+        "title": "Eating Animals",
+        "author": "Jonathan Safran Foer",
+        "month": "Sep",
+        "year": "2021",
+        "fav": true
+    },
+    {
+        "title": "The Anthropocene Reviewed",
+        "author": "John Green",
+        "month": "Aug",
+        "year": "2021",
+        "fav": true
+    },
+    {
+        "title": "The Gardener and the Carpenter",
+        "author": "Alison Gopnik",
+        "month": "Aug",
+        "year": "2021"
+    },
+    {
+        "title": "The Glass Hotel",
+        "author": "Emily St. John Mandel",
+        "month": "Aug",
+        "year": "2021"
+    },
+    {
+        "title": "Piranesi",
+        "author": "Susanna Clarke",
+        "month": "Jul",
+        "year": "2021",
+        "fav": true
+    },
+    {
+        "title": "Elevating Child Care",
+        "author": "Janet Lansbury",
+        "month": "Jun",
+        "year": "2021"
+    },
+    {
+        "title": "Parable of the Talents",
+        "author": "Octavia E. Butler",
+        "month": "Jun",
+        "year": "2021"
+    },
+    {
+        "title": "Parable of the Sower",
+        "author": "Octavia E. Butler",
+        "month": "May",
+        "year": "2021"
+    },
+    {
+        "title": "True Grit",
+        "author": "Charles Portis",
+        "month": "Apr",
+        "year": "2021"
+    },
+    {
+        "title": "A Promised Land",
+        "author": "Barack Obama",
+        "month": "Jan",
+        "year": "2021"
+    },
+    {
+        "title": "Why I Write",
+        "author": "George Orwell",
+        "month": "Jan",
+        "year": "2021"
+    },
+    {
+        "title": "Stubborn Attachments",
+        "author": "Tyler Cowen",
+        "month": "Dec",
+        "year": "2020"
+    },
+    {
+        "title": "Measure What Matters",
+        "author": "John Doerr",
+        "month": "Dec",
+        "year": "2020"
+    },
+    {
+        "title": "Painting Resilience",
+        "author": "Julia Mayer",
+        "month": "Dec",
+        "year": "2020"
+    },
+    {
+        "title": "Ice",
+        "author": "Anna Kavan",
+        "month": "Dec",
+        "year": "2020",
+        "reread": true,
+        "fav": true
+    },
+    {
+        "title": "The Birth Partner",
+        "author": "Penny Simkin",
+        "month": "Dec",
+        "year": "2020"
+    },
+    {
+        "title": "Code",
+        "author": "Charles Petzold",
+        "month": "Dec",
+        "year": "2020",
+        "fav": true
+    },
+    {
+        "title": "The Revenant",
+        "author": "Michael Punke",
+        "month": "Nov",
+        "year": "2020"
+    },
+    {
+        "title": "The Children of Men",
+        "author": "P.D. James",
+        "month": "Oct",
+        "year": "2020"
+    },
+    {
+        "title": "The Pragmatic Programmer",
+        "author": "David Thomas, Andrew Hunt",
+        "month": "Oct",
+        "year": "2020"
+    },
+    {
+        "title": "Stalin",
+        "author": "Oleg Khlevniuk",
+        "month": "Oct",
+        "year": "2020"
+    },
+    {
+        "title": "Cribsheet",
+        "author": "Emily Oster",
+        "month": "Oct",
+        "year": "2020"
+    },
+    {
+        "title": "Ethics In The Real World",
+        "author": "Peter Singer",
+        "month": "Sep",
+        "year": "2020"
+    },
+    {
+        "title": "Open Borders",
+        "author": "Bryan Caplan",
+        "month": "Sep",
+        "year": "2020"
+    },
+    {
+        "title": "Lenin",
+        "author": "Victor Sebestyen",
+        "month": "Aug",
+        "year": "2020"
+    },
+    {
+        "title": "Blueprint",
+        "author": "Robert Plomin",
+        "month": "Aug",
+        "year": "2020"
+    },
+    {
+        "title": "The Overstory",
+        "author": "Richard Powers",
+        "month": "Jul",
+        "year": "2020"
+    },
+    {
+        "title": "The Bluest Eye",
+        "author": "Toni Morrison",
+        "month": "Jul",
+        "year": "2020"
+    },
+    {
+        "title": "Rework",
+        "author": "Jason Fried, David Heinemeir Hansson",
+        "month": "Jul",
+        "year": "2020"
+    },
+    {
+        "title": "Selfish Reasons To Have More Kids",
+        "author": "Bryan Caplan",
+        "month": "Jul",
+        "year": "2020"
+    },
+    {
+        "title": "Golden Compass",
+        "author": "Bill Pullman",
+        "month": "Jun",
+        "year": "2020"
+    },
+    {
+        "title": "Never Let Me Go",
+        "author": "Kazuo Ishiguro",
+        "month": "May",
+        "year": "2020"
+    },
+    {
+        "title": "Underland",
+        "author": "Robert McFarlane",
+        "month": "May",
+        "year": "2020"
+    },
+    {
+        "title": "The Strange Bird",
+        "author": "Jeff VanderMeer",
+        "month": "Apr",
+        "year": "2020"
+    },
+    {
+        "title": "Big Sur",
+        "author": "Jack Kerouac",
+        "month": "Mar",
+        "year": "2020"
+    },
+    {
+        "title": "Borne",
+        "author": "Jeff VanderMeer",
+        "month": "Feb",
+        "year": "2020",
+        "fav": true
+    },
+    {
+        "title": "The Problem With Everything",
+        "author": "Meghan Daum",
+        "month": "Feb",
+        "year": "2020",
+        "fav": true
+    },
+    {
+        "title": "A Wrinkle In Time",
+        "author": "Madeleine L'Engle",
+        "month": "Feb",
+        "year": "2020"
+    },
+    {
+        "title": "Exhalation",
+        "author": "Ted Chiang",
+        "month": "Feb",
+        "year": "2020",
+        "fav": true
+    },
+    {
+        "title": "The Fall of Hyperion",
+        "author": "Dan Simmons",
+        "month": "Jan",
+        "year": "2020"
+    },
+    {
+        "title": "Stories of Your Life And Others",
+        "author": "Ted Chiang",
+        "month": "Jan",
+        "year": "2020",
+        "fav": true
+    },
+    {
+        "title": "Libra",
+        "author": "Don Delillo",
+        "month": "Dec",
+        "year": "2019"
+    },
+    {
+        "title": "Hyperion",
+        "author": "Dan Simmons",
+        "month": "Nov",
+        "year": "2019"
+    },
+    {
+        "title": "The Testaments",
+        "author": "Margaret Atwood",
+        "month": "Oct",
+        "year": "2019"
+    },
+    {
+        "title": "Team of Rivals",
+        "author": "Doris Kearns Goodwin",
+        "month": "Oct",
+        "year": "2019",
+        "fav": true
+    },
+    {
+        "title": "Empire of Illusion",
+        "author": "Chris Hedges",
+        "month": "Sep",
+        "year": "2019"
+    },
+    {
+        "title": "Jesus' Son",
+        "author": "Denis Johnson",
+        "month": "Sep",
+        "year": "2019"
+    },
+    {
+        "title": "Digital Minimalism",
+        "author": "Cal Newport",
+        "month": "Sep",
+        "year": "2019"
+    },
+    {
+        "title": "Ice",
+        "author": "Anna Kavan",
+        "month": "Sep",
+        "year": "2019",
+        "fav": true
+    },
+    {
+        "title": "Death is Hard Work",
+        "author": "Khaled Khalifa",
+        "month": "Aug",
+        "year": "2019"
+    },
+    {
+        "title": "Pale Fire",
+        "author": "Vladimir Nabokov",
+        "month": "May",
+        "year": "2019",
+        "fav": true
+    },
+    {
+        "title": "Espresso Lessons",
+        "author": "Arno Ilgner",
+        "month": "Mar",
+        "year": "2019"
+    },
+    {
+        "title": "Stoner",
+        "author": "John Williams",
+        "month": "Mar",
+        "year": "2019"
+    },
+    {
+        "title": "Labyrinths",
+        "author": "Jorge Luis Borges",
+        "month": "Mar",
+        "year": "2019",
+        "fav": true
+    },
+    {
+        "title": "Free Range Kids",
+        "author": "Lenore Skenazy",
+        "month": "Mar",
+        "year": "2019"
+    },
+    {
+        "title": "The Bullet Journal Method",
+        "author": "Ryder Carrol",
+        "month": "Mar",
+        "year": "2019"
+    },
+    {
+        "title": "Suttree",
+        "author": "Cormac McCarthy",
+        "month": "Mar",
+        "year": "2019"
+    },
+    {
+        "title": "Reservoir 13",
+        "author": "Jon McGregor",
+        "month": "Mar",
+        "year": "2019"
+    },
+    {
+        "title": "The Coddling of the American Mind",
+        "author": "Greg Lukianoff, Jonathan Haidt",
+        "month": "Dec",
+        "year": "2018"
+    },
+    {
+        "title": "Lost Connections",
+        "author": "Johan Hari",
+        "month": "Dec",
+        "year": "2018"
+    },
+    {
+        "title": "Acceptance",
+        "author": "Jeff VanderMeer",
+        "month": "Nov",
+        "year": "2018"
+    },
+    {
+        "title": "Going Clear",
+        "author": "Lawrence Wright",
+        "month": "Oct",
+        "year": "2018"
+    },
+    {
+        "title": "Authority",
+        "author": "Jeff VanderMeer",
+        "month": "Aug",
+        "year": "2018"
+    },
+    {
+        "title": "A Canticle for Leibowitz",
+        "author": "Walter Miller",
+        "month": "Aug",
+        "year": "2018",
+        "fav": true
+    },
+    {
+        "title": "Less",
+        "author": "Andrew Sean Greer",
+        "month": "Jul",
+        "year": "2018",
+        "fav": true
+    },
+    {
+        "title": "Annihilation",
+        "author": "Jeff Vandermeer",
+        "month": "Jul",
+        "year": "2018"
+    },
+    {
+        "title": "Enlightenment Now",
+        "author": "Steven Pinker",
+        "month": "Jun",
+        "year": "2018"
+    },
+    {
+        "title": "Universal Harvester",
+        "author": "John Darnielle",
+        "month": "May",
+        "year": "2018"
+    },
+    {
+        "title": "This Gulf of Fire",
+        "author": "Mark Molesky",
+        "month": "Apr",
+        "year": "2018"
+    },
+    {
+        "title": "Meet The Frugalwoods",
+        "author": "Elizabeth Willar Thames",
+        "month": "Mar",
+        "year": "2018"
+    },
+    {
+        "title": "Utopia for Realists",
+        "author": "Rutger Bregman",
+        "month": "Mar",
+        "year": "2018"
+    },
+    {
+        "title": "Blood Meridian",
+        "author": "Cormac McCarthy",
+        "month": "Mar",
+        "year": "2018",
+        "fav": true
+    },
+    {
+        "title": "The State of Affairs",
+        "author": "Esther Perel",
+        "month": "Feb",
+        "year": "2018"
+    },
+    {
+        "title": "Twin Peaks",
+        "author": "Mark Frost",
+        "month": "Feb",
+        "year": "2018"
+    },
+    {
+        "title": "The Language Instinct",
+        "author": "Steven Pinker",
+        "month": "Jan",
+        "year": "2018"
+    },
+    {
+        "title": "The Once and Future Liberal",
+        "author": "Mark Lilla",
+        "month": "Jan",
+        "year": "2018"
+    },
+    {
+        "title": "Wolf in White Van",
+        "author": "John Darnielle",
+        "month": "Dec",
+        "year": "2017",
+        "fav": true
+    },
+    {
+        "title": "Man's Search for Meaning",
+        "author": "Viktor Frankl",
+        "month": "Dec",
+        "year": "2017",
+        "fav": true
+    },
+    {
+        "title": "The Push",
+        "author": "Tommy Caldwell",
+        "month": "Dec",
+        "year": "2017"
+    },
+    {
+        "title": "Doing Good Better",
+        "author": "Will MacAskill",
+        "month": "Dec",
+        "year": "2017"
+    },
+    {
+        "title": "Lying",
+        "author": "Sam Harris",
+        "month": "Nov",
+        "year": "2017"
+    },
+    {
+        "title": "The Sympathizer",
+        "author": "Viet Thanh Nguyen",
+        "month": "Nov",
+        "year": "2017"
+    },
+    {
+        "title": "Why Buddhism is True",
+        "author": "Robert Wright",
+        "month": "Oct",
+        "year": "2017"
+    },
+    {
+        "title": "Lincoln in the Bardo",
+        "author": "George Saunders",
+        "month": "Oct",
+        "year": "2017",
+        "fav": true
+    },
+    {
+        "title": "Creative Schools",
+        "author": "Ken Robinson, Lou Aronica",
+        "month": "Oct",
+        "year": "2017"
+    },
+    {
+        "title": "A Man Called Ove",
+        "author": "Fredrick Backmnan",
+        "month": "Sep",
+        "year": "2017"
+    },
+    {
+        "title": "Deep Work",
+        "author": "Cal Newport",
+        "month": "Aug",
+        "year": "2017"
+    },
+    {
+        "title": "On Tyranny",
+        "author": "Timothy Snyder",
+        "month": "Aug",
+        "year": "2017"
+    },
+    {
+        "title": "Gratitude",
+        "author": "Oliver Sacks",
+        "month": "Aug",
+        "year": "2017"
+    },
+    {
+        "title": "Fahrenheit 451",
+        "author": "Ray Bradbury",
+        "month": "Jul",
+        "year": "2017",
+        "fav": true
+    },
+    {
+        "title": "The Wind-up Bird Chronicle",
+        "author": "Haruki Murakami",
+        "month": "Jul",
+        "year": "2017",
+        "fav": true
+    },
+    {
+        "title": "The Vegetarian",
+        "author": "Han Kang",
+        "month": "Jun",
+        "year": "2017"
+    },
+    {
+        "title": "Alone on the Wall",
+        "author": "Alex Honnold, David Roberts",
+        "month": "May",
+        "year": "2017"
+    },
+    {
+        "title": "My Struggle",
+        "author": "Karl Ove Knausgård",
+        "month": "May",
+        "year": "2017"
+    },
+    {
+        "title": "Felicity",
+        "author": "Mary Oliver",
+        "month": "May",
+        "year": "2017"
+    },
+    {
+        "title": "The Course of Love",
+        "author": "Alain de Botton",
+        "month": "Apr",
+        "year": "2017"
+    },
+    {
+        "title": "The Terror Years",
+        "author": "Lawrence Wright",
+        "month": "Apr",
+        "year": "2017"
+    },
+    {
+        "title": "Assholes",
+        "author": "Aaron James",
+        "month": "Mar",
+        "year": "2017"
+    },
+    {
+        "title": "Waking Up",
+        "author": "Sam Harris",
+        "month": "Feb",
+        "year": "2017"
+    },
+    {
+        "title": "The Hitchhiker's Guide to the Galaxy",
+        "author": "Douglas Adam",
+        "month": "Dec",
+        "year": "2016"
+    },
+    {
+        "title": "The Crucible",
+        "author": "Arthur Miller",
+        "month": "Nov",
+        "year": "2016",
+        "fav": true
+    },
+    {
+        "title": "Zen and The Art of Motorcycle Maintenance",
+        "author": "Robert Pirsig",
+        "month": "Oct",
+        "year": "2016",
+        "fav": true
+    },
+    {
+        "title": "Far From The Tree",
+        "author": "Andrew Solomon",
+        "month": "May",
+        "year": "2016",
+        "fav": true
+    },
+    {
+        "title": "The Jeeves Omnibus",
+        "author": "P.G. Wodehouse",
+        "month": "May",
+        "year": "2016"
+    },
+    {
+        "title": "The Brief Wondrous Life of Oscar Wao",
+        "author": "Junot Díaz",
+        "month": "Mar",
+        "year": "2016"
+    },
+    {
+        "title": "The Satanic Verses",
+        "author": "Salman Rushdie",
+        "month": "Feb",
+        "year": "2016"
+    },
+    {
+        "title": "Week-End Wodehouse",
+        "author": "P.G Wodehouse",
+        "month": "Dec",
+        "year": "2015",
+        "fav": true
+    },
+    {
+        "title": "Americanah",
+        "author": "Chimamanda Ngozi Adichie",
+        "month": "Sep",
+        "year": "2015"
+    },
+    {
+        "title": "Bring Up The Bodies",
+        "author": "Hilary Mantel",
+        "month": "Aug",
+        "year": "2015",
+        "fav": true
+    },
+    {
+        "title": "Wolf Hall",
+        "author": "Hilary Mantel",
+        "month": "Jul",
+        "year": "2015",
+        "fav": true
+    },
+    {
+        "title": "Redeployment",
+        "author": "Phil Klay",
+        "month": "Mar",
+        "year": "2015",
+        "fav": true
+    },
+    {
+        "title": "One Flew Over the Cuckoo's Next",
+        "author": "Ken Kesey",
+        "month": "Feb",
+        "year": "2015"
+    },
+    {
+        "title": "Station Eleven",
+        "author": "Emily St. John Mandel",
+        "month": "Jan",
+        "year": "2015",
+        "fav": true
+    },
+    {
+        "title": "The Painter",
+        "author": "Peter Heller",
+        "month": "Jan",
+        "year": "2015"
+    },
+    {
+        "title": "The Martian",
+        "author": "Andy Weir",
+        "month": "Dec",
+        "year": "2014"
+    },
+    {
+        "title": "The Fire Next Time",
+        "author": "James Baldwin",
+        "month": "Dec",
+        "year": "2014",
+        "fav": true
+    },
+    {
+        "title": "A Heartbreaking Work of Staggering Genius",
+        "author": "Dave Eggers",
+        "month": "Nov",
+        "year": "2014"
+    },
+    {
+        "title": "Chuck Klosterman IV",
+        "author": "Chuck Klosterman",
+        "month": "Nov",
+        "year": "2014"
+    },
+    {
+        "title": "The Abominable",
+        "author": "Dan Simmons",
+        "month": "Sep",
+        "year": "2014"
+    },
+    {
+        "title": "The Crossing",
+        "author": "Cormac McCarthy",
+        "month": "Jul",
+        "year": "2014"
+    },
+    {
+        "title": "All The Pretty Horses",
+        "author": "Cormac McCarthy",
+        "month": "Jun",
+        "year": "2014",
+        "fav": true
+    },
+    {
+        "title": "Slouching Towards Bethlehem",
+        "author": "Joan Didion",
+        "month": "Feb",
+        "year": "2014"
+    },
+    {
+        "title": "The Giver",
+        "author": "Lois Lowry",
+        "month": "Jan",
+        "year": "2014"
+    },
+    {
+        "title": "Hell or High Water",
+        "author": "Peter Heller",
+        "month": "Jan",
+        "year": "2014"
+    },
+    {
+        "title": "The Signal and The Noise",
+        "author": "Nate Silver",
+        "month": "Jan",
+        "year": "2014"
+    },
+    {
+        "title": "The Yiddish Policemen's Union",
+        "author": "Michael Chabon",
+        "year": "NaN"
+    },
+    {
+        "title": "Klondike Tales",
+        "author": "Jack London",
+        "month": "Dec",
+        "year": "2013",
+        "fav": true
+    },
+    {
+        "title": "Mockingjay",
+        "author": "Suzanne Collins",
+        "month": "Dec",
+        "year": "2013"
+    },
+    {
+        "title": "Catch-22",
+        "author": "Joseph Heller",
+        "month": "Oct",
+        "year": "2013",
+        "fav": true
+    },
+    {
+        "title": "The Emperor of All Maladies",
+        "author": "Siddhartha Mukherjee",
+        "month": "Aug",
+        "year": "2013",
+        "fav": true
+    },
+    {
+        "title": "Let the Great World Spin",
+        "author": "Colum McMann",
+        "month": "Jul",
+        "year": "2013"
+    },
+    {
+        "title": "A Confederacy of Dunces",
+        "author": "John Kennedy Toole",
+        "month": "Jul",
+        "year": "2013",
+        "fav": true
+    },
+    {
+        "title": "Eiger Dreams",
+        "author": "Jon Krakauer",
+        "month": "Jun",
+        "year": "2013"
+    },
+    {
+        "title": "Voyage of the Beagle",
+        "author": "Charles Darwin",
+        "month": "Jun",
+        "year": "2013"
+    },
+    {
+        "title": "The Amazing Adventures of Kavalier & Clay",
+        "author": "Michael Chabon",
+        "month": "May",
+        "year": "2013"
+    },
+    {
+        "title": "Let's Explore Diabetes with Owls",
+        "author": "David Sedaris",
+        "month": "May",
+        "year": "2013"
+    },
+    {
+        "title": "Galápagos",
+        "author": "Kurt Vonnegut",
+        "month": "May",
+        "year": "2013"
+    },
+    {
+        "title": "Cloud Atlas",
+        "author": "David Mitchell",
+        "month": "Apr",
+        "year": "2013"
+    },
+    {
+        "title": "Middlesex",
+        "author": "Jeffrey Eugenides",
+        "month": "Jan",
+        "year": "2013",
+        "fav": true
+    },
+    {
+        "title": "Both Flesh and Not",
+        "author": "David Foster Wallace",
+        "month": "Dec",
+        "year": "2012"
+    },
+    {
+        "title": "Consider the Lobster",
+        "author": "David Foster Wallace",
+        "month": "Nov",
+        "year": "2012",
+        "fav": true
+    },
+    {
+        "title": "Under The Banner of Heaven",
+        "author": "Jon Krakauer",
+        "month": "Nov",
+        "year": "2012",
+        "fav": true
+    },
+    {
+        "title": "A Hologram for the King",
+        "author": "Dave Eggers",
+        "month": "Nov",
+        "year": "2012"
+    },
+    {
+        "title": "Thunderstruck",
+        "author": "Erik Larson",
+        "month": "Nov",
+        "year": "2012"
+    },
+    {
+        "title": "Moby Dick",
+        "author": "Herman Melville",
+        "month": "Oct",
+        "year": "2012"
+    },
+    {
+        "title": "The Dog Stars",
+        "author": "Peter Heller",
+        "month": "Sep",
+        "year": "2012",
+        "fav": true
+    },
+    {
+        "title": "The Terror",
+        "author": "Dan Simmons",
+        "month": "Sep",
+        "year": "2012",
+        "fav": true
+    },
+    {
+        "title": "Boomerang",
+        "author": "Michael Lewis",
+        "month": "Aug",
+        "year": "2012"
+    },
+    {
+        "title": "Liar's Poker",
+        "author": "Michael Lewis",
+        "month": "Jul",
+        "year": "2012",
+        "fav": true
+    },
+    {
+        "title": "The Lathe of Heaven",
+        "author": "Ursula K. Le Guin",
+        "month": "Jul",
+        "year": "2012"
+    },
+    {
+        "title": "The Storm of War",
+        "author": "Andrew Roberts",
+        "month": "Jan",
+        "year": "2012"
+    },
+    {
+        "title": "To End All Wars",
+        "author": "Adam Hochschild",
+        "month": "Dec",
+        "year": "2011",
+        "fav": true
+    },
+    {
+        "title": "The Black Swan",
+        "author": "Nassim Nicholas Taleb",
+        "month": "Nov",
+        "year": "2011"
+    },
+    {
+        "title": "Adventures of a Curious Character",
+        "author": "Richard Feynman",
+        "month": "Oct",
+        "year": "2011"
+    },
+    {
+        "title": "A Supposedly Fun Thing I'll Never Do Again",
+        "author": "David Foster Wallace",
+        "month": "Aug",
+        "year": "2011",
+        "fav": true
+    },
+    {
+        "title": "This is Water",
+        "author": "David Foster Wallace",
+        "month": "Aug",
+        "year": "2011",
+        "fav": true
+    },
+    {
+        "title": "Consider the Lobster",
+        "author": "David Foster Wallace",
+        "month": "Aug",
+        "year": "2011",
+        "fav": true
+    },
+    {
+        "title": "Zeitoun",
+        "author": "Dave Eggers",
+        "month": "Aug",
+        "year": "2011",
+        "fav": true
+    },
+    {
+        "title": "The Big Short",
+        "author": "Michael Lewis",
+        "month": "Jul",
+        "year": "2011",
+        "fav": true
+    },
+    {
+        "title": "The Road",
+        "author": "Cormac McCarthy",
+        "month": "May",
+        "year": "2011",
+        "fav": true
+    },
+    {
+        "title": "The Tiger's Wife",
+        "author": "Téa Obreht",
+        "month": "May",
+        "year": "2011"
+    },
+    {
+        "title": "The Man Who Mistook His Wife for a Hat",
+        "author": "Oliver Sacks",
+        "month": "Nov",
+        "year": "2010"
+    },
+    {
+        "title": "At Home",
+        "author": "Bill Bryson",
+        "month": "Nov",
+        "year": "2010"
+    },
+    {
+        "title": "The Looming Tower",
+        "author": "Lawrence Wright",
+        "month": "Aug",
+        "year": "2010",
+        "fav": true
+    },
+    {
+        "title": "Me Talk Pretty One Day",
+        "author": "David Sedaris",
+        "month": "Jul",
+        "year": "2010"
+    },
+    {
+        "title": "Whole Earth Discipline",
+        "author": "Stewart Brand",
+        "month": "Jul",
+        "year": "2010",
+        "fav": true
+    },
+    {
+        "title": "Cosmos",
+        "author": "Carl Sagan",
+        "month": "Jun",
+        "year": "2010",
+        "fav": true
+    },
+    {
+        "title": "Ill Fares The Land",
+        "author": "Tony Judt",
+        "month": "Jun",
+        "year": "2010"
+    },
+    {
+        "title": "Sum",
+        "author": "David Eagleman",
+        "month": "May",
+        "year": "2010",
+        "fav": true
+    },
+    {
+        "title": "The Greatest Show On Earth",
+        "author": "Richard Dawkins",
+        "month": "Mar",
+        "year": "2010"
+    },
+    {
+        "title": "The Kite Runner",
+        "author": "Khaled Hosseini",
+        "month": "Mar",
+        "year": "2010"
+    },
+    {
+        "title": "A Short History of Nearly Everything",
+        "author": "Bill Bryson",
+        "month": "Feb",
+        "year": "2010"
+    },
+    {
+        "title": "Into Thin Air",
+        "author": "Jon Krakauer",
+        "month": "Feb",
+        "year": "2010",
+        "fav": true
+    }
 ]
