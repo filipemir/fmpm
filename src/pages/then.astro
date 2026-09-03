@@ -1,10 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import NowSections from "../components/NowSections.astro";
-import now from "../data/now.json";
+import { nowEntries } from "../data/now-entries";
 
 // The current entry lives on /now — this page is the archive of past ones.
-const pastEntries = now.slice(1);
+const pastEntries = nowEntries.slice(1);
 ---
 
 <Layout title="THEN() — Filipe Miranda" active="now">
@@ -18,10 +17,10 @@ const pastEntries = now.slice(1);
     {
       pastEntries.length > 0 ? (
         <div class="entries">
-          {pastEntries.map((n) => (
+          {pastEntries.map(({ date, Component }) => (
             <article class="entry">
-              <h2 class="mono entry-date">{n.date}</h2>
-              <NowSections sections={n.sections} compact />
+              <h2 class="mono entry-date">{date}</h2>
+              <Component compact />
             </article>
           ))}
         </div>

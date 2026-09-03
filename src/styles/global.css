@@ -277,3 +277,86 @@ pre.astro-code {
   transform: translateY(0);
   pointer-events: auto;
 }
+
+/* Shared visual language for NOW() entry components (src/components/now-entries/*.astro).
+   Each entry hardcodes its own content/markup — these classes just give every
+   month the same heading/body/list treatment without a generic renderer. */
+.now-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.now-entry.compact {
+  gap: 20px;
+}
+.now-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.now-entry.compact .now-block {
+  gap: 6px;
+}
+.now-heading {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.now-entry.compact .now-heading {
+  font-size: 11px;
+  color: var(--faint);
+}
+.now-body {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.62;
+  max-width: 33em;
+}
+.now-entry.compact .now-body {
+  font-size: 17px;
+  line-height: 1.6;
+}
+.now-body code {
+  background: var(--code-bg);
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 0.85em;
+  font-family: "IBM Plex Mono", monospace;
+}
+.now-link {
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+.now-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.now-note-mark {
+  color: var(--accent);
+  cursor: help;
+}
+.now-by {
+  color: var(--muted);
+}
+.now-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.now-items li {
+  font-size: 18px;
+  line-height: 1.5;
+}
+.now-entry.compact .now-items {
+  gap: 6px;
+}
+.now-entry.compact .now-items li {
+  font-size: 17px;
+  line-height: 1.5;
+}
