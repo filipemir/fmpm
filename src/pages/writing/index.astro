@@ -1,89 +1,99 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import { getListedPosts } from "../../lib/posts";
-import { formatMonthYear } from "../../lib/format";
+import Layout from '../../layouts/Layout.astro';
+import { getListedPosts } from '../../lib/posts';
+import { formatMonthYear } from '../../lib/format';
 
 const posts = await getListedPosts();
 ---
 
-<Layout title="Posts — Filipe Miranda" active="writing">
-  <main class="writing">
-    <h1>Posts</h1>
-    {
-      posts.length > 0 ? (
-        <ul class="posts">
-          {posts.map((post) => (
-            <li class="post-row">
-              <div class="post-head">
-                <a href={`/writing/${post.id}`} class="post-title">
-                  {post.data.title}
-                </a>
-                <span class="mono post-date">{formatMonthYear(post.data.date)}</span>
-              </div>
-              <span class="post-blurb">{post.data.blurb}</span>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p class="tk">TK — first post coming soon.</p>
-      )
-    }
-  </main>
+<Layout title='Posts — Filipe Miranda' active='writing'>
+    <main class='writing'>
+        <h1>Posts</h1>
+
+        <p class='muted'>All words artisanally written like it's 2022.</p>
+        {
+            posts.length > 0 ? (
+                <ul class='posts'>
+                    {posts.map((post) => (
+                        <li class='post-row'>
+                            <div class='post-head'>
+                                <a
+                                    href={`/writing/${post.id}`}
+                                    class='post-title'
+                                >
+                                    {post.data.title}
+                                </a>
+                                <span class='mono post-date'>
+                                    {formatMonthYear(post.data.date)}
+                                </span>
+                            </div>
+                            <span class='post-blurb'>{post.data.blurb}</span>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p class='tk'>TK — first post coming soon.</p>
+            )
+        }
+    </main>
 </Layout>
 
 <style>
-  .writing {
-    display: flex;
-    flex-direction: column;
-    gap: 34px;
-  }
-  h1 {
-    margin: 0;
-    font-size: 32px;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-  }
-  .posts {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-  .post-row {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .post-head {
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-  }
-  .post-title {
-    font-size: 19px;
-    text-decoration: none;
-    border-bottom: 1px solid var(--rule);
-  }
-  .post-title:hover {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-  }
-  .post-date {
-    font-size: 11px;
-    color: var(--faint);
-    white-space: nowrap;
-  }
-  .post-blurb {
-    font-size: 16px;
-    line-height: 1.58;
-    color: var(--muted);
-    max-width: 33em;
-  }
-  .tk {
-    margin: 0;
-    font-size: 16px;
-    color: var(--faint);
-  }
+    .writing {
+        display: flex;
+        flex-direction: column;
+        gap: 34px;
+    }
+    h1 {
+        margin: 0;
+        font-size: 32px;
+        font-weight: 400;
+        letter-spacing: -0.02em;
+    }
+    .muted {
+        color: var(--muted);
+    }
+    .posts {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .post-row {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+    .post-head {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+    }
+    .post-title {
+        font-size: 19px;
+        text-decoration: none;
+        border-bottom: 1px solid var(--rule);
+    }
+    .post-title:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+    }
+    .post-date {
+        font-size: 11px;
+        color: var(--faint);
+        white-space: nowrap;
+    }
+    .post-blurb {
+        font-size: 16px;
+        line-height: 1.58;
+        color: var(--muted);
+        max-width: 33em;
+    }
+    .tk {
+        margin: 0;
+        font-size: 16px;
+        color: var(--faint);
+    }
 </style>

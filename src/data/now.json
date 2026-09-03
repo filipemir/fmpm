@@ -3,20 +3,20 @@
     "date": "September 2026",
     "sections": [
       {
-        "heading": "👨🏻‍💻 Workwise",
+        "heading": "👨🏻‍💻 On-hours",
         "bullets": [
-          "Drinking from a firehose at my new role.",
-          "Exploring `golang` and its ecosystem.",
-          "Trying to restart a monthly writing habit."
+          "Ramping up at my new role.",
+          "Learning `golang`",
+          "Restarting a monthly writing habit."
         ]
       },
       {
-        "heading": "🏡 Lifewise",
+        "heading": "🏡 Off-hours",
         "linkText": "Sheet mulching",
         "linkHref": "https://en.wikipedia.org/wiki/Sheet_mulching",
         "afterLink": " a hill of goldenrod into a hill of clover.",
-        "note": "I massively underestimated how long covering a small hill with cardboard and leaves would take.",
-        "after": " Trying to enjoy Sendtember/Rocktober while nursing a mild but persistent back injury."
+        "note": "Who knew covering a small hill with cardboard and leaves would take weeks.",
+        "after": "Sneaking out as often as I can for Fall climbing"
       },
       {
         "heading": "📚 Reading",
