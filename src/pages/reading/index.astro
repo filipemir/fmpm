@@ -5,13 +5,45 @@ import books from '../../data/books.json';
 type Book = {
     title: string;
     author: string;
-    month: string;
-    year: string;
-    reread?: boolean;
+    month: number;
+    year: number;
     fav?: boolean;
 };
 
-const byYear: { year: string; books: Book[] }[] = [];
+const MONTH_ABBR = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
+];
+
+// books.json is stored newest-first. A book is a re-read if the same
+// title+author pair already appears later in the array (i.e. earlier in
+// real reading order) — computed here instead of hand-authored per entry,
+// so it can't silently drift out of date the way a manual flag did.
+const rereads = new WeakSet<Book>();
+{
+    const seen = new Set<string>();
+    for (let i = (books as Book[]).length - 1; i >= 0; i--) {
+        const b = (books as Book[])[i];
+        const key = `${b.title}|${b.author}`;
+        if (seen.has(key)) {
+            rereads.add(b);
+        } else {
+            seen.add(key);
+        }
+    }
+}
+
+const byYear: { year: number; books: Book[] }[] = [];
 for (const b of books as Book[]) {
     let g = byYear[byYear.length - 1];
     if (!g || g.year !== b.year) {
@@ -54,14 +86,14 @@ const favorites = (books as Book[]).filter((b) => b.fav);
                                         {book.fav && (
                                             <span class='star-suffix'> ★</span>
                                         )}
+                                        {rereads.has(book) && (
+                                            <span class='pill'>Re-read</span>
+                                        )}
                                     </span>
                                     <span class='mono book-when'>
-                                        {book.month}
+                                        {MONTH_ABBR[book.month - 1]}
                                     </span>
-                                    <span class='book-meta'>
-                                        {book.author}
-                                        {book.reread && ' · re-read'}
-                                    </span>
+                                    <span class='book-meta'>{book.author}</span>
                                 </li>
                             ))}
                         </ul>
@@ -74,14 +106,16 @@ const favorites = (books as Book[]).filter((b) => b.fav);
             {
                 favorites.map((book) => (
                     <li class='book-row'>
-                        <span class='book-title'>{book.title}</span>
+                        <span class='book-title'>
+                            {book.title}
+                            {rereads.has(book) && (
+                                <span class='pill'>Re-read</span>
+                            )}
+                        </span>
                         <span class='mono book-when'>
-                            {book.month} {book.year}
+                            {MONTH_ABBR[book.month - 1]} {book.year}
                         </span>
-                        <span class='book-meta'>
-                            {book.author}
-                            {book.reread && ' · re-read'}
-                        </span>
+                        <span class='book-meta'>{book.author}</span>
                     </li>
                 ))
             }
@@ -200,6 +234,20 @@ const favorites = (books as Book[]).filter((b) => b.fav);
     .star-suffix {
         font-size: 20px;
         color: var(--faint);
+        vertical-align: 2px;
+    }
+    .pill {
+        display: inline-block;
+        margin-left: 8px;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: var(--code-bg);
+        color: var(--faint);
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
         vertical-align: 2px;
     }
     .book-when {
