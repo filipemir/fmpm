@@ -15,7 +15,8 @@
     "title": "A Wizard of Earthsea",
     "author": "Ursula K. Le Guin",
     "month": "Jun",
-    "year": "2023"
+    "year": "2023",
+    "fav": true
   },
   {
     "title": "Powers",
@@ -28,8 +29,7 @@
     "title": "Outlive",
     "author": "Peter Attia",
     "month": "May",
-    "year": "2023",
-    "fav": true
+    "year": "2023"
   },
   {
     "title": "Cem Anos de Solidão",
@@ -85,8 +85,7 @@
     "title": "When We Cease to Understand the World",
     "author": "Benjamín Labatut",
     "month": "Aug",
-    "year": "2022",
-    "fav": true
+    "year": "2022"
   },
   {
     "title": "Drive Your Plow Over the Bones of the Dead",
@@ -241,7 +240,9 @@
     "title": "Ice",
     "author": "Anna Kavan",
     "month": "Dec",
-    "year": "2020"
+    "year": "2020",
+    "reread": true,
+    "fav": true
   },
   {
     "title": "The Birth Partner",
@@ -356,8 +357,7 @@
     "title": "The Strange Bird",
     "author": "Jeff VanderMeer",
     "month": "Apr",
-    "year": "2020",
-    "fav": true
+    "year": "2020"
   },
   {
     "title": "Big Sur",
@@ -453,7 +453,7 @@
     "author": "Anna Kavan",
     "month": "Sep",
     "year": "2019",
-    "reread": true
+    "fav": true
   },
   {
     "title": "Death is Hard Work",
@@ -527,8 +527,7 @@
     "title": "Acceptance",
     "author": "Jeff VanderMeer",
     "month": "Nov",
-    "year": "2018",
-    "fav": true
+    "year": "2018"
   },
   {
     "title": "Going Clear",
@@ -540,8 +539,7 @@
     "title": "Authority",
     "author": "Jeff VanderMeer",
     "month": "Aug",
-    "year": "2018",
-    "fav": true
+    "year": "2018"
   },
   {
     "title": "A Canticle for Leibowitz",
@@ -561,15 +559,13 @@
     "title": "Annihilation",
     "author": "Jeff Vandermeer",
     "month": "Jul",
-    "year": "2018",
-    "fav": true
+    "year": "2018"
   },
   {
     "title": "Enlightenment Now",
     "author": "Steven Pinker",
     "month": "Jun",
-    "year": "2018",
-    "fav": true
+    "year": "2018"
   },
   {
     "title": "Universal Harvester",
@@ -705,8 +701,7 @@
     "title": "Gratitude",
     "author": "Oliver Sacks",
     "month": "Aug",
-    "year": "2017",
-    "fav": true
+    "year": "2017"
   },
   {
     "title": "Fahrenheit 451",
@@ -784,12 +779,6 @@
     "fav": true
   },
   {
-    "title": "On Beauty",
-    "author": "Zadie Smith",
-    "month": "Nov",
-    "year": "2016"
-  },
-  {
     "title": "Zen and The Art of Motorcycle Maintenance",
     "author": "Robert Pirsig",
     "month": "Oct",
@@ -807,8 +796,7 @@
     "title": "The Jeeves Omnibus",
     "author": "P.G. Wodehouse",
     "month": "May",
-    "year": "2016",
-    "fav": true
+    "year": "2016"
   },
   {
     "title": "The Brief Wondrous Life of Oscar Wao",
@@ -923,15 +911,13 @@
     "title": "Slouching Towards Bethlehem",
     "author": "Joan Didion",
     "month": "Feb",
-    "year": "2014",
-    "fav": true
+    "year": "2014"
   },
   {
     "title": "The Giver",
     "author": "Lois Lowry",
     "month": "Jan",
-    "year": "2014",
-    "fav": true
+    "year": "2014"
   },
   {
     "title": "Hell or High Water",
@@ -948,8 +934,7 @@
   {
     "title": "The Yiddish Policemen's Union",
     "author": "Michael Chabon",
-    "year": "NaN",
-    "fav": true
+    "year": "NaN"
   },
   {
     "title": "Klondike Tales",
@@ -1041,10 +1026,11 @@
     "year": "2012"
   },
   {
-    "title": "David Foster Wallace",
+    "title": "Consider the Lobster",
     "author": "David Foster Wallace",
     "month": "Nov",
-    "year": "2012"
+    "year": "2012",
+    "fave": true
   },
   {
     "title": "Under The Banner of Heaven",
@@ -1130,7 +1116,7 @@
     "year": "2011"
   },
   {
-    "title": "Essays and Arguments",
+    "title": "A Supposedly Fun Thing I'll Never Do Again",
     "author": "David Foster Wallace",
     "month": "Aug",
     "year": "2011",
@@ -1144,7 +1130,7 @@
     "fav": true
   },
   {
-    "title": "Consider The Lobster",
+    "title": "Consider the Lobster",
     "author": "David Foster Wallace",
     "month": "Aug",
     "year": "2011",
@@ -1220,8 +1206,7 @@
     "title": "Ill Fares The Land",
     "author": "Tony Judt",
     "month": "Jun",
-    "year": "2010",
-    "fav": true
+    "year": "2010"
   },
   {
     "title": "Sum",
@@ -1234,8 +1219,7 @@
     "title": "The Greatest Show On Earth",
     "author": "Richard Dawkins",
     "month": "Mar",
-    "year": "2010",
-    "fav": true
+    "year": "2010"
   },
   {
     "title": "The Kite Runner",
