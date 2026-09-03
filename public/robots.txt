@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /resume.pdf
-Sitemap: https://fmpm.dev/sitemap.xml
+Sitemap: https://fmpm.dev/sitemap-index.xml
 Host: https://fmpm.dev

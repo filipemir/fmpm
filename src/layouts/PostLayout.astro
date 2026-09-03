@@ -7,12 +7,13 @@ interface Props {
   title: string;
   date: Date;
   minutes?: number;
+  blurb?: string;
 }
-const { title, date, minutes } = Astro.props;
+const { title, date, minutes, blurb } = Astro.props;
 const meta = minutes ? `${formatMonthYear(date)} · ${minutes} min` : formatMonthYear(date);
 ---
 
-<Layout title={`${title} — Filipe Miranda`} active="writing">
+<Layout title={`${title} — Filipe Miranda`} description={blurb} active="writing">
   <main class="post">
     <div class="head">
       <h1>{title}</h1>
