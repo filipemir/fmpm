@@ -10,7 +10,10 @@ const { compact = false } = Astro.props;
 <div class:list={['now-entry', { compact }]}>
     <section class='now-block'>
         <h3 class='mono now-heading'>👨🏻‍💻 On-hours</h3>
-        <p class='now-body'>Ramping up at my new role while learning <code>golang</code>.</p>
+        <p class='now-body'>Ramping up at my new role</p>
+        <p class='now-body'>
+            Learning <code>golang</code>.
+        </p>
         <p class='now-body'>Restarting a monthly writing habit.</p>
     </section>
 
@@ -26,9 +29,12 @@ const { compact = false } = Astro.props;
             <Popover>
                 <span class='now-note-mark'>*</span>
                 <Fragment slot='panel'>
-                    Who knew covering a small hill with cardboard and leaves would take weeks.
+                    Who knew covering a small hill with cardboard and leaves
+                    would take weeks.
                 </Fragment>
-            </Popover>{' '}
+            </Popover>
+        </p>
+        <p class='now-body'>
             Sneaking out as often as I can for Fall climbing.
         </p>
     </section>
