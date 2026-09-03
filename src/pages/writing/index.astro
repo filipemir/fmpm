@@ -8,9 +8,11 @@ const posts = await getListedPosts();
 
 <Layout title='Posts — Filipe Miranda' active='writing'>
     <main class='writing'>
-        <h1>Posts</h1>
+        <div class='head'>
+            <h1>Posts</h1>
+            <p class='intro'>All words artisanally written like it's 2022.</p>
+        </div>
 
-        <p class='muted'>All words artisanally written like it's 2022.</p>
         {
             posts.length > 0 ? (
                 <ul class='posts'>
@@ -44,13 +46,21 @@ const posts = await getListedPosts();
         flex-direction: column;
         gap: 34px;
     }
+    .head {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
     h1 {
         margin: 0;
         font-size: 32px;
         font-weight: 400;
         letter-spacing: -0.02em;
     }
-    .muted {
+    .intro {
+        margin: 0;
+        font-size: 18px;
+        line-height: 1.6;
         color: var(--muted);
     }
     .posts {
