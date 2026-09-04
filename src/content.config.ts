@@ -7,7 +7,9 @@ const posts = defineCollection({
         title: z.string(),
         date: z.coerce.date(),
         blurb: z.string(),
-        minutes: z.number().optional()
+        minutes: z.number().optional(),
+        draft: z.boolean().default(false),
+        pinned: z.boolean().default(false)
     })
 });
 
