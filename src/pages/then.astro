@@ -1,9 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import { nowEntries } from '../data/now-entries';
+import NowEntry from '../components/NowEntry.astro';
+import { formatFullMonthYear } from '../lib/format';
 
 // The current entry lives on /now — this page is the archive of past ones.
-const pastEntries = nowEntries.slice(1);
+const entries = (await getCollection('now')).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const pastEntries = entries.slice(1);
 ---
 
 <Layout title='THEN() — Filipe Miranda' active='now'>
@@ -17,10 +22,12 @@ const pastEntries = nowEntries.slice(1);
         {
             pastEntries.length > 0 ? (
                 <div class='entries'>
-                    {pastEntries.map(({ date, Component }) => (
+                    {pastEntries.map((entry) => (
                         <article class='entry'>
-                            <h2 class='mono entry-date'>{date}</h2>
-                            <Component compact />
+                            <h2 class='mono entry-date'>
+                                {formatFullMonthYear(entry.data.date)}
+                            </h2>
+                            <NowEntry entry={entry} compact />
                         </article>
                     ))}
                 </div>

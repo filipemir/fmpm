@@ -26,4 +26,11 @@ const books = defineCollection({
         .strict()
 });
 
-export const collections = { posts, books };
+const now = defineCollection({
+    loader: glob({ pattern: '**/*.mdx', base: './src/content/now' }),
+    schema: z.object({
+        date: z.coerce.date()
+    })
+});
+
+export const collections = { posts, books, now };

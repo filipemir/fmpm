@@ -1,15 +1,21 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
-import { nowEntries } from '@/data/now-entries';
+import NowEntry from '@/components/NowEntry.astro';
+import { formatFullMonthYear } from '@/lib/format';
 
-const { date, Component } = nowEntries[0];
+const entries = (await getCollection('now')).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const current = entries[0];
 ---
 
 <Layout title='NOW() — Filipe Miranda' active='now'>
     <main class='now'>
-        <Component />
+        <NowEntry entry={current} />
         <p class='mono updated'>
-            Updated {date}. See archive <a href='/then'>here</a>.
+            Updated {formatFullMonthYear(current.data.date)}. See archive{' '}
+            <a href='/then'>here</a>.
         </p>
     </main>
 </Layout>

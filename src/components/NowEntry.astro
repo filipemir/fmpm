@@ -1,0 +1,15 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+
+interface Props {
+    entry: CollectionEntry<'now'>;
+    compact?: boolean;
+}
+
+const { entry, compact = false } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<div class:list={['now-entry', { compact }]}>
+    <Content />
+</div>
