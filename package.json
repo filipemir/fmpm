@@ -11,11 +11,12 @@
         "build": "astro check && astro build",
         "preview": "astro preview",
         "astro": "astro",
-        "format": "prettier --write \"**/*.{astro,js,ts,jsx,tsx,md,json}\"",
-        "format:check": "prettier --check \"**/*.{astro,js,ts,jsx,tsx,md,json}\"",
+        "format": "prettier --write \"**/*.{astro,js,mjs,ts,jsx,tsx,md,json}\"",
+        "format:check": "prettier --check \"**/*.{astro,js,mjs,ts,jsx,tsx,md,json}\"",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "validate:books": "tsx scripts/validate-books.ts",
+        "check:budget": "astro build && node scripts/check-budget.mjs",
         "check": "astro check && npm run lint && npm run format:check && npm run validate:books",
         "prepare": "is-ci || husky"
     },
@@ -27,7 +28,7 @@
         "url": "https://github.com/filipemir/fmpm/issues"
     },
     "lint-staged": {
-        "*.{astro,js,jsx,ts,tsx}": [
+        "*.{astro,js,mjs,jsx,ts,tsx}": [
             "eslint --fix",
             "prettier --write"
         ],
