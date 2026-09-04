@@ -117,9 +117,17 @@ Always-on JS animation — the only legitimate one.
 
 - **[HARD]** `prefetch` on with `prefetchAll: true`,
   `defaultStrategy: 'viewport'`. Main reason navigation feels instant.
-- **[DEFAULT]** No `ClientRouter` yet — scripts don't re-run across view
-  transitions without `astro:page-load`, which breaks the banner on the second
-  navigation. Revisit as its own change.
+- **[HARD]** `ClientRouter` is on, so a navigation is a swap, not a fresh
+  document. Every script has to say how it survives one. Two shapes are in use:
+  the header is `transition:persist`ed and its module runs once, so it
+  re-derives what a swap drops (`astro:after-swap` reapplies `data-theme` and
+  re-places the nav dot from the URL); per-page scripts wire up inside
+  `astro:page-load`, which fires on first load and after every swap, because a
+  top-level call would only ever run once. A new script that does neither works
+  on first load and silently stops on the second navigation.
+- **[OPEN]** Not mechanically checked: both shapes are legitimate, and which one
+  a script needs depends on whether its markup is persisted, which a lint rule
+  can't see. Review has to catch it.
 - **[HARD]** URL changes to a published page ship with a redirect in the same
   change.
 
