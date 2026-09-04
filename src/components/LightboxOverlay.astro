@@ -1,6 +1,10 @@
 <div class='overlay' data-lightbox-overlay hidden>
     <div class='frame'>
-        <img src='' alt='' />
+        <!-- src populated at runtime by lightbox.js; astro:assets needs a build-time-known source, so this can't be optimized -->
+        <img
+            src=''
+            alt=''
+        /><!-- allow-raw-img: dynamic lightbox src, see comment above -->
     </div>
 </div>
 

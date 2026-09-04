@@ -43,5 +43,15 @@ export default tseslint.config(
             ]
         }
     },
+    {
+        // Same rationale as typescript-eslint's recommended config disabling
+        // no-undef for .ts files: it doesn't know about ambient/global types
+        // (e.g. ImageMetadata from astro/client), producing false positives
+        // that astro check (the actual type checker) already covers.
+        files: ['**/*.astro'],
+        rules: {
+            'no-undef': 'off'
+        }
+    },
     eslintConfigPrettier
 );
