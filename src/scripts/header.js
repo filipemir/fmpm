@@ -249,16 +249,13 @@ function initBand() {
     // Always a fresh random pick on load — a picker choice only holds for the
     // current visit (see setBand below), it's never remembered across a
     // reload, so the site doesn't quietly lock in on one pattern forever.
-    Promise.all([import('./bands.js'), import('./bands-variants.js')]).then(
-        ([base, variants]) => {
-            const all = base.BANDS.concat(variants.VARIANTS);
-            pool = all.filter((b) => BAND_POOL_IDS.indexOf(b.id) >= 0);
-            const pick =
-                pool[Math.floor(Math.random() * pool.length)] || all[0];
-            setBand(pick, false);
-            onScroll();
-        }
-    );
+    import('./bands/index.js').then(({ BANDS, VARIANTS }) => {
+        const all = BANDS.concat(VARIANTS);
+        pool = all.filter((b) => BAND_POOL_IDS.indexOf(b.id) >= 0);
+        const pick = pool[Math.floor(Math.random() * pool.length)] || all[0];
+        setBand(pick, false);
+        onScroll();
+    });
 
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onResize);

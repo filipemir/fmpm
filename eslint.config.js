@@ -35,10 +35,12 @@ export default tseslint.config(
     },
     {
         rules: {
-            // Allow deliberately-unused function params when prefixed with _
-            // (e.g. bands.js's per-frame `tick` param some effects don't use).
+            // Error, not warn: `npm run lint` only fails on errors, so a
+            // warn-level rule here was silently non-blocking. Allow
+            // deliberately-unused function params when prefixed with _ (e.g.
+            // a band's per-frame `tick` param some effects don't use).
             '@typescript-eslint/no-unused-vars': [
-                'warn',
+                'error',
                 { argsIgnorePattern: '^_' }
             ]
         }
