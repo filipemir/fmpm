@@ -1,66 +1,66 @@
 :root {
-  --bg: #f4f0e8;
-  --ink: #26221d;
-  --muted: #5c554b;
-  --faint: #938b7d;
-  --line: #ded7c9;
-  --rule: rgba(38, 34, 29, 0.26);
-  --accent: #c8552b;
-  --syn-kw: #8a5a2b;
-  --syn-str: #5d6f4a;
-  --syn-com: #a49a89;
-  --syn-fn: #7a5470;
-  --syn-num: #6d6a52;
-  --code-bg: rgba(38, 34, 29, 0.035);
-  --scrim: rgba(38, 34, 29, 0.86);
+    --bg: #f4f0e8;
+    --ink: #26221d;
+    --muted: #5c554b;
+    --faint: #938b7d;
+    --line: #ded7c9;
+    --rule: rgba(38, 34, 29, 0.26);
+    --accent: #c8552b;
+    --syn-kw: #8a5a2b;
+    --syn-str: #5d6f4a;
+    --syn-com: #a49a89;
+    --syn-fn: #7a5470;
+    --syn-num: #6d6a52;
+    --code-bg: rgba(38, 34, 29, 0.035);
+    --scrim: rgba(38, 34, 29, 0.86);
 }
 
-html[data-theme="dark"] {
-  --bg: #262320;
-  --ink: #e9e3d7;
-  --muted: #a8a094;
-  --faint: #7d766b;
-  --line: #3b372f;
-  --rule: rgba(233, 227, 215, 0.24);
-  --accent: #d97b4a;
-  --syn-kw: #d3a06a;
-  --syn-str: #a3b884;
-  --syn-com: #7d766b;
-  --syn-fn: #c49ac0;
-  --syn-num: #bcb695;
-  --code-bg: rgba(0, 0, 0, 0.22);
-  --scrim: rgba(20, 18, 16, 0.92);
+html[data-theme='dark'] {
+    --bg: #262320;
+    --ink: #e9e3d7;
+    --muted: #a8a094;
+    --faint: #7d766b;
+    --line: #3b372f;
+    --rule: rgba(233, 227, 215, 0.24);
+    --accent: #d97b4a;
+    --syn-kw: #d3a06a;
+    --syn-str: #a3b884;
+    --syn-com: #7d766b;
+    --syn-fn: #c49ac0;
+    --syn-num: #bcb695;
+    --code-bg: rgba(0, 0, 0, 0.22);
+    --scrim: rgba(20, 18, 16, 0.92);
 }
 
 html,
 body {
-  margin: 0;
-  padding: 0;
-  background: var(--bg);
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
 }
 
 html {
-  transition: background-color 180ms ease;
+    transition: background-color 180ms ease;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  min-height: 100vh;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: Spectral, Georgia, serif;
-  font-weight: 300;
-  -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Spectral, Georgia, serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
 }
 
 a {
-  color: var(--ink);
-  text-decoration-color: var(--rule);
-  text-underline-offset: 3px;
-  transition: color 120ms ease;
+    color: var(--ink);
+    text-decoration-color: var(--rule);
+    text-underline-offset: 3px;
+    transition: color 120ms ease;
 }
 
 /* Explicit, rather than left to the browser default (traditionally purple,
@@ -68,295 +68,19 @@ a {
    unvisited ones, only :hover gets the accent color. Ordered before :hover
    (the classic LVHA order) so hovering a visited link still goes accent. */
 a:visited {
-  color: var(--ink);
-  text-decoration-color: var(--rule);
+    color: var(--ink);
+    text-decoration-color: var(--rule);
 }
 
 a:hover {
-  color: var(--accent);
-  text-decoration-color: var(--accent);
+    color: var(--accent);
+    text-decoration-color: var(--accent);
 }
 
 ::selection {
-  background: var(--rule);
+    background: var(--rule);
 }
 
 .mono {
-  font-family: "IBM Plex Mono", monospace;
-}
-
-/* Shiki (css-variables theme, emitted by Astro as --astro-code-*) tinted to
-   the site's low-contrast token palette */
-:root {
-  --astro-code-foreground: var(--ink);
-  --astro-code-background: transparent;
-  --astro-code-token-constant: var(--syn-num);
-  --astro-code-token-string: var(--syn-str);
-  --astro-code-token-comment: var(--syn-com);
-  --astro-code-token-keyword: var(--syn-kw);
-  --astro-code-token-parameter: var(--ink);
-  --astro-code-token-function: var(--syn-fn);
-  --astro-code-token-string-expression: var(--syn-str);
-  --astro-code-token-punctuation: var(--muted);
-  --astro-code-token-link: var(--syn-str);
-}
-
-pre.astro-code {
-  margin: 0;
-  padding: 18px 20px;
-  overflow-x: auto;
-  background: var(--code-bg) !important;
-  border: 1px solid var(--line);
-  border-radius: 3px;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 13px;
-  line-height: 1.65;
-}
-
-/* Long-form post body typography (rendered MDX content) */
-.prose {
-  font-size: 19px;
-  line-height: 1.66;
-}
-.prose > * {
-  margin: 22px 0 0;
-}
-.prose > *:first-child {
-  margin-top: 0;
-}
-.prose h2,
-.prose h3,
-.prose h4 {
-  font-family: "IBM Plex Mono", monospace;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 34px;
-}
-.prose h2 {
-  font-size: 12px;
-}
-.prose h3 {
-  font-size: 11px;
-}
-.prose ul,
-.prose ol {
-  padding-left: 1.3em;
-}
-.prose li + li {
-  margin-top: 6px;
-}
-.prose blockquote {
-  margin: 22px 0 0;
-  padding-left: 20px;
-  border-left: 2px solid var(--rule);
-  color: var(--muted);
-  font-style: italic;
-}
-.prose blockquote > *:first-child {
-  margin-top: 0;
-}
-.prose code {
-  background: var(--code-bg);
-  padding: 2px 5px;
-  border-radius: 3px;
-  font-size: 0.85em;
-  font-family: "IBM Plex Mono", monospace;
-}
-.prose pre code {
-  background: none;
-  padding: 0;
-}
-.prose img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border: 1px solid var(--line);
-  cursor: zoom-in;
-}
-.prose figcaption {
-  text-align: center;
-  font-size: 0.75em;
-  font-style: italic;
-  color: var(--faint);
-}
-.prose hr {
-  border: none;
-  border-top: 1px solid var(--line);
-}
-.prose strong {
-  font-weight: 600;
-}
-
-/* GFM footnotes ([^1] syntax), parsed by remark-gfm — real semantic markup
-   (a <sup><a> ref and a <section class="footnotes"> list), just needs
-   styling to match the site rather than browser defaults. */
-.prose sup [data-footnote-ref] {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 12px;
-  text-decoration: none;
-  color: var(--accent);
-  padding: 0 2px;
-}
-.prose .footnotes {
-  margin-top: 34px;
-  padding-top: 22px;
-  border-top: 1px solid var(--line);
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 12px;
-  line-height: 1.7;
-  color: var(--muted);
-}
-.prose .footnotes .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-.prose .footnotes ol {
-  margin: 0;
-  padding-left: 1.3em;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.prose .footnotes li p {
-  display: inline;
-  margin: 0;
-}
-.prose .footnotes [data-footnote-backref] {
-  text-decoration: none;
-  color: var(--accent);
-  margin-left: 4px;
-}
-
-/* Hover popover wrapper footnotes.js builds around each reference, cloning
-   its content from the .footnotes list above. Same visual language as
-   Popover.astro's (ink border, no shadow, invisible bridge over the gap so
-   :hover survives the pointer travelling from ref to panel). */
-.prose .fn-popover {
-  position: relative;
-  display: inline-block;
-}
-.prose .fn-bridge {
-  position: absolute;
-  left: -80px;
-  right: -80px;
-  bottom: 100%;
-  height: 12px;
-}
-.prose .fn-panel {
-  position: absolute;
-  left: 50%;
-  bottom: calc(100% + 10px);
-  z-index: 30;
-  width: 280px;
-  margin-left: -140px;
-  padding: 12px 14px;
-  background: var(--bg);
-  border: 1px solid var(--ink);
-  font-size: 12px;
-  line-height: 1.55;
-  color: var(--muted);
-  text-align: left;
-  opacity: 0;
-  transform: translateY(4px);
-  pointer-events: none;
-  transition:
-    opacity 160ms ease,
-    transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-.prose .fn-popover:hover .fn-panel {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-/* Shared visual language for NOW() entry components (src/components/now-entries/*.astro).
-   Each entry hardcodes its own content/markup — these classes just give every
-   month the same heading/body/list treatment without a generic renderer. */
-.now-entry {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-.now-entry.compact {
-  gap: 20px;
-}
-.now-block {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.now-entry.compact .now-block {
-  gap: 6px;
-}
-.now-heading {
-  margin: 0;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.now-entry.compact .now-heading {
-  font-size: 11px;
-  color: var(--faint);
-}
-.now-body {
-  margin: 0;
-  font-size: 18px;
-  line-height: 1.62;
-  max-width: 33em;
-}
-.now-entry.compact .now-body {
-  font-size: 17px;
-  line-height: 1.6;
-}
-.now-body code {
-  background: var(--code-bg);
-  padding: 2px 5px;
-  border-radius: 3px;
-  font-size: 0.85em;
-  font-family: "IBM Plex Mono", monospace;
-}
-.now-link {
-  text-decoration: none;
-  border-bottom: 1px solid var(--rule);
-}
-.now-link:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
-}
-.now-note-mark {
-  color: var(--accent);
-  cursor: help;
-}
-.now-by {
-  color: var(--muted);
-}
-.now-items {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-.now-items li {
-  font-size: 18px;
-  line-height: 1.5;
-}
-.now-entry.compact .now-items {
-  gap: 6px;
-}
-.now-entry.compact .now-items li {
-  font-size: 17px;
-  line-height: 1.5;
+    font-family: 'IBM Plex Mono', monospace;
 }
