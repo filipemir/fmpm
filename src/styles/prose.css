@@ -29,7 +29,7 @@ pre.astro-code {
     background: var(--code-bg) !important;
     border: 1px solid var(--line);
     border-radius: 3px;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 13px;
     line-height: 1.65;
 }
@@ -47,7 +47,7 @@ pre.astro-code {
 .prose h2,
 .prose h3,
 .prose h4 {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: var(--font-mono);
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -82,7 +82,7 @@ pre.astro-code {
     padding: 2px 5px;
     border-radius: 3px;
     font-size: 0.85em;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: var(--font-mono);
 }
 .prose pre code {
     background: none;
@@ -113,7 +113,7 @@ pre.astro-code {
    (a <sup><a> ref and a <section class="footnotes"> list), just needs
    styling to match the site rather than browser defaults. */
 .prose sup [data-footnote-ref] {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 12px;
     text-decoration: none;
     color: var(--accent);
@@ -123,7 +123,7 @@ pre.astro-code {
     margin-top: 34px;
     padding-top: 22px;
     border-top: 1px solid var(--line);
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 12px;
     line-height: 1.7;
     color: var(--muted);

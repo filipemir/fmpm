@@ -97,6 +97,47 @@ for (const file of cssFiles) {
     );
 }
 
+// 1b. Hardcoded font-family in component <style> blocks (outside
+// global.css). Anything other than a var(--font-*) token or `inherit` is
+// flagged — global.css is where the token stacks themselves live. Captures
+// the declared value rather than using a lookahead, since \s* backtracking
+// would otherwise let the lookahead match against a shorter, blank prefix
+// and pass a fully-tokenized declaration.
+const fontDeclRe = /font-family:\s*([^;]+);/;
+function isHardcodedFont(line) {
+    const match = fontDeclRe.exec(line);
+    if (!match) return false;
+    const value = match[1].trim();
+    return !/^var\(--[\w-]+\)$/.test(value) && value !== 'inherit';
+}
+for (const file of astroFiles) {
+    for (const { line, num } of styleBlockLines(file)) {
+        if (isHardcodedFont(line) && !allowed(line, 'hardcoded-font')) {
+            violations.push({
+                id: 'hardcoded-font',
+                file: rel(file),
+                line: num,
+                message:
+                    'Hardcoded font-family — use a var(--font-*) token from global.css.'
+            });
+        }
+    }
+}
+for (const file of cssFiles) {
+    const text = readFileSync(file, 'utf8');
+    text.split('\n').forEach((line, i) => {
+        if (isHardcodedFont(line) && !allowed(line, 'hardcoded-font')) {
+            violations.push({
+                id: 'hardcoded-font',
+                file: rel(file),
+                line: i + 1,
+                message:
+                    'Hardcoded font-family — use a var(--font-*) token from global.css.'
+            });
+        }
+    });
+}
+
 // 2. Hardcoded spacing/size (px/rem/em), minus 0, 100%, 1px, 50%, unitless
 // line-heights. Non-fatal: no --space-* token system exists yet (tracked as
 // a separate, deferred effort), so this only warns for now.

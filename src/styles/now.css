@@ -48,7 +48,7 @@
     padding: 2px 5px;
     border-radius: 3px;
     font-size: 0.85em;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: var(--font-mono);
 }
 .now-link {
     text-decoration: none;

@@ -47,11 +47,16 @@ html {
     box-sizing: border-box;
 }
 
+:root {
+    --font-serif: Spectral, Georgia, serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+}
+
 body {
     min-height: 100vh;
     background: var(--bg);
     color: var(--ink);
-    font-family: Spectral, Georgia, serif;
+    font-family: var(--font-serif);
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
 }
@@ -82,5 +87,5 @@ a:hover {
 }
 
 .mono {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: var(--font-mono);
 }
