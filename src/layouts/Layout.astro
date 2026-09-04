@@ -3,6 +3,7 @@ import { ClientRouter } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import '../styles/fonts.css';
 
 interface Props {
     title: string;
@@ -77,8 +78,21 @@ const {
             crossorigin=''
         />
         <link
-            href='https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap'
+            href='https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap'
             rel='stylesheet'
+        />
+        <!-- Font-experiment preview: preload only the FF Tisa weight every
+             page needs for first paint (body text is always 300). The other
+             weights (400, 600, italics) are page-specific — preloading them
+             here would force the download on pages that never use them, so
+             they stay on normal @font-face discovery instead. Self-hosted,
+             so no preconnect needed. -->
+        <link
+            rel='preload'
+            as='font'
+            type='font/woff2'
+            href='/fonts/FfTisa/300.woff2'
+            crossorigin=''
         />
         <ClientRouter />
     </head>

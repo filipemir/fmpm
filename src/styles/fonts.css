@@ -1,0 +1,52 @@
+/* FF Tisa preview — self-hosted, weights actually used by the site (300,
+   400, 600 + italics), woff2 only. See LICENSE for the redistribution
+   caveat on public/fonts/. font-display: swap avoids the invisible-text
+   window that master's `auto` allows. */
+
+@font-face {
+    font-family: 'FF Tisa';
+    src: url('/fonts/FfTisa/300.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FF Tisa';
+    src: url('/fonts/FfTisa/300-italic.woff2') format('woff2');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FF Tisa';
+    src: url('/fonts/FfTisa/400.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FF Tisa';
+    src: url('/fonts/FfTisa/400-italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FF Tisa';
+    src: url('/fonts/FfTisa/600.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FF Tisa';
+    src: url('/fonts/FfTisa/600-italic.woff2') format('woff2');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}

@@ -98,9 +98,11 @@ for (const file of cssFiles) {
 }
 
 // 1b. Hardcoded font-family in component <style> blocks (outside
-// global.css). Anything other than a var(--font-*) token or `inherit` is
-// flagged — global.css is where the token stacks themselves live. Captures
-// the declared value rather than using a lookahead, since \s* backtracking
+// global.css and fonts.css). Anything other than a var(--font-*) token or
+// `inherit` is flagged — global.css is where the token stacks themselves
+// live, and fonts.css is where @font-face binds those stacks to real font
+// files, so both legitimately reference literal family names. Captures the
+// declared value rather than using a lookahead, since \s* backtracking
 // would otherwise let the lookahead match against a shorter, blank prefix
 // and pass a fully-tokenized declaration.
 const fontDeclRe = /font-family:\s*([^;]+);/;
@@ -124,6 +126,7 @@ for (const file of astroFiles) {
     }
 }
 for (const file of cssFiles) {
+    if (basename(file) === 'fonts.css') continue;
     const text = readFileSync(file, 'utf8');
     text.split('\n').forEach((line, i) => {
         if (isHardcodedFont(line) && !allowed(line, 'hardcoded-font')) {

@@ -48,8 +48,8 @@ html {
 }
 
 :root {
-    --font-serif: Spectral, Georgia, serif;
-    --font-mono: 'IBM Plex Mono', monospace;
+    --font-serif: 'FF Tisa', Georgia, serif;
+    --font-mono: 'Roboto Mono', 'Courier New', monospace;
 }
 
 body {
