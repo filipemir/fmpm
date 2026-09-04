@@ -1,6 +1,9 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import notes from '@/data/notes.json';
+import { getSortedPosts } from '@/lib/posts';
+import { formatMonthYear } from '@/lib/format';
+
+const pinnedPosts = (await getSortedPosts()).filter((p) => p.data.pinned);
 ---
 
 <Layout title='Pinned Notes — Filipe Miranda'>
@@ -13,21 +16,30 @@ import notes from '@/data/notes.json';
                 last-touched rather than published.
             </p>
         </div>
-        <ul class='notes'>
-            {
-                notes.map((note) => (
-                    <li class='note-row'>
-                        <div class='note-head'>
-                            <a href='#' class='note-title'>
-                                {note.title}
-                            </a>
-                            <span class='mono note-date'>{note.date}</span>
-                        </div>
-                        <span class='note-blurb'>{note.blurb}</span>
-                    </li>
-                ))
-            }
-        </ul>
+        {
+            pinnedPosts.length > 0 ? (
+                <ul class='notes'>
+                    {pinnedPosts.map((post) => (
+                        <li class='note-row'>
+                            <div class='note-head'>
+                                <a
+                                    href={`/writing/${post.id}`}
+                                    class='note-title'
+                                >
+                                    {post.data.title}
+                                </a>
+                                <span class='mono note-date'>
+                                    {formatMonthYear(post.data.date)}
+                                </span>
+                            </div>
+                            <span class='note-blurb'>{post.data.blurb}</span>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p class='tk'>TK — nothing pinned yet.</p>
+            )
+        }
     </main>
 </Layout>
 
@@ -92,5 +104,10 @@ import notes from '@/data/notes.json';
         line-height: 1.58;
         color: var(--muted);
         max-width: 33em;
+    }
+    .tk {
+        margin: 0;
+        font-size: 16px;
+        color: var(--faint);
     }
 </style>

@@ -1,16 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Popover from '../components/Popover.astro';
-import { getListedPosts } from '../lib/posts';
+import { getListedPosts, getSortedPosts } from '../lib/posts';
 import { formatMonthYear } from '../lib/format';
-import rawNotes from '../data/notes.json';
-
-type Note = { title: string; date: string; blurb: string; pinned?: boolean };
-const notes = rawNotes as Note[];
 
 const posts = await getListedPosts();
 const recentPosts = posts.slice(0, 5);
-const pinnedNotes = notes.filter((n) => n.pinned).slice(0, 3);
+const pinnedNotes = (await getSortedPosts())
+    .filter((p) => p.data.pinned)
+    .slice(0, 3);
 ---
 
 <Layout title='Filipe Miranda'>
@@ -48,10 +46,13 @@ const pinnedNotes = notes.filter((n) => n.pinned).slice(0, 3);
                 <section class='list-section'>
                     <h2 class='mono label'>Notes</h2>
                     <ul class='notes'>
-                        {pinnedNotes.map((note) => (
+                        {pinnedNotes.map((post) => (
                             <li>
-                                <a href='/notes' class='note-title'>
-                                    {note.title}
+                                <a
+                                    href={`/writing/${post.id}`}
+                                    class='note-title'
+                                >
+                                    {post.data.title}
                                 </a>
                             </li>
                         ))}
