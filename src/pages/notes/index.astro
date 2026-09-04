@@ -56,14 +56,15 @@ const pinnedPosts = (await getSortedPosts()).filter((p) => p.data.pinned);
     }
     h1 {
         margin: 0;
-        font-size: 32px;
-        font-weight: 400;
-        letter-spacing: -0.02em;
+        font-size: var(--fs-title);
+        font-weight: var(--fw-normal);
+        line-height: var(--lh-title);
+        letter-spacing: var(--tr-title);
     }
     .intro {
         margin: 0;
-        font-size: 18px;
-        line-height: 1.6;
+        font-size: var(--fs-body);
+        line-height: var(--lh-body);
         color: var(--muted);
         max-width: 33em;
     }
@@ -86,7 +87,7 @@ const pinnedPosts = (await getSortedPosts()).filter((p) => p.data.pinned);
         gap: 14px;
     }
     .note-title {
-        font-size: 19px;
+        font-size: var(--fs-body);
         text-decoration: none;
         border-bottom: 1px solid var(--rule);
     }
@@ -95,19 +96,19 @@ const pinnedPosts = (await getSortedPosts()).filter((p) => p.data.pinned);
         border-bottom-color: var(--accent);
     }
     .note-date {
-        font-size: 11px;
+        font-size: var(--fs-micro);
         color: var(--faint);
         white-space: nowrap;
     }
     .note-blurb {
-        font-size: 16px;
-        line-height: 1.58;
+        font-size: var(--fs-small);
+        line-height: var(--lh-snug);
         color: var(--muted);
         max-width: 33em;
     }
     .tk {
         margin: 0;
-        font-size: 16px;
+        font-size: var(--fs-small);
         color: var(--faint);
     }
 </style>

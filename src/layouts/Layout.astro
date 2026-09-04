@@ -76,8 +76,12 @@ const {
             href='https://fonts.gstatic.com'
             crossorigin=''
         />
+        <!-- Upright 400/600 each with a real italic. Weight 300 is gone (body
+             is 400 now) and italic 600 is new, so `<strong>` inside `<em>` is
+             a drawn face rather than a synthesised one — same four faces as
+             before, no extra bytes. -->
         <link
-            href='https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap'
+            href='https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap'
             rel='stylesheet'
         />
         <ClientRouter />

@@ -90,17 +90,17 @@ const staticBand = '.   '.repeat(20).trimEnd();
     }
 
     .wordmark {
-        font-size: 11px;
-        letter-spacing: 0.1em;
+        font-size: var(--fs-micro);
+        letter-spacing: var(--tr-label);
         color: inherit;
     }
 
     .band {
         width: 100%;
         overflow: hidden;
-        font-size: 10px;
-        line-height: 1.25;
-        letter-spacing: 0.09em;
+        font-size: var(--fs-nano);
+        line-height: var(--band-lh);
+        letter-spacing: var(--band-tr);
         white-space: pre;
         color: inherit;
         display: block;
@@ -120,8 +120,8 @@ const staticBand = '.   '.repeat(20).trimEnd();
         justify-content: center;
         margin-top: 12px;
         padding-bottom: 14px;
-        font-size: 12px;
-        letter-spacing: 0.04em;
+        font-size: var(--fs-label);
+        letter-spacing: var(--tr-label);
         text-transform: uppercase;
     }
 
@@ -153,9 +153,9 @@ const staticBand = '.   '.repeat(20).trimEnd();
         margin: 0;
         padding: 4px;
         cursor: pointer;
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 18px;
-        line-height: 1;
+        font-family: var(--font-mono);
+        font-size: var(--fs-icon);
+        line-height: var(--lh-flat);
         color: var(--faint);
         transition: color 120ms ease;
     }
@@ -200,8 +200,8 @@ const staticBand = '.   '.repeat(20).trimEnd();
         display: flex;
         align-items: baseline;
         gap: 8px;
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 12px;
+        font-family: var(--font-mono);
+        font-size: var(--fs-label);
         text-align: left;
         white-space: nowrap;
         transition: color 120ms ease;
@@ -218,8 +218,8 @@ const staticBand = '.   '.repeat(20).trimEnd();
         position: absolute;
         left: 0;
         bottom: -1px;
-        font-size: 13px;
-        line-height: 1;
+        font-size: var(--fs-mark-sm);
+        line-height: var(--lh-flat);
         color: var(--accent);
         opacity: 0;
         transition:

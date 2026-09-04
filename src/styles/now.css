@@ -23,32 +23,28 @@
 }
 .now-heading {
     margin: 0;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
+    font-size: var(--fs-label);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--tr-label);
     text-transform: uppercase;
     color: var(--muted);
 }
 .now-entry.compact .now-heading {
-    font-size: 11px;
+    font-size: var(--fs-micro);
     color: var(--faint);
 }
 .now-body {
     margin: 0;
-    font-size: 18px;
-    line-height: 1.62;
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
     max-width: 33em;
-}
-.now-entry.compact .now-body {
-    font-size: 17px;
-    line-height: 1.6;
 }
 .now-body code {
     background: var(--code-bg);
     padding: 2px 5px;
     border-radius: 3px;
     font-size: 0.85em;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: var(--font-mono);
 }
 .now-link {
     text-decoration: none;
@@ -74,13 +70,9 @@
     gap: 7px;
 }
 .now-items li {
-    font-size: 18px;
-    line-height: 1.5;
+    font-size: var(--fs-body);
+    line-height: var(--lh-tight);
 }
 .now-entry.compact .now-items {
     gap: 6px;
-}
-.now-entry.compact .now-items li {
-    font-size: 17px;
-    line-height: 1.5;
 }

@@ -108,8 +108,8 @@ const pinnedNotes = (await getSortedPosts())
         display: flex;
         flex-direction: column;
         gap: 18px;
-        font-size: 19px;
-        line-height: 1.62;
+        font-size: var(--fs-lead);
+        line-height: var(--lh-body);
         max-width: 34em;
     }
     .bio p {
@@ -133,9 +133,9 @@ const pinnedNotes = (await getSortedPosts())
     }
     .label {
         margin: 0;
-        font-size: 12px;
-        font-weight: 500;
-        letter-spacing: 0.08em;
+        font-size: var(--fs-label);
+        font-weight: var(--fw-medium);
+        letter-spacing: var(--tr-label);
         text-transform: uppercase;
         color: var(--muted);
     }
@@ -149,7 +149,7 @@ const pinnedNotes = (await getSortedPosts())
         gap: 12px;
     }
     .note-title {
-        font-size: 18px;
+        font-size: var(--fs-body);
         text-decoration: none;
         width: fit-content;
         border-bottom: 1px solid var(--rule);
@@ -178,8 +178,8 @@ const pinnedNotes = (await getSortedPosts())
         gap: 14px;
     }
     .post-title {
-        font-size: 18px;
-        line-height: 1.4;
+        font-size: var(--fs-body);
+        line-height: var(--lh-tight);
         text-decoration: none;
         border-bottom: 1px solid var(--rule);
     }
@@ -188,20 +188,20 @@ const pinnedNotes = (await getSortedPosts())
         border-bottom-color: var(--accent);
     }
     .post-date {
-        font-size: 11px;
+        font-size: var(--fs-micro);
         color: var(--faint);
         white-space: nowrap;
     }
     .post-blurb {
-        font-size: 16px;
-        line-height: 1.58;
+        font-size: var(--fs-small);
+        line-height: var(--lh-snug);
         color: var(--muted);
         max-width: 33em;
     }
 
     .all-posts {
-        font-size: 12px;
-        letter-spacing: 0.04em;
+        font-size: var(--fs-label);
+        letter-spacing: var(--tr-nav);
         text-decoration: none;
         color: var(--accent);
         width: fit-content;
@@ -209,7 +209,7 @@ const pinnedNotes = (await getSortedPosts())
 
     .tk {
         margin: 0;
-        font-size: 16px;
+        font-size: var(--fs-small);
         color: var(--faint);
     }
 </style>

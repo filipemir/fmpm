@@ -29,14 +29,14 @@ pre.astro-code {
     background: var(--code-bg) !important;
     border: 1px solid var(--line);
     border-radius: 3px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13px;
-    line-height: 1.65;
+    font-family: var(--font-mono);
+    font-size: var(--fs-code);
+    line-height: var(--lh-meta);
 }
 
 .prose {
-    font-size: 19px;
-    line-height: 1.66;
+    font-size: var(--fs-lead);
+    line-height: var(--lh-body);
 }
 .prose > * {
     margin: 22px 0 0;
@@ -47,18 +47,18 @@ pre.astro-code {
 .prose h2,
 .prose h3,
 .prose h4 {
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 500;
-    letter-spacing: 0.08em;
+    font-family: var(--font-mono);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--tr-label);
     text-transform: uppercase;
     color: var(--muted);
     margin-top: 34px;
 }
 .prose h2 {
-    font-size: 12px;
+    font-size: var(--fs-label);
 }
 .prose h3 {
-    font-size: 11px;
+    font-size: var(--fs-micro);
 }
 .prose ul,
 .prose ol {
@@ -82,7 +82,7 @@ pre.astro-code {
     padding: 2px 5px;
     border-radius: 3px;
     font-size: 0.85em;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: var(--font-mono);
 }
 .prose pre code {
     background: none;
@@ -95,10 +95,11 @@ pre.astro-code {
     border: 1px solid var(--line);
     cursor: zoom-in;
 }
+/* Not italic: a caption here can be mono (Figure.astro), and there is no
+   drawn IBM Plex Mono italic — the browser would synthesise an oblique. */
 .prose figcaption {
     text-align: center;
     font-size: 0.75em;
-    font-style: italic;
     color: var(--faint);
 }
 .prose hr {
@@ -106,15 +107,15 @@ pre.astro-code {
     border-top: 1px solid var(--line);
 }
 .prose strong {
-    font-weight: 600;
+    font-weight: var(--fw-bold);
 }
 
 /* GFM footnotes ([^1] syntax), parsed by remark-gfm — real semantic markup
    (a <sup><a> ref and a <section class="footnotes"> list), just needs
    styling to match the site rather than browser defaults. */
 .prose sup [data-footnote-ref] {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
     text-decoration: none;
     color: var(--accent);
     padding: 0 2px;
@@ -123,9 +124,9 @@ pre.astro-code {
     margin-top: 34px;
     padding-top: 22px;
     border-top: 1px solid var(--line);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    line-height: 1.7;
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    line-height: var(--lh-meta);
     color: var(--muted);
 }
 .prose .footnotes .sr-only {
@@ -181,8 +182,8 @@ pre.astro-code {
     padding: 12px 14px;
     background: var(--bg);
     border: 1px solid var(--ink);
-    font-size: 12px;
-    line-height: 1.55;
+    font-size: var(--fs-label);
+    line-height: var(--lh-snug);
     color: var(--muted);
     text-align: left;
     opacity: 0;

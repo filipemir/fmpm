@@ -145,9 +145,10 @@ const favorites = books.filter((b) => b.fav);
     }
     h1 {
         margin: 0;
-        font-size: 32px;
-        font-weight: 400;
-        letter-spacing: -0.02em;
+        font-size: var(--fs-title);
+        font-weight: var(--fw-normal);
+        line-height: var(--lh-title);
+        letter-spacing: var(--tr-title);
     }
 
     .favs-btn {
@@ -160,8 +161,8 @@ const favorites = books.filter((b) => b.fav);
         display: flex;
         align-items: baseline;
         gap: 7px;
-        font-size: 12px;
-        letter-spacing: 0.04em;
+        font-size: var(--fs-label);
+        letter-spacing: var(--tr-nav);
         color: var(--faint);
         transition: color 120ms ease;
     }
@@ -169,7 +170,7 @@ const favorites = books.filter((b) => b.fav);
         color: var(--accent);
     }
     .favs-btn .star {
-        font-size: 11px;
+        font-size: var(--fs-micro);
     }
     .favs-btn .favs-label {
         border-bottom: 1px solid var(--rule);
@@ -203,9 +204,9 @@ const favorites = books.filter((b) => b.fav);
     }
     .year-head h2 {
         margin: 0;
-        font-size: 12px;
-        font-weight: 500;
-        letter-spacing: 0.1em;
+        font-size: var(--fs-label);
+        font-weight: var(--fw-medium);
+        letter-spacing: var(--tr-label);
         color: var(--faint);
     }
     .year-head .rule {
@@ -230,12 +231,12 @@ const favorites = books.filter((b) => b.fav);
         row-gap: 4px;
     }
     .book-title {
-        font-size: 18px;
-        line-height: 1.45;
+        font-size: var(--fs-body);
+        line-height: var(--lh-tight);
         text-wrap: pretty;
     }
     .star-suffix {
-        font-size: 20px;
+        font-size: var(--fs-mark);
         color: var(--faint);
         vertical-align: 2px;
     }
@@ -246,22 +247,22 @@ const favorites = books.filter((b) => b.fav);
         border-radius: 999px;
         background: var(--code-bg);
         color: var(--faint);
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 10px;
-        font-weight: 500;
-        letter-spacing: 0.05em;
+        font-family: var(--font-mono);
+        font-size: var(--fs-nano);
+        font-weight: var(--fw-medium);
+        letter-spacing: var(--tr-label);
         text-transform: uppercase;
         vertical-align: 2px;
     }
     .book-when {
-        font-size: 12px;
+        font-size: var(--fs-label);
         color: var(--faint);
         white-space: nowrap;
     }
     .book-meta {
         grid-column: 1 / -1;
-        font-size: 16px;
-        line-height: 1.5;
+        font-size: var(--fs-small);
+        line-height: var(--lh-snug);
         color: var(--muted);
         text-wrap: pretty;
     }
@@ -272,8 +273,8 @@ const favorites = books.filter((b) => b.fav);
 
     .legend {
         margin: 8px 0 0;
-        font-size: 11px;
-        line-height: 1.7;
+        font-size: var(--fs-micro);
+        line-height: var(--lh-meta);
         color: var(--faint);
     }
 </style>

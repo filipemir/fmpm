@@ -32,6 +32,60 @@ html[data-theme='dark'] {
     --scrim: rgba(20, 18, 16, 0.92);
 }
 
+/* Type scale. The whole scale lives here: nothing outside this file may set
+   a raw font-family, font-size, line-height, letter-spacing or font-weight —
+   scripts/check-type.mjs fails the build if it does, and also fails on a
+   var() that doesn't resolve to something defined here. */
+:root {
+    /* Families. Georgia is the closest widely-installed serif to Spectral;
+       bare `monospace` lands on Courier New on many systems, which shares
+       nothing with Plex, so the real UI monos are named ahead of it. */
+    --font-serif: Spectral, Georgia, serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo,
+        Consolas, monospace;
+
+    /* Size. Two families at one px value don't read the same size — the mono
+       is optically larger — so mono-only roles get their own steps. */
+    --fs-title: 32px;
+    --fs-title-mono: 27px;
+    --fs-lead: 19px;
+    --fs-body: 18px;
+    --fs-small: 16px;
+    --fs-code: 13px;
+    --fs-label: 12px;
+    --fs-micro: 11px;
+    --fs-nano: 10px;
+
+    /* Decorative glyphs (☾ ≈ ★ *), sized against their neighbours by eye.
+       Not text — kept out of the scale so tuning the scale can't move them. */
+    --fs-icon: 18px;
+    --fs-mark: 20px;
+    --fs-mark-sm: 13px;
+
+    /* Leading */
+    --lh-flat: 1;
+    --lh-title: 1.22;
+    --lh-tight: 1.45;
+    --lh-snug: 1.55;
+    --lh-body: 1.62;
+    --lh-meta: 1.7;
+
+    /* Tracking. Uppercase needs --tr-label; mixed-case mono needs far less. */
+    --tr-title: -0.02em;
+    --tr-nav: 0.04em;
+    --tr-label: 0.08em;
+
+    /* Weight */
+    --fw-normal: 400;
+    --fw-medium: 500;
+    --fw-bold: 600;
+
+    /* The ASCII band's leading and tracking set the art's grid density, not
+       text rhythm. Separate tokens so the two can't drift into each other. */
+    --band-lh: 1.25;
+    --band-tr: 0.09em;
+}
+
 html,
 body {
     margin: 0;
@@ -51,9 +105,29 @@ body {
     min-height: 100vh;
     background: var(--bg);
     color: var(--ink);
-    font-family: Spectral, Georgia, serif;
-    font-weight: 300;
-    -webkit-font-smoothing: antialiased;
+    font-family: var(--font-serif);
+    /* 400, not Spectral Light. Light is under-weight for sustained reading at
+       16-19px, and -webkit-font-smoothing: antialiased (previously set here)
+       thinned it again on macOS, on top of the optical thinning light-on-dark
+       already does in the dark theme. It also left the serif a step lighter
+       than the 400/500 mono it sits next to. */
+    font-weight: var(--fw-normal);
+    /* A long URL in a 584px column overflows the container otherwise. */
+    overflow-wrap: break-word;
+}
+
+/* Headings are short and nearly always wrap badly at one or two words on the
+   last line; body copy benefits from the weaker `pretty`. Both degrade to
+   normal wrapping where unsupported. */
+h1,
+h2,
+h3 {
+    text-wrap: balance;
+}
+
+p,
+li {
+    text-wrap: pretty;
 }
 
 a {
@@ -77,10 +151,14 @@ a:hover {
     text-decoration-color: var(--accent);
 }
 
+/* Both halves, not just the background: left to itself the UA picks its own
+   selection foreground (often white), which disappears on the light theme's
+   cream wash. */
 ::selection {
     background: var(--rule);
+    color: var(--ink);
 }
 
 .mono {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: var(--font-mono);
 }
