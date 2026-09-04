@@ -49,6 +49,9 @@ dist/
 .astro/
 .vercel/
 
+# Lighthouse CI report output
+.lighthouseci/
+
 # Mac files
 .DS_Store
 
