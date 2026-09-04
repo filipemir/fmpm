@@ -16,12 +16,13 @@ const pinnedNotes = (await getSortedPosts())
         <section class='bio'>
             <p>Hi! 👋</p>
             <p>
-                I'm Filipe, a staff engineer at <Popover>
+                I'm Filipe, a full-stack developer and middling climber living
+                in the beautiful state of Maine. I'm currently a staff engineer
+                at <Popover>
                     <a
                         href='https://www.atticus.com/'
                         target='_blank'
-                        rel='noopener'
-                        class='underline'>Atticus</a
+                        rel='noopener'>Atticus</a
                     ><span class='star'>*</span>
                     <Fragment slot='panel'>
                         We help Americans in crisis get the help they deserve.
@@ -33,8 +34,17 @@ const pinnedNotes = (await getSortedPosts())
                         >!
                     </Fragment>
                 </Popover> where I split my time between product work and our technical
-                foundations. I live in the beautiful state of Maine with my wife and
-                our two luminous young kids.
+                foundations. I grew up in Lisbon and now live just down the road from
+                its much smaller namesake<Popover>
+                    <span class='star'>*</span>
+                    <Fragment slot='panel'>
+                        <a
+                            href='https://en.wikipedia.org/wiki/Lisbon,_Maine'
+                            target='_blank'
+                            rel='noopener'>Lisbon, ME</a
+                        >!
+                    </Fragment>
+                </Popover> , alongside my wonderful wife and our two luminous kids.
             </p>
             <p class='muted'>
                 Say hi at <a href='mailto:filipe@fmpm.dev'>filipe@fmpm.dev</a>.
