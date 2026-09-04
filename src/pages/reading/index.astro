@@ -1,14 +1,10 @@
 ---
+import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
-import books from '@/data/books.json';
 
-type Book = {
-    title: string;
-    author: string;
-    month: number;
-    year: number;
-    fav?: boolean;
-};
+type Book = CollectionEntry<'books'>['data'];
+
+const allBooks = await getCollection('books');
 
 const MONTH_ABBR = [
     'Jan',
@@ -25,15 +21,22 @@ const MONTH_ABBR = [
     'Dec'
 ];
 
-// books.json is stored newest-first. A book is a re-read if the same
-// title+author pair already appears later in the array (i.e. earlier in
-// real reading order) — computed here instead of hand-authored per entry,
-// so it can't silently drift out of date the way a manual flag did.
+// Each book is its own content-collection entry now, so there's no file
+// order to rely on — sort newest-first ourselves before anything below
+// depends on that order.
+const books: Book[] = allBooks
+    .map((entry) => entry.data)
+    .sort((a, b) => b.year * 12 + b.month - (a.year * 12 + a.month));
+
+// A book is a re-read if the same title+author pair already appears later
+// in the array (i.e. earlier in real reading order) — computed here
+// instead of hand-authored per entry, so it can't silently drift out of
+// date the way a manual flag did.
 const rereads = new WeakSet<Book>();
 {
     const seen = new Set<string>();
-    for (let i = (books as Book[]).length - 1; i >= 0; i--) {
-        const b = (books as Book[])[i];
+    for (let i = books.length - 1; i >= 0; i--) {
+        const b = books[i];
         const key = `${b.title}|${b.author}`;
         if (seen.has(key)) {
             rereads.add(b);
@@ -44,7 +47,7 @@ const rereads = new WeakSet<Book>();
 }
 
 const byYear: { year: number; books: Book[] }[] = [];
-for (const b of books as Book[]) {
+for (const b of books) {
     let g = byYear[byYear.length - 1];
     if (!g || g.year !== b.year) {
         g = { year: b.year, books: [] };
@@ -52,7 +55,7 @@ for (const b of books as Book[]) {
     }
     g.books.push(b);
 }
-const favorites = (books as Book[]).filter((b) => b.fav);
+const favorites = books.filter((b) => b.fav);
 ---
 
 <Layout title='Books — Filipe Miranda' active='reading'>
