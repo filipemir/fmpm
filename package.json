@@ -16,7 +16,8 @@
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "check:budget": "astro build && node scripts/check-budget.mjs",
-        "check": "astro check && npm run lint && npm run format:check",
+        "check:type": "node scripts/check-type.mjs",
+        "check": "astro check && npm run lint && npm run format:check && npm run check:type",
         "prepare": "is-ci || husky"
     },
     "repository": {
