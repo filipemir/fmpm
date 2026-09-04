@@ -3,6 +3,11 @@ interface Props {
     active?: 'writing' | 'reading' | 'now' | null;
 }
 const { active = null } = Astro.props;
+
+// Static stand-in for the JS-driven ASCII band, shown only when JS is
+// disabled (see the <noscript> below and the .band:empty rule that hides
+// the now-permanently-empty JS-driven span in that case).
+const staticBand = '.   '.repeat(20).trimEnd();
 ---
 
 <header
@@ -37,6 +42,9 @@ const { active = null } = Astro.props;
     <a href='/' title='Home' class='home-link'>
         <span class='mono wordmark'>@fmpm</span>
         <span class='mono band' data-band aria-hidden='true'></span>
+        <noscript>
+            <span class='mono band' aria-hidden='true'>{staticBand}</span>
+        </noscript>
     </a>
     <nav class='nav mono' data-nav>
         <a
@@ -96,6 +104,11 @@ const { active = null } = Astro.props;
         white-space: pre;
         color: inherit;
         display: block;
+    }
+    /* JS never populates [data-band] when JS is disabled — collapse it so
+       only the <noscript> fallback line shows, not an empty gap plus it. */
+    .band:empty {
+        display: none;
     }
 
     .nav {
