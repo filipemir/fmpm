@@ -1,7 +1,7 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { getListedPosts } from '../../lib/posts';
-import { formatMonthYear } from '../../lib/format';
+import Layout from '@/layouts/Layout.astro';
+import { getListedPosts } from '@/lib/posts';
+import { formatMonthYear } from '@/lib/format';
 
 const posts = await getListedPosts();
 ---
