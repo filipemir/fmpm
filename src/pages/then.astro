@@ -4,14 +4,13 @@ import Layout from '../layouts/Layout.astro';
 import NowEntry from '../components/NowEntry.astro';
 import { formatFullMonthYear } from '../lib/format';
 
-// The current entry lives on /now — this page is the archive of past ones.
 const entries = (await getCollection('now')).sort(
     (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 const pastEntries = entries.slice(1);
 ---
 
-<Layout title='THEN() — Filipe Miranda' active='now'>
+<Layout title='THEN() — Filipe Miranda'>
     <main class='archive'>
         <div class='head'>
             <h1 class='mono'>THEN()</h1>

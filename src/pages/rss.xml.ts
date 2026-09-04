@@ -3,8 +3,6 @@ import type { APIContext } from 'astro';
 import { getListedPosts } from '@/lib/posts';
 
 export async function GET(context: APIContext) {
-    // Same set as the /writing listing (draft- and cutoff-filtered) — an RSS
-    // feed announcing posts the site itself doesn't list would be odd.
     const posts = await getListedPosts();
     return rss({
         title: 'Filipe Miranda',

@@ -21,17 +21,10 @@ const MONTH_ABBR = [
     'Dec'
 ];
 
-// Each book is its own content-collection entry now, so there's no file
-// order to rely on — sort newest-first ourselves before anything below
-// depends on that order.
 const books: Book[] = allBooks
     .map((entry) => entry.data)
     .sort((a, b) => b.year * 12 + b.month - (a.year * 12 + a.month));
 
-// A book is a re-read if the same title+author pair already appears later
-// in the array (i.e. earlier in real reading order) — computed here
-// instead of hand-authored per entry, so it can't silently drift out of
-// date the way a manual flag did.
 const rereads = new WeakSet<Book>();
 {
     const seen = new Set<string>();
@@ -58,7 +51,7 @@ for (const b of books) {
 const favorites = books.filter((b) => b.fav);
 ---
 
-<Layout title='Books — Filipe Miranda' active='reading'>
+<Layout title='Books read — Filipe Miranda' active='reading'>
     <main class='reading'>
         <div class='head'>
             <h1>Books</h1>

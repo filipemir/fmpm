@@ -4,10 +4,6 @@ import PostLayout from '@/layouts/PostLayout.astro';
 import { getAllPosts } from '@/lib/posts';
 
 export async function getStaticPaths() {
-    // Drafts included on purpose: a draft's page still builds and its URL
-    // stays reachable directly, it just doesn't appear in any listing (see
-    // getSortedPosts/getListedPosts, used everywhere posts are surfaced as
-    // a list) or the sitemap (filtered in astro.config.mjs).
     const posts = await getAllPosts();
     return posts.map((post) => ({
         params: { slug: post.id },
