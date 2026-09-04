@@ -1,6 +1,12 @@
 ---
+import { Image } from 'astro:assets';
+// Imported explicitly rather than leaning on the ambient global: eslint's
+// no-undef can't see Astro's ambient types, only tsc can.
+import type { ImageMetadata } from 'astro';
+
 interface Props {
-    src: string;
+    /** Imported from src/assets/, so Astro can measure and optimize it. */
+    src: ImageMetadata;
     alt: string;
     caption?: string;
 }
@@ -8,7 +14,18 @@ const { src, alt, caption } = Astro.props;
 ---
 
 <figure class='figure'>
-    <img src={src} alt={alt} loading='lazy' />
+    {
+        /* Viewport-relative, not fixed: the figure fills the prose column, which
+        is 584px on desktop and the full viewport below 640px. Hence
+        widths/sizes rather than densities. */
+    }
+    <Image
+        src={src}
+        alt={alt}
+        widths={[584, 1168]}
+        sizes='(max-width: 640px) 100vw, 584px'
+        loading='lazy'
+    />
     {caption && <figcaption class='mono'>{caption}</figcaption>}
 </figure>
 
