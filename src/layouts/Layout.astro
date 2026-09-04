@@ -22,6 +22,25 @@ const {
     <head>
         <meta charset='utf-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <script is:inline>
+            (function () {
+                const KEY = 'fm-site-theme';
+                let saved = null;
+                try {
+                    saved = localStorage.getItem(KEY);
+                } catch {
+                    /* private mode / storage disabled */
+                }
+                const prefersDark =
+                    window.matchMedia &&
+                    window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme =
+                    saved === 'dark' || (saved === null && prefersDark)
+                        ? 'dark'
+                        : 'light';
+                document.documentElement.setAttribute('data-theme', theme);
+            })();
+        </script>
         <title>{title}</title>
         <meta name='description' content={description} />
         <link rel='canonical' href={new URL(Astro.url.pathname, Astro.site)} />

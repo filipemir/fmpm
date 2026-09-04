@@ -54,8 +54,11 @@ function resolveTheme() {
 }
 
 function initTheme() {
-    // Not persisted: a page load with no saved choice should keep following
-    // the system preference, not silently lock in whatever it said today.
+    // data-theme is already set on <html> by the is:inline script in
+    // Layout.astro's <head> — that runs before paint, so there's no flash.
+    // This call is idempotent for the attribute itself; what it actually
+    // does here is sync the toggle button's icon/label to match, since the
+    // button doesn't exist yet when the inline script runs.
     applyTheme(resolveTheme(), false);
 
     const btn = document.querySelector('[data-theme-toggle]');
