@@ -176,10 +176,9 @@ pre.astro-code {
     left: 50%;
     bottom: calc(100% + var(--space-10));
     z-index: 30;
-    width: 280px;
-    /* Half of the width above, negated, to center the panel under its
-       trigger — tied to that value, not a step on the spacing scale. */
-    margin-left: -140px; /* allow-hardcoded-spacing: half of width: 280px, must stay exact */
+    width: max-content;
+    min-width: 140px;
+    max-width: 280px;
     padding: var(--space-12) var(--space-14);
     background: var(--bg);
     border: 1px solid var(--ink);
@@ -188,7 +187,7 @@ pre.astro-code {
     color: var(--muted);
     text-align: left;
     opacity: 0;
-    transform: translateY(4px);
+    transform: translateX(-50%) translateY(4px);
     pointer-events: none;
     transition:
         opacity 160ms ease,
@@ -196,6 +195,6 @@ pre.astro-code {
 }
 .prose .fn-popover:hover .fn-panel {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
     pointer-events: auto;
 }
