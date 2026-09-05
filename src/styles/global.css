@@ -13,6 +13,44 @@
     --syn-num: #6d6a52;
     --code-bg: rgba(38, 34, 29, 0.035);
     --scrim: rgba(38, 34, 29, 0.86);
+
+    /* Spacing scale — every existing margin/padding/gap/position value across
+       the site snapped to the nearest step here. A handful shifted by 2-4px
+       in the process; none of it is perceptible at these sizes. */
+    --space-2: 2px;
+    --space-4: 4px;
+    --space-6: 6px;
+    --space-8: 8px;
+    --space-10: 10px;
+    --space-12: 12px;
+    --space-14: 14px;
+    --space-16: 16px;
+    --space-20: 20px;
+    --space-24: 24px;
+    --space-28: 28px;
+    --space-32: 32px;
+    --space-40: 40px;
+    --space-48: 48px;
+    --space-56: 56px;
+    --space-64: 64px;
+    --space-88: 88px;
+    --space-144: 144px;
+
+    /* Font-size scale, same rounding approach. */
+    --font-10: 10px;
+    --font-11: 11px;
+    --font-12: 12px;
+    --font-13: 13px;
+    --font-16: 16px;
+    --font-18: 18px;
+    --font-20: 20px;
+    --font-28: 28px;
+    --font-32: 32px;
+
+    /* Only two radii exist site-wide, both semantic rather than a
+       progression — named accordingly instead of by magnitude. */
+    --radius-sm: 3px;
+    --radius-full: 999px;
 }
 
 html[data-theme='dark'] {
