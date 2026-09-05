@@ -97,22 +97,28 @@ for (const file of cssFiles) {
     );
 }
 
-// 2. Hardcoded spacing/size (px/rem/em), minus 0, 100%, 1px, 50%, unitless
-// line-heights. Non-fatal: no --space-* token system exists yet (tracked as
-// a separate, deferred effort), so this only warns for now.
+// 2. Hardcoded spacing/size (px/rem/em) on a token-scale property, minus 0
+// and 1px (border widths aren't tokenized). Scoped to the properties the
+// --space-*/--font-*/--radius-* scales in global.css actually cover —
+// margin/padding/gap/position offsets, font-size, border-radius — so
+// unrelated properties (letter-spacing, width, transform, vertical-align,
+// border widths) don't need an escape-hatch comment just to exist.
 const spacingRe = /\b\d+(\.\d+)?(px|rem|em)\b/g;
+const spacingPropertyRe =
+    /^\s*(margin(-(top|right|bottom|left))?|padding(-(top|right|bottom|left))?|gap|row-gap|column-gap|top|right|bottom|left|font-size|border-radius)\s*:/;
 function checkSpacing(file, lines) {
     for (const { line, num } of lines) {
+        if (!spacingPropertyRe.test(line)) continue;
         const matches = line.match(spacingRe);
         if (!matches) continue;
         const real = matches.filter((m) => m !== '0px' && m !== '1px');
         if (real.length > 0 && !allowed(line, 'hardcoded-spacing')) {
-            warnings.push({
+            violations.push({
                 id: 'hardcoded-spacing',
                 file: rel(file),
                 line: num,
                 message:
-                    'Hardcoded spacing — no --space-* token system exists yet (deferred, see CLAUDE.md follow-ups).'
+                    'Hardcoded spacing — use a var(--space-*/--font-*/--radius-*) token from global.css.'
             });
         }
     }
