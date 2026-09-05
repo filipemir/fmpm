@@ -24,22 +24,22 @@
 
 pre.astro-code {
     margin: 0;
-    padding: 18px 20px;
+    padding: var(--space-20) var(--space-20);
     overflow-x: auto;
     background: var(--code-bg) !important;
     border: 1px solid var(--line);
-    border-radius: 3px;
+    border-radius: var(--radius-sm);
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 13px;
+    font-size: var(--font-13);
     line-height: 1.65;
 }
 
 .prose {
-    font-size: 19px;
+    font-size: var(--font-20);
     line-height: 1.66;
 }
 .prose > * {
-    margin: 22px 0 0;
+    margin: var(--space-24) 0 0;
 }
 .prose > *:first-child {
     margin-top: 0;
@@ -52,24 +52,24 @@ pre.astro-code {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
-    margin-top: 34px;
+    margin-top: var(--space-32);
 }
 .prose h2 {
-    font-size: 12px;
+    font-size: var(--font-12);
 }
 .prose h3 {
-    font-size: 11px;
+    font-size: var(--font-11);
 }
 .prose ul,
 .prose ol {
-    padding-left: 1.3em;
+    padding-left: 1.3em; /* allow-hardcoded-spacing: relative indent, matches inherited font size */
 }
 .prose li + li {
-    margin-top: 6px;
+    margin-top: var(--space-6);
 }
 .prose blockquote {
-    margin: 22px 0 0;
-    padding-left: 20px;
+    margin: var(--space-24) 0 0;
+    padding-left: var(--space-20);
     border-left: 2px solid var(--rule);
     color: var(--muted);
     font-style: italic;
@@ -79,9 +79,9 @@ pre.astro-code {
 }
 .prose code {
     background: var(--code-bg);
-    padding: 2px 5px;
-    border-radius: 3px;
-    font-size: 0.85em;
+    padding: var(--space-2) var(--space-6);
+    border-radius: var(--radius-sm);
+    font-size: 0.85em; /* allow-hardcoded-spacing: relative to surrounding prose text size */
     font-family: 'IBM Plex Mono', monospace;
 }
 .prose pre code {
@@ -97,7 +97,7 @@ pre.astro-code {
 }
 .prose figcaption {
     text-align: center;
-    font-size: 0.75em;
+    font-size: 0.75em; /* allow-hardcoded-spacing: relative to surrounding prose text size */
     font-style: italic;
     color: var(--faint);
 }
@@ -114,17 +114,17 @@ pre.astro-code {
    styling to match the site rather than browser defaults. */
 .prose sup [data-footnote-ref] {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
+    font-size: var(--font-12);
     text-decoration: none;
     color: var(--accent);
-    padding: 0 2px;
+    padding: 0 var(--space-2);
 }
 .prose .footnotes {
-    margin-top: 34px;
-    padding-top: 22px;
+    margin-top: var(--space-32);
+    padding-top: var(--space-24);
     border-top: 1px solid var(--line);
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
+    font-size: var(--font-12);
     line-height: 1.7;
     color: var(--muted);
 }
@@ -141,10 +141,10 @@ pre.astro-code {
 }
 .prose .footnotes ol {
     margin: 0;
-    padding-left: 1.3em;
+    padding-left: 1.3em; /* allow-hardcoded-spacing: relative indent, matches inherited font size */
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: var(--space-8);
 }
 .prose .footnotes li p {
     display: inline;
@@ -153,7 +153,7 @@ pre.astro-code {
 .prose .footnotes [data-footnote-backref] {
     text-decoration: none;
     color: var(--accent);
-    margin-left: 4px;
+    margin-left: var(--space-4);
 }
 
 /* Hover popover wrapper footnotes.js builds around each reference, cloning
@@ -166,22 +166,24 @@ pre.astro-code {
 }
 .prose .fn-bridge {
     position: absolute;
-    left: -80px;
-    right: -80px;
+    left: calc(var(--space-88) * -1);
+    right: calc(var(--space-88) * -1);
     bottom: 100%;
     height: 12px;
 }
 .prose .fn-panel {
     position: absolute;
     left: 50%;
-    bottom: calc(100% + 10px);
+    bottom: calc(100% + var(--space-10));
     z-index: 30;
     width: 280px;
-    margin-left: -140px;
-    padding: 12px 14px;
+    /* Half of the width above, negated, to center the panel under its
+       trigger — tied to that value, not a step on the spacing scale. */
+    margin-left: -140px; /* allow-hardcoded-spacing: half of width: 280px, must stay exact */
+    padding: var(--space-12) var(--space-14);
     background: var(--bg);
     border: 1px solid var(--ink);
-    font-size: 12px;
+    font-size: var(--font-12);
     line-height: 1.55;
     color: var(--muted);
     text-align: left;

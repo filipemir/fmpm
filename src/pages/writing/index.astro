@@ -44,22 +44,22 @@ const posts = await getListedPosts();
     .writing {
         display: flex;
         flex-direction: column;
-        gap: 34px;
+        gap: var(--space-32);
     }
     .head {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: var(--space-12);
     }
     h1 {
         margin: 0;
-        font-size: 32px;
+        font-size: var(--font-32);
         font-weight: 400;
         letter-spacing: -0.02em;
     }
     .intro {
         margin: 0;
-        font-size: 18px;
+        font-size: var(--font-18);
         line-height: 1.6;
         color: var(--muted);
     }
@@ -69,20 +69,20 @@ const posts = await getListedPosts();
         list-style: none;
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: var(--space-32);
     }
     .post-row {
         display: flex;
         flex-direction: column;
-        gap: 6px;
+        gap: var(--space-6);
     }
     .post-head {
         display: flex;
         align-items: baseline;
-        gap: 14px;
+        gap: var(--space-14);
     }
     .post-title {
-        font-size: 19px;
+        font-size: var(--font-20);
         text-decoration: none;
         border-bottom: 1px solid var(--rule);
     }
@@ -91,19 +91,19 @@ const posts = await getListedPosts();
         border-bottom-color: var(--accent);
     }
     .post-date {
-        font-size: 11px;
+        font-size: var(--font-11);
         color: var(--faint);
         white-space: nowrap;
     }
     .post-blurb {
-        font-size: 16px;
+        font-size: var(--font-16);
         line-height: 1.58;
         color: var(--muted);
         max-width: 33em;
     }
     .tk {
         margin: 0;
-        font-size: 16px;
+        font-size: var(--font-16);
         color: var(--faint);
     }
 </style>

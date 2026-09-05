@@ -73,14 +73,14 @@ const staticBand = '.   '.repeat(20).trimEnd();
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 14px;
+        gap: var(--space-14);
     }
 
     .home-link {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 14px;
+        gap: var(--space-14);
         width: 100%;
         text-decoration: none;
         color: var(--muted);
@@ -90,7 +90,7 @@ const staticBand = '.   '.repeat(20).trimEnd();
     }
 
     .wordmark {
-        font-size: 11px;
+        font-size: var(--font-11);
         letter-spacing: 0.1em;
         color: inherit;
     }
@@ -98,7 +98,7 @@ const staticBand = '.   '.repeat(20).trimEnd();
     .band {
         width: 100%;
         overflow: hidden;
-        font-size: 10px;
+        font-size: var(--font-10);
         line-height: 1.25;
         letter-spacing: 0.09em;
         white-space: pre;
@@ -115,12 +115,12 @@ const staticBand = '.   '.repeat(20).trimEnd();
         position: relative;
         display: flex;
         flex-wrap: wrap;
-        gap: 20px;
+        gap: var(--space-20);
         align-items: baseline;
         justify-content: center;
-        margin-top: 12px;
-        padding-bottom: 14px;
-        font-size: 12px;
+        margin-top: var(--space-12);
+        padding-bottom: var(--space-14);
+        font-size: var(--font-12);
         letter-spacing: 0.04em;
         text-transform: uppercase;
     }
@@ -138,12 +138,12 @@ const staticBand = '.   '.repeat(20).trimEnd();
 
     .corner {
         position: fixed;
-        top: 22px;
-        right: 26px;
+        top: var(--space-24);
+        right: var(--space-28);
         z-index: 50;
         display: flex;
         align-items: center;
-        gap: 14px;
+        gap: var(--space-14);
     }
 
     .corner-btn {
@@ -151,10 +151,10 @@ const staticBand = '.   '.repeat(20).trimEnd();
         background: none;
         border: none;
         margin: 0;
-        padding: 4px;
+        padding: var(--space-4);
         cursor: pointer;
         font-family: 'IBM Plex Mono', monospace;
-        font-size: 18px;
+        font-size: var(--font-18);
         line-height: 1;
         color: var(--faint);
         transition: color 120ms ease;
@@ -170,13 +170,13 @@ const staticBand = '.   '.repeat(20).trimEnd();
 
     .band-menu {
         position: absolute;
-        top: calc(100% + 8px);
+        top: calc(100% + var(--space-8));
         right: 0;
         z-index: 40;
         min-width: 178px;
         display: flex;
         flex-direction: column;
-        padding: 5px 0;
+        padding: var(--space-6) 0;
         background: var(--bg);
         border: 1px solid var(--ink);
         opacity: 0;
@@ -195,13 +195,13 @@ const staticBand = '.   '.repeat(20).trimEnd();
         background: none;
         border: none;
         margin: 0;
-        padding: 6px 14px;
+        padding: var(--space-6) var(--space-14);
         cursor: pointer;
         display: flex;
         align-items: baseline;
-        gap: 8px;
+        gap: var(--space-8);
         font-family: 'IBM Plex Mono', monospace;
-        font-size: 12px;
+        font-size: var(--font-12);
         text-align: left;
         white-space: nowrap;
         transition: color 120ms ease;
@@ -218,7 +218,7 @@ const staticBand = '.   '.repeat(20).trimEnd();
         position: absolute;
         left: 0;
         bottom: -1px;
-        font-size: 13px;
+        font-size: var(--font-13);
         line-height: 1;
         color: var(--accent);
         opacity: 0;

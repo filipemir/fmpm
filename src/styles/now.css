@@ -8,46 +8,49 @@
 .now-entry {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: var(--space-32);
 }
 .now-entry.compact {
-    gap: 20px;
+    gap: var(--space-20);
 }
 .now-block {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: var(--space-10);
 }
 .now-entry.compact .now-block {
-    gap: 6px;
+    gap: var(--space-6);
 }
 .now-heading {
     margin: 0;
-    font-size: 12px;
+    font-size: var(--font-12);
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
 }
 .now-entry.compact .now-heading {
-    font-size: 11px;
+    font-size: var(--font-11);
     color: var(--faint);
 }
 .now-body {
     margin: 0;
-    font-size: 18px;
+    font-size: var(--font-18);
     line-height: 1.62;
     max-width: 33em;
 }
 .now-entry.compact .now-body {
-    font-size: 17px;
+    /* Rounds down to 16 rather than up to 18 (a genuine tie either way) so
+       compact mode keeps a visibly smaller body size instead of matching
+       the non-compact size exactly. */
+    font-size: var(--font-16);
     line-height: 1.6;
 }
 .now-body code {
     background: var(--code-bg);
-    padding: 2px 5px;
-    border-radius: 3px;
-    font-size: 0.85em;
+    padding: var(--space-2) var(--space-6);
+    border-radius: var(--radius-sm);
+    font-size: 0.85em; /* allow-hardcoded-spacing: relative to surrounding text size */
     font-family: 'IBM Plex Mono', monospace;
 }
 .now-link {
@@ -71,16 +74,18 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: var(--space-8);
 }
 .now-items li {
-    font-size: 18px;
+    font-size: var(--font-18);
     line-height: 1.5;
 }
 .now-entry.compact .now-items {
-    gap: 6px;
+    gap: var(--space-6);
 }
 .now-entry.compact .now-items li {
-    font-size: 17px;
+    /* Same down-rounding as .now-entry.compact .now-body above: keeps
+       compact mode visibly smaller than non-compact instead of matching it. */
+    font-size: var(--font-16);
     line-height: 1.5;
 }

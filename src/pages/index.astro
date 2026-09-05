@@ -112,13 +112,13 @@ const pinnedNotes = (await getSortedPosts())
     .home {
         display: flex;
         flex-direction: column;
-        gap: 64px;
+        gap: var(--space-64);
     }
     .bio {
         display: flex;
         flex-direction: column;
-        gap: 18px;
-        font-size: 19px;
+        gap: var(--space-20);
+        font-size: var(--font-20);
         line-height: 1.62;
         max-width: 34em;
     }
@@ -139,11 +139,11 @@ const pinnedNotes = (await getSortedPosts())
     .list-section {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: var(--space-20);
     }
     .label {
         margin: 0;
-        font-size: 12px;
+        font-size: var(--font-12);
         font-weight: 500;
         letter-spacing: 0.08em;
         text-transform: uppercase;
@@ -156,10 +156,10 @@ const pinnedNotes = (await getSortedPosts())
         list-style: none;
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: var(--space-12);
     }
     .note-title {
-        font-size: 18px;
+        font-size: var(--font-18);
         text-decoration: none;
         width: fit-content;
         border-bottom: 1px solid var(--rule);
@@ -175,20 +175,20 @@ const pinnedNotes = (await getSortedPosts())
         list-style: none;
         display: flex;
         flex-direction: column;
-        gap: 26px;
+        gap: var(--space-28);
     }
     .post-row {
         display: flex;
         flex-direction: column;
-        gap: 6px;
+        gap: var(--space-6);
     }
     .post-head {
         display: flex;
         align-items: baseline;
-        gap: 14px;
+        gap: var(--space-14);
     }
     .post-title {
-        font-size: 18px;
+        font-size: var(--font-18);
         line-height: 1.4;
         text-decoration: none;
         border-bottom: 1px solid var(--rule);
@@ -198,19 +198,19 @@ const pinnedNotes = (await getSortedPosts())
         border-bottom-color: var(--accent);
     }
     .post-date {
-        font-size: 11px;
+        font-size: var(--font-11);
         color: var(--faint);
         white-space: nowrap;
     }
     .post-blurb {
-        font-size: 16px;
+        font-size: var(--font-16);
         line-height: 1.58;
         color: var(--muted);
         max-width: 33em;
     }
 
     .all-posts {
-        font-size: 12px;
+        font-size: var(--font-12);
         letter-spacing: 0.04em;
         text-decoration: none;
         color: var(--accent);
@@ -219,7 +219,7 @@ const pinnedNotes = (await getSortedPosts())
 
     .tk {
         margin: 0;
-        font-size: 16px;
+        font-size: var(--font-16);
         color: var(--faint);
     }
 </style>
