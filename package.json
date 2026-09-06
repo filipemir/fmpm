@@ -16,8 +16,9 @@
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "check:budget": "astro build && node scripts/check-budget.mjs",
+        "check:conventions": "tsx scripts/check-conventions.ts",
         "check": "astro check && npm run lint && npm run format:check",
-        "verify": "astro check && npm run lint && npm run format:check && node scripts/check-conventions.mjs && npm run check:budget",
+        "verify": "astro check && npm run lint && npm run format:check && npm run check:conventions && npm run check:budget",
         "verify:perf": "lhci autorun && linkinator dist --recurse --silent",
         "prepare": "is-ci || husky"
     },
@@ -59,6 +60,7 @@
         "lint-staged": "^17.4.1",
         "prettier": "^3.4.2",
         "prettier-plugin-astro": "^0.14.1",
+        "tsx": "^4.23.13",
         "typescript-eslint": "^8.69.0"
     }
 }
