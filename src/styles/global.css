@@ -1,0 +1,124 @@
+:root {
+    --bg: #f4f0e8;
+    --ink: #26221d;
+    --muted: #5c554b;
+    --faint: #938b7d;
+    --line: #ded7c9;
+    --rule: rgba(38, 34, 29, 0.26);
+    --accent: #c8552b;
+    --syn-kw: #8a5a2b;
+    --syn-str: #5d6f4a;
+    --syn-com: #a49a89;
+    --syn-fn: #7a5470;
+    --syn-num: #6d6a52;
+    --code-bg: rgba(38, 34, 29, 0.035);
+    --scrim: rgba(38, 34, 29, 0.86);
+
+    /* Spacing scale — every existing margin/padding/gap/position value across
+       the site snapped to the nearest step here. A handful shifted by 2-4px
+       in the process; none of it is perceptible at these sizes. */
+    --space-2: 2px;
+    --space-4: 4px;
+    --space-6: 6px;
+    --space-8: 8px;
+    --space-10: 10px;
+    --space-12: 12px;
+    --space-14: 14px;
+    --space-16: 16px;
+    --space-20: 20px;
+    --space-24: 24px;
+    --space-28: 28px;
+    --space-32: 32px;
+    --space-40: 40px;
+    --space-48: 48px;
+    --space-56: 56px;
+    --space-64: 64px;
+    --space-88: 88px;
+    --space-144: 144px;
+
+    /* Font-size scale, same rounding approach. */
+    --font-10: 10px;
+    --font-11: 11px;
+    --font-12: 12px;
+    --font-13: 13px;
+    --font-16: 16px;
+    --font-18: 18px;
+    --font-20: 20px;
+    --font-28: 28px;
+    --font-32: 32px;
+
+    /* Only two radii exist site-wide, both semantic rather than a
+       progression — named accordingly instead of by magnitude. */
+    --radius-sm: 3px;
+    --radius-full: 999px;
+}
+
+html[data-theme='dark'] {
+    --bg: #262320;
+    --ink: #e9e3d7;
+    --muted: #a8a094;
+    --faint: #7d766b;
+    --line: #3b372f;
+    --rule: rgba(233, 227, 215, 0.24);
+    --accent: #d97b4a;
+    --syn-kw: #d3a06a;
+    --syn-str: #a3b884;
+    --syn-com: #7d766b;
+    --syn-fn: #c49ac0;
+    --syn-num: #bcb695;
+    --code-bg: rgba(0, 0, 0, 0.22);
+    --scrim: rgba(20, 18, 16, 0.92);
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+}
+
+html {
+    transition: background-color 180ms ease;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Spectral, Georgia, serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--ink);
+    text-decoration-color: var(--rule);
+    text-underline-offset: 3px;
+    transition: color 120ms ease;
+}
+
+/* Explicit, rather than left to the browser default (traditionally purple,
+   but themeable) — visited posts/notes/links should look identical to
+   unvisited ones, only :hover gets the accent color. Ordered before :hover
+   (the classic LVHA order) so hovering a visited link still goes accent. */
+a:visited {
+    color: var(--ink);
+    text-decoration-color: var(--rule);
+}
+
+a:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+}
+
+::selection {
+    background: var(--rule);
+}
+
+.mono {
+    font-family: 'IBM Plex Mono', monospace;
+}

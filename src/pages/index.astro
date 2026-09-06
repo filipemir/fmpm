@@ -1,0 +1,219 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Popover from '../components/Popover.astro';
+import { getListedPosts, getSortedPosts } from '../lib/posts';
+import { formatMonthYear } from '../lib/format';
+
+const posts = await getListedPosts();
+const recentPosts = posts.slice(0, 5);
+const pinnedNotes = (await getSortedPosts())
+    .filter((p) => p.data.pinned)
+    .slice(0, 3);
+---
+
+<Layout title='Filipe Miranda'>
+    <main class='home'>
+        <section class='bio'>
+            <p>Hi! 👋</p>
+            <p>
+                I'm Filipe. I'm currently a staff engineer at <Popover>
+                    <a
+                        href='https://www.atticus.com/'
+                        target='_blank'
+                        rel='noopener'>Atticus</a
+                    ><span class='star'>*</span>
+                    <Fragment slot='panel'>
+                        We help Americans in crisis get the help they deserve.
+                        If that sounds like a worthwhile way to spend your time,
+                        come <a
+                            href='https://atticus.com/careers'
+                            target='_blank'
+                            rel='noopener'>join us</a
+                        >!
+                    </Fragment>
+                </Popover>, where I split my time between product work and our
+                technical foundations.
+            </p><p>
+                I grew up in Lisbon and now live just down the road from its
+                much smaller namesake in the beautiful state of Maine, alongside
+                my wonderful wife and our two radiant kids. On my off hours, I'm
+                a middling climber who occasionally writes takes on software
+                development.
+            </p>
+            <p class='muted'>
+                Say hi at <a href='mailto:filipe@fmpm.dev'>filipe@fmpm.dev</a>.
+            </p>
+        </section>
+
+        {
+            pinnedNotes.length > 0 && (
+                <section class='list-section'>
+                    <h2 class='mono label'>Notes</h2>
+                    <ul class='notes'>
+                        {pinnedNotes.map((post) => (
+                            <li>
+                                <a
+                                    href={`/writing/${post.id}`}
+                                    class='note-title'
+                                >
+                                    {post.data.title}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+            )
+        }
+
+        <section class='list-section'>
+            <h2 class='mono label'>Posts</h2>
+            {
+                recentPosts.length > 0 ? (
+                    <>
+                        <ul class='posts'>
+                            {recentPosts.map((post) => (
+                                <li class='post-row'>
+                                    <div class='post-head'>
+                                        <a
+                                            href={`/writing/${post.id}`}
+                                            class='post-title'
+                                        >
+                                            {post.data.title}
+                                        </a>
+                                        <span class='mono post-date'>
+                                            {formatMonthYear(post.data.date)}
+                                        </span>
+                                    </div>
+                                    <span class='post-blurb'>
+                                        {post.data.blurb}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+                        <a href='/writing' class='mono all-posts'>
+                            All posts →
+                        </a>
+                    </>
+                ) : (
+                    <p class='tk'>TK — first post coming soon.</p>
+                )
+            }
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .home {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-64);
+    }
+    .bio {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-20);
+        font-size: var(--font-20);
+        line-height: 1.62;
+        max-width: 34em;
+    }
+    .bio p {
+        margin: 0;
+    }
+    .bio .muted {
+        color: var(--muted);
+    }
+    .bio .underline {
+        text-decoration: underline;
+    }
+    .bio .star {
+        color: var(--accent);
+        cursor: help;
+    }
+
+    .list-section {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-20);
+    }
+    .label {
+        margin: 0;
+        font-size: var(--font-12);
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+    }
+
+    .notes {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-12);
+    }
+    .note-title {
+        font-size: var(--font-18);
+        text-decoration: none;
+        width: fit-content;
+        border-bottom: 1px solid var(--rule);
+    }
+    .note-title:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+    }
+
+    .posts {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-28);
+    }
+    .post-row {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-6);
+    }
+    .post-head {
+        display: flex;
+        align-items: baseline;
+        gap: var(--space-14);
+    }
+    .post-title {
+        font-size: var(--font-18);
+        line-height: 1.4;
+        text-decoration: none;
+        border-bottom: 1px solid var(--rule);
+    }
+    .post-title:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+    }
+    .post-date {
+        font-size: var(--font-11);
+        color: var(--faint);
+        white-space: nowrap;
+    }
+    .post-blurb {
+        font-size: var(--font-16);
+        line-height: 1.58;
+        color: var(--muted);
+        max-width: 33em;
+    }
+
+    .all-posts {
+        font-size: var(--font-12);
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        color: var(--accent);
+        width: fit-content;
+    }
+
+    .tk {
+        margin: 0;
+        font-size: var(--font-16);
+        color: var(--faint);
+    }
+</style>

@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title='Not found!'>
+    <main class='notfound'>
+        <h1>404</h1>
+        <p>Nothing here. <a href='/'>Back home</a>.</p>
+    </main>
+</Layout>
+
+<style>
+    .notfound {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-14);
+    }
+    h1 {
+        margin: 0;
+        font-size: var(--font-32);
+        font-weight: 400;
+    }
+    p {
+        margin: 0;
+        font-size: var(--font-18);
+        color: var(--muted);
+    }
+    a {
+        text-decoration: none;
+        border-bottom: 1px solid var(--rule);
+    }
+    a:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+    }
+</style>

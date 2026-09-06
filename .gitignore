@@ -44,8 +44,13 @@ node_modules/
 # dotenv environment variable files
 .env*
 
-# next files
-.next
+# astro / vercel build output
+dist/
+.astro/
+.vercel/
+
+# Lighthouse CI report output
+.lighthouseci/
 
 # Mac files
 .DS_Store

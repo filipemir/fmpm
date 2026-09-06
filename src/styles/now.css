@@ -1,0 +1,91 @@
+/* Shared visual language for NOW() entry content (src/content/now/*.mdx,
+   rendered through NowEntry.astro on both /now and /then). Not in
+   global.css: only relevant on those two pages. Not a scoped
+   NowEntry.astro <style>: this markup comes from MDX-rendered slot content,
+   which doesn't receive a component's scope attribute, so a scoped style
+   wouldn't actually match it — same reasoning as src/styles/prose.css. */
+
+.now-entry {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-32);
+}
+.now-entry.compact {
+    gap: var(--space-20);
+}
+.now-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+}
+.now-entry.compact .now-block {
+    gap: var(--space-6);
+}
+.now-heading {
+    margin: 0;
+    font-size: var(--font-12);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+.now-entry.compact .now-heading {
+    font-size: var(--font-11);
+    color: var(--faint);
+}
+.now-body {
+    margin: 0;
+    font-size: var(--font-18);
+    line-height: 1.62;
+    max-width: 33em;
+}
+.now-entry.compact .now-body {
+    /* Rounds down to 16 rather than up to 18 (a genuine tie either way) so
+       compact mode keeps a visibly smaller body size instead of matching
+       the non-compact size exactly. */
+    font-size: var(--font-16);
+    line-height: 1.6;
+}
+.now-body code {
+    background: var(--code-bg);
+    padding: var(--space-2) var(--space-6);
+    border-radius: var(--radius-sm);
+    font-size: 0.85em; /* allow-hardcoded-spacing: relative to surrounding text size */
+    font-family: 'IBM Plex Mono', monospace;
+}
+.now-link {
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+}
+.now-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+.now-note-mark {
+    color: var(--accent);
+    cursor: help;
+}
+.now-by {
+    color: var(--muted);
+}
+.now-items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+.now-items li {
+    font-size: var(--font-18);
+    line-height: 1.5;
+}
+.now-entry.compact .now-items {
+    gap: var(--space-6);
+}
+.now-entry.compact .now-items li {
+    /* Same down-rounding as .now-entry.compact .now-body above: keeps
+       compact mode visibly smaller than non-compact instead of matching it. */
+    font-size: var(--font-16);
+    line-height: 1.5;
+}

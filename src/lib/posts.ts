@@ -1,47 +1,36 @@
-import fs from 'fs';
-import { join } from 'path';
-import matter from 'gray-matter';
-import { serialize } from 'next-mdx-remote/serialize';
-import imageSize from 'rehype-probe-image-size';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const rehypePrism = require('@mapbox/rehype-prism');
+// Posts from before the site's actual relaunch are legacy samples — the
+// pages stay reachable directly, they just don't show up in any listing.
+const LISTING_CUTOFF = new Date('2026-09-01T00:00:00Z');
 
-const postsDirectory = join(process.cwd(), 'src', 'posts');
+const byDateDesc = (a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
+    b.data.date.valueOf() - a.data.date.valueOf();
 
-export function getPostSlugs() {
-    return fs
-        .readdirSync(postsDirectory)
-        .filter((slug) => /\.mdx$/.test(slug))
-        .map((slug) => slug.replace(/\.mdx$/, ''));
+// Every post, drafts included — the source for individual post routing
+// (writing/[slug].astro's getStaticPaths), so a draft's page still builds
+// and its URL stays reachable directly. Never use this for anything that
+// surfaces posts as a list (a draft must not appear there) — use
+// getSortedPosts/getListedPosts instead.
+export async function getAllPosts(): Promise<CollectionEntry<'posts'>[]> {
+    const posts = await getCollection('posts');
+    return posts.sort(byDateDesc);
 }
 
-export const getPostBySlug = async (slug: string) => {
-    const fullPath = join(postsDirectory, `${slug}.mdx`);
-    const fileContents = fs.readFileSync(fullPath, 'UTF-8');
-    const {
-        content,
-        data: { date, title }
-    } = matter(fileContents);
-    const { compiledSource } = await serialize(content, {
-        mdxOptions: {
-            rehypePlugins: [rehypePrism, [imageSize, { staticDir: 'public' }]]
-        }
-    });
+// Draft posts are excluded here — the one place every listing-style
+// consumer (the /writing index, RSS, the homepage's recent/pinned
+// sections) pulls from — per CLAUDE.md's content-collection rule that
+// drafts stay out of listings/RSS/sitemap. astro dev shows drafts here too
+// so a listing can be previewed as it'll look once a post is published.
+export async function getSortedPosts(): Promise<CollectionEntry<'posts'>[]> {
+    const posts = await getCollection(
+        'posts',
+        ({ data }) => import.meta.env.DEV || !data.draft
+    );
+    return posts.sort(byDateDesc);
+}
 
-    return {
-        slug,
-        compiledSource,
-        date: date as Date,
-        title: title as string
-    };
-};
-
-export const getAllPosts = async () => {
-    const slugs = getPostSlugs();
-    const posts = (
-        await Promise.all(slugs.map(async (slug) => await getPostBySlug(slug)))
-    ).sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
-
-    return posts;
-};
+export async function getListedPosts(): Promise<CollectionEntry<'posts'>[]> {
+    const posts = await getSortedPosts();
+    return posts.filter((p) => p.data.date >= LISTING_CUTOFF);
+}

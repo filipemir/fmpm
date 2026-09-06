@@ -1,0 +1,200 @@
+/* Long-form post body typography (rendered MDX content) + the Shiki code
+   highlighting and footnote-popover styles that go with it. Not in
+   global.css: this is post-page-only, and — more importantly — MDX-rendered
+   slot content (the whole reason these rules target plain classes/elements
+   instead of being Astro scoped styles on PostLayout.astro) doesn't receive
+   a component's scope attribute, so a scoped <style> here wouldn't actually
+   match it. Imported by PostLayout.astro only. */
+
+/* Shiki (css-variables theme, emitted by Astro as --astro-code-*) tinted to
+   the site's low-contrast token palette */
+:root {
+    --astro-code-foreground: var(--ink);
+    --astro-code-background: transparent;
+    --astro-code-token-constant: var(--syn-num);
+    --astro-code-token-string: var(--syn-str);
+    --astro-code-token-comment: var(--syn-com);
+    --astro-code-token-keyword: var(--syn-kw);
+    --astro-code-token-parameter: var(--ink);
+    --astro-code-token-function: var(--syn-fn);
+    --astro-code-token-string-expression: var(--syn-str);
+    --astro-code-token-punctuation: var(--muted);
+    --astro-code-token-link: var(--syn-str);
+}
+
+pre.astro-code {
+    margin: 0;
+    padding: var(--space-20) var(--space-20);
+    overflow-x: auto;
+    background: var(--code-bg) !important;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: var(--font-13);
+    line-height: 1.65;
+}
+
+.prose {
+    font-size: var(--font-20);
+    line-height: 1.66;
+}
+.prose > * {
+    margin: var(--space-24) 0 0;
+}
+.prose > *:first-child {
+    margin-top: 0;
+}
+.prose h2,
+.prose h3,
+.prose h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: var(--space-32);
+}
+.prose h2 {
+    font-size: var(--font-12);
+}
+.prose h3 {
+    font-size: var(--font-11);
+}
+.prose ul,
+.prose ol {
+    padding-left: 1.3em; /* allow-hardcoded-spacing: relative indent, matches inherited font size */
+}
+.prose li + li {
+    margin-top: var(--space-6);
+}
+.prose blockquote {
+    margin: var(--space-24) 0 0;
+    padding-left: var(--space-20);
+    border-left: 2px solid var(--rule);
+    color: var(--muted);
+    font-style: italic;
+}
+.prose blockquote > *:first-child {
+    margin-top: 0;
+}
+.prose code {
+    background: var(--code-bg);
+    padding: var(--space-2) var(--space-6);
+    border-radius: var(--radius-sm);
+    font-size: 0.85em; /* allow-hardcoded-spacing: relative to surrounding prose text size */
+    font-family: 'IBM Plex Mono', monospace;
+}
+.prose pre code {
+    background: none;
+    padding: 0;
+}
+.prose img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    cursor: zoom-in;
+}
+.prose figcaption {
+    text-align: center;
+    font-size: 0.75em; /* allow-hardcoded-spacing: relative to surrounding prose text size */
+    font-style: italic;
+    color: var(--faint);
+}
+.prose hr {
+    border: none;
+    border-top: 1px solid var(--line);
+}
+.prose strong {
+    font-weight: 600;
+}
+
+/* GFM footnotes ([^1] syntax), parsed by remark-gfm — real semantic markup
+   (a <sup><a> ref and a <section class="footnotes"> list), just needs
+   styling to match the site rather than browser defaults. */
+.prose sup [data-footnote-ref] {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: var(--font-12);
+    text-decoration: none;
+    color: var(--accent);
+    padding: 0 var(--space-2);
+}
+.prose .footnotes {
+    margin-top: var(--space-32);
+    padding-top: var(--space-24);
+    border-top: 1px solid var(--line);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: var(--font-12);
+    line-height: 1.7;
+    color: var(--muted);
+}
+.prose .footnotes .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+.prose .footnotes ol {
+    margin: 0;
+    padding-left: 1.3em; /* allow-hardcoded-spacing: relative indent, matches inherited font size */
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+.prose .footnotes li p {
+    display: inline;
+    margin: 0;
+}
+.prose .footnotes [data-footnote-backref] {
+    text-decoration: none;
+    color: var(--accent);
+    margin-left: var(--space-4);
+}
+
+/* Hover popover wrapper footnotes.js builds around each reference, cloning
+   its content from the .footnotes list above. Same visual language as
+   Popover.astro's (ink border, no shadow, invisible bridge over the gap so
+   :hover survives the pointer travelling from ref to panel). */
+.prose .fn-popover {
+    position: relative;
+    display: inline-block;
+}
+.prose .fn-bridge {
+    position: absolute;
+    left: calc(var(--space-88) * -1);
+    right: calc(var(--space-88) * -1);
+    bottom: 100%;
+    height: 12px;
+}
+.prose .fn-panel {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + var(--space-10));
+    z-index: 30;
+    width: max-content;
+    min-width: 140px;
+    max-width: 280px;
+    padding: var(--space-12) var(--space-14);
+    background: var(--bg);
+    border: 1px solid var(--ink);
+    font-size: var(--font-12);
+    line-height: 1.55;
+    color: var(--muted);
+    text-align: left;
+    opacity: 0;
+    transform: translateX(-50%) translateY(4px);
+    pointer-events: none;
+    transition:
+        opacity 160ms ease,
+        transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.prose .fn-popover:hover .fn-panel {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}

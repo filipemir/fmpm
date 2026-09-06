@@ -1,0 +1,241 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getBookViews } from '@/lib/books';
+
+const { byYear, favorites, rereads } = await getBookViews();
+
+const MONTH_ABBR = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
+];
+---
+
+<Layout title='Books read — Filipe Miranda' active='reading'>
+    <main class='reading'>
+        <div class='head'>
+            <h1>Books</h1>
+            <button
+                type='button'
+                data-favs-toggle
+                class='favs-btn'
+                aria-pressed='false'
+            >
+                <span class='star'>★</span>
+                <span class='favs-label' data-favs-label>Favourites only</span>
+            </button>
+        </div>
+
+        <div class='years' data-view='all'>
+            {
+                byYear.map((yr) => (
+                    <section class='year-group'>
+                        <div class='year-head'>
+                            <h2 class='mono'>{yr.year}</h2>
+                            <span class='rule' />
+                        </div>
+                        <ul class='book-list'>
+                            {yr.books.map((book) => (
+                                <li class='book-row'>
+                                    <span class='book-title'>
+                                        {book.title}
+                                        {book.fav && (
+                                            <span class='star-suffix'> ★</span>
+                                        )}
+                                        {rereads.has(book) && (
+                                            <span class='pill'>Re-read</span>
+                                        )}
+                                    </span>
+                                    <span class='mono book-when'>
+                                        {MONTH_ABBR[book.month - 1]}
+                                    </span>
+                                    <span class='book-meta'>{book.author}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </section>
+                ))
+            }
+        </div>
+
+        <ul class='book-list favs-view' data-view='favs' hidden>
+            {
+                favorites.map((book) => (
+                    <li class='book-row'>
+                        <span class='book-title'>
+                            {book.title}
+                            {rereads.has(book) && (
+                                <span class='pill'>Re-read</span>
+                            )}
+                        </span>
+                        <span class='mono book-when'>
+                            {MONTH_ABBR[book.month - 1]} {book.year}
+                        </span>
+                        <span class='book-meta'>{book.author}</span>
+                    </li>
+                ))
+            }
+        </ul>
+
+        <p class='mono legend'>★ favourite</p>
+    </main>
+
+    <script src='../../scripts/books.js'></script>
+</Layout>
+
+<style>
+    .reading {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-32);
+    }
+    .head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: var(--space-12) var(--space-20);
+    }
+    h1 {
+        margin: 0;
+        font-size: var(--font-32);
+        font-weight: 400;
+        letter-spacing: -0.02em;
+    }
+
+    .favs-btn {
+        appearance: none;
+        background: none;
+        border: none;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        display: flex;
+        align-items: baseline;
+        gap: var(--space-8);
+        font-size: var(--font-12);
+        letter-spacing: 0.04em;
+        color: var(--faint);
+        transition: color 120ms ease;
+    }
+    .favs-btn:hover {
+        color: var(--accent);
+    }
+    .favs-btn .star {
+        font-size: var(--font-11);
+    }
+    .favs-btn .favs-label {
+        border-bottom: 1px solid var(--rule);
+    }
+    .favs-btn[aria-pressed='true'] {
+        color: var(--accent);
+    }
+    .favs-btn[aria-pressed='true'] .favs-label {
+        border-bottom-color: var(--accent);
+    }
+
+    .years {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-40);
+    }
+    .years[hidden],
+    .favs-view[hidden] {
+        display: none;
+    }
+
+    .year-group {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-24);
+    }
+    .year-head {
+        display: flex;
+        align-items: center;
+        gap: var(--space-14);
+    }
+    .year-head h2 {
+        margin: 0;
+        font-size: var(--font-12);
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        color: var(--faint);
+    }
+    .year-head .rule {
+        flex: 1;
+        height: 1px;
+        background: var(--line);
+    }
+
+    .book-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-20);
+    }
+    .book-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: baseline;
+        column-gap: var(--space-20);
+        row-gap: var(--space-4);
+    }
+    .book-title {
+        font-size: var(--font-18);
+        line-height: 1.45;
+        text-wrap: pretty;
+    }
+    .star-suffix {
+        font-size: var(--font-20);
+        color: var(--faint);
+        vertical-align: 2px;
+    }
+    .pill {
+        display: inline-block;
+        margin-left: var(--space-8);
+        padding: var(--space-2) var(--space-8);
+        border-radius: var(--radius-full);
+        background: var(--code-bg);
+        color: var(--faint);
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: var(--font-10);
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        vertical-align: 2px;
+    }
+    .book-when {
+        font-size: var(--font-12);
+        color: var(--faint);
+        white-space: nowrap;
+    }
+    .book-meta {
+        grid-column: 1 / -1;
+        font-size: var(--font-16);
+        line-height: 1.5;
+        color: var(--muted);
+        text-wrap: pretty;
+    }
+
+    .favs-view {
+        gap: var(--space-20);
+    }
+
+    .legend {
+        margin: var(--space-8) 0 0;
+        font-size: var(--font-11);
+        line-height: 1.7;
+        color: var(--faint);
+    }
+</style>

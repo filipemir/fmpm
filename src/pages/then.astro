@@ -1,0 +1,97 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import NowEntry from '../components/NowEntry.astro';
+import { formatFullMonthYear } from '../lib/format';
+
+const entries = (await getCollection('now')).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const pastEntries = entries.slice(1);
+---
+
+<Layout title='THEN() — Filipe Miranda'>
+    <main class='archive'>
+        <div class='head'>
+            <h1 class='mono'>THEN()</h1>
+            <p class='intro'>
+                Old <a href='/now' class='mono now-link'>NOW()</a> entries.
+            </p>
+        </div>
+        {
+            pastEntries.length > 0 ? (
+                <div class='entries'>
+                    {pastEntries.map((entry) => (
+                        <article class='entry'>
+                            <h2 class='mono entry-date'>
+                                {formatFullMonthYear(entry.data.date)}
+                            </h2>
+                            <NowEntry entry={entry} compact />
+                        </article>
+                    ))}
+                </div>
+            ) : (
+                <p class='tk'>TK — nothing archived yet.</p>
+            )
+        }
+    </main>
+</Layout>
+
+<style>
+    .archive {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-48);
+    }
+    .head {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-12);
+    }
+    h1 {
+        margin: 0;
+        font-size: var(--font-28);
+        font-weight: 400;
+        letter-spacing: -0.02em;
+    }
+    .intro {
+        margin: 0;
+        font-size: var(--font-18);
+        line-height: 1.6;
+        color: var(--muted);
+    }
+    .now-link {
+        font-size: var(--font-16);
+        text-decoration: none;
+        border-bottom: 1px solid var(--rule);
+    }
+    .now-link:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+    }
+    .entries {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-48);
+    }
+    .entry {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-20);
+        padding-top: var(--space-24);
+        border-top: 1px solid var(--line);
+    }
+    .entry-date {
+        margin: 0;
+        font-size: var(--font-12);
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--faint);
+    }
+    .tk {
+        margin: 0;
+        font-size: var(--font-16);
+        color: var(--faint);
+    }
+</style>

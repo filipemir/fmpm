@@ -1,0 +1,229 @@
+---
+interface Props {
+    active?: 'writing' | 'reading' | 'now' | null;
+}
+const { active = null } = Astro.props;
+
+// Static stand-in for the JS-driven ASCII band, shown only when JS is
+// disabled (see the <noscript> below and the .band:empty rule that hides
+// the now-permanently-empty JS-driven span in that case).
+const staticBand = '.   '.repeat(20).trimEnd();
+---
+
+<header
+    class='header'
+    data-header
+    transition:persist
+    transition:name='site-header'
+>
+    <div class='corner' data-corner-controls>
+        <button
+            type='button'
+            data-theme-toggle
+            class='corner-btn'
+            aria-label='Toggle dark mode'
+            title='Toggle dark mode'>☾</button
+        >
+        <div class='band-picker'>
+            <button
+                type='button'
+                data-band-picker-toggle
+                class='corner-btn'
+                aria-haspopup='listbox'
+                aria-expanded='false'
+                aria-label='Choose header animation'
+                title='Choose header animation'>≈</button
+            >
+            <div class='band-menu mono' data-band-menu role='listbox' hidden>
+            </div>
+        </div>
+    </div>
+
+    <a href='/' title='Home' class='home-link'>
+        <span class='mono wordmark'>@fmpm</span>
+        <span class='mono band' data-band aria-hidden='true'></span>
+        <noscript>
+            <span class='mono band' aria-hidden='true'>{staticBand}</span>
+        </noscript>
+    </a>
+    <nav class='nav mono' data-nav>
+        <a
+            href='/writing'
+            data-nav-item
+            aria-current={active === 'writing' ? 'page' : undefined}>Writing</a
+        >
+        <a
+            href='/reading'
+            data-nav-item
+            aria-current={active === 'reading' ? 'page' : undefined}>Reading</a
+        >
+        <a
+            href='/now'
+            data-nav-item
+            aria-current={active === 'now' ? 'page' : undefined}>NOW()</a
+        >
+        <span class='nav-dot' data-nav-dot aria-hidden='true'>*</span>
+    </nav>
+</header>
+
+<script src='../scripts/header.js'></script>
+
+<style>
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-14);
+    }
+
+    .home-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-14);
+        width: 100%;
+        text-decoration: none;
+        color: var(--muted);
+    }
+    .home-link:hover {
+        color: var(--accent);
+    }
+
+    .wordmark {
+        font-size: var(--font-11);
+        letter-spacing: 0.1em;
+        color: inherit;
+    }
+
+    .band {
+        width: 100%;
+        overflow: hidden;
+        font-size: var(--font-10);
+        line-height: 1.25;
+        letter-spacing: 0.09em;
+        white-space: pre;
+        color: inherit;
+        display: block;
+    }
+    /* JS never populates [data-band] when JS is disabled — collapse it so
+       only the <noscript> fallback line shows, not an empty gap plus it. */
+    .band:empty {
+        display: none;
+    }
+
+    .nav {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-20);
+        align-items: baseline;
+        justify-content: center;
+        margin-top: var(--space-12);
+        padding-bottom: var(--space-14);
+        font-size: var(--font-12);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+
+    .nav a {
+        text-decoration: none;
+        color: var(--faint);
+    }
+    .nav a[aria-current='page'] {
+        color: var(--ink);
+    }
+    .nav a:hover {
+        color: var(--accent);
+    }
+
+    .corner {
+        position: fixed;
+        top: var(--space-24);
+        right: var(--space-28);
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        gap: var(--space-14);
+    }
+
+    .corner-btn {
+        appearance: none;
+        background: none;
+        border: none;
+        margin: 0;
+        padding: var(--space-4);
+        cursor: pointer;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: var(--font-18);
+        line-height: 1;
+        color: var(--faint);
+        transition: color 120ms ease;
+    }
+    .corner-btn:hover {
+        color: var(--accent);
+    }
+
+    .band-picker {
+        position: relative;
+        display: flex;
+    }
+
+    .band-menu {
+        position: absolute;
+        top: calc(100% + var(--space-8));
+        right: 0;
+        z-index: 40;
+        min-width: 178px;
+        display: flex;
+        flex-direction: column;
+        padding: var(--space-6) 0;
+        background: var(--bg);
+        border: 1px solid var(--ink);
+        opacity: 0;
+        transform: translateY(-4px);
+        pointer-events: none;
+        transition:
+            opacity 160ms ease,
+            transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .band-menu[hidden] {
+        display: none;
+    }
+
+    .band-menu :global(.band-option) {
+        appearance: none;
+        background: none;
+        border: none;
+        margin: 0;
+        padding: var(--space-6) var(--space-14);
+        cursor: pointer;
+        display: flex;
+        align-items: baseline;
+        gap: var(--space-8);
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: var(--font-12);
+        text-align: left;
+        white-space: nowrap;
+        transition: color 120ms ease;
+    }
+    .band-menu :global(.band-option:hover) {
+        color: var(--accent);
+    }
+    .band-menu :global(.band-option-mark) {
+        width: 5px;
+        color: var(--accent);
+    }
+
+    .nav-dot {
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        font-size: var(--font-13);
+        line-height: 1;
+        color: var(--accent);
+        opacity: 0;
+        transition:
+            transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+            opacity 220ms ease;
+    }
+</style>
