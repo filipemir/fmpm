@@ -44,6 +44,11 @@ export default defineConfig({
         prefetchAll: true,
         defaultStrategy: 'viewport'
     },
+    // When a published URL changes (page renamed, restructured), add the old
+    // path here mapping to the new one. Astro emits a static redirect at build
+    // time so old links, RSS references, and inbound traffic keep working.
+    // See CLAUDE.md → Change Management.
+    redirects: {},
     markdown: {
         // "css-variables" emits tokens as var(--shiki-token-*) instead of fixed
         // colors, so the same highlighted output can be tinted per theme (see
