@@ -52,6 +52,10 @@ dist/
 # Lighthouse CI report output
 .lighthouseci/
 
+# Playwright output
+test-results/
+playwright-report/
+
 # Mac files
 .DS_Store
 
