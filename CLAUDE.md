@@ -1,165 +1,125 @@
-# Astro Agent Rules — fmpm.dev
+# 🤖 Agent Rules — fmpm.dev
 
-**[HARD]** invariant. **[DEFAULT]** expected; deviate only with a one-line
-reason in the change summary. **[OPEN]** judgment — keep it small, say what you
-chose.
+## Change Management
 
-**`npm run verify` failing is a failure.** The checks are the source of truth
-for every mechanically enforceable rule and are not restated here. This document
-covers only what a script can't decide.
+- One feature or concern per PR. Privilege stacked PRs over large PRs
+- Keep PR descriptions succinct, clear, and free of Claude-isms
+- Add no new runtime dependencies unless the user gives explicit consent
+- URL changes to a published page must be coupled with a redirect in the same
+  change to preserve existing URLs
 
-Gap not covered here? Flag it. Don't halt over trivia — make the smallest
-reasonable choice and note it.
+## Code Style Guidelines
 
-## Static analysis
+- Code must first and foremost be readable, extensible, and testable.
+- Minimize the use of comments. Include them IFF code itself cannot express its
+  purpose or justification. Comments must never simply restate what the code
+  already does.
+- Each component should have one responsibility. Layout composition,
+  data-fetching, UI markup, and business logic are all different
+  responsibilities that warrant different components.
+- Use astro slots for markup, and props for data. Never pass in markup as a
+  string prop.
+- Every collection must have a Zod schema.
+- Blog post slugs comes from the filename. Set an explicit `slug` only to
+  preserve an already-published URL.
 
-**[HARD] Make liberal use of static analysis.** If a rule can be expressed as a
-lint rule, a type, or a check script, implement it that way — in the same change
-that introduces the rule. Prose rules are rules someone has to remember; checks
-are rules that hold. When a new convention gets decided, either it gets a check
-or it gets an explicit note saying why it can't have one.
-
-## Working constraints
-
-Changes are reviewed in a few minutes, often on a phone. Reviewability outranks
-elegance.
-
-- **[HARD] One concern per change.** No drive-by refactors or renames. Spotted
-  something? List it at the end.
-- **[HARD] No new runtime dependencies** without asking. CI-only dev deps are
-  fine.
-- **[DEFAULT] Prefer the boring diff.**
-- **[DEFAULT] Summarize each change in under five lines:** what changed, what it
-  affects, what you were unsure about.
-
-## Done means
-
-1. `npm run verify` passes.
-2. `npm run build` adds no new warnings.
-3. The page still reads and navigates with JS disabled.
-4. No new console errors.
-
-## Structure
+### Structure
 
 ```
 src/
 ├── pages/          # routes
 ├── layouts/        # BaseLayout + wrappers
-├── components/     # flat until ~15 files
+├── components/     # Reusable UI
 ├── content/        # one folder per collection
 ├── content.config.ts
 ├── assets/         # optimizable images
-├── styles/         # global.css — tokens and resets only
+├── styles/         # global and shared styling
 └── lib/            # pure utilities
 ```
 
-**[DEFAULT]** Split `components/` into `ui/` and `features/` only past ~15
-files, as its own change.
+- One base `Layout.astro` owns `<html>`, `<head>`, nav, footer.
+- All other layouts must be wrapped in the base Layout. Never duplicate its
+  contents.
+- SEO/meta are props into the layout, never hardcoded per page.
 
-## Components
+### JS usage
 
-- **[HARD]** Slots for markup, props for data. Never markup as a string prop.
-- **[DEFAULT]** One responsibility. Layout + data-fetching + unrelated UI means
-  split before adding.
-- **[DEFAULT]** Extract on the third occurrence. Two is usually coincidence, and
-  extracting there produces props that exist only to reconcile two call sites.
-  Exception: byte-identical markup in the same feature. Never speculative.
+- JS is acceptable but minimize its usage when possible. In order:
+    1. CSS only by default: privilege `:hover`, `:focus-visible`, `:checked`,
+       `@keyframes`, transitions over its JS analogues
+    2. Plain `<script />` tags for interactivity that doesn't require complex
+       state, like canavas or CSS animation
+    3. Alpine.js for more complex interactivity. In this case, Alpine
+       expressions must stay trivial. TypeScript can't see inside `x-data`, so
+       real logic MUST go in a typed `lib/` module.
+    4. React islands where they are truly warranted: if state is too complex to
+       stay declarative in Alpine, or a React-only library is required.
+- All JS usage MUST degrade gracefully. The site must always be usable with or
+  without JS
+- Load as necessary: `client:load` only if JS must run immediately,
+  `client:visible` otherwise. `client:idle` for non-critical. `client:only`
+  disallowed unless SSR is impossible.
 
-## Layouts
+### Styling
 
-- **[HARD]** One `BaseLayout.astro` owns `<html>`, `<head>`, nav, footer.
-- **[HARD]** All other layouts wrap it. Never duplicate its contents.
-- **[HARD]** SEO/meta are props into the layout, never hardcoded per page.
-- **[DEFAULT]** Per-page `<head>` additions go through `<slot name="head" />`.
+- `styles/global.css` holds only truly global styles. Styles should otherwise be
+  scoped to their relevant components
+- Every color, spacing, radius, font-size is a `var(--token)`. If a token is
+  missing, add it to `global.css` first.
 
-## Content collections
+### Images
 
-- **[HARD]** Every collection has a Zod schema in `content.config.ts`.
-- **[HARD]** Frontmatter image paths use the `image()` helper.
-- **[HARD]** Required fields: `title`, `description`, `pubDate`. `draft`
-  defaults `false`.
-- **[HARD]** `draft: true` is excluded from listings, RSS, and sitemap in
-  production; visible in `astro dev`.
-- **[HARD]** Slug comes from the filename. Set an explicit `slug` only to
-  preserve an already-published URL.
-- **[HARD]** Ordering is `pubDate`, never the filename. Any other ordering need
-  is a typed frontmatter field, not a naming convention.
+We should rely on Astro tooling to optimize images for us:
 
-## Islands & hydration
+- Use `astro:assets` only. Optimizable images in `src/assets/`; `public/` only
+  for fixed-path unprocessed files.
+- `loading="lazy"` should be the default. `eager` + `fetchpriority="high"` only
+  for the largest above-the-fold image.
+- Full-size variants via `getImage()`, fetched on demand — never pre-loaded
+  alongside thumbnails.
 
-Walk in order. Stop at the first that works.
+## Performance
 
-1. **CSS only** — `:hover`, `:focus-visible`, `:checked`, `@keyframes`,
-   transitions.
-2. **Plain `<script>`** — needs JS, no persistent state: toggles, scroll
-   classes, canvas/CSS animation.
-3. **Alpine** — real state (open/closed, selection, form values). Default for
-   real interactivity.
-4. **React island** — only if state is too complex to stay declarative in
-   Alpine, or a React-only library is required. Justify in a comment above the
-   directive.
+Site should be performant and lightweight. To ensure this we enforce hard limits
+in CI:
 
-- **[HARD]** Alpine expressions stay trivial. TypeScript can't see inside
-  `x-data`, so real logic goes in a typed `lib/` module.
-- **[HARD]** `client:load` only for must-run-immediately (currently: the
-  banner). `client:visible` otherwise. `client:idle` for non-critical.
-  `client:only` disallowed unless SSR is impossible.
+- Bundle size limits for JS and CSS bundles
+- Each new type of page (post, now, home, books, etc) must have a representative
+  Lighthouse performance test with a score>=95
 
-### Banner
+Additionally, we should leverage prefetch to keep navigation snappy: `prefetch`
+on with `prefetchAll: true` and `defaultStrategy: 'viewport'`.
 
-Always-on JS animation — the only legitimate one.
+## Validation
 
-- **[HARD]** Degrades to a static fallback with JS disabled. Never blank or
-  broken.
-- **[HARD]** No framework. Plain `<script>` or Alpine.
+Static analysic and tests run on CI (still TODO admittedly)
 
-## Navigation
+### Static analysis
 
-- **[HARD]** `prefetch` on with `prefetchAll: true`,
-  `defaultStrategy: 'viewport'`. Main reason navigation feels instant.
-- **[DEFAULT]** No `ClientRouter` yet — scripts don't re-run across view
-  transitions without `astro:page-load`, which breaks the banner on the second
-  navigation. Revisit as its own change.
-- **[HARD]** URL changes to a published page ship with a redirect in the same
-  change.
+Run via `npm run verify`.
 
-## Performance budget
+- Treat static analysic failures seriously. Failures must be remediated. If one
+  doesn't make sense in context, flag it to the user. Don't work around it or
+  add ignore directives without explicit consent
+- Find opportunities to expand static analysis. If a rule can be expressed as a
+  lint rule, a type, or a check script, we should do so. When a new convention
+  gets decided, please actively propose a check if one is possible.
 
-Targets, not proxies. If a rule conflicts with the budget, the budget wins and
-the rule gets revised.
+### Testing (still TK)
 
-- **[HARD]** ≤ 40 KB gzipped JS per page.
-- **[HARD]** ≤ 100 KB gzipped CSS + JS per page.
-- **[HARD]** Lighthouse performance ≥ 95, throttled mobile, per representative
-  page.
-- **[DEFAULT]** Flag any change adding > 10 KB gzipped to a page, even under
-  budget.
+Run via `npm run test`
 
-## Styling
+- Every page type should have a suite of playwright integration tests.
+- Bug resolutions must be accompanied by an integration test to prevent against
+  regression
 
-No CSS framework. Tokens plus scoped styles are the whole system.
+### Other validation
 
-- **[HARD]** Scoped `<style>` only. `styles/global.css` holds tokens and resets,
-  nothing else.
-- **[HARD]** Every color, spacing, radius, font-size is a `var(--token)`.
-  Missing token? Add it to `global.css` first.
-- **[HARD]** Theming via `data-theme` on `<html>`, set by an `is:inline` script
-  before paint. No flash.
+TODO: move what we can to static analysis or tests
 
-## Images
+Ensure that:
 
-- **[HARD]** `astro:assets` only. Optimizable images in `src/assets/`; `public/`
-  only for fixed-path unprocessed files.
-- **[HARD]** `alt` is a real description — the check catches missing, not
-  useless. `alt=""` only for decorative, with a comment.
-- **[HARD]** Fixed-size elements use `densities={[1,2]}`; viewport-relative use
-  `widths`/`sizes` or `layout`. Don't mix for one use case.
-- **[HARD]** `loading="lazy"` default. `eager` + `fetchpriority="high"` only for
-  the largest above-the-fold image.
-- **[DEFAULT]** Full-size variants via `getImage()`, fetched on demand — never
-  pre-loaded alongside thumbnails.
-
-## Not checked
-
-Component extraction judgment; whether Alpine was the right rung; whether `alt`
-text is good; whether a change is one concern. That's what review is for.
+2. `npm run build` completes with no errors or warnings.
+3. The page still reads and navigates with JS disabled
+4. No new console errors.
+5. No uninetntional typos on any posts or changes submitted
