@@ -10,8 +10,6 @@ land.
   but nothing enforces them on push/PR.
 - **Playwright integration tests** — `npm run test` target and page-type suites
   don't exist yet.
-- **"Other validation" checklist** — the manual checks under Validation → Other
-  validation should migrate to static analysis or tests over time.
 
 ## Change Management
 
@@ -127,12 +125,3 @@ Run via `npm run test`
 - Every page type should have a suite of playwright integration tests.
 - Bug resolutions must be accompanied by an integration test to prevent against
   regression
-
-### Other validation
-
-Ensure that:
-
-1. `npm run build` completes with no errors or warnings.
-2. The page still reads and navigates with JS disabled
-3. No new console errors.
-4. No unintentional typos on any posts or changes submitted

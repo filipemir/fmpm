@@ -1,0 +1,57 @@
+version: '0.2'
+language: en
+words:
+    - fmpm
+    - Filipe
+    - Miranda
+    - Astro
+    - astro
+    - Vercel
+    - mdx
+    - MDX
+    - Shiki
+    - prefetch
+    - webp
+    - Lisbon
+    - Atticus
+    - lhci
+    - Lighthouse
+    - Playwright
+    - cspell
+    - linkinator
+    - lighthouserc
+    - Auth0
+    - pytest
+    - conftest
+    - autouse
+    - JWKS
+    - jwks
+    - AQAB
+    - MIIDCTCCA
+    - Boomin
+    - jetski
+    - nothin
+    - KHALED
+    - Khaled
+    - Eliptical
+    - Maaaaaaajor
+    - accum
+    - borks
+files:
+    - 'src/content/posts/**/*.{md,mdx}'
+    - CLAUDE.md
+ignorePaths:
+    - node_modules
+    - dist
+    - .astro
+    - .vercel
+    - .lighthouseci
+    - test-results
+    - playwright-report
+    - package-lock.json
+    - '**/*.svg'
+    - '**/*.woff*'
+    - src/scripts/**
+ignoreRegExpList:
+    - '```[\s\S]*?```'
+    - '`[^`]+`'
