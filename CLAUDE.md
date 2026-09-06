@@ -1,5 +1,18 @@
 # 🤖 Agent Rules — fmpm.dev
 
+## Known gaps
+
+Things we know we want but haven't built yet. Work through and remove as they
+land.
+
+- **CI** — no automation yet. Budgets (`npm run check:budget`) and Lighthouse
+  (`npm run verify:perf` via `lhci autorun`) are defined and runnable locally,
+  but nothing enforces them on push/PR.
+- **Playwright integration tests** — `npm run test` target and page-type suites
+  don't exist yet.
+- **"Other validation" checklist** — the manual checks under Validation → Other
+  validation should migrate to static analysis or tests over time.
+
 ## Change Management
 
 - One feature or concern per PR. Prefer stacked PRs over large PRs
@@ -79,19 +92,21 @@ We should rely on Astro tooling to optimize images for us:
 
 ## Performance
 
-Site should be performant and lightweight. To ensure this we enforce hard limits
-in CI:
+Site should be performant and lightweight. Hard limits (runnable locally today;
+CI enforcement pending — see Known gaps):
 
-- Bundle size limits for JS and CSS bundles
+- Bundle size limits for JS and CSS bundles, checked via `npm run check:budget`
+  (thresholds in `scripts/check-budget.mjs`).
 - Each new type of page (post, now, home, books, etc) must have a representative
-  Lighthouse performance test with a score>=95
+  Lighthouse performance test with a score >= 95, checked via
+  `npm run verify:perf` (config in `lighthouserc.json`).
 
 Additionally, we should leverage prefetch to keep navigation snappy: `prefetch`
 on with `prefetchAll: true` and `defaultStrategy: 'viewport'`.
 
 ## Validation
 
-Static analysis and tests run on CI (still TODO admittedly)
+Static analysis and tests run on CI.
 
 ### Static analysis
 
@@ -104,7 +119,7 @@ Run linting, typechecking, formatting, and other checks via `npm run verify`.
   lint rule, a type, or a check script, we should do so. When a new convention
   gets decided, please actively propose a check if one is possible.
 
-### Testing (still TK)
+### Testing
 
 Run via `npm run test`
 
@@ -113,8 +128,6 @@ Run via `npm run test`
   regression
 
 ### Other validation
-
-TODO: move what we can to static analysis or tests
 
 Ensure that:
 
