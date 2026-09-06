@@ -19,7 +19,8 @@ land.
 - Keep PR descriptions succinct, clear, and free of Claude-isms
 - Add no new runtime dependencies unless the user gives explicit consent
 - URL changes to a published page must be coupled with a redirect in the same
-  change to preserve existing URLs
+  change to preserve existing URLs. Add the old → new mapping to the `redirects`
+  block in `astro.config.mjs` (e.g. `'/old-slug': '/new-slug'`).
 
 ## Code Style Guidelines
 

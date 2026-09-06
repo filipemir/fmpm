@@ -44,6 +44,7 @@ export default defineConfig({
         prefetchAll: true,
         defaultStrategy: 'viewport'
     },
+    redirects: {},
     markdown: {
         // "css-variables" emits tokens as var(--shiki-token-*) instead of fixed
         // colors, so the same highlighted output can be tinted per theme (see
