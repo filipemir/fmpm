@@ -37,7 +37,7 @@
     margin: 0;
     font-size: var(--font-18);
     line-height: 1.62;
-    max-width: 33em;
+    max-width: 33em; /* allow-hardcoded-size: font-relative measure */
 }
 .now-entry.compact .now-body {
     /* Rounds down to 16 rather than up to 18 (a genuine tie either way) so
@@ -50,7 +50,7 @@
     background: var(--code-bg);
     padding: var(--space-2) var(--space-6);
     border-radius: var(--radius-sm);
-    font-size: 0.85em; /* allow-hardcoded-spacing: relative to surrounding text size */
+    font-size: 0.85em; /* allow-hardcoded-size: relative to surrounding text size */
     font-family: 'IBM Plex Mono', monospace;
 }
 .now-link {

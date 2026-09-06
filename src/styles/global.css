@@ -51,6 +51,20 @@
        progression — named accordingly instead of by magnitude. */
     --radius-sm: 3px;
     --radius-full: 999px;
+
+    /* Semantic widths and heights for specific site elements — none of
+       these belong to a numeric scale because they're one-of-a-kind. */
+    --width-prose-max: 640px;
+    --width-lightbox-max: 1100px;
+    --width-popover-min: 140px;
+    --width-popover-max: 280px;
+    --width-page-name-min: 178px;
+    --width-nav-dot: 5px;
+    --height-popover-arrow: 12px;
+
+    /* Small directional nudges applied to text or inline elements. */
+    --offset-underline: 3px;
+    --offset-baseline: 2px;
 }
 
 html[data-theme='dark'] {
@@ -97,7 +111,7 @@ body {
 a {
     color: var(--ink);
     text-decoration-color: var(--rule);
-    text-underline-offset: 3px;
+    text-underline-offset: var(--offset-underline);
     transition: color 120ms ease;
 }
 

@@ -114,7 +114,7 @@ const pinnedNotes = (await getSortedPosts())
         gap: var(--space-20);
         font-size: var(--font-20);
         line-height: 1.62;
-        max-width: 34em;
+        max-width: 34em; /* allow-hardcoded-size: font-relative measure */
     }
     .bio p {
         margin: 0;
@@ -200,7 +200,7 @@ const pinnedNotes = (await getSortedPosts())
         font-size: var(--font-16);
         line-height: 1.58;
         color: var(--muted);
-        max-width: 33em;
+        max-width: 33em; /* allow-hardcoded-size: font-relative measure */
     }
 
     .all-posts {
