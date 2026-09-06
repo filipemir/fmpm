@@ -1,10 +1,8 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
+import { getBookViews } from '@/lib/books';
 
-type Book = CollectionEntry<'books'>['data'];
-
-const allBooks = await getCollection('books');
+const { byYear, favorites, rereads } = await getBookViews();
 
 const MONTH_ABBR = [
     'Jan',
@@ -20,35 +18,6 @@ const MONTH_ABBR = [
     'Nov',
     'Dec'
 ];
-
-const books: Book[] = allBooks
-    .map((entry) => entry.data)
-    .sort((a, b) => b.year * 12 + b.month - (a.year * 12 + a.month));
-
-const rereads = new WeakSet<Book>();
-{
-    const seen = new Set<string>();
-    for (let i = books.length - 1; i >= 0; i--) {
-        const b = books[i];
-        const key = `${b.title}|${b.author}`;
-        if (seen.has(key)) {
-            rereads.add(b);
-        } else {
-            seen.add(key);
-        }
-    }
-}
-
-const byYear: { year: number; books: Book[] }[] = [];
-for (const b of books) {
-    let g = byYear[byYear.length - 1];
-    if (!g || g.year !== b.year) {
-        g = { year: b.year, books: [] };
-        byYear.push(g);
-    }
-    g.books.push(b);
-}
-const favorites = books.filter((b) => b.fav);
 ---
 
 <Layout title='Books read — Filipe Miranda' active='reading'>
