@@ -2,7 +2,7 @@
 
 ## Change Management
 
-- One feature or concern per PR. Privilege stacked PRs over large PRs
+- One feature or concern per PR. Prefer stacked PRs over large PRs
 - Keep PR descriptions succinct, clear, and free of Claude-isms
 - Add no new runtime dependencies unless the user gives explicit consent
 - URL changes to a published page must be coupled with a redirect in the same
@@ -31,7 +31,6 @@ src/
 ├── layouts/        # BaseLayout + wrappers
 ├── components/     # Reusable UI
 ├── content/        # one folder per collection
-├── content.config.ts
 ├── assets/         # optimizable images
 ├── styles/         # global and shared styling
 └── lib/            # pure utilities
@@ -40,7 +39,7 @@ src/
 - One base `Layout.astro` owns `<html>`, `<head>`, nav, footer.
 - All other layouts must be wrapped in the base Layout. Never duplicate its
   contents.
-- SEO/meta are props into the layout, never hardcoded per page.
+- SEO/meta are props in the layout, never hardcoded per page.
 
 ### JS usage
 
@@ -92,13 +91,13 @@ on with `prefetchAll: true` and `defaultStrategy: 'viewport'`.
 
 ## Validation
 
-Static analysic and tests run on CI (still TODO admittedly)
+Static analysis and tests run on CI (still TODO admittedly)
 
 ### Static analysis
 
-Run via `npm run verify`.
+Run linting, typechecking, formatting, and other checks via `npm run verify`.
 
-- Treat static analysic failures seriously. Failures must be remediated. If one
+- Treat static analysis failures seriously. Failures must be remediated. If one
   doesn't make sense in context, flag it to the user. Don't work around it or
   add ignore directives without explicit consent
 - Find opportunities to expand static analysis. If a rule can be expressed as a
@@ -119,7 +118,7 @@ TODO: move what we can to static analysis or tests
 
 Ensure that:
 
-2. `npm run build` completes with no errors or warnings.
-3. The page still reads and navigates with JS disabled
-4. No new console errors.
-5. No uninetntional typos on any posts or changes submitted
+1. `npm run build` completes with no errors or warnings.
+2. The page still reads and navigates with JS disabled
+3. No new console errors.
+4. No unintentional typos on any posts or changes submitted
