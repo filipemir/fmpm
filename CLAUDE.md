@@ -60,7 +60,7 @@ src/
     1. CSS only by default: privilege `:hover`, `:focus-visible`, `:checked`,
        `@keyframes`, transitions over its JS analogues
     2. Plain `<script />` tags for interactivity that doesn't require complex
-       state, like canavas or CSS animation
+       state, like canvas or CSS animation
     3. Alpine.js for more complex interactivity. In this case, Alpine
        expressions must stay trivial. TypeScript can't see inside `x-data`, so
        real logic MUST go in a typed `lib/` module.
@@ -101,8 +101,8 @@ CI enforcement pending — see Known gaps):
   Lighthouse performance test with a score >= 95, checked via
   `npm run verify:perf` (config in `lighthouserc.json`).
 
-Additionally, we should leverage prefetch to keep navigation snappy: `prefetch`
-on with `prefetchAll: true` and `defaultStrategy: 'viewport'`.
+Additionally, Astro's `prefetch` is enabled with `prefetchAll: true` and
+`defaultStrategy: 'viewport'` so links prefetch as they enter the viewport.
 
 ## Validation
 
@@ -110,7 +110,10 @@ Static analysis and tests run on CI.
 
 ### Static analysis
 
-Run linting, typechecking, formatting, and other checks via `npm run verify`.
+Run linting, typechecking, formatting, and convention checks via
+`npm run verify`. The convention checks live under `scripts/` and are the source
+of truth for what's machine-enforced — read them there rather than duplicating
+the list here.
 
 - Treat static analysis failures seriously. Failures must be remediated. If one
   doesn't make sense in context, flag it to the user. Don't work around it or
