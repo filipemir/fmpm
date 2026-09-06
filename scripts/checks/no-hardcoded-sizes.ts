@@ -10,20 +10,20 @@ import {
     type Violation
 } from './_shared.ts';
 
-export const name = 'no-hardcoded-spacing';
+export const name = 'no-hardcoded-sizes';
 
-const spacingRe = /\b\d+(\.\d+)?(px|rem|em)\b/g;
-const spacingPropertyRe =
-    /^\s*(margin(-(top|right|bottom|left))?|padding(-(top|right|bottom|left))?|gap|row-gap|column-gap|top|right|bottom|left|font-size|border-radius)\s*:/;
-const id = 'hardcoded-spacing';
+const sizeRe = /\b\d+(\.\d+)?(px|rem|em|vh|vw|vmin|vmax)\b/g;
+const sizePropertyRe =
+    /^\s*(margin(-(top|right|bottom|left))?|padding(-(top|right|bottom|left))?|gap|row-gap|column-gap|top|right|bottom|left|width|height|min-width|max-width|min-height|max-height|font-size|border-radius|text-underline-offset|vertical-align)\s*:/;
+const id = 'hardcoded-size';
 const message =
-    'Hardcoded spacing — use a var(--space-*/--font-*/--radius-*) token from global.css.';
+    'Hardcoded size — use a var(--space-*/--font-*/--radius-*/--width-*/--height-*/--offset-*) token from global.css.';
 
 function scan(file: string, lines: ScopedLine[]): Violation[] {
     const violations: Violation[] = [];
     for (const { line, num } of lines) {
-        if (!spacingPropertyRe.test(line)) continue;
-        const matches = line.match(spacingRe);
+        if (!sizePropertyRe.test(line)) continue;
+        const matches = line.match(sizeRe);
         if (!matches) continue;
         const real = matches.filter((m) => m !== '0px' && m !== '1px');
         if (real.length > 0 && !allowed(line, id)) {

@@ -173,7 +173,7 @@ const staticBand = '.   '.repeat(20).trimEnd();
         top: calc(100% + var(--space-8));
         right: 0;
         z-index: 40;
-        min-width: 178px;
+        min-width: var(--width-page-name-min);
         display: flex;
         flex-direction: column;
         padding: var(--space-6) 0;
@@ -210,7 +210,7 @@ const staticBand = '.   '.repeat(20).trimEnd();
         color: var(--accent);
     }
     .band-menu :global(.band-option-mark) {
-        width: 5px;
+        width: var(--width-nav-dot);
         color: var(--accent);
     }
 
