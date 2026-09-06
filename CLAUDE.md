@@ -8,8 +8,6 @@ land.
 - **CI** — no automation yet. Budgets (`npm run check:budget`) and Lighthouse
   (`npm run verify:perf` via `lhci autorun`) are defined and runnable locally,
   but nothing enforces them on push/PR.
-- **Playwright integration tests** — `npm run test` target and page-type suites
-  don't exist yet.
 - **"Other validation" checklist** — the manual checks under Validation → Other
   validation should migrate to static analysis or tests over time.
 
